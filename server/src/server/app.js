@@ -1,19 +1,23 @@
-const express = require('express')
-const helmet = require('helmet')
-const cors = require('cors')
-const morgan = require('morgan')
-const xss = require('xss-clean')
-const compression = require('compression')
-const passport = require('passport')
-const cookieParser = require('cookie-parser')
-const mongoSanitize = require('express-mongo-sanitize')
-const httpStatus = require('http-status')
+import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import morgan from 'morgan';
+import xss from 'xss-clean';
+import compression from 'compression';
+import passport from 'passport';
+import cookieParser from 'cookie-parser';
+import mongoSanitize from 'express-mongo-sanitize';
+import httpStatus from 'http-status';
 
 
 
 
 
 const app = express()
+
+if(process.env.NODE_ENV !== 'production'){
+    app.use(morgan('dev'))
+}
 
 app.use(helmet())
 app.use(express.json())
@@ -38,4 +42,4 @@ app.use(passport.initialize())
 
 
 
-module.exports = app
+export default app

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "mocha src/server/test",
     "start": "node src/index.js",
@@ -37,6 +38,7 @@
     "passport-jwt": "^4.0.0",
     "rate-limiter": "^0.2.0",
     "validator": "^13.7.0",
+    "winston": "^3.7.2",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
