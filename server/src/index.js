@@ -1,5 +1,11 @@
-const app = require("./server/app");
+import chalk from 'chalk'
+import app from './server/app.js'
+import DB  from './server/config/db.js';
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Server started on port 3000");
+const PORT = process.env.PORT || 5000;
+
+DB().then(() => {
+    app.listen(PORT, () => {
+        console.log(chalk.blue(`Server is running on port ${PORT}`));
+    });
 });
