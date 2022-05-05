@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
 import bcrypt from "bcryptjs";
-import { toJson, paginate } from "./plugins.js";
+import { toJson, paginate } from "./plugins";
 import { roles } from "../config/roles.js";
 
 const userSchema = new mongoose.Schema(
