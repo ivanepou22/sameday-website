@@ -1,6 +1,8 @@
-export const envTypes = {
-    DEVELOPMENT: 'DEVELOPMENT' || 'development',
-    TESTING: 'TESTING' || 'testing',
-    PRODUCTION: 'PRODUCTION' || 'production',
-    LOCAL: 'LOCAL' || 'local'
+const envTypes = {
+    DEVELOPMENT: 'development',
+    TESTING: 'testing',
+    PRODUCTION: 'production',
+    LOCAL: 'local'
 }
+
+export const  { DEVELOPMENT, TESTING, PRODUCTION, LOCAL } = envTypes

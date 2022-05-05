@@ -1,20 +1,20 @@
 import mongoose from 'mongoose'
 import chalk from 'chalk'
-import { envTypes } from './envTypes.js'
+import { DEVELOPMENT, TESTING, LOCAL, PRODUCTION } from './envTypes.js'
 
 let DB_URL
 
 switch (process.env.NODE_ENV) {
-    case envTypes.DEVELOPMENT:
+    case DEVELOPMENT:
         DB_URL = process.env.DB_URL_DEV
         break;
-    case envTypes.TESTING:
+    case TESTING:
         DB_URL = process.env.DB_URL_TEST
         break;
-    case envTypes.PRODUCTION:
+    case PRODUCTION:
         DB_URL = process.env.DB_URL_PROD
         break;
-    case envTypes.LOCAL:
+    case LOCAL:
         DB_URL = process.env.DB_URL_LOCAL
         break;
     default:
@@ -24,7 +24,7 @@ switch (process.env.NODE_ENV) {
 
 async function DB(){
     console.log(chalk.blue('Connecting to DB...'))
-    return mongoose.connect(DB_URL)
+    return mongoose.connect(process.env.DB_URL_DEV)
 }
 
 export default DB
