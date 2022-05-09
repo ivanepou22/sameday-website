@@ -76,10 +76,10 @@ const verifyEmail = async (verifyEmailToken) => {
   }
 };
 
-exports = {
+export const authService = {
   loginUserWithEmailAndPassword,
   logout,
   refreshAuth,
   resetPassword,
   verifyEmail,
-};
+}
