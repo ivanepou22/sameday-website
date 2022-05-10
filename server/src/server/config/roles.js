@@ -7,7 +7,4 @@ const roles = Object.keys(allRoles);
 
 const roleRights = new Map(Object.entries(allRoles));
 
-exports = {
-  roles,
-  roleRights,
-};
+export { roles, roleRights };
