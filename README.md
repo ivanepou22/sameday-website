@@ -1,3 +1,3 @@
 # sameday-website
 
--Sameday Ecommerce website.
+-SAMEDAY LABORATORIES & DIAGNOSTICS
