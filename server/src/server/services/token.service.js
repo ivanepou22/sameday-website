@@ -3,7 +3,7 @@ import moment from "moment";
 import httpStatus from "http-status";
 import config from "../config/config.js";
 import { userService } from "./user.service.js";
-import { Token } from "../models";
+import { Token } from "../models/index.js";
 import ApiError from "../utils/ApiError.js";
 import { tokenTypes } from "../config/tokens.js";
 

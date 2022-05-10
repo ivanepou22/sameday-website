@@ -1,10 +1,10 @@
-import HttpStatus from "http-status";
-import { User } from "../models";
+import httpStatus from "http-status";
+import { User } from "../models/index.js";
 import ApiError from "../utils/ApiError.js";
 
 const createUser = async (userBody) => {
   if (await User.isEmailTaken(userBody.email)) {
-    throw new ApiError(HttpStatus.CONFLICT, "Email is already taken");
+    throw new ApiError(httpStatus.CONFLICT, "Email is already taken");
   }
   return User.create(userBody);
 };
@@ -20,10 +20,10 @@ const getuserByEmail = async (email) => {
 const updateUserById = async (id, userBody) => {
   const user = await getUserById(id);
   if (!user) {
-    throw new ApiError(HttpStatus.NOT_FOUND, "User not found");
+    throw new ApiError(httpStatus.NOT_FOUND, "User not found");
   }
   if (userBody.email && (await User.isEmailTaken(userBody.email))) {
-    throw new ApiError(HttpStatus.CONFLICT, "Email is already taken");
+    throw new ApiError(httpStatus.CONFLICT, "Email is already taken");
   }
 
   Object.assign(user, userBody);
@@ -34,7 +34,7 @@ const updateUserById = async (id, userBody) => {
 const deleteUserById = async (id) => {
   const user = await getUserById(id);
   if (!user) {
-    throw new ApiError(HttpStatus.NOT_FOUND, "User not found");
+    throw new ApiError(httpStatus.NOT_FOUND, "User not found");
   }
   await user.remove();
   return user;
