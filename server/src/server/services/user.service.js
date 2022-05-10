@@ -6,7 +6,7 @@ const createUser = async (userBody) => {
   if (await User.isEmailTaken(userBody.email)) {
     throw new ApiError(httpStatus.CONFLICT, "Email is already taken");
   }
-  return User.create(userBody);
+  return User.create(userBody)
 };
 
 const getUserById = async (id) => {
