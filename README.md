@@ -3,15 +3,15 @@
 <small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>
 
 ### Folders
-[server](/server)
+[server](./server)
 
-[client](/client)
+[client](./client)
 
 
 ### Progress
-[server progress](/server/README.md)
+[server progress](./server/README.md)
 
-[client progress](/client/README.md)
+[client progress](./client/README.md)
 
 
 ### License
