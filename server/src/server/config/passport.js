@@ -5,7 +5,7 @@ import { User } from "../models/index.js"
 
 
 const jwtOptions = {
-    secretOrKey: "sfksdjfkjbk",
+    secretOrKey: config.jwt.secret,
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   };
   
