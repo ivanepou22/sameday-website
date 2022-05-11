@@ -5,13 +5,13 @@
 ### Folders
 [server](./server)
 
-[client](./client)
+[client](./Client)
 
 
 ### Progress
 [server progress](./server/README.md)
 
-[client progress](./client/README.md)
+[client progress](./Client/README.md)
 
 
 ### License
