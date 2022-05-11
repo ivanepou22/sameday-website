@@ -1,6 +1,6 @@
-const deleteAtPath = (obj, path, index) => {
-  if (index === path.length) {
-    delete obj[path[index - 1]];
+ const deleteAtPath = (obj, path, index) => {
+  if (index === path.length - 1) {
+    delete obj[path[index]];
     return;
   }
   deleteAtPath(obj[path[index]], path, index + 1);
@@ -13,10 +13,10 @@ const toJson = (schema) => {
   }
 
   schema.options.toJSON = Object.assign(schema.options.toJSON || {}, {
-    transform: (doc, ret, options) => {
+    transform(doc, ret, options) {
       Object.keys(schema.paths).forEach((path) => {
         if (schema.paths[path].options && schema.paths[path].options.private) {
-          deleteAtPath(ret, path.split("."), 0);
+          deleteAtPath(ret, path.split('.'), 0);
         }
       });
 
@@ -31,6 +31,5 @@ const toJson = (schema) => {
     },
   });
 };
-
 
 export default toJson;
