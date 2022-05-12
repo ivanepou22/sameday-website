@@ -3,7 +3,7 @@ import moment from "moment";
 import httpStatus from "http-status";
 import config from "../config/config.js";
 import { userService } from "./user.service.js";
-import { Token } from "../models";
+import { Token } from "../models/index.js";
 import ApiError from "../utils/ApiError.js";
 import { tokenTypes } from "../config/tokens.js";
 
@@ -21,7 +21,7 @@ const generateToken = (userId, expires, type, secret = config.jwt.secret) => {
 const saveToken = async (token, userId, expires, type, blacklisted = false) => {
   const tokenDoc = await Token.create({
     token,
-    userId,
+    user: userId,
     expires: expires.toDate(),
     type,
     blacklisted,
@@ -45,7 +45,7 @@ const verifyToken = (token, type) => {
 
 const generateAuthTokens = async (user) => {
   const accessTokenExpires = moment().add(
-    config.jwt.accessTokenExpires,
+    config.jwt.accessExpirationMinutes,
     "seconds"
   );
   const accessToken = generateToken(
@@ -55,7 +55,7 @@ const generateAuthTokens = async (user) => {
   );
 
   const refreshTokenExpires = moment().add(
-    config.jwt.refreshTokenExpires,
+    config.jwt.refreshExpirationDays,
     "seconds"
   );
   const refreshToken = generateToken(

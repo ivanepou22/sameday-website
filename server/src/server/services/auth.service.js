@@ -1,12 +1,12 @@
 import httpStatus from "http-status";
 import { tokenService } from "./token.service.js";
 import { userService } from "./user.service.js";
-import { Token } from "../models";
+import { Token } from "../models/index.js";
 import ApiError from "../utils/ApiError.js";
 import { tokenTypes } from "../config/tokens.js";
 
 const loginUserWithEmailAndPassword = async (email, password) => {
-  const user = userService.getuserByEmail(email);
+  const user = await userService.getuserByEmail(email);
   if (!user || !(await user.isPasswordMatch(password))) {
     throw new ApiError(httpStatus.UNAUTHORIZED, "Incorrect email or password");
   }

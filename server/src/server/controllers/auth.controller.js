@@ -1,11 +1,11 @@
 import httpStatus from 'http-status';
 import catchAsync from '../utils/catchAsync.js';
-import { authService, userService, tokenService, emailService } from '../services'
+import { authService, userService, tokenService, emailService } from '../services/index.js'
 
 const register = catchAsync(async (req, res) => {
   const user = await userService.createUser(req.body);
   const tokens = await tokenService.generateAuthTokens(user);
-  res.status(httpStatus.CREATED).send({ user, tokens });
+  res.status(httpStatus.CREATED).send({user, tokens})
 });
 
 const login = catchAsync(async (req, res) => {
@@ -47,7 +47,7 @@ const verifyEmail = catchAsync(async (req, res) => {
   res.status(httpStatus.NO_CONTENT).send();
 });
 
-module.exports = {
+export default {
   register,
   login,
   logout,
@@ -55,5 +55,5 @@ module.exports = {
   forgotPassword,
   resetPassword,
   sendVerificationEmail,
-  verifyEmail,
-};
+  verifyEmail
+}
