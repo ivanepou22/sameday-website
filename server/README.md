@@ -8,7 +8,7 @@
      - [ ] Appointment Model
      - [ ] Patients Model
      - [ ] Doctor Model
-     - [ ] Orders Model
+     - [x] Orders Model
 
 - [ ] create controllers
      - [x] User Controller
@@ -16,7 +16,7 @@
      - [ ] Appointment Controller
      - [ ] Patients Controller
      - [ ] Doctor Controller
-     - [ ] Orders Controller
+     - [x] Orders Controller
 
 - [ ] create Services
     - [x] User Service
@@ -25,4 +25,4 @@
     - [ ] Appointment Service
     - [ ] Patients Service
     - [ ] Doctor Service
-    - [ ] Orders Service
+    - [x] Orders Service
