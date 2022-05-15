@@ -10,6 +10,8 @@ const allRoles = {
     "manageAppointments",
     "getDoctors",
     "manageDoctors",
+    "managePatients",
+    "getPatients"
   ],
 };
 
