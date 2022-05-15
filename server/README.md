@@ -8,7 +8,7 @@
      - [x] Appointment Model
      - [x] Doctor Model
      - [x] Orders Model
-     - [ ] Patients Model
+     - [x] Patients Model
      - [ ] Engagement Log Model
      - [ ] Services Model
 
@@ -18,7 +18,7 @@
      - [x] Appointment Controller
      - [x] Doctor Controller
      - [x] Orders Controller
-     - [ ] Patients Controller
+     - [x] Patients Controller
      - [ ] Engagement Log Controller
      - [ ] Services Controller
 
@@ -29,7 +29,7 @@
     - [x] Appointment Service
     - [x] Doctor Service
     - [x] Orders Service
-    - [ ] Patients Service
+    - [x] Patients Service
     - [ ] Engagement Log Service
-     - [ ] Services Service
+    - [ ] Services Service
 
