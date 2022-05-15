@@ -9,6 +9,8 @@ const createPatient = {
     date_of_birth: Joi.string().required(),
     address: Joi.string().required(),
     patient_number: Joi.string(),
+    phone_number: Joi.string().required(),
+    email: Joi.string().required().email(),
   }),
 };
 
@@ -36,6 +38,8 @@ const updatePatient = {
       last_name: Joi.string(),
       date_of_birth: Joi.string(),
       gender: Joi.string().valid("Male", "Female", "Other"),
+      email: Joi.string().email(),
+      phone_number: Joi.string(),
     })
     .min(1),
 };
@@ -47,11 +51,11 @@ const deletePatient = {
 };
 
 const patientValidation = {
-    createPatient,
-    getPatients,
-    getPatient,
-    updatePatient,
-    deletePatient
-}
+  createPatient,
+  getPatients,
+  getPatient,
+  updatePatient,
+  deletePatient,
+};
 
-export default patientValidation
+export default patientValidation;

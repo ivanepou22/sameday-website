@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import validator from "validator"
 import { toJson, paginate } from "./plugins/index.js";
 
 const { Schema } = mongoose;
@@ -42,6 +43,21 @@ const patientSchema = new Schema(
       required: true,
       trim: true,
       default: generatePatientNumber,
+    },
+    email: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      required: true,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error('Invalid email');
+        }
+      },
+    },
+    phone_number: {
+      type: String,
+      required: true
     }
   },
   {
