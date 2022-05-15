@@ -5,6 +5,7 @@ import { emailService } from "./email.service.js";
 import { orderService } from "./order.service.js";
 import { appointmentService } from "./appointment.service.js";
 import { doctorService } from "./doctor.service.js";
+import { patientService } from "./patient.service.js";
 
 export {
   authService,
@@ -14,4 +15,5 @@ export {
   orderService,
   appointmentService,
   doctorService,
+  patientService,
 };
