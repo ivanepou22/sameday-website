@@ -7,6 +7,7 @@ import { appointmentService } from "./appointment.service.js";
 import { doctorService } from "./doctor.service.js";
 import { patientService } from "./patient.service.js";
 import { serviceService } from "./service.service.js";
+import { logService } from "./log.service.js";
 
 export {
   authService,
@@ -18,4 +19,5 @@ export {
   doctorService,
   patientService,
   serviceService,
+  logService
 };
