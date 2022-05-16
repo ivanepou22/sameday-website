@@ -4,7 +4,7 @@ import { ContactImage, ContactMap, ContactForm, ContactInfo } from '../component
 
 const Contact = () => {
     const pageName = 'Contact Us';
-    const pageDescription = 'Great doctor if you need your family member to get effective immediate assistance, emergency treatment or a simple consultation.';
+    const pageDescription = 'We Would Love To Hear From You Please Send Us A Message Here.';
     const companyName = 'SameDay Laboratories';
     return (
         <>

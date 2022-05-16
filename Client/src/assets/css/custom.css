@@ -53,6 +53,9 @@
 .position-absolute {
   position: absolute !important;
 }
+.font-size-16 {
+  font-size: 16px !important;
+}
 .font-size-20 {
   font-size: 20px !important;
   font-weight: 600;
@@ -112,3 +115,41 @@
   margin-top: 3rem;
 }
 
+.bg-light-gray {
+  background-color: #F8F9FC !important;
+}
+
+.padding-0 {
+  padding: 0 !important;
+}
+
+.margin-0 {
+  margin: 0 !important;
+}
+
+.contact-img img {
+  height: 450px !important;
+}
+
+.align-text-center {
+  text-align: center !important;
+}
+
+.justify-content-space-between {
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+}
+
+.bg-half-200 {
+  height: 70vh !important;
+  margin-top: 3rem !important;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-none {
+  display: none !important;
+}

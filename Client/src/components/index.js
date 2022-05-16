@@ -7,6 +7,9 @@ import ContactImage from './ContactImage';
 import ContactForm from './ContactForm';
 import ContactMap from './ContactMap';
 import ContactInfo from './ContactInfo';
+import TopIcon from './TopIcon';
+import BlogCard from './BlogCard';
+import HeroHome from './HeroHome';
 export {
     Header,
     HeroSection,
@@ -16,5 +19,8 @@ export {
     ContactForm,
     ContactMap,
     ContactInfo,
+    TopIcon,
+    BlogCard,
+    HeroHome,
     Footer
 }

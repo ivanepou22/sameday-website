@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SDRoutes } from './routes';
-import { Home, About, Contact, Blogs } from './pages/index';
+import { Home, About, Contact, Blogs, Login, Register, ForgotPassword } from './pages/index';
 function App() {
   return (
     <div className="App">
@@ -11,6 +11,9 @@ function App() {
             <Route path={SDRoutes.About.path} element={<About />} />
             <Route path={SDRoutes.Contact.path} element={<Contact />} />
             <Route path={SDRoutes.Blogs.path} element={<Blogs />} />
+            <Route path={SDRoutes.Login.path} element={<Login />} />
+            <Route path={SDRoutes.Register.path} element={<Register />} />
+            <Route path={SDRoutes.ForgotPassword.path} element={<ForgotPassword />} />
           </Routes>
         </BrowserRouter>
       </h1>

@@ -31,52 +31,31 @@ const Footer = () => {
                                     <h5 className="text-light title-dark footer-head">Company</h5>
                                     <ul className="list-unstyled footer-list mt-4 font-size-15">
                                         <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> About us</Link>
+                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> About Us</Link>
                                         </li>
                                         <li>
-                                            <Link to="#" className="text-foot"
-                                            ><i className="mdi mdi-chevron-right me-1"></i> Services</Link>
+                                            <Link to="#" className="text-foot"><i className="mdi mdi-chevron-right me-1"></i> Services</Link>
                                         </li>
                                         <li>
-                                            <Link to="#" className="text-foot"
-                                            ><i className="mdi mdi-chevron-right me-1"></i> Team</Link>
+                                            <Link to="#" className="text-foot"><i className="mdi mdi-chevron-right me-1"></i> Shop</Link>
                                         </li>
                                         <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Project</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Blog</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Login</Link>
+                                            <Link to="#" className="text-foot"><i className="mdi mdi-chevron-right me-1"></i> Contact Us</Link>
                                         </li>
                                     </ul>
                                 </div>
 
                                 <div className="col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                                    <h5 className="text-light title-dark footer-head">Departments</h5>
+                                    <h5 className="text-light title-dark footer-head">Others</h5>
                                     <ul className="list-unstyled footer-list mt-4 font-size-15">
                                         <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Eye Care</Link>
+                                            <Link to="/login" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Login</Link>
                                         </li>
                                         <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i>
-                                                Psychotherapy</Link>
+                                            <Link to="/register" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Register</Link>
                                         </li>
                                         <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Dental Care</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Orthopedic</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Cardiology</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Gynecology</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="#" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Neurology</Link>
+                                            <Link to="/blogs" className="text-foot"> <i className="mdi mdi-chevron-right me-1"></i> Blog</Link>
                                         </li>
                                     </ul>
                                 </div>

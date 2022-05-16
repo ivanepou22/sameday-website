@@ -16,7 +16,7 @@ const SearchModal = ({ showSearchModal, setShowSearchModal }) => {
                                         <form>
                                             <div className="mb-0">
                                                 <input type="text" id="help" name="name" className="border bg-white rounded-pill font-size-14" required="" placeholder="Search..." />
-                                                <button type="submit" className="btn btn-pills btn-primary top-10">Search</button>
+                                                <button type="submit" className="btn btn-pills btn-orange top-10">Search</button>
                                             </div>
                                         </form>
                                     </div>

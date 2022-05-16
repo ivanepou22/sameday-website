@@ -18,6 +18,8 @@ const Header = () => {
     const [showSearchModal, setShowSearchModal] = React.useState(false);
     const [showProfile, setShowProfile] = React.useState(false);
     const [showSettings, setShowSettings] = React.useState(false);
+    const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+    const [openSubMenu, setOpenSubMenu] = React.useState(false);
 
     const handleCanvas = () => {
         setShowSearchModal(!showSearchModal);
@@ -28,10 +30,16 @@ const Header = () => {
     const handleShowSettings = () => {
         setShowSettings(!showSettings);
     }
+    const handleShowMobileMenu = () => {
+        setShowMobileMenu(!showMobileMenu);
+    }
+    const handleOpenSubMenu = () => {
+        setOpenSubMenu(!openSubMenu);
+    }
 
     return (
         <>
-            <header id="topnav" className="navigation sticky z-index-100">
+            <header id="topnav" className="navigation sticky nav-sticky z-index-100">
                 {/* nav-sticky */}
                 <div className="container">
                     <div>
@@ -45,8 +53,8 @@ const Header = () => {
                     </div>
                     <div className="menu-extras">
                         <div className="menu-item">
-                            <Link className="navbar-toggle" id="isToggle" to='#/'>
-                                <div className="lines">
+                            <Link className={showMobileMenu ? 'navbar-toggle open' : 'navbar-toggle'} id="isToggle" to='#/' onClick={handleShowMobileMenu}>
+                                <div className="lines font-size-20">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -88,18 +96,18 @@ const Header = () => {
                             </div>
                         </li>
                     </ul>
-                    <div id="navigation">
+                    <div id="navigation" className={showMobileMenu ? 'display-block' : 'display-none'}>
                         <ul className="navigation-menu nav-left nav-light">
                             <li><Link to="/" className="sub-menu-item">Home</Link></li>
                             <li><Link to="/about" className="sub-menu-item">About</Link></li>
                             <li><Link to="/contact" className="sub-menu-item">Contact</Link></li>
                             <li><Link to="/" className="sub-menu-item">Shop</Link></li>
                             <li className="has-submenu parent-menu-item">
-                                <Link to="#/">Services</Link><span className="menu-arrow"></span>
-                                <ul className="submenu">
-                                    <li><Link to="/" className="sub-menu-item">Doctors One</Link></li>
-                                    <li><Link to="/" className="sub-menu-item">Doctors Two</Link></li>
-                                    <li><Link to="/" className="sub-menu-item">Doctors Three</Link></li>
+                                <Link to="#/" onClick={handleOpenSubMenu}>Services</Link><span className="menu-arrow"></span>
+                                <ul className={openSubMenu ? 'submenu open' : 'submenu'}>
+                                    <li><Link to="/" className="sub-menu-item">Wellness Center</Link></li>
+                                    <li><Link to="/" className="sub-menu-item">Radiology Services</Link></li>
+                                    <li><Link to="/" className="sub-menu-item">Laboratory Services</Link></li>
                                 </ul>
                             </li>
                             <li><Link to="/blogs" className="sub-menu-item">Blog</Link></li>
