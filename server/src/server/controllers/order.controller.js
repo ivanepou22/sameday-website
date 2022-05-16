@@ -5,7 +5,8 @@ import ApiError from "../utils/ApiError.js";
 import { orderService } from "../services/index.js";
 
 const createOrder = catchAsync(async (req, res) => {
-    const order = await orderService.createOrder(req.body);
+    const userId = req.user.id;
+    const order = await orderService.createOrder({ userId, ...req.body });
     res.status(httpStatus.CREATED).send({ order });
 })
 
