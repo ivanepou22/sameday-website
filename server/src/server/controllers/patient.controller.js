@@ -7,7 +7,7 @@ import { patientService } from "../services/index.js";
 
 const createPatient = catchAsync(async (req, res) => {
     const patient = await patientService.createPatient(req.body);
-    res.status(httpStatus.CREATED).send({ patient });
+    res.status(httpStatus.CREATED).send(patient);
 })
 
 
@@ -24,7 +24,7 @@ const getPatient = catchAsync(async (req, res) => {
     if (!patient) {
         throw new ApiError(httpStatus.NOT_FOUND, "Patient not found");
     }
-    res.status(httpStatus.OK).send({ patient });
+    res.status(httpStatus.OK).send(patient);
 })
 
 

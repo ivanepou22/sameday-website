@@ -7,7 +7,7 @@ import { orderService } from "../services/index.js";
 const createOrder = catchAsync(async (req, res) => {
     const userId = req.user.id;
     const order = await orderService.createOrder({ userId, ...req.body });
-    res.status(httpStatus.CREATED).send({ order });
+    res.status(httpStatus.CREATED).send(order);
 })
 
 
@@ -23,7 +23,7 @@ const getOrder = catchAsync(async (req, res) => {
     if (!order) {
         throw new ApiError(httpStatus.NOT_FOUND, "Order not found");
     }
-    res.status(httpStatus.OK).send({ order });
+    res.status(httpStatus.OK).send(order);
 })
 
 const updateOrder = catchAsync(async (req, res) => {

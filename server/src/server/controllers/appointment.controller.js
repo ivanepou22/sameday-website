@@ -7,7 +7,7 @@ import { appointmentService } from "../services/index.js";
 
 const createAppointment = catchAsync(async (req, res) => {
     const appointment = await appointmentService.createAppointment(req.body);
-    res.status(httpStatus.CREATED).send({ appointment });
+    res.status(httpStatus.CREATED).send(appointment);
 })
 
 const getAppointments = catchAsync(async (req, res) => {
@@ -22,7 +22,7 @@ const getAppointment = catchAsync(async (req, res) => {
     if (!appointment) {
         throw new ApiError(httpStatus.NOT_FOUND, "Appointment not found");
     }
-    res.status(httpStatus.OK).send({ appointment });
+    res.status(httpStatus.OK).send(appointment);
 })
 
 const updateAppointment = catchAsync(async (req, res) => {

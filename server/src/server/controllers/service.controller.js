@@ -6,7 +6,7 @@ import { serviceService } from "../services/index.js";
 
 const createService = catchAsync(async (req, res) => {
   const service = await serviceService.createService(req.body);
-  res.status(httpStatus.CREATED).send({ service });
+  res.status(httpStatus.CREATED).send(service);
 });
 
 const getServices = catchAsync(async (req, res) => {
@@ -21,7 +21,7 @@ const getService = catchAsync(async (req, res) => {
   if (!service) {
     throw new ApiError(httpStatus.NOT_FOUND, "Service not found");
   }
-  res.status(httpStatus.OK).send({ service });
+  res.status(httpStatus.OK).send(service);
 });
 
 const updateService = catchAsync(async (req, res) => {
