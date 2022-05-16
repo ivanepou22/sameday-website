@@ -10,7 +10,7 @@
      - [x] Orders Model
      - [x] Patients Model
      - [ ] Engagement Log Model
-     - [ ] Services Model
+     - [x] Services Model
 
 - [ ] create controllers
      - [x] User Controller
@@ -20,7 +20,7 @@
      - [x] Orders Controller
      - [x] Patients Controller
      - [ ] Engagement Log Controller
-     - [ ] Services Controller
+     - [x] Services Controller
 
 - [ ] create Services
     - [x] User Service
@@ -31,5 +31,5 @@
     - [x] Orders Service
     - [x] Patients Service
     - [ ] Engagement Log Service
-    - [ ] Services Service
+    - [x] Services Service
 
