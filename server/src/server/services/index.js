@@ -6,6 +6,7 @@ import { orderService } from "./order.service.js";
 import { appointmentService } from "./appointment.service.js";
 import { doctorService } from "./doctor.service.js";
 import { patientService } from "./patient.service.js";
+import { serviceService } from "./service.service.js";
 
 export {
   authService,
@@ -16,4 +17,5 @@ export {
   appointmentService,
   doctorService,
   patientService,
+  serviceService,
 };
