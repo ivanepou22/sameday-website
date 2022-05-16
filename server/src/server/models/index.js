@@ -5,6 +5,7 @@ import Appointment from "./appointment.model.js"
 import Doctor from "./doctor.model.js"
 import Patient from "./patient.model.js"
 import Service from "./service.model.js"
+import EngagementLog from "./log.model.js"
 
 
-export { Token, User, Order, Appointment, Doctor, Patient, Service };
+export { Token, User, Order, Appointment, Doctor, Patient, Service, EngagementLog }
