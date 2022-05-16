@@ -9,7 +9,7 @@
      - [x] Doctor Model
      - [x] Orders Model
      - [x] Patients Model
-     - [ ] Engagement Log Model
+     - [x] Engagement Log Model
      - [x] Services Model
 
 - [x] create controllers
@@ -19,7 +19,7 @@
      - [x] Doctor Controller
      - [x] Orders Controller
      - [x] Patients Controller
-     - [ ] Engagement Log Controller
+     - [x] Engagement Log Controller
      - [x] Services Controller
 
 - [x] create Services
