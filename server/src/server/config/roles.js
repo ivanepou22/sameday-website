@@ -14,6 +14,8 @@ const allRoles = {
     "getPatients",
     "getServices",
     "manageServices",
+    "getLogs",
+    "manageLogs",
   ],
 };
 
