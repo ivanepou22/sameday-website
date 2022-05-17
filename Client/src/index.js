@@ -10,10 +10,14 @@ import './assets/css/style.min.css';
 import './assets/css/custom.css';
 import App from './App';
 import './index.css';
+import store from './store';
+import { Provider } from 'react-redux';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
