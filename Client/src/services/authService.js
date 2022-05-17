@@ -1,7 +1,7 @@
 import API from "../api";
 
-const login = async (data) => {
-  const res = await API.login(data);
+const login = async (login_data) => {
+  const res = await API.login(login_data);
   const data = await res.json();
   if (!data.tokens) {
     throw new Error(data.message);
@@ -12,8 +12,8 @@ const login = async (data) => {
   return data;
 };
 
-const register = async (data) => {
-  const res = await API.register(data);
+const register = async (register_data) => {
+  const res = await API.register(register_data);
   const data = await res.json();
   if (!data.tokens) {
     throw new Error(data.message);
@@ -31,7 +31,7 @@ const logout = async () => {
 };
 
 export const authService = {
-    login,
-    register,
-    logout,
+  login,
+  register,
+  logout,
 };
