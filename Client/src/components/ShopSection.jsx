@@ -18,13 +18,12 @@ import img9 from "../assets/images/pharmacy/shop/masks.jpg";
 import img10 from "../assets/images/pharmacy/shop/handwash.jpg";
 import img11 from "../assets/images/pharmacy/shop/herbal-care.jpg";
 import img12 from "../assets/images/pharmacy/shop/medical-equptment.jpg";
-import img13 from "../assets/images/pharmacy/shop/praganews.jpg";
-import img14 from "../assets/images/pharmacy/shop/ashwagandha.jpg";
-import img15 from "../assets/images/pharmacy/shop/beby-products.jpg";
-import img16 from "../assets/images/pharmacy/shop/kidney-tray.jpg";
+
 
 
 const ShopSection = () => {
+    const [quantity, setQuantity] = React.useState(1);
+    console.log(setQuantity);
     return (
         <>
             <section className="section font-size-15">
@@ -51,7 +50,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -83,7 +82,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -115,7 +114,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -147,7 +146,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -179,7 +178,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -211,7 +210,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -243,7 +242,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -275,7 +274,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -423,7 +422,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -455,7 +454,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -487,7 +486,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -519,150 +518,12 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
                                     <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Medical equptment</Link>
-                                    <div className="d-flex justify-content-between mt-1">
-                                        <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
-                                        <ul className="list-unstyled text-warning mb-0">
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="container mt-100 mt-60">
-                    <div className="row">
-                        <div className="col-12">
-                            <h5 className="mb-0">Recent Products</h5>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                            <div className="card shop-list border-0">
-                                <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img13} className="img-fluid" alt="" /></Link>
-                                    <ul className="list-unstyled shop-icons">
-                                        <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-warning"><AiOutlineShoppingCart /></Link></li>
-                                    </ul>
-
-                                    <div className="qty-icons">
-                                        <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
-                                        <button className="btn btn-pills btn-icon btn-primary plus">+</button>
-                                    </div>
-                                </div>
-                                <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Praganews</Link>
-                                    <div className="d-flex justify-content-between mt-1">
-                                        <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
-                                        <ul className="list-unstyled text-warning mb-0">
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                            <div className="card shop-list border-0">
-                                <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img14} className="img-fluid" alt="" /></Link>
-                                    <ul className="list-unstyled shop-icons">
-                                        <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-warning"><AiOutlineShoppingCart /></Link></li>
-                                    </ul>
-
-                                    <div className="qty-icons">
-                                        <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
-                                        <button className="btn btn-pills btn-icon btn-primary plus">+</button>
-                                    </div>
-                                </div>
-                                <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Ashwagandha churna</Link>
-                                    <div className="d-flex justify-content-between mt-1">
-                                        <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
-                                        <ul className="list-unstyled text-warning mb-0">
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                            <div className="card shop-list border-0">
-                                <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img15} className="img-fluid" alt="" /></Link>
-                                    <ul className="list-unstyled shop-icons">
-                                        <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-warning"><AiOutlineShoppingCart /></Link></li>
-                                    </ul>
-
-                                    <div className="qty-icons">
-                                        <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
-                                        <button className="btn btn-pills btn-icon btn-primary plus">+</button>
-                                    </div>
-                                </div>
-                                <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Beby products</Link>
-                                    <div className="d-flex justify-content-between mt-1">
-                                        <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
-                                        <ul className="list-unstyled text-warning mb-0">
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                            <li className="list-inline-item"><BsStarFill /></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                            <div className="card shop-list border-0">
-                                <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img16} className="img-fluid" alt="" /></Link>
-                                    <ul className="list-unstyled shop-icons">
-                                        <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
-                                        <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-warning"><AiOutlineShoppingCart /></Link></li>
-                                    </ul>
-
-                                    <div className="qty-icons">
-                                        <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
-                                        <button className="btn btn-pills btn-icon btn-primary plus">+</button>
-                                    </div>
-                                </div>
-                                <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Kidney tray</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">

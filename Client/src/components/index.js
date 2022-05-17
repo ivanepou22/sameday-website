@@ -12,6 +12,7 @@ import BlogCard from './BlogCard';
 import HeroHome from './HeroHome';
 import ShopSection from './ShopSection';
 import HomeServices from './HomeServices';
+import WellnessPackages from './WellnessPackages';
 export {
     Header,
     HeroSection,
@@ -26,5 +27,6 @@ export {
     HeroHome,
     ShopSection,
     HomeServices,
+    WellnessPackages,
     Footer
 }
