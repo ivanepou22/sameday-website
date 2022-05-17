@@ -6,6 +6,8 @@ import { BiCog } from 'react-icons/bi'
 import { GrDashboard } from 'react-icons/gr'
 import { FiSettings } from 'react-icons/fi'
 import { AiOutlineLogout } from 'react-icons/ai'
+import { AiOutlineUser } from 'react-icons/ai'
+import { HiOutlineShoppingBag } from 'react-icons/hi'
 // Logo
 import same_day_logo from '../assets/images/Sameday-original.png'
 import doc1 from '../assets/images/doctors/01.jpg';
@@ -20,7 +22,39 @@ const Header = () => {
     const [showSettings, setShowSettings] = React.useState(false);
     const [showMobileMenu, setShowMobileMenu] = React.useState(false);
     const [openSubMenu, setOpenSubMenu] = React.useState(false);
+    const [showCart, setShowCart] = React.useState(false);
+    const [user, setUser] = React.useState({
+        name: 'John Doe',
+        email: '',
+        avatar: doc1,
+        role: 'Doctor',
+    });
 
+    const [cart, setCart] = React.useState([
+        // {
+        //     id: 1,
+        //     name: 'Dummy Product 1',
+        //     price: '$10.00',
+        //     quantity: 1,
+        //     image: 'https://via.placeholder.com/150',
+        // },
+        // {
+        //     id: 2,
+        //     name: 'Dummy Product 2',
+        //     price: '$20.00',
+        //     quantity: 2,
+        //     image: 'https://via.placeholder.com/150',
+        // },
+        // {
+        //     id: 3,
+        //     name: 'Dummy Product 3',
+        //     price: '$30.00',
+        //     quantity: 3,
+        //     image: 'https://via.placeholder.com/150',
+        // },
+    ]);
+
+    console.log(setUser, setCart);
     const handleCanvas = () => {
         setShowSearchModal(!showSearchModal);
     }
@@ -35,6 +69,9 @@ const Header = () => {
     }
     const handleOpenSubMenu = () => {
         setOpenSubMenu(!openSubMenu);
+    }
+    const handleShowCart = () => {
+        setShowCart(!showCart);
     }
 
     return (
@@ -74,34 +111,66 @@ const Header = () => {
                                 <RiSearchLine />
                             </Link>
                         </li>
-
                         <li className="list-inline-item mb-0 ms-1">
                             <div className="dropdown dropdown-primary">
-                                <button type="button" className={`btn btn-pills dropdown-toggle p-0 border-orange ${showProfile ? 'show' : ''}`} onClick={handleShowProfile} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={showProfile}>
-                                    <img src={doc1} className="avatar avatar-ex-small rounded-circle" alt="" />
+                                <button type="button" className={`btn dropdown-toggle p-0 position-relative border-none ${showCart ? 'show' : ''}`} onClick={handleShowCart} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={showProfile}>
+                                    <HiOutlineShoppingBag className='font-size-40' />
+                                    {
+                                        cart?.length > 0 && (
+                                            <span className="items-count btn-orange position-absolute">
+                                                {cart.length}
+                                            </span>
+                                        )
+                                    }
                                 </button>
-                                <div className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${showProfile ? 'show profile-drop' : ''}`} style={{ minWidth: "200px" }}>
-                                    <Link className="dropdown-item d-flex align-items-center text-dark" to="#/">
-                                        <img src={doc1} className="avatar avatar-md-sm rounded-circle border shadow" alt="" />
-                                        <div className="flex-1 ms-2">
-                                            <span className="d-block mb-1" onClick={() => setShowProfile(false)}>Calvin Carlo</span>
-                                            <small className="text-muted" onClick={() => setShowProfile(false)}>Orthopedic</small>
-                                        </div>
-                                    </Link>
-                                    <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><GrDashboard /></span> Dashboard</Link>
-                                    <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><FiSettings /></span> Profile Settings</Link>
+                                <div className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${showCart ? 'show profile-drop' : ''}`} style={{ minWidth: "500px" }}>
+                                    <Link className="dropdown-item text-dark" onClick={() => setShowCart(false)} to="#/"><span className="mb-0 d-inline-block me-1"><GrDashboard /></span> Items</Link>
                                     <div className="dropdown-divider border-top"></div>
-                                    <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><AiOutlineLogout /></span> Logout</Link>
+                                    <Link className="dropdown-item text-dark" onClick={() => setShowCart(false)} to="#/"> Lets Go.</Link>
+                                    <div className="dropdown-divider border-top"></div>
+                                    <Link className="dropdown-item text-dark" onClick={() => setShowCart(false)} to="#/"> Lets Go.</Link>
                                 </div>
                             </div>
                         </li>
+
+                        {
+                            user.email ? (
+                                <li className="list-inline-item mb-0 ms-1">
+                                    <div className="dropdown dropdown-primary">
+                                        <button type="button" className={`btn btn-pills dropdown-toggle p-0 border-orange ${showProfile ? 'show' : ''}`} onClick={handleShowProfile} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={showProfile}>
+                                            <img src={doc1} className="avatar avatar-ex-small rounded-circle" alt="" />
+                                        </button>
+                                        <div className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${showProfile ? 'show profile-drop' : ''}`} style={{ minWidth: "200px" }}>
+                                            <Link className="dropdown-item d-flex align-items-center text-dark" to="#/">
+                                                <img src={doc1} className="avatar avatar-md-sm rounded-circle border shadow" alt="" />
+                                                <div className="flex-1 ms-2">
+                                                    <span className="d-block mb-1" onClick={() => setShowProfile(false)}>{user.name}</span>
+                                                    <small className="text-muted" onClick={() => setShowProfile(false)}>{user.role}</small>
+                                                </div>
+                                            </Link>
+                                            <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><GrDashboard /></span> Dashboard</Link>
+                                            <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><FiSettings /></span> Profile Settings</Link>
+                                            <div className="dropdown-divider border-top"></div>
+                                            <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><AiOutlineLogout /></span> Logout</Link>
+                                        </div>
+                                    </div>
+                                </li>
+                            ) : (
+                                <li className="list-inline-item mb-0 ms-1">
+                                    <Link to="/login" className="btn btn-pills btn-orange">
+                                        <AiOutlineUser /> <span className='login-register'> Login|Signup</span>
+                                    </Link>
+                                </li>
+                            )
+                        }
+
                     </ul>
                     <div id="navigation" className={showMobileMenu ? 'display-block' : 'display-none'}>
                         <ul className="navigation-menu nav-left nav-light">
                             <li><Link to="/" className="sub-menu-item">Home</Link></li>
                             <li><Link to="/about" className="sub-menu-item">About</Link></li>
                             <li><Link to="/contact" className="sub-menu-item">Contact</Link></li>
-                            <li><Link to="/" className="sub-menu-item">Shop</Link></li>
+                            <li><Link to="/shop" className="sub-menu-item">Shop</Link></li>
                             <li className="has-submenu parent-menu-item">
                                 <Link to="#/" onClick={handleOpenSubMenu}>Services</Link><span className="menu-arrow"></span>
                                 <ul className={openSubMenu ? 'submenu open' : 'submenu'}>

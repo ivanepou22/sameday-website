@@ -7,3 +7,13 @@
 body {
   font-family: poppins, 'Roboto', sans-serif;
 }
+
+#topnav .navigation-menu>li {
+  margin: 0 1px !important;
+}
+
+@media screen and (max-width: 1199px) {
+  .login-register {
+    display: none !important;
+  }
+}

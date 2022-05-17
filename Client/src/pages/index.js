@@ -6,6 +6,7 @@ import Blogs from './Blogs';
 import Login from './Login';
 import ForgotPassword from './ForgotPassword';
 import Register from './Register';
+import Shop from './Shop';
 export {
     Home,
     About,
@@ -13,5 +14,6 @@ export {
     Blogs,
     Login,
     ForgotPassword,
-    Register
+    Register,
+    Shop
 }

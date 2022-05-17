@@ -6,4 +6,5 @@ export const SDRoutes = {
     Login: { path: '/login' },
     Register: { path: '/register' },
     ForgotPassword: { path: '/forgot-password' },
+    Shop: { path: '/shop' }
 }

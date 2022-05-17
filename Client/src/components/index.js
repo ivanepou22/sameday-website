@@ -10,6 +10,8 @@ import ContactInfo from './ContactInfo';
 import TopIcon from './TopIcon';
 import BlogCard from './BlogCard';
 import HeroHome from './HeroHome';
+import ShopSection from './ShopSection';
+import HomeServices from './HomeServices';
 export {
     Header,
     HeroSection,
@@ -22,5 +24,7 @@ export {
     TopIcon,
     BlogCard,
     HeroHome,
+    ShopSection,
+    HomeServices,
     Footer
 }

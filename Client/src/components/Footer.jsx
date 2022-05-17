@@ -19,9 +19,9 @@ const Footer = () => {
                                 <img src={same_day_logo} height="35" alt="" />
                             </Link>
                             <p className="mt-4 me-xl-5 font-size-15">
-                                Great doctor if you need your family member to get effective
-                                immediate assistance, emergency treatment or a simple
-                                consultation.
+                                Sameday Laboratories and Diagnostics is a Full-Service
+                                Wellness Center, Clinic, Laboratory and Diagnostic Center
+                                focused on preventive care.
                             </p>
                         </div>
 

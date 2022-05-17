@@ -6,7 +6,11 @@ const Blogs = () => {
     return (
         <>
             <Header />
-            <HeroSection pageName="Blog & News" pageDescription="Get to know more about us by going through some of our medically exiting blogs for our viewers and visitors" companyName="SameDay Laboratories" />
+            <HeroSection
+                pageName="Blog & News"
+                pageDescription="Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care."
+                companyName="SameDay Laboratories"
+            />
             <section className="section">
                 <div className="container">
                     <div className="row">

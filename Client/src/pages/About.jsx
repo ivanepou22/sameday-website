@@ -3,7 +3,7 @@ import { Footer, Header, HeroSection } from '../components'
 
 const About = () => {
     const pageName = 'About Us';
-    const pageDescription = 'Great doctor if you need your family member to get effective immediate assistance, emergency treatment or a simple consultation.';
+    const pageDescription = 'Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care.';
     const companyName = 'SameDay Laboratories';
     // const pageTitle = `${pageName} | ${pageDescription}`;
 
