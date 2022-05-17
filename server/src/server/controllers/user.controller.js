@@ -6,7 +6,7 @@ import { userService } from "../services/index.js";
 
 const createUser = catchAsync(async (req, res) => {
   const user = await userService.createUser(req.body);
-  res.status(httpStatus.CREATED).send({ user });
+  res.status(httpStatus.CREATED).send(user);
 });
 
 const getUser = catchAsync(async (req, res) => {
@@ -14,7 +14,7 @@ const getUser = catchAsync(async (req, res) => {
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, "User not found");
   }
-  res.status(httpStatus.OK).send({ user });
+  res.status(httpStatus.OK).send(user);
 });
 
 
