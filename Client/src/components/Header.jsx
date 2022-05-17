@@ -25,33 +25,33 @@ const Header = () => {
     const [showCart, setShowCart] = React.useState(false);
     const [user, setUser] = React.useState({
         name: 'John Doe',
-        email: '',
+        email: 'ivan',
         avatar: doc1,
         role: 'Doctor',
     });
 
     const [cart, setCart] = React.useState([
-        // {
-        //     id: 1,
-        //     name: 'Dummy Product 1',
-        //     price: '$10.00',
-        //     quantity: 1,
-        //     image: 'https://via.placeholder.com/150',
-        // },
-        // {
-        //     id: 2,
-        //     name: 'Dummy Product 2',
-        //     price: '$20.00',
-        //     quantity: 2,
-        //     image: 'https://via.placeholder.com/150',
-        // },
-        // {
-        //     id: 3,
-        //     name: 'Dummy Product 3',
-        //     price: '$30.00',
-        //     quantity: 3,
-        //     image: 'https://via.placeholder.com/150',
-        // },
+        {
+            id: 1,
+            name: 'Dummy Product 1',
+            price: '$10.00',
+            quantity: 1,
+            image: 'https://via.placeholder.com/150',
+        },
+        {
+            id: 2,
+            name: 'Dummy Product 2',
+            price: '$20.00',
+            quantity: 2,
+            image: 'https://via.placeholder.com/150',
+        },
+        {
+            id: 3,
+            name: 'Dummy Product 3',
+            price: '$30.00',
+            quantity: 3,
+            image: 'https://via.placeholder.com/150',
+        },
     ]);
 
     console.log(setUser, setCart);
