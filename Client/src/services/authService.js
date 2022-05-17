@@ -1,7 +1,7 @@
 import API from "../api";
 
-const login = async (login_data) => {
-  const res = await API.login(login_data);
+const login = async (payload) => {
+  const res = await API.login(payload);
   const data = await res.json();
   if (!data.tokens) {
     throw new Error(data.message);
@@ -12,8 +12,8 @@ const login = async (login_data) => {
   return data;
 };
 
-const register = async (register_data) => {
-  const res = await API.register(register_data);
+const register = async (payload) => {
+  const res = await API.register(payload);
   const data = await res.json();
   if (!data.tokens) {
     throw new Error(data.message);
