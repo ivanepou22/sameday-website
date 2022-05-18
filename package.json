@@ -4,7 +4,7 @@
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
   "main": "index.js",
   "scripts": {
-    "buidclient": "cd client && npm install && npm run build"
+    "buid": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,5 @@
   "bugs": {
     "url": "https://github.com/ivanepou22/sameday-website/issues"
   },
-  "homepage": "https://github.com/ivanepou22/sameday-website#readme"
+  "homepage": "https://ivanepou22.github.io/sameday-website/"
 }
