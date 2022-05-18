@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { Footer, Header, HeroSection, BlogCard } from '../components'
 import { blogsService as blogsData } from '../data/blogs'
