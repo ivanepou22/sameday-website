@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { authSelector, register } from "../feautures/auth/authSlice";
 import { TopIcon } from "../components";
@@ -50,7 +50,10 @@ const Register = () => {
               <div className="card login-page bg-white shadow mt-4 rounded border-0">
                 <div className="card-body">
                   <h4 className="text-center">Sign Up</h4>
-                  <form className="login-form mt-4 font-size-15">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="login-form mt-4 font-size-15"
+                  >
                     <div className="row">
                       <div className="col-md-6">
                         <div className="mb-3">
