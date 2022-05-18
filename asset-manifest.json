@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c9a547aa.css",
+    "main.js": "/static/js/main.5887dae9.js",
+    "static/media/06.jpg": "/static/media/06.34b6a629bbca839f80cb.jpg",
+    "static/media/Wheel_0.png": "/static/media/Wheel_0.2954edb8e93ce48ef211.png",
+    "static/media/03.jpg": "/static/media/03.59a6dbf6711f43e32b24.jpg",
+    "static/media/08.jpg": "/static/media/08.ed5bff74021232fdec75.jpg",
+    "static/media/lab003.jpg": "/static/media/lab003.444cfef82b1f2b582462.jpg",
+    "static/media/07.jpg": "/static/media/07.af2ae16fee9e54598e8e.jpg",
+    "static/media/05.jpg": "/static/media/05.7963af2ec3294ae3d5cd.jpg",
+    "static/media/02.jpg": "/static/media/02.fda73e7bad8b1fb0d735.jpg",
+    "static/media/contact.jpg": "/static/media/contact.4288c52d0c5d6d08157f.jpg",
+    "static/media/09.jpg": "/static/media/09.3982891b2ad0a19b4d18.jpg",
+    "static/media/04.jpg": "/static/media/04.fa996f1d7d0423107a60.jpg",
+    "static/media/01.jpg": "/static/media/01.d8b9651b2a3ba6336221.jpg",
+    "static/media/medicine.jpg": "/static/media/medicine.a75166f13e7ddc88b292.jpg",
+    "static/media/beby-products.jpg": "/static/media/beby-products.3a2eab79204ea76a1776.jpg",
+    "static/media/medigrip.jpg": "/static/media/medigrip.8787ae98297c771dc0ac.jpg",
+    "static/media/Sameday-original.png": "/static/media/Sameday-original.378a78e60241c575c780.png",
+    "static/media/nicotex.jpg": "/static/media/nicotex.3f0805547eb607da3cf7.jpg",
+    "static/media/praganews.jpg": "/static/media/praganews.d85f4e03b2e9e73beeb1.jpg",
+    "static/media/smoking-habit.jpg": "/static/media/smoking-habit.bf53f9b6a37fc3a34092.jpg",
+    "static/media/pulse-oximeter.jpg": "/static/media/pulse-oximeter.e3ff438072de03faa286.jpg",
+    "static/media/logo_icon.png": "/static/media/logo_icon.34df68942d468559a71c.png",
+    "static/media/herbal-care.jpg": "/static/media/herbal-care.dba9f61e6b27fb35b128.jpg",
+    "static/media/handwash.jpg": "/static/media/handwash.7f7f2543df325e04552d.jpg",
+    "static/media/sanitizer.jpg": "/static/media/sanitizer.40d73c9522ada5ca9f2a.jpg",
+    "static/media/masks.jpg": "/static/media/masks.9e7fc3be793ed5822215.jpg",
+    "static/media/kidney-tray.jpg": "/static/media/kidney-tray.40740b94c57594bd6738.jpg",
+    "static/media/ashwagandha.jpg": "/static/media/ashwagandha.638a6573dba47b7b2c92.jpg",
+    "static/media/medical-equptment.jpg": "/static/media/medical-equptment.c9cc6fbca055ce2d4dc6.jpg",
+    "static/media/stethoscope.jpg": "/static/media/stethoscope.b9d4e335ed40b3d445ac.jpg",
+    "static/media/thermometer.jpg": "/static/media/thermometer.86d75e4eae250b3fbf16.jpg",
+    "index.html": "/index.html",
+    "main.c9a547aa.css.map": "/static/css/main.c9a547aa.css.map",
+    "main.5887dae9.js.map": "/static/js/main.5887dae9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c9a547aa.css",
+    "static/js/main.5887dae9.js"
+  ]
+}
