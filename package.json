@@ -4,7 +4,7 @@
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
   "main": "index.js",
   "scripts": {
-    "build": "cd client && npm install && npm run build"
+    "build": "cd Client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
