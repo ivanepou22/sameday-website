@@ -17,7 +17,6 @@
     "swiper": "^8.1.5",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://ivanepou22.github.io/sameday-website/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
