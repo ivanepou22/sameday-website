@@ -3,6 +3,7 @@ import { ordersService } from "../../services/ordersService";
 
 const initialState = {
   orders: [],
+  order: {},
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -15,6 +16,7 @@ export const ordersSlice = createSlice({
   reducers: {
     reset: (state) => {
       state.orders = [];
+      state.order = {};
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = false;
@@ -110,6 +112,7 @@ export const ordersSlice = createSlice({
       state.isSuccess = true;
       state.isError = false;
       state.errorMessage = "";
+      state.order = action.payload;
     });
     builder.addCase(getOrder.rejected, (state, action) => {
       state.isLoading = false;
