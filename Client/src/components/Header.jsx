@@ -9,6 +9,7 @@ import { FiSettings } from 'react-icons/fi'
 import { AiOutlineLogout } from 'react-icons/ai'
 import { AiOutlineUser } from 'react-icons/ai'
 import { HiOutlineShoppingBag } from 'react-icons/hi'
+import { SiGnuprivacyguard } from 'react-icons/si'
 // Logo
 import same_day_logo from '../assets/images/Sameday-original.png'
 import doc1 from '../assets/images/doctors/01.jpg';
@@ -26,7 +27,7 @@ const Header = () => {
     const [showCart, setShowCart] = React.useState(false);
     const [user, setUser] = React.useState({
         name: 'John Doe',
-        email: 'ivan',
+        email: 'johndoe',
         avatar: doc1,
         role: 'Doctor',
     });
@@ -81,7 +82,7 @@ const Header = () => {
                 {/* nav-sticky */}
                 <div className="container">
                     <div>
-                        <Link className="logo" to="index.html">
+                        <Link className="logo" to="/">
                             <span className="logo-light-mode">
                                 <img src={same_day_logo} className="l-dark" height="34" alt="" />
                                 <img src={same_day_logo} className="l-light" height="34" alt="" />
@@ -158,8 +159,11 @@ const Header = () => {
                                 </li>
                             ) : (
                                 <li className="list-inline-item mb-0 ms-1">
-                                    <Link to="/login" className="btn btn-pills btn-orange">
-                                        <AiOutlineUser /> <span className='login-register'> Login|Signup</span>
+                                    <Link to="/login" className="btn-login-register btn-orange">
+                                        <AiOutlineUser /> <span className='login-register'> Login</span>
+                                    </Link>
+                                    <Link to="/register" className="btn-login-register btn-orange">
+                                        <SiGnuprivacyguard /> <span className='login-register'> Register</span>
                                     </Link>
                                 </li>
                             )
@@ -175,9 +179,10 @@ const Header = () => {
                             <li className="has-submenu parent-menu-item">
                                 <Link to="#/" onClick={handleOpenSubMenu}>Services</Link><span className="menu-arrow"></span>
                                 <ul className={openSubMenu ? 'submenu open' : 'submenu'}>
-                                    <li><Link to="/" className="sub-menu-item">Wellness Center</Link></li>
-                                    <li><Link to="/" className="sub-menu-item">Radiology Services</Link></li>
-                                    <li><Link to="/" className="sub-menu-item">Laboratory Services</Link></li>
+                                    <li><Link to="/wellness-center" className="sub-menu-item">Wellness Center</Link></li>
+                                    <li><Link to="/radiology-services" className="sub-menu-item">Radiology Services</Link></li>
+                                    <li><Link to="/laboratory-services" className="sub-menu-item">Laboratory Services</Link></li>
+                                    <li><Link to="/covid-testing" className="sub-menu-item">Covid Testing</Link></li>
                                 </ul>
                             </li>
                             <li><Link to="/blogs" className="sub-menu-item">Blog</Link></li>

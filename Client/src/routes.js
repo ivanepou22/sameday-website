@@ -6,5 +6,9 @@ export const SDRoutes = {
     Login: { path: '/login' },
     Register: { path: '/register' },
     ForgotPassword: { path: '/forgot-password' },
-    Shop: { path: '/shop' }
+    Shop: { path: '/shop' },
+    WellnessCenter: { path: '/wellness-center' },
+    RadiologyServices: { path: '/radiology-services' },
+    LaboratoryServices: { path: '/laboratory-services' },
+    CovidTesting: { path: '/covid-testing' }
 }

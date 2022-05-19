@@ -1,15 +1,18 @@
 /* eslint-disable */
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { HiOutlineArrowRight } from 'react-icons/hi'
-import hero_bg from '../assets/images/about/lab003.jpg';
-import same_day_logo from '../assets/images/logo_icon.png'
 import Sliders from './Sliders';
+import bg from "../assets/images/bg//AlarmingUnselfishKangaroo-size_restricted.gif";
 
 const HeroHome = () => {
+    const styles = {
+        backgroundImage: `url("${bg}")`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+    }
+
     return (
         <>
-            <div className="height-60vh bg-light-orange">
+            <div className="height-60vh bg-gray home-hero" style={styles}>
                 <div className="container height-100">
                     <div className="row height-100">
                         <div className="col-12 margin-top-10 height-100">

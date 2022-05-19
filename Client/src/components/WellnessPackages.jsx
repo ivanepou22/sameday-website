@@ -42,7 +42,7 @@ const WellnessPackages = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" defaultValue={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@ const WellnessPackages = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" defaultValue={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ const WellnessPackages = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" defaultValue={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -138,7 +138,7 @@ const WellnessPackages = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="0" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="0" defaultValue={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>

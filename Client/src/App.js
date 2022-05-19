@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SDRoutes } from './routes';
-import { Home, About, Contact, Blogs, Login, Register, ForgotPassword, Shop } from './pages/index';
+import { Home, About, Contact, Blogs, Login, Register, ForgotPassword, Shop, CovidTesting, WellnessCenter, LaboratoryServices, RadiologyServices } from './pages/index';
 
 function App() {
   return (
@@ -16,6 +16,10 @@ function App() {
             <Route path={SDRoutes.Register.path} element={<Register />} />
             <Route path={SDRoutes.ForgotPassword.path} element={<ForgotPassword />} />
             <Route path={SDRoutes.Shop.path} element={<Shop />} />
+            <Route path={SDRoutes.WellnessCenter.path} element={<WellnessCenter />} />
+            <Route path={SDRoutes.RadiologyServices.path} element={<RadiologyServices />} />
+            <Route path={SDRoutes.LaboratoryServices.path} element={<LaboratoryServices />} />
+            <Route path={SDRoutes.CovidTesting.path} element={<CovidTesting />} />
           </Routes>
         </BrowserRouter>
       </h1>
