@@ -13,7 +13,7 @@ const HomeServices = () => {
     return (
         <>
             <section className="section font-size-15 margin-top-0 padding-top-0">
-                <div className="container margin-top-0">
+                <div className="container margin-top-neg-20">
                     <div className="row justify-content-center margin-top-0">
                         <div className="col-xl-11">
                             <div className="bg-white shadow rounded overflow-hidden card-group">

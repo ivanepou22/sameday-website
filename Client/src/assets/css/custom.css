@@ -243,7 +243,15 @@
   margin-top: 0 !important;
 }
 
+.margin-top-neg-20 {
+  margin-top: -20px !important;
+}
+
 .color-black {
   color: #000 !important;
   padding-right: 10px !important;
+}
+
+.padding-neg-top-20 {
+  padding-top: -20px !important;
 }
