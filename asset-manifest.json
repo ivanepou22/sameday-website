@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d93edd49.css",
-    "main.js": "/static/js/main.a96bbf87.js",
+    "main.css": "/static/css/main.d1f77a7e.css",
+    "main.js": "/static/js/main.9079447e.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
     "static/media/Combineb_pix_020-removebg-preview.png": "/static/media/Combineb_pix_020-removebg-preview.05b0d0cea00b34337dbc.png",
@@ -36,11 +36,11 @@
     "static/media/stethoscope.jpg": "/static/media/stethoscope.b9d4e335ed40b3d445ac.jpg",
     "static/media/thermometer.jpg": "/static/media/thermometer.86d75e4eae250b3fbf16.jpg",
     "index.html": "/index.html",
-    "main.d93edd49.css.map": "/static/css/main.d93edd49.css.map",
-    "main.a96bbf87.js.map": "/static/js/main.a96bbf87.js.map"
+    "main.d1f77a7e.css.map": "/static/css/main.d1f77a7e.css.map",
+    "main.9079447e.js.map": "/static/js/main.9079447e.js.map"
   },
   "entrypoints": [
-    "static/css/main.d93edd49.css",
-    "static/js/main.a96bbf87.js"
+    "static/css/main.d1f77a7e.css",
+    "static/js/main.9079447e.js"
   ]
 }
