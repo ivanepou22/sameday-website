@@ -164,11 +164,11 @@ const Header = () => {
                                     </div>
                                 </li>
                             ) : (
-                                <li className="list-inline-item mb-0 ms-1 justify-content-center">
-                                    <Link to="/login" className="btn-login-register btn-orange">
+                                <li className="list-inline-item">
+                                    <Link to="/login" className="btn btn-login-register btn-orange  padding-left">
                                         <AiOutlineUser /> <span className='login-register'> Login</span>
                                     </Link>
-                                    <Link to="/register" className="btn-login-register btn-orange">
+                                    <Link to="/register" className="btn btn-login-register btn-orange padding-left">
                                         <SiGnuprivacyguard /> <span className='login-register'> Register</span>
                                     </Link>
                                 </li>
