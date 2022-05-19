@@ -25,6 +25,7 @@ const Header = () => {
     const [showMobileMenu, setShowMobileMenu] = React.useState(false);
     const [openSubMenu, setOpenSubMenu] = React.useState(false);
     const [showCart, setShowCart] = React.useState(false);
+    const [showAboutSubmenu, setShowAboutSubmenu] = React.useState(false);
     const [user, setUser] = React.useState({
         name: 'John Doe',
         email: '',
@@ -66,6 +67,7 @@ const Header = () => {
     const handleShowSettings = () => {
         setShowSettings(!showSettings);
     }
+    console.log(handleShowSettings);
     const handleShowMobileMenu = () => {
         setShowMobileMenu(!showMobileMenu);
     }
@@ -74,6 +76,10 @@ const Header = () => {
     }
     const handleShowCart = () => {
         setShowCart(!showCart);
+    }
+
+    const handleShowAboutSubmenu = () => {
+        setShowAboutSubmenu(!showAboutSubmenu);
     }
 
     return (
@@ -102,11 +108,11 @@ const Header = () => {
                         </div>
                     </div>
                     <ul className="dropdowns list-inline mb-0">
-                        <li className="list-inline-item mb-0">
+                        {/* <li className="list-inline-item mb-0">
                             <Link to="#/" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onClick={handleShowSettings}>
                                 <div className="btn btn-icon btn-pills btn-orange"><BiCog /></div>
                             </Link>
-                        </li>
+                        </li> */}
 
                         <li className="list-inline-item mb-0 ms-1">
                             <Link to="#/" className="btn btn-icon btn-pills btn-orange" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" onClick={handleCanvas}>
@@ -158,7 +164,7 @@ const Header = () => {
                                     </div>
                                 </li>
                             ) : (
-                                <li className="list-inline-item mb-0 ms-1">
+                                <li className="list-inline-item mb-0 ms-1 justify-content-center">
                                     <Link to="/login" className="btn-login-register btn-orange">
                                         <AiOutlineUser /> <span className='login-register'> Login</span>
                                     </Link>
@@ -173,7 +179,13 @@ const Header = () => {
                     <div id="navigation" className={showMobileMenu ? 'display-block' : 'display-none'}>
                         <ul className="navigation-menu nav-left nav-light">
                             <li><Link to="/" className="sub-menu-item">Home</Link></li>
-                            <li><Link to="/about" className="sub-menu-item">About</Link></li>
+                            <li className="has-submenu parent-menu-item">
+                                <Link to="#/" onClick={handleShowAboutSubmenu}>About</Link><span className="menu-arrow"></span>
+                                <ul className={setShowAboutSubmenu ? 'submenu open' : 'submenu'}>
+                                    <li><Link to="/about" className="sub-menu-item">About Us</Link></li>
+                                    <li><Link to="/blogs" className="sub-menu-item">Blogs</Link></li>
+                                </ul>
+                            </li>
                             <li><Link to="/contact" className="sub-menu-item">Contact</Link></li>
                             <li><Link to="/shop" className="sub-menu-item">Shop</Link></li>
                             <li className="has-submenu parent-menu-item">
@@ -185,7 +197,7 @@ const Header = () => {
                                     <li><Link to="/covid-testing" className="sub-menu-item">Covid Testing</Link></li>
                                 </ul>
                             </li>
-                            <li><Link to="/blogs" className="sub-menu-item">Blog</Link></li>
+                            <li><Link to="/" className="sub-menu-item">Booking</Link></li>
                         </ul>
                     </div>
                 </div>
