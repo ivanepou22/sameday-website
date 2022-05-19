@@ -15,7 +15,7 @@ const HomeServices = () => {
             <section className="section font-size-15 margin-top-0 padding-top-0">
                 <div className="container margin-top-0">
                     <div className="row justify-content-center margin-top-0">
-                        <div className="col-xl-10">
+                        <div className="col-xl-11">
                             <div className="bg-white shadow rounded overflow-hidden card-group">
                                 <div className="card border-0 bg-light p-4">
                                     <h5 className="mt-1">Contact Us</h5>

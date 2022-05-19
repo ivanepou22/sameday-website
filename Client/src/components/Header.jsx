@@ -27,7 +27,7 @@ const Header = () => {
     const [showCart, setShowCart] = React.useState(false);
     const [user, setUser] = React.useState({
         name: 'John Doe',
-        email: 'johndoe',
+        email: '',
         avatar: doc1,
         role: 'Doctor',
     });
