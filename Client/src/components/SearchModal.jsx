@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { VscChromeClose } from 'react-icons/vsc'
 

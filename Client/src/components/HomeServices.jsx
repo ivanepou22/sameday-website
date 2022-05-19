@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
 import img1 from "../assets/images/about/Wheel_0.png";

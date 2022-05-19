@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { TopIcon } from '../components'
 import same_day_logo from '../assets/images/Sameday-original.png'

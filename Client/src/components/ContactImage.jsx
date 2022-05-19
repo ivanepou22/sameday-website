@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import bgContact from '../assets/images/PIX/contact.jpg';
 
