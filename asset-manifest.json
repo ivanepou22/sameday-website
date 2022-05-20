@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d1f77a7e.css",
-    "main.js": "/static/js/main.9079447e.js",
+    "main.css": "/static/css/main.3b5edcab.css",
+    "main.js": "/static/js/main.058274ae.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
     "static/media/Combineb_pix_020-removebg-preview.png": "/static/media/Combineb_pix_020-removebg-preview.05b0d0cea00b34337dbc.png",
@@ -15,9 +15,10 @@
     "static/media/05.jpg": "/static/media/05.7963af2ec3294ae3d5cd.jpg",
     "static/media/02.jpg": "/static/media/02.fda73e7bad8b1fb0d735.jpg",
     "static/media/contact.jpg": "/static/media/contact.4288c52d0c5d6d08157f.jpg",
-    "static/media/09.jpg": "/static/media/09.3982891b2ad0a19b4d18.jpg",
+    "static/media/09.jpg": "/static/media/09.a78fa894da10cce37f2f.jpg",
     "static/media/04.jpg": "/static/media/04.fa996f1d7d0423107a60.jpg",
     "static/media/01.jpg": "/static/media/01.d8b9651b2a3ba6336221.jpg",
+    "static/media/bg-profile.jpg": "/static/media/bg-profile.2859920b4c41966e4d91.jpg",
     "static/media/medicine.jpg": "/static/media/medicine.a75166f13e7ddc88b292.jpg",
     "static/media/beby-products.jpg": "/static/media/beby-products.3a2eab79204ea76a1776.jpg",
     "static/media/medigrip.jpg": "/static/media/medigrip.8787ae98297c771dc0ac.jpg",
@@ -36,11 +37,11 @@
     "static/media/stethoscope.jpg": "/static/media/stethoscope.b9d4e335ed40b3d445ac.jpg",
     "static/media/thermometer.jpg": "/static/media/thermometer.86d75e4eae250b3fbf16.jpg",
     "index.html": "/index.html",
-    "main.d1f77a7e.css.map": "/static/css/main.d1f77a7e.css.map",
-    "main.9079447e.js.map": "/static/js/main.9079447e.js.map"
+    "main.3b5edcab.css.map": "/static/css/main.3b5edcab.css.map",
+    "main.058274ae.js.map": "/static/js/main.058274ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1f77a7e.css",
-    "static/js/main.9079447e.js"
+    "static/css/main.3b5edcab.css",
+    "static/js/main.058274ae.js"
   ]
 }
