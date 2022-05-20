@@ -13,6 +13,9 @@ import HeroHome from './HeroHome';
 import ShopSection from './ShopSection';
 import HomeServices from './HomeServices';
 import WellnessPackages from './WellnessPackages';
+import ProfileSection from './ProfileSection';
+import DashboardSection from './DashboardSection';
+import AppointmentSection from './AppointmentSection';
 export {
     Header,
     HeroSection,
@@ -28,5 +31,8 @@ export {
     ShopSection,
     HomeServices,
     WellnessPackages,
+    ProfileSection,
+    DashboardSection,
+    AppointmentSection,
     Footer
 }

@@ -11,6 +11,9 @@ import WellnessCenter from './WellnessCenter';
 import RadiologyServices from './RadiologyServices';
 import LaboratoryServices from './LaboratoryServices';
 import CovidTesting from './CovidTesting';
+import PatientDashboard from './PatientDashboard';
+import PatientProfile from './PatientProfile';
+import Appointment from './Appointment';
 export {
     Home,
     About,
@@ -23,5 +26,8 @@ export {
     RadiologyServices,
     LaboratoryServices,
     CovidTesting,
+    PatientDashboard,
+    PatientProfile,
+    Appointment,
     Shop
 }

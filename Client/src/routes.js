@@ -10,5 +10,8 @@ export const SDRoutes = {
     WellnessCenter: { path: '/wellness-center' },
     RadiologyServices: { path: '/radiology-services' },
     LaboratoryServices: { path: '/laboratory-services' },
-    CovidTesting: { path: '/covid-testing' }
+    CovidTesting: { path: '/covid-testing' },
+    PatientDashboard: { path: '/patient-dashboard' },
+    PatientProfile: { path: '/patient-profile' },
+    Appointment: { path: '/create-appointment' }
 }

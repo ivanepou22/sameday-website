@@ -1,6 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SDRoutes } from './routes';
-import { Home, About, Contact, Blogs, Login, Register, ForgotPassword, Shop, CovidTesting, WellnessCenter, LaboratoryServices, RadiologyServices } from './pages/index';
+import {
+  Home,
+  About,
+  Contact,
+  Blogs,
+  Login,
+  Register,
+  ForgotPassword,
+  Shop,
+  CovidTesting,
+  WellnessCenter,
+  LaboratoryServices,
+  RadiologyServices,
+  PatientDashboard,
+  PatientProfile,
+  Appointment,
+} from './pages';
 
 function App() {
   return (
@@ -20,6 +36,9 @@ function App() {
             <Route path={SDRoutes.RadiologyServices.path} element={<RadiologyServices />} />
             <Route path={SDRoutes.LaboratoryServices.path} element={<LaboratoryServices />} />
             <Route path={SDRoutes.CovidTesting.path} element={<CovidTesting />} />
+            <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
+            <Route path={SDRoutes.PatientProfile.path} element={<PatientProfile />} />
+            <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
           </Routes>
         </BrowserRouter>
       </h1>

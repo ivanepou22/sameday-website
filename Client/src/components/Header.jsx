@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // icons
 import { RiSearchLine } from 'react-icons/ri'
-import { BiCog } from 'react-icons/bi'
+// import { BiCog } from 'react-icons/bi'
 import { GrDashboard } from 'react-icons/gr'
 import { FiSettings } from 'react-icons/fi'
 import { AiOutlineLogout } from 'react-icons/ai'
@@ -12,7 +12,8 @@ import { HiOutlineShoppingBag } from 'react-icons/hi'
 import { SiGnuprivacyguard } from 'react-icons/si'
 // Logo
 import same_day_logo from '../assets/images/Sameday-original.png'
-import doc1 from '../assets/images/doctors/01.jpg';
+import doc11 from '../assets/images/doctors/01.jpg';
+import doc1 from "../assets/images/client/09.jpg";
 // styles
 import '../assets/css/custom.css'
 import SearchModal from './SearchModal'
@@ -28,7 +29,7 @@ const Header = () => {
     const [showAboutSubmenu, setShowAboutSubmenu] = React.useState(false);
     const [user, setUser] = React.useState({
         name: 'John Doe',
-        email: '',
+        email: 'johndoe@gmail.com',
         avatar: doc1,
         role: 'Doctor',
     });
@@ -153,11 +154,12 @@ const Header = () => {
                                                 <img src={doc1} className="avatar avatar-md-sm rounded-circle border shadow" alt="" />
                                                 <div className="flex-1 ms-2">
                                                     <span className="d-block mb-1" onClick={() => setShowProfile(false)}>{user.name}</span>
-                                                    <small className="text-muted" onClick={() => setShowProfile(false)}>{user.role}</small>
+                                                    <small className="text-muted" onClick={() => setShowProfile(false)}>{user.email}</small>
                                                 </div>
                                             </Link>
-                                            <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><GrDashboard /></span> Dashboard</Link>
-                                            <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><FiSettings /></span> Profile Settings</Link>
+                                            <div className="dropdown-divider border-top"></div>
+                                            <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="/patient-dashboard"><span className="mb-0 d-inline-block me-1"><GrDashboard /></span> Dashboard</Link>
+                                            <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="/patient-profile"><span className="mb-0 d-inline-block me-1"><FiSettings /></span> Profile Settings</Link>
                                             <div className="dropdown-divider border-top"></div>
                                             <Link className="dropdown-item text-dark" onClick={() => setShowProfile(false)} to="#/"><span className="mb-0 d-inline-block me-1"><AiOutlineLogout /></span> Logout</Link>
                                         </div>
@@ -197,7 +199,7 @@ const Header = () => {
                                     <li><Link to="/covid-testing" className="sub-menu-item">Covid Testing</Link></li>
                                 </ul>
                             </li>
-                            <li><Link to="/" className="sub-menu-item">Booking</Link></li>
+                            <li><Link to="/create-appointment" className="sub-menu-item">Booking</Link></li>
                         </ul>
                     </div>
                 </div>
