@@ -25,7 +25,6 @@ const Header = () => {
     const [showSettings, setShowSettings] = React.useState(false);
     const [showMobileMenu, setShowMobileMenu] = React.useState(false);
     const [openSubMenu, setOpenSubMenu] = React.useState(false);
-    const [showCart, setShowCart] = React.useState(false);
     const [showAboutSubmenu, setShowAboutSubmenu] = React.useState(false);
     const [user, setUser] = React.useState({
         name: 'John Doe',
@@ -75,10 +74,6 @@ const Header = () => {
     const handleOpenSubMenu = () => {
         setOpenSubMenu(!openSubMenu);
     }
-    const handleShowCart = () => {
-        setShowCart(!showCart);
-    }
-
     const handleShowAboutSubmenu = () => {
         setShowAboutSubmenu(!showAboutSubmenu);
     }
@@ -109,20 +104,14 @@ const Header = () => {
                         </div>
                     </div>
                     <ul className="dropdowns list-inline mb-0">
-                        {/* <li className="list-inline-item mb-0">
-                            <Link to="#/" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" onClick={handleShowSettings}>
-                                <div className="btn btn-icon btn-pills btn-orange"><BiCog /></div>
-                            </Link>
-                        </li> */}
-
                         <li className="list-inline-item mb-0 ms-1">
                             <Link to="#/" className="btn btn-icon btn-pills btn-orange" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" onClick={handleCanvas}>
                                 <RiSearchLine />
                             </Link>
                         </li>
                         <li className="list-inline-item mb-0 ms-1">
-                            <div className="dropdown dropdown-primary">
-                                <button type="button" className={`btn dropdown-toggle p-0 position-relative border-none ${showCart ? 'show' : ''}`} onClick={handleShowCart} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={showProfile}>
+                            <Link to="/shopping-cart">
+                                <button type="button" className={`btn p-0 position-relative border-none`}>
                                     <HiOutlineShoppingBag className='font-size-40' />
                                     {
                                         cart?.length > 0 && (
@@ -132,14 +121,7 @@ const Header = () => {
                                         )
                                     }
                                 </button>
-                                <div className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${showCart ? 'show profile-drop' : ''}`} style={{ minWidth: "500px" }}>
-                                    <Link className="dropdown-item text-dark" onClick={() => setShowCart(false)} to="#/"><span className="mb-0 d-inline-block me-1"><GrDashboard /></span> Items</Link>
-                                    <div className="dropdown-divider border-top"></div>
-                                    <Link className="dropdown-item text-dark" onClick={() => setShowCart(false)} to="#/"> Lets Go.</Link>
-                                    <div className="dropdown-divider border-top"></div>
-                                    <Link className="dropdown-item text-dark" onClick={() => setShowCart(false)} to="#/"> Lets Go.</Link>
-                                </div>
-                            </div>
+                            </Link>
                         </li>
 
                         {

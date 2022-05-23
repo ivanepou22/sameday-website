@@ -122,21 +122,21 @@ const HomeServices = () => {
                         <div className="col-xl-12">
                             <div className="shadow rounded overflow-hidden card-group">
                                 <div className="card border-0 bg-light p-4 btn-orange border-radius-10">
-                                    <Link to="departments.html" className="text-primary align-text-center">
+                                    <Link to="/wellness-center" className="text-primary align-text-center">
                                         <BsFlower2 className='white-text font-size-50' />
                                         <h5 className="mt-1 white-text font-size-30">Wellness <br />Center</h5>
                                     </Link>
                                 </div>
 
                                 <div className="card border-0 p-4 btn-orange mx-2  border-radius-10">
-                                    <Link to="departments.html" className="text-primary align-text-center">
+                                    <Link to="/radiology-services" className="text-primary align-text-center">
                                         <FaJoomla className='white-text font-size-50' />
                                         <h5 className="mt-1 white-text font-size-30">Radiology <br />Services</h5>
                                     </Link>
                                 </div>
 
                                 <div className="card border-0 bg-light p-4 btn-orange  border-radius-10">
-                                    <Link to="departments.html" className="text-primary align-text-center">
+                                    <Link to="laboratory-services" className="text-primary align-text-center">
                                         <GiTransparentTubes className='white-text font-size-50' />
                                         <h5 className="mt-1 white-text font-size-30">Laboratory <br />Services</h5>
                                     </Link>

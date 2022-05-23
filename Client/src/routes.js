@@ -13,5 +13,7 @@ export const SDRoutes = {
     CovidTesting: { path: '/covid-testing' },
     PatientDashboard: { path: '/patient-dashboard' },
     PatientProfile: { path: '/patient-profile' },
-    Appointment: { path: '/create-appointment' }
+    Appointment: { path: '/create-appointment' },
+    ShoppingCart: { path: '/shopping-cart' },
+    Checkout: { path: '/checkout' },
 }

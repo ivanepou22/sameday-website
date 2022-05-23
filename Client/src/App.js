@@ -16,6 +16,8 @@ import {
   PatientDashboard,
   PatientProfile,
   Appointment,
+  ShoppingCart,
+  Checkout,
 } from './pages';
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
             <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
             <Route path={SDRoutes.PatientProfile.path} element={<PatientProfile />} />
             <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
+            <Route path={SDRoutes.ShoppingCart.path} element={<ShoppingCart />} />
+            <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
           </Routes>
         </BrowserRouter>
       </h1>

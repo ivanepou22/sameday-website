@@ -14,6 +14,8 @@ import CovidTesting from './CovidTesting';
 import PatientDashboard from './PatientDashboard';
 import PatientProfile from './PatientProfile';
 import Appointment from './Appointment';
+import ShoppingCart from './ShoppingCart';
+import Checkout from './Checkout';
 export {
     Home,
     About,
@@ -29,5 +31,7 @@ export {
     PatientDashboard,
     PatientProfile,
     Appointment,
+    ShoppingCart,
+    Checkout,
     Shop
 }

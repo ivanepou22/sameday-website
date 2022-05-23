@@ -16,6 +16,8 @@ import WellnessPackages from './WellnessPackages';
 import ProfileSection from './ProfileSection';
 import DashboardSection from './DashboardSection';
 import AppointmentSection from './AppointmentSection';
+import CartSection from './CartSection';
+import CheckoutSection from './CheckoutSection';
 export {
     Header,
     HeroSection,
@@ -34,5 +36,7 @@ export {
     ProfileSection,
     DashboardSection,
     AppointmentSection,
+    CartSection,
+    CheckoutSection,
     Footer
 }

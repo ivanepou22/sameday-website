@@ -12,7 +12,7 @@ const HeroHome = () => {
 
     return (
         <>
-            <div className="height-60vh bg-gray home-hero" style={styles}>
+            <div className="height-70vh bg-gray home-hero" style={styles}>
                 <div className="container height-100">
                     <div className="row height-100">
                         <div className="col-12 margin-top-10 height-100">
