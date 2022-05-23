@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3b5edcab.css",
-    "main.js": "/static/js/main.058274ae.js",
+    "main.css": "/static/css/main.4157230c.css",
+    "main.js": "/static/js/main.e58e494f.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
     "static/media/Combineb_pix_020-removebg-preview.png": "/static/media/Combineb_pix_020-removebg-preview.05b0d0cea00b34337dbc.png",
@@ -25,6 +25,7 @@
     "static/media/Sameday-original.png": "/static/media/Sameday-original.378a78e60241c575c780.png",
     "static/media/nicotex.jpg": "/static/media/nicotex.3f0805547eb607da3cf7.jpg",
     "static/media/praganews.jpg": "/static/media/praganews.d85f4e03b2e9e73beeb1.jpg",
+    "static/media/diabend.jpg": "/static/media/diabend.d5f3397a54ac567649de.jpg",
     "static/media/smoking-habit.jpg": "/static/media/smoking-habit.bf53f9b6a37fc3a34092.jpg",
     "static/media/pulse-oximeter.jpg": "/static/media/pulse-oximeter.e3ff438072de03faa286.jpg",
     "static/media/herbal-care.jpg": "/static/media/herbal-care.dba9f61e6b27fb35b128.jpg",
@@ -37,11 +38,11 @@
     "static/media/stethoscope.jpg": "/static/media/stethoscope.b9d4e335ed40b3d445ac.jpg",
     "static/media/thermometer.jpg": "/static/media/thermometer.86d75e4eae250b3fbf16.jpg",
     "index.html": "/index.html",
-    "main.3b5edcab.css.map": "/static/css/main.3b5edcab.css.map",
-    "main.058274ae.js.map": "/static/js/main.058274ae.js.map"
+    "main.4157230c.css.map": "/static/css/main.4157230c.css.map",
+    "main.e58e494f.js.map": "/static/js/main.e58e494f.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b5edcab.css",
-    "static/js/main.058274ae.js"
+    "static/css/main.4157230c.css",
+    "static/js/main.e58e494f.js"
   ]
 }
