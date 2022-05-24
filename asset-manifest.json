@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4157230c.css",
-    "main.js": "/static/js/main.e58e494f.js",
+    "main.js": "/static/js/main.b76370ca.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
     "static/media/Combineb_pix_020-removebg-preview.png": "/static/media/Combineb_pix_020-removebg-preview.05b0d0cea00b34337dbc.png",
@@ -39,10 +39,10 @@
     "static/media/thermometer.jpg": "/static/media/thermometer.86d75e4eae250b3fbf16.jpg",
     "index.html": "/index.html",
     "main.4157230c.css.map": "/static/css/main.4157230c.css.map",
-    "main.e58e494f.js.map": "/static/js/main.e58e494f.js.map"
+    "main.b76370ca.js.map": "/static/js/main.b76370ca.js.map"
   },
   "entrypoints": [
     "static/css/main.4157230c.css",
-    "static/js/main.e58e494f.js"
+    "static/js/main.b76370ca.js"
   ]
 }
