@@ -16,6 +16,7 @@ import PatientProfile from './PatientProfile';
 import Appointment from './Appointment';
 import ShoppingCart from './ShoppingCart';
 import Checkout from './Checkout';
+import BlogDetails from './BlogDetails';
 export {
     Home,
     About,
@@ -33,5 +34,6 @@ export {
     Appointment,
     ShoppingCart,
     Checkout,
+    BlogDetails,
     Shop
 }

@@ -18,6 +18,7 @@ import DashboardSection from './DashboardSection';
 import AppointmentSection from './AppointmentSection';
 import CartSection from './CartSection';
 import CheckoutSection from './CheckoutSection';
+import BlogDetailSection from './BlogDetailSection';
 export {
     Header,
     HeroSection,
@@ -38,5 +39,6 @@ export {
     AppointmentSection,
     CartSection,
     CheckoutSection,
+    BlogDetailSection,
     Footer
 }

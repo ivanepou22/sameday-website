@@ -18,6 +18,7 @@ import {
   Appointment,
   ShoppingCart,
   Checkout,
+  BlogDetails
 } from './pages';
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
             <Route path={SDRoutes.ShoppingCart.path} element={<ShoppingCart />} />
             <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
+            <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
           </Routes>
         </BrowserRouter>
       </h1>

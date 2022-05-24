@@ -16,4 +16,5 @@ export const SDRoutes = {
     Appointment: { path: '/create-appointment' },
     ShoppingCart: { path: '/shopping-cart' },
     Checkout: { path: '/checkout' },
+    BlogDetails: { path: '/blog-details' }
 }
