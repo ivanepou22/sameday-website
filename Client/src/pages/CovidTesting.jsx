@@ -15,6 +15,7 @@ const CovidTesting = () => {
                     health care in Uganda.
                 "
                 companyName="SameDay Laboratories"
+                showBreadcrumb={true}
             />
             <Footer />
         </>

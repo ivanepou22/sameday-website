@@ -18,13 +18,13 @@ const BlogCard = ({ blog }) => {
                             <li className="list-inline-item text-muted small me-3"><BiCalendar className='font-size-16' /> {moment(blog.createdAt).format('LL')}</li>
                             <li className="list-inline-item text-muted small"><AiOutlineClockCircle className='font-size-16' /> {blog.readTime} read</li>
                         </ul>
-                        <Link to="/blog-details" className="text-dark title h5">{blog.title}</Link>
+                        <Link to={`/blog-details/${blog.id}`} className="text-dark title h5">{blog.title}</Link>
                         <div className="post-meta d-flex justify-content-between mt-3">
                             <ul className="list-unstyled mb-0 font-size-15" >
                                 <li className="list-inline-item me-2 mb-0"><Link to="#/" className="text-muted like"><AiOutlineHeart /> 33</Link></li>
                                 <li className="list-inline-item"><Link to="#/" className="text-muted comments"><VscComment /> 08</Link></li>
                             </ul>
-                            <Link to="/blog-details" className="link">Read More <IoIosArrowForward /></Link>
+                            <Link to={`/blog-details/${blog.id}`} className="link">Read More <IoIosArrowForward /></Link>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ const WellnessPackages = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img13} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img13} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -51,7 +51,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Praganews</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Praganews</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -69,7 +69,7 @@ const WellnessPackages = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img14} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img14} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -83,7 +83,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Ashwagandha churna</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Ashwagandha churna</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -101,7 +101,7 @@ const WellnessPackages = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img15} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img15} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -115,7 +115,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Beby products</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Beby products</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -133,7 +133,7 @@ const WellnessPackages = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img16} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img16} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -147,7 +147,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Kidney tray</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Kidney tray</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -170,7 +170,7 @@ const WellnessPackages = () => {
                                     <li><Link to="/" className="badge badge-pill badge-success">Featured</Link></li>
                                 </ul>
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img9} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img9} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -184,7 +184,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Face masks</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Face masks</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -202,7 +202,7 @@ const WellnessPackages = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img10} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img10} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -216,7 +216,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Dettol handwash</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Dettol handwash</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -234,7 +234,7 @@ const WellnessPackages = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img11} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img11} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -248,7 +248,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Herbal care product</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Herbal care product</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -266,7 +266,7 @@ const WellnessPackages = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img12} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img12} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -280,7 +280,7 @@ const WellnessPackages = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Medical equptment</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Medical equptment</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">

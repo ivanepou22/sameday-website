@@ -19,6 +19,7 @@ import AppointmentSection from './AppointmentSection';
 import CartSection from './CartSection';
 import CheckoutSection from './CheckoutSection';
 import BlogDetailSection from './BlogDetailSection';
+import ServiceDetailSection from './ServiceDetailSection';
 export {
     Header,
     HeroSection,
@@ -40,5 +41,6 @@ export {
     CartSection,
     CheckoutSection,
     BlogDetailSection,
+    ServiceDetailSection,
     Footer
 }

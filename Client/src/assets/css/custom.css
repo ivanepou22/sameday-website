@@ -278,6 +278,22 @@ padding-top: -20px !important;
   margin-right: 10px !important;
 }
 
+.page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown>a:after {
+  display: block !important;
+  content: ' ' !important;
+  background-image: url('../images/chevron-right.svg') !important;
+  background-size: 10px 10px !important;
+  height: 10px !important;
+  width: 10px !important;
+}
+
+.profile-width {
+  position: absolute;
+  inset: 0px auto auto 0px;
+  margin: 0px;
+  transform: translate3d(-162px, 40px, 0px);
+}
+
 @media screen and (max-width: 1550px) {
   .height-70vh {
     height: 85vh !important;

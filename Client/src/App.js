@@ -18,8 +18,10 @@ import {
   Appointment,
   ShoppingCart,
   Checkout,
-  BlogDetails
+  BlogDetails,
+  ServiceDetails,
 } from './pages';
+import { Dashboard } from "./admin/pages";
 
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
             <Route path={SDRoutes.ShoppingCart.path} element={<ShoppingCart />} />
             <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
             <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
+            <Route path={SDRoutes.ServiceDetails.path} element={<ServiceDetails />} />
+            <Route path={SDRoutes.Dashboard.path} element={<Dashboard />} />
           </Routes>
         </BrowserRouter>
       </h1>

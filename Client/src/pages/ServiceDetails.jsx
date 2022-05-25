@@ -1,20 +1,20 @@
 import React from 'react'
-import { CartSection, Footer, Header, HeroSection } from '../components'
+import { Header, Footer, ServiceDetailSection, HeroSection } from '../components';
 
-const ShoppingCart = () => {
+const ServiceDetails = () => {
     return (
         <>
             <Header />
             <HeroSection
-                pageName="Shopping Cart"
+                pageName="Service Details"
                 pageDescription="Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care."
                 companyName="SameDay Laboratories"
                 showBreadcrumb={true}
             />
-            <CartSection />
+            <ServiceDetailSection />
             <Footer />
         </>
     )
 }
 
-export default ShoppingCart
+export default ServiceDetails

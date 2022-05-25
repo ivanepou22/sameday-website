@@ -27,7 +27,7 @@ const ShopSection = () => {
     console.log(setQuantity);
     return (
         <>
-            <section className="section font-size-15">
+            <section className="section font-size-15 padding-top-20">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -42,7 +42,7 @@ const ShopSection = () => {
                                     <li><Link to="/" className="badge badge-pill badge-success">Featured</Link></li>
                                 </ul>
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img1} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img1} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -56,7 +56,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Thermometer</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Thermometer</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -74,7 +74,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img2} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img2} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -88,7 +88,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Stethoscope</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Stethoscope</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -106,7 +106,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img3} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img3} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -120,7 +120,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Pulse oximeter</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Pulse oximeter</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -138,7 +138,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img4} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img4} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -152,7 +152,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Medicine pills</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Medicine pills</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -170,7 +170,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img5} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img5} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -184,7 +184,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Smokill smoking habit</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Smokill smoking habit</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -202,7 +202,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img6} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img6} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -216,7 +216,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Sanitizer</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Sanitizer</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -234,7 +234,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img7} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img7} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -248,7 +248,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Nicotex</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Nicotex</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -266,7 +266,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img8} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img8} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -280,7 +280,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Medigrip</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Medigrip</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -414,7 +414,7 @@ const ShopSection = () => {
                                     <li><Link to="/" className="badge badge-pill badge-success">Featured</Link></li>
                                 </ul>
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img9} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img9} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -428,7 +428,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Face masks</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Face masks</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -446,7 +446,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img10} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img10} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -460,7 +460,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Dettol handwash</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Dettol handwash</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -478,7 +478,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img11} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img11} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -492,7 +492,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Herbal care product</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Herbal care product</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">
@@ -510,7 +510,7 @@ const ShopSection = () => {
                         <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
                             <div className="card shop-list border-0">
                                 <div className="shop-image position-relative overflow-hidden rounded shadow">
-                                    <Link to="pharmacy-product-detail.html"><img src={img12} className="img-fluid" alt="" /></Link>
+                                    <Link to="/service-details"><img src={img12} className="img-fluid" alt="" /></Link>
                                     <ul className="list-unstyled shop-icons">
                                         <li><Link to="#" className="btn btn-icon btn-pills btn-soft-danger"><AiOutlineHeart /></Link></li>
                                         <li className="mt-2"><Link to="#" className="btn btn-icon btn-pills btn-soft-primary"><AiOutlineEye /></Link></li>
@@ -524,7 +524,7 @@ const ShopSection = () => {
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
-                                    <Link to="pharmacy-product-detail.html" className="text-dark product-name h6">Medical equptment</Link>
+                                    <Link to="/service-details" className="text-dark product-name h6">Medical equptment</Link>
                                     <div className="d-flex justify-content-between mt-1">
                                         <h6 className="text-muted small font-italic mb-0 mt-1">$16.00 </h6>
                                         <ul className="list-unstyled text-warning mb-0">

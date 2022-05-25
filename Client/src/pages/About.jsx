@@ -11,7 +11,7 @@ const About = () => {
     return (
         <>
             <Header />
-            <HeroSection pageName={pageName} pageDescription={pageDescription} companyName={companyName} />
+            <HeroSection pageName={pageName} pageDescription={pageDescription} companyName={companyName} showBreadcrumb={true} />
             <Footer />
         </>
     )

@@ -17,7 +17,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     },
     {
         id: 2,
@@ -27,7 +31,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     },
     {
         id: 3,
@@ -37,7 +45,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     }
     , {
         id: 4,
@@ -47,7 +59,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     }
     , {
         id: 5,
@@ -57,7 +73,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     },
     {
         id: 6,
@@ -67,7 +87,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     },
     {
         id: 7,
@@ -77,7 +101,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     }
     , {
         id: 8,
@@ -87,7 +115,11 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     },
     {
         id: 9,
@@ -97,6 +129,10 @@ export const blogsService = [
         createdAt: new Date(),
         updatedAt: new Date(),
         readTime: '5 min',
-        userId: 1
+        user: {
+            id: 1,
+            name: 'John Doe',
+            email: 'johndoe@gmail.com',
+        }
     }
 ]

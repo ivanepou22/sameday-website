@@ -14,6 +14,7 @@ const WellnessCenter = () => {
                     the results of our patient's lab studies and give you advice accordingly.
                 "
                 companyName="SameDay Laboratories"
+                showBreadcrumb={true}
             />
             <Footer />
         </>

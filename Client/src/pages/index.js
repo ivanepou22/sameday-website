@@ -17,6 +17,7 @@ import Appointment from './Appointment';
 import ShoppingCart from './ShoppingCart';
 import Checkout from './Checkout';
 import BlogDetails from './BlogDetails';
+import ServiceDetails from './ServiceDetails';
 export {
     Home,
     About,
@@ -35,5 +36,6 @@ export {
     ShoppingCart,
     Checkout,
     BlogDetails,
+    ServiceDetails,
     Shop
 }

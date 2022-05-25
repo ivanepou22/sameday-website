@@ -13,6 +13,7 @@ const LaboratoryServices = () => {
                     diagnostic services and medical laboratory services.
                 "
                 companyName="SameDay Laboratories"
+                showBreadcrumb={true}
             />
             <Footer />
         </>

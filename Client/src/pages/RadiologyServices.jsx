@@ -14,6 +14,7 @@ const RadiologyServices = () => {
                     injuries to a patient.
                 "
                 companyName="SameDay Laboratories"
+                showBreadcrumb={true}
             />
             <Footer />
         </>

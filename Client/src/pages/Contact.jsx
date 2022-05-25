@@ -10,7 +10,7 @@ const Contact = () => {
     return (
         <>
             <Header />
-            <HeroSection pageName={pageName} pageDescription={pageDescription} companyName={companyName} />
+            <HeroSection pageName={pageName} pageDescription={pageDescription} companyName={companyName} showBreadcrumb={true} />
             <section className="margin-tp-3rem mt-60 font-size-15">
                 <ContactInfo />
                 <div className="container mt-100 mt-60">

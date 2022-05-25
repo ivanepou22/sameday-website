@@ -11,6 +11,7 @@ const Blogs = () => {
                 pageName="Blog & News"
                 pageDescription="Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care."
                 companyName="SameDay Laboratories"
+                showBreadcrumb={true}
             />
             <section className="section">
                 <div className="container">
