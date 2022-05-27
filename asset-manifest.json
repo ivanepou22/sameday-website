@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.69f08b70.css",
-    "main.js": "/static/js/main.3e115898.js",
+    "main.css": "/static/css/main.1a7bb0ca.css",
+    "main.js": "/static/js/main.b7f8ca5a.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
     "static/media/Combineb_pix_020-removebg-preview.png": "/static/media/Combineb_pix_020-removebg-preview.05b0d0cea00b34337dbc.png",
@@ -9,14 +9,14 @@
     "static/media/rdg03-removebg-preview.png": "/static/media/rdg03-removebg-preview.59610b2ebe84a048d9a2.png",
     "static/media/06.jpg": "/static/media/06.34b6a629bbca839f80cb.jpg",
     "static/media/Wheel_0.png": "/static/media/Wheel_0.2954edb8e93ce48ef211.png",
-    "static/media/03.jpg": "/static/media/03.ba5f8794c055cc1488b5.jpg",
+    "static/media/03.jpg": "/static/media/03.b192aca452235f61b392.jpg",
     "static/media/08.jpg": "/static/media/08.ed5bff74021232fdec75.jpg",
     "static/media/07.jpg": "/static/media/07.af2ae16fee9e54598e8e.jpg",
     "static/media/05.jpg": "/static/media/05.7963af2ec3294ae3d5cd.jpg",
-    "static/media/02.jpg": "/static/media/02.7df14e12e444ad660802.jpg",
+    "static/media/02.jpg": "/static/media/02.38e00cf46dc0cbd9fed3.jpg",
     "static/media/contact.jpg": "/static/media/contact.4288c52d0c5d6d08157f.jpg",
     "static/media/09.jpg": "/static/media/09.a78fa894da10cce37f2f.jpg",
-    "static/media/04.jpg": "/static/media/04.fa996f1d7d0423107a60.jpg",
+    "static/media/04.jpg": "/static/media/04.f645789423636f851180.jpg",
     "static/media/01.jpg": "/static/media/01.8dc51f249a369036562c.jpg",
     "static/media/bg-profile.jpg": "/static/media/bg-profile.2859920b4c41966e4d91.jpg",
     "static/media/medicine.jpg": "/static/media/medicine.a75166f13e7ddc88b292.jpg",
@@ -39,11 +39,12 @@
     "static/media/thermometer.jpg": "/static/media/thermometer.86d75e4eae250b3fbf16.jpg",
     "index.html": "/index.html",
     "static/media/chevron-right.svg": "/static/media/chevron-right.61c607bb99397366b3b2.svg",
-    "main.69f08b70.css.map": "/static/css/main.69f08b70.css.map",
-    "main.3e115898.js.map": "/static/js/main.3e115898.js.map"
+    "static/media/caret-right-fill.svg": "/static/media/caret-right-fill.b654783430974bfcf616.svg",
+    "main.1a7bb0ca.css.map": "/static/css/main.1a7bb0ca.css.map",
+    "main.b7f8ca5a.js.map": "/static/js/main.b7f8ca5a.js.map"
   },
   "entrypoints": [
-    "static/css/main.69f08b70.css",
-    "static/js/main.3e115898.js"
+    "static/css/main.1a7bb0ca.css",
+    "static/js/main.b7f8ca5a.js"
   ]
 }
