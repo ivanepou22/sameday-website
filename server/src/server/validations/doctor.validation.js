@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { objectId } from "./custom.validation.js";
+import { objectId, phoneNumber } from "./custom.validation.js";
 
 
 const createDoctor = {
@@ -7,6 +7,7 @@ const createDoctor = {
         name: Joi.string().required(),
         email: Joi.string().email().required(),
         specialities: Joi.string().required(),
+        phone_number: Joi.string().custom(phoneNumber).required()
     })
 }
 
