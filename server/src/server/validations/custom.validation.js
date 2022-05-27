@@ -15,4 +15,19 @@ const password = (value, helpers) => {
   return value;
 };
 
-export { objectId, password };
+const phoneNumber = (value, helpers) => {
+  // MTN numbers start with thw following prefixes
+  // 078, 077, 076
+  // Airtel numbers start with the following prefixes
+  // 070, 075
+  // All max length is 10
+  if (!value.match(/^(0[78]|0[70]|0[75])[0-9]{7}$/)) {
+    return helpers.message("phone number must be a valid MTN or Airtel number");
+  }
+  return value;
+
+}
+
+
+
+export { objectId, password, phoneNumber };
