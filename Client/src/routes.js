@@ -19,4 +19,11 @@ export const SDRoutes = {
     BlogDetails: { path: '/blog-details/:id' },
     ServiceDetails: { path: '/service-details' },
     Dashboard: { path: '/admin/dashboard' },
+    Patients: { path: '/admin/patients' },
+    Appointments: { path: '/admin/appointments' },
+    Doctors: { path: '/admin/doctors' },
+    Services: { path: '/admin/services' },
+    PatientVisits: { path: '/admin/patient-visits' },
+    PatientLogs: { path: '/admin/patient-logs' },
+    Orders: { path: '/admin/orders' },
 }

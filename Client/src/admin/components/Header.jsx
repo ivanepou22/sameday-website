@@ -8,7 +8,7 @@ import { FaRegEnvelope } from 'react-icons/fa'
 import img1 from '../../assets/images/client/02.jpg'
 import img4 from '../../assets/images/doctors/01.jpg'
 
-const Header = () => {
+const Header = ({ handleToggle }) => {
     const [openProfile, setOpenProfile] = React.useState(false)
 
     const handleOpenProfile = () => {
@@ -20,7 +20,7 @@ const Header = () => {
             <div className="top-header font-size-15">
                 <div className="header-bar d-flex justify-content-between border-bottom">
                     <div className="d-flex align-items-center">
-                        <Link id="close-sidebar" className="btn btn-icon btn-pills btn-soft-primary ms-2" to="#">
+                        <Link id="close-sidebar" onClick={handleToggle} className="btn btn-icon btn-pills btn-soft-primary ms-2" to="#">
                             <FaBars className="uil uil-bars"></FaBars>
                         </Link>
                     </div>
@@ -52,7 +52,7 @@ const Header = () => {
                             <div className="dropdown dropdown-primary">
                                 <button type="button" onClick={handleOpenProfile} className={`btn btn-pills btn-soft-primary dropdown-toggle p-0 ${openProfile ? 'show' : ''}`} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={openProfile}>
                                     <img src={img4} className="avatar avatar-ex-small rounded-circle" alt="" /></button>
-                                <div className="dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3" style={{ minWidth: '200px' }}>
+                                <div className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${openProfile ? 'profile-width show' : ''}`} style={{ minWidth: '200px' }}>
                                     <Link className="dropdown-item d-flex align-items-center text-dark" to="https://shreethemes.in/doctris/layouts/admin/profile.html">
                                         <img src={img4} className="avatar avatar-md-sm rounded-circle border shadow" alt="" />
                                         <div className="flex-1 ms-2">

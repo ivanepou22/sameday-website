@@ -1,8 +1,7 @@
 import React from 'react'
-import { AsideMenu, Header } from '../components'
-import DashboardContent from '../components/DashboardContent'
+import { AsideMenu, DoctorsTable, Header } from '../components'
 
-const Dashboard = () => {
+const Doctors = () => {
     const [toggle, setToggle] = React.useState(true);
 
     const handleToggle = () => {
@@ -15,11 +14,11 @@ const Dashboard = () => {
                 <AsideMenu />
                 <main className="page-content bg-light">
                     <Header handleToggle={handleToggle} />
-                    <DashboardContent />
+                    <DoctorsTable />
                 </main>
             </div>
         </>
     )
 }
 
-export default Dashboard
+export default Doctors

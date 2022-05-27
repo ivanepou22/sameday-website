@@ -21,7 +21,16 @@ import {
   BlogDetails,
   ServiceDetails,
 } from './pages';
-import { Dashboard } from "./admin/pages";
+import {
+  Dashboard,
+  Patients,
+  Appointments,
+  Doctors,
+  Services,
+  PatientVisits,
+  PatientLogs,
+  Orders,
+} from "./admin/pages";
 
 function App() {
   return (
@@ -49,6 +58,13 @@ function App() {
             <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
             <Route path={SDRoutes.ServiceDetails.path} element={<ServiceDetails />} />
             <Route path={SDRoutes.Dashboard.path} element={<Dashboard />} />
+            <Route path={SDRoutes.Patients.path} element={<Patients />} />
+            <Route path={SDRoutes.Appointments.path} element={<Appointments />} />
+            <Route path={SDRoutes.Doctors.path} element={<Doctors />} />
+            <Route path={SDRoutes.Services.path} element={<Services />} />
+            <Route path={SDRoutes.PatientVisits.path} element={<PatientVisits />} />
+            <Route path={SDRoutes.PatientLogs.path} element={<PatientLogs />} />
+            <Route path={SDRoutes.Orders.path} element={<Orders />} />
           </Routes>
         </BrowserRouter>
       </h1>

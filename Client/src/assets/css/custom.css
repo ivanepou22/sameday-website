@@ -287,11 +287,33 @@ padding-top: -20px !important;
   width: 10px !important;
 }
 
+.page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul li a:before {
+  display: inline-block !important;
+  content: ' ' !important;
+  background-image: url('../images/caret-right-fill.svg') !important;
+  background-size: 6px 6px !important;
+  height: 6px !important;
+  width: 6px !important;
+}
+
+.breadcrumb .breadcrumb-item:first-child:after {
+  display: inline-block !important;
+  content: ' ' !important;
+  background-image: url('../images/chevron-right.svg') !important;
+  background-size: 10px 10px !important;
+  height: 10px !important;
+  width: 10px !important;
+}
+
 .profile-width {
   position: absolute;
   inset: 0px auto auto 0px;
   margin: 0px;
   transform: translate3d(-162px, 40px, 0px);
+}
+
+.modal-blur {
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 @media screen and (max-width: 1550px) {

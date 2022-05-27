@@ -1,7 +1,9 @@
 import React from 'react'
-import { RiHotelBedLine, RiFirstAidKitLine } from 'react-icons/ri'
+import { RiHotelBedLine, RiFirstAidKitLine, RiServiceLine } from 'react-icons/ri'
 import { HiOutlineUserGroup } from 'react-icons/hi'
-import { FaAmbulance } from 'react-icons/fa'
+import { FaAmbulance, FaRegListAlt } from 'react-icons/fa'
+import { VscGlobe } from 'react-icons/vsc'
+import { CgUserList } from 'react-icons/cg'
 
 const DashboardContent = () => {
     return (
@@ -60,8 +62,64 @@ const DashboardContent = () => {
                                         <RiFirstAidKitLine className="uil uil-medkit h3 mb-0"></RiFirstAidKitLine>
                                     </div>
                                     <div className="flex-1 ms-2">
-                                        <h5 className="mb-0">220</h5>
+                                        <h5 className="mb-0">273</h5>
                                         <p className="text-muted mb-0">Appointments</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xl-3 col-lg-4 col-md-4 mt-4">
+                            <div className="card features feature-primary rounded border-0 shadow p-4">
+                                <div className="d-flex align-items-center">
+                                    <div className="icon text-center rounded-md">
+                                        <VscGlobe className="uil uil-medkit h3 mb-0"></VscGlobe>
+                                    </div>
+                                    <div className="flex-1 ms-2">
+                                        <h5 className="mb-0">580</h5>
+                                        <p className="text-muted mb-0">Blogs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xl-3 col-lg-4 col-md-4 mt-4">
+                            <div className="card features feature-primary rounded border-0 shadow p-4">
+                                <div className="d-flex align-items-center">
+                                    <div className="icon text-center rounded-md">
+                                        <CgUserList className="uil uil-medkit h3 mb-0"></CgUserList>
+                                    </div>
+                                    <div className="flex-1 ms-2">
+                                        <h5 className="mb-0">555</h5>
+                                        <p className="text-muted mb-0">Patient Logs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xl-3 col-lg-4 col-md-4 mt-4">
+                            <div className="card features feature-primary rounded border-0 shadow p-4">
+                                <div className="d-flex align-items-center">
+                                    <div className="icon text-center rounded-md">
+                                        <RiServiceLine className="uil uil-medkit h3 mb-0"></RiServiceLine>
+                                    </div>
+                                    <div className="flex-1 ms-2">
+                                        <h5 className="mb-0">589</h5>
+                                        <p className="text-muted mb-0">Services</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xl-3 col-lg-4 col-md-4 mt-4">
+                            <div className="card features feature-primary rounded border-0 shadow p-4">
+                                <div className="d-flex align-items-center">
+                                    <div className="icon text-center rounded-md">
+                                        <FaRegListAlt className="uil uil-medkit h3 mb-0"></FaRegListAlt>
+                                    </div>
+                                    <div className="flex-1 ms-2">
+                                        <h5 className="mb-0">415</h5>
+                                        <p className="text-muted mb-0">Orders</p>
                                     </div>
                                 </div>
                             </div>
