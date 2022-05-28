@@ -36,6 +36,10 @@
     font-weight: 400;
 }
 
+.padding-bottom-20 {
+  padding-bottom: 20px !important;
+}
+
 .font-size-14 {
   font-size: 13px !important;
   letter-spacing: normal;
@@ -125,6 +129,11 @@
 
 .bg-gray {
   background-color: #EDEDED !important;
+}
+
+.padding-top-bottom-40 {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
 }
 
 .padding-0 {
@@ -276,6 +285,10 @@ padding-top: -20px !important;
 .margin-left-right-10 {
   margin-left: 10px !important;
   margin-right: 10px !important;
+}
+
+.padding-30 {
+  padding: 30px !important;
 }
 
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown>a:after {

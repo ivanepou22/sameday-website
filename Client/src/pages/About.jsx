@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react'
-import { Footer, Header, HeroSection } from '../components'
+import { AboutContent, Footer, Header, HeroSection } from '../components'
 
 const About = () => {
     const pageName = 'About Us';
@@ -12,6 +12,7 @@ const About = () => {
         <>
             <Header />
             <HeroSection pageName={pageName} pageDescription={pageDescription} companyName={companyName} showBreadcrumb={true} />
+            <AboutContent />
             <Footer />
         </>
     )

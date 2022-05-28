@@ -6,6 +6,9 @@ import Services from './Services';
 import PatientVisits from './PatientVisits';
 import PatientLogs from './PatientLogs';
 import Orders from './Orders';
+import Login from './Login';
+import Register from './Register';
+import ForgotPassword from './ForgotPassword';
 export {
     Dashboard,
     Patients,
@@ -15,4 +18,7 @@ export {
     PatientVisits,
     PatientLogs,
     Orders,
+    Login,
+    Register,
+    ForgotPassword
 }

@@ -20,6 +20,7 @@ import CartSection from './CartSection';
 import CheckoutSection from './CheckoutSection';
 import BlogDetailSection from './BlogDetailSection';
 import ServiceDetailSection from './ServiceDetailSection';
+import AboutContent from './AboutContent';
 export {
     Header,
     HeroSection,
@@ -42,5 +43,6 @@ export {
     CheckoutSection,
     BlogDetailSection,
     ServiceDetailSection,
+    AboutContent,
     Footer
 }

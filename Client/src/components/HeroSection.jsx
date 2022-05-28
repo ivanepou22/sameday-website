@@ -6,13 +6,13 @@ const HeroSection = (props) => {
     const { pageName, pageDescription, companyName, showBreadcrumb } = props;
     return (
         <>
-            <section className="bg-half-170 d-table w-100 bg-light-gray">
+            <section className="bg-half-170 d-table w-100 bg-footer">
                 <div className="bg-overlay-dark"></div>
                 <div className="container">
                     <div className="row mt-1 justify-content-center">
                         <div className="col-12">
                             <div className="section-title text-center">
-                                <h3 className="sub-title mb-1 title-dark">{pageName}</h3>
+                                <h3 className="sub-title mb-1 text-gray">{pageName}</h3>
                                 <p className="para-desc mx-auto text-gray font-size-12">{pageDescription}</p>
                                 <nav aria-label="breadcrumb" className="d-inline-block mt-1" >
                                     <ul className="breadcrumb-custom breadcrumb bg-light rounded mb-0">

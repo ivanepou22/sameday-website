@@ -30,6 +30,9 @@ import {
   PatientVisits,
   PatientLogs,
   Orders,
+  Login as AdminLogin,
+  Register as AdminRegister,
+  ForgotPassword as AdminForgotPassword,
 } from "./admin/pages";
 
 function App() {
@@ -65,6 +68,9 @@ function App() {
             <Route path={SDRoutes.PatientVisits.path} element={<PatientVisits />} />
             <Route path={SDRoutes.PatientLogs.path} element={<PatientLogs />} />
             <Route path={SDRoutes.Orders.path} element={<Orders />} />
+            <Route path={SDRoutes.adminLogin.path} element={<AdminLogin />} />
+            <Route path={SDRoutes.adminRegister.path} element={<AdminRegister />} />
+            <Route path={SDRoutes.adminForgotPassword.path} element={<AdminForgotPassword />} />
           </Routes>
         </BrowserRouter>
       </h1>

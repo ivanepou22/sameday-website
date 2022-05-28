@@ -8,7 +8,7 @@ import { AiOutlineEnvironment } from 'react-icons/ai'
 const ContactInfo = () => {
     return (
         <>
-            <div className="container">
+            <div className="container font-size-15">
                 <div className="row">
                     <div className="col-lg-4 col-md-6">
                         <div className="card features feature-primary text-center border-0">

@@ -113,7 +113,7 @@ const HomeServices = () => {
                             <div className="section-title mb-4 pb-2 text-center">
                                 <span className="badge badge-pill badge-soft-primary mb-3">Services</span>
                                 <h4 className="title mb-4">Our Core Services</h4>
-                                <p className="text-muted mx-auto para-desc mb-0">Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care</p>
+                                <p className="text-muted mx-auto para-desc mb-0">Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care.</p>
                             </div>
                         </div>
                     </div>
