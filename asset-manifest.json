@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.1a7bb0ca.css",
-    "main.js": "/static/js/main.b7f8ca5a.js",
+    "main.css": "/static/css/main.93be9b33.css",
+    "main.js": "/static/js/main.13cd18d2.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
+    "static/media/contact-removebg-preview.png": "/static/media/contact-removebg-preview.c9456c338b933e05f77d.png",
     "static/media/Combineb_pix_020-removebg-preview.png": "/static/media/Combineb_pix_020-removebg-preview.05b0d0cea00b34337dbc.png",
     "static/media/lab0020-removebg-preview.png": "/static/media/lab0020-removebg-preview.cc456357f33e0b7c854d.png",
     "static/media/rdg03-removebg-preview.png": "/static/media/rdg03-removebg-preview.59610b2ebe84a048d9a2.png",
@@ -40,11 +41,11 @@
     "index.html": "/index.html",
     "static/media/chevron-right.svg": "/static/media/chevron-right.61c607bb99397366b3b2.svg",
     "static/media/caret-right-fill.svg": "/static/media/caret-right-fill.b654783430974bfcf616.svg",
-    "main.1a7bb0ca.css.map": "/static/css/main.1a7bb0ca.css.map",
-    "main.b7f8ca5a.js.map": "/static/js/main.b7f8ca5a.js.map"
+    "main.93be9b33.css.map": "/static/css/main.93be9b33.css.map",
+    "main.13cd18d2.js.map": "/static/js/main.13cd18d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a7bb0ca.css",
-    "static/js/main.b7f8ca5a.js"
+    "static/css/main.93be9b33.css",
+    "static/js/main.13cd18d2.js"
   ]
 }
