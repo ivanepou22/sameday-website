@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4bf3894c.css",
-    "main.js": "/static/js/main.e26707fb.js",
+    "main.css": "/static/css/main.b562b6eb.css",
+    "main.js": "/static/js/main.f0c36d5c.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/doctorabout-removebg-preview.png": "/static/media/doctorabout-removebg-preview.8eb3d66dee5e2543342b.png",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
@@ -12,7 +12,6 @@
     "static/media/moodcow_wellness.png": "/static/media/moodcow_wellness.c6f5e005e91bdf045c31.png",
     "static/media/rdg03-removebg-preview.png": "/static/media/rdg03-removebg-preview.59610b2ebe84a048d9a2.png",
     "static/media/06.jpg": "/static/media/06.34b6a629bbca839f80cb.jpg",
-    "static/media/Wheel_0.png": "/static/media/Wheel_0.2954edb8e93ce48ef211.png",
     "static/media/03.jpg": "/static/media/03.b192aca452235f61b392.jpg",
     "static/media/08.jpg": "/static/media/08.ed5bff74021232fdec75.jpg",
     "static/media/07.jpg": "/static/media/07.af2ae16fee9e54598e8e.jpg",
@@ -44,11 +43,11 @@
     "index.html": "/index.html",
     "static/media/chevron-right.svg": "/static/media/chevron-right.61c607bb99397366b3b2.svg",
     "static/media/caret-right-fill.svg": "/static/media/caret-right-fill.b654783430974bfcf616.svg",
-    "main.4bf3894c.css.map": "/static/css/main.4bf3894c.css.map",
-    "main.e26707fb.js.map": "/static/js/main.e26707fb.js.map"
+    "main.b562b6eb.css.map": "/static/css/main.b562b6eb.css.map",
+    "main.f0c36d5c.js.map": "/static/js/main.f0c36d5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.4bf3894c.css",
-    "static/js/main.e26707fb.js"
+    "static/css/main.b562b6eb.css",
+    "static/js/main.f0c36d5c.js"
   ]
 }
