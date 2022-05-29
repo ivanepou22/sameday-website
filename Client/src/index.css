@@ -43,10 +43,6 @@ body {
   gap: 1rem;
 }
 
-.about-content:nth-child(2) {
-  border-left: #F46524 solid 2px;
-}
-
 .title-about {
   display: flex;
   justify-content: space-between;
@@ -60,6 +56,7 @@ body {
   font-size: 30px;
   font-weight: 700;
   font-family: poppins, sans-serif;
+  text-transform: capitalize;
   word-wrap: none;
   color: #202942;
 }
@@ -68,10 +65,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
-  width: 50px !important;
-  height: 50px !important;
-  border-radius: 50%;
+  background-color: #f1d3c5;
+  padding: 2px;
   color: #fff;
 }
 
@@ -88,6 +83,7 @@ body {
   display: flex;
   justify-content: flex-start;
   padding-left: 20px;
+  gap: 3rem;
 }
 
 .bullet-about ul {
@@ -111,7 +107,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 25px !important;
   font-weight: 700;
   color: #F46524;
   margin-right: 10px;
@@ -207,6 +203,7 @@ body {
   border-radius: 5px;
   padding: 1rem;
   margin: 1rem;
+  height: 100%;
   position: relative;
 }
 

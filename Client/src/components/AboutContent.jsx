@@ -7,6 +7,7 @@ import { BiLocationPlus, BiEnvelope } from 'react-icons/bi';
 import { SiTripadvisor } from 'react-icons/si';
 import { GiThreePointedShuriken } from 'react-icons/gi';
 import bgContact from '../assets/images/PIX/contact-removebg-preview.png';
+import ContactMap from './ContactMap';
 
 const AboutContent = () => {
     return (
@@ -18,7 +19,7 @@ const AboutContent = () => {
                             <div className="about-us">
                                 <div className="about-content">
                                     <div className="title-about">
-                                        <div className="about-us-icon">
+                                        <div className="about-us-icon1">
                                         </div>
                                         <h4>Who we Are</h4>
                                     </div>
@@ -34,15 +35,27 @@ const AboutContent = () => {
                                         of health care professionals including nurses and doctors that will evaluate
                                         the results of our patient's lab studies and give you advice accordingly.
                                     </p>
+                                    <p>
+                                        <span><BsCheck2Circle /> </span>
+                                        We stand for excellence in delivering high quality, safe, effective and
+                                        efficient medical laboratory diagnostic services. With a focus on excellence,
+                                        we employ the latest technologies in offering top notch medical diagnostic services
+                                        and medical laboratory services to the people of Uganda.
+                                    </p>
+                                    <p>
+                                        <span><BsCheck2Circle /> </span>
+                                        We perform advanced Polymerase Chain Reaction (PCR) and PCR-SARS-CoV-2 diagnostic
+                                        testing on travelers and the general public, and on behalf of government and private institutions.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6">
                             <div className="about-us">
+                                <div className="about-us-icon">
+                                </div>
                                 <div className="about-content">
                                     <div className="title-about">
-                                        <div className="about-us-icon">
-                                        </div>
                                         <h4>What We Do</h4>
                                     </div>
                                     <p>
@@ -195,7 +208,7 @@ const AboutContent = () => {
                     </div>
                 </div>
             </section>
-            <section className="section about-section font-size-15 margin-top-0 padding-top-20 bg-light-gray">
+            <section className="section about-section font-size-15 margin-top-0 padding-top-20 bg-light-gray padding-bottom-0">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-12">
@@ -253,6 +266,9 @@ const AboutContent = () => {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section className="section  font-size-15 margin-top-0 padding-top-0 padding-bottom-0 bg-light-gray">
+                <ContactMap />
             </section>
         </>
     )

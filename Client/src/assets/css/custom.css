@@ -144,6 +144,10 @@
   padding-top: 0 !important;
 }
 
+.padding-bottom-0 {
+  padding-bottom: 0 !important;
+}
+
 .margin-0 {
   margin: 0 !important;
 }
@@ -269,6 +273,13 @@
   padding-top: 20px !important;
 }
 
+.padding-bottom-0 {
+  padding-bottom: 0 !important;
+}
+
+.padding-bottom-40 {
+  padding-bottom: 40px !important;
+}
 .reg-log {
 padding-top: -20px !important;
 }

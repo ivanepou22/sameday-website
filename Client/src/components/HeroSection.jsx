@@ -12,7 +12,7 @@ const HeroSection = (props) => {
                     <div className="row mt-1 justify-content-center">
                         <div className="col-12">
                             <div className="section-title text-center">
-                                <h3 className="sub-title mb-1 text-gray">{pageName}</h3>
+                                <h3 className="sub-title mb-1 white-text">{pageName}</h3>
                                 <p className="para-desc mx-auto text-gray font-size-12">{pageDescription}</p>
                                 <nav aria-label="breadcrumb" className="d-inline-block mt-1" >
                                     <ul className="breadcrumb-custom breadcrumb bg-light rounded mb-0">

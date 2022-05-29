@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer, Header, HeroSection } from '../components';
+import { Footer, Header, HeroSection, WellnessContent, WellnessPackages } from '../components';
 
 const WellnessCenter = () => {
     return (
@@ -16,6 +16,8 @@ const WellnessCenter = () => {
                 companyName="SameDay Laboratories"
                 showBreadcrumb={true}
             />
+            <WellnessContent />
+            <WellnessPackages />
             <Footer />
         </>
     )

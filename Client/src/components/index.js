@@ -21,6 +21,8 @@ import CheckoutSection from './CheckoutSection';
 import BlogDetailSection from './BlogDetailSection';
 import ServiceDetailSection from './ServiceDetailSection';
 import AboutContent from './AboutContent';
+import WellnessContent from './WellnessContent';
+import Wellness02 from './Wellness02';
 export {
     Header,
     HeroSection,
@@ -44,5 +46,7 @@ export {
     BlogDetailSection,
     ServiceDetailSection,
     AboutContent,
+    WellnessContent,
+    Wellness02,
     Footer
 }

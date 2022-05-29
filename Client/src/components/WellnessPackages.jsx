@@ -18,13 +18,13 @@ const WellnessPackages = () => {
     console.log(setQuantity);
     return (
         <>
-            <section className="section font-size-15 padding-top-0">
+            <section className="section font-size-15 padding-top-bottom-40">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-12">
                             <div className="section-title mb-4 pb-2 text-center">
                                 <span className="badge badge-pill badge-soft-primary mb-3">Packages</span>
-                                <h4 className="title mb-4">Wellness Packages</h4>
+                                <h4 className="choose-title mb-4">Wellness Packages</h4>
                                 <p className="text-muted mx-auto para-desc mb-0">Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care.</p>
                                 <div className="mt-4">
                                     <Link to="/wellness-center" className="btn btn-orange"> Shop Now <RiArrowRightSLine /></Link>
