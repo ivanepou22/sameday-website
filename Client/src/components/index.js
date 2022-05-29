@@ -23,6 +23,8 @@ import ServiceDetailSection from './ServiceDetailSection';
 import AboutContent from './AboutContent';
 import WellnessContent from './WellnessContent';
 import Wellness02 from './Wellness02';
+import Radiology from './Radiology';
+import RadiologySection from './RadiologySection';
 export {
     Header,
     HeroSection,
@@ -48,5 +50,7 @@ export {
     AboutContent,
     WellnessContent,
     Wellness02,
+    Radiology,
+    RadiologySection,
     Footer
 }

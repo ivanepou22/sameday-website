@@ -1,7 +1,6 @@
 /* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import img1 from "../assets/images/about/Wheel_0.png";
 import bgContact from "../assets/images//about//doctorabout-removebg-preview.png";
 import { BsFlower2, BsTelephone, BsGlobe } from "react-icons/bs";
 import { FaJoomla } from "react-icons/fa";

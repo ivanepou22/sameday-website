@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react'
-import { Header, HomeServices, Footer, HeroHome, WellnessPackages, Wellness02 } from '../components';
+import { Header, HomeServices, Footer, HeroHome, WellnessPackages, Wellness02, RadiologySection } from '../components';
 
 const Home = () => {
     return (
@@ -10,6 +10,7 @@ const Home = () => {
             <HomeServices />
             <Wellness02 />
             <WellnessPackages />
+            <RadiologySection />
             <Footer />
         </>
     )

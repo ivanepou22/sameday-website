@@ -1,7 +1,9 @@
 import React from 'react'
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { AiFillCheckSquare } from 'react-icons/ai';
+import { RiArrowRightSLine } from 'react-icons/ri';
 import wellness1 from '../assets/images/new/moodcow_wellness.png';
+import { Link } from 'react-router-dom';
 
 const Wellness02 = () => {
     return (
@@ -47,6 +49,9 @@ const Wellness02 = () => {
                                             <li><span><AiFillCheckSquare /> </span> Oil & Gas OHS Health Checkup  </li>
                                             <li><span><AiFillCheckSquare /></span> Pre-Conception Checkup </li>
                                         </ul>
+                                    </div>
+                                    <div>
+                                        <Link to="/wellness-center" className="btn btn-orange">Read More <RiArrowRightSLine /></Link>
                                     </div>
                                 </div>
                             </div>

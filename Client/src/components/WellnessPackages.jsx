@@ -27,7 +27,7 @@ const WellnessPackages = () => {
                                 <h4 className="choose-title mb-4">Wellness Packages</h4>
                                 <p className="text-muted mx-auto para-desc mb-0">Sameday Laboratories and Diagnostics is a Full-Service Wellness Center, Clinic, Laboratory and Diagnostic Center focused on preventive care.</p>
                                 <div className="mt-4">
-                                    <Link to="/wellness-center" className="btn btn-orange"> Shop Now <RiArrowRightSLine /></Link>
+                                    <Link to="/shop" className="btn btn-orange"> Shop Now <RiArrowRightSLine /></Link>
                                 </div>
                             </div>
                         </div>

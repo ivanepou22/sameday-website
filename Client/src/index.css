@@ -113,10 +113,25 @@ body {
   margin-right: 10px;
 }
 
+.bullet-about-1 ul li span {
+  font-size: 15px !important;
+  font-weight: 700;
+  color: #F46524;
+  margin-right: 10px;
+}
+
 .bullet-about ul li p {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.bullet-about-1 ul li {
+  color: rgb(155, 151, 151) !important;
+}
+
+.icon-radiology {
+  color: #F46524 !important;
 }
 
 .custom-choose {

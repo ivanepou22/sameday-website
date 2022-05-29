@@ -280,6 +280,12 @@
 .padding-bottom-40 {
   padding-bottom: 40px !important;
 }
+
+.padding-top-bottom-60 {
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
 .reg-log {
 padding-top: -20px !important;
 }
