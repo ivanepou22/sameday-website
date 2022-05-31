@@ -57,7 +57,12 @@ const patientSchema = new Schema(
     },
     phone_number: {
       type: String,
-      required: true
+      required: true,
+      maxLenght: [10, 'Phone number must be 10 digits'],
+    },
+    image: {
+      type: String,
+      required: true,
     }
   },
   {

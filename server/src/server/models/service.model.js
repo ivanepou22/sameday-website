@@ -21,6 +21,15 @@ const serviceSchema = new Schema({
         type: Number,
         required: true
     },
+    category: {
+        type: String,
+        enum: ["Labaratory", "Radiology", "Wellness", "COVID"],
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    },
 }, {
     timestamps: true
 })

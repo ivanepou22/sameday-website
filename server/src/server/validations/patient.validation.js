@@ -11,6 +11,7 @@ const createPatient = {
     patient_number: Joi.string(),
     phone_number: Joi.string().required(),
     email: Joi.string().required().email(),
+    image: Joi.string().required(),
   }),
 };
 
@@ -40,6 +41,7 @@ const updatePatient = {
       gender: Joi.string().valid("Male", "Female", "Other"),
       email: Joi.string().email(),
       phone_number: Joi.string(),
+      image: Joi.string()
     })
     .min(1),
 };

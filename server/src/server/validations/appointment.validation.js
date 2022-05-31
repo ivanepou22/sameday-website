@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { objectId } from "./custom.validation.js";
+import { objectId, phoneNumber } from "./custom.validation.js";
 
 
 
@@ -9,6 +9,9 @@ const createAppointment = {
         time: Joi.string().required(),
         doctor: Joi.string().custom(objectId).required(),
         patient: Joi.string().custom(objectId).required(),
+        email: Joi.string().email().required(),
+        phone: Joi.string().custom(phoneNumber).required(),
+        department: Joi.string().required(),
     }),
 };
 
@@ -38,6 +41,9 @@ const updateAppointment = {
         time: Joi.string(),
         doctor: Joi.string().custom(objectId),
         patient: Joi.string().custom(objectId),
+        email: Joi.string().email(),
+        phone: Joi.string().custom(phoneNumber),
+        department: Joi.string(),
     }).min(1),
 };
 

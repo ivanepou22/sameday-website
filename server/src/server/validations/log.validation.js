@@ -1,58 +1,66 @@
 import Joi from "joi";
 import { objectId } from "./custom.validation.js";
 
-
 const createLog = {
-    body: {
-        userId: Joi.string().custom(objectId).required(),
-        comments: Joi.string().required(),
-    },
+  body: Joi.object().keys({
+    patientId: Joi.string().custom(objectId).required(),
+    notes: Joi.string().required(),
+    engagementType: Joi.string().required(),
+    activity: Joi.string().required(),
+    initiationDirection: Joi.string().required(),
+    engagementDate: Joi.date().required(),
+  }),
 };
 
 const updateLog = {
-    body: {
-        comments: Joi.string().required(),
-    },
-    params: {
-        logId: Joi.string().custom(objectId).required(),
-    },
+  body: Joi.object()
+    .keys({
+      patientId: Joi.string().custom(objectId).required(),
+      notes: Joi.string().required(),
+      engagementType: Joi.string().required(),
+      activity: Joi.string().required(),
+      initiationDirection: Joi.string().required(),
+      engagementDate: Joi.date().required(),
+    })
+    .min(1),
+  params: Joi.object().keys({
+    logId: Joi.string().custom(objectId).required(),
+  }),
 };
 
-
 const getLogs = {
-    query: {
-        page: Joi.number().integer().min(1).default(1),
-        limit: Joi.number().integer().min(1).max(100).default(10),
-        sortBy: Joi.string(),
-    },
+  query: Joi.object().keys({
+    page: Joi.number().integer().min(1).default(1),
+    limit: Joi.number().integer().min(1).max(100).default(10),
+    sortBy: Joi.string(),
+  }),
 };
 
 const getLog = {
-    params: {
-        logId: Joi.string().custom(objectId).required(),
-    },
+  params: Joi.object().keys({
+    logId: Joi.string().custom(objectId).required(),
+  }),
 };
 
 const deleteLog = {
-    params: {
-        logId: Joi.string().custom(objectId).required(),
-    },
+  params: Joi.object().keys({
+    logId: Joi.string().custom(objectId).required(),
+  }),
 };
 
 const getLogsByUserId = {
-    params: {
-        userId: Joi.string().custom(objectId).required(),
-    },
+  params: Joi.object().keys({
+    userId: Joi.string().custom(objectId).required(),
+  }),
 };
 
-
 const logValidation = {
-    createLog,
-    updateLog,
-    getLogs,
-    getLog,
-    deleteLog,
-    getLogsByUserId,
+  createLog,
+  updateLog,
+  getLogs,
+  getLog,
+  deleteLog,
+  getLogsByUserId,
 };
 
 export default logValidation;
