@@ -7,23 +7,27 @@ const engagementLogSchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Patient",
       required: true,
     },
-    next_visit_14_days: {
+    engagementDate: {
       type: Date,
-      default: () => {
-        return new Date(new Date().setDate(new Date().getDate() + 14));
-      },
+      required: true,
     },
-    next_visit_90_days: {
-      type: Date,
-      // default is 90 days from the time of creation
-      default: () => {
-        return new Date(new Date().setDate(new Date().getDate() + 90));
-      },
+    engagementType: {
+      type: String,
+      required: true,
+      enum: [],
     },
-    comments: {
+    activity: {
+      type: String,
+      required: true,
+    },
+    notes: {
+      type: String,
+      required: true,
+    },
+    initiationDirection: {
       type: String,
       required: true,
     },
