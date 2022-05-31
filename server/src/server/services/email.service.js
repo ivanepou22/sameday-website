@@ -37,8 +37,9 @@ const sendEmail = async (to, subject, text) => {
   const sendVerificationEmail = async (to, token) => {
     const subject = 'Email Verification';
     // replace this url with the link to the email verification page of your front-end app
-    const verificationEmailUrl = `http://localhost:5000/verify-email?token=${token}`;
+    const verificationEmailUrl = `http://localhost:5000/api/v1/auth/verify-email?token=${token}`;
     const text = `Dear user,
+  <button>Verify Email</button>
   To verify your email, click on this link: ${verificationEmailUrl}
   If you did not create an account, then ignore this email.`;
     await sendEmail(to, subject, text);

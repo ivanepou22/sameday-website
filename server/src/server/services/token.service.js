@@ -103,7 +103,7 @@ const generateResetPasswordToken = async (email) => {
 };
 
 const generateVerifyEmailToken = async (user) => {
-  const expires = moment().add(config.jwt.verifyEmailExpires, "seconds");
+  const expires = moment().add(config.jwt.verifyEmailExpirationMinutes, "seconds");
   const verifyEmailToken = generateToken(
     user.id,
     expires,
