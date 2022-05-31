@@ -16,6 +16,8 @@ const allRoles = {
     "manageServices",
     "getLogs",
     "manageLogs",
+    "getVisits",
+    "manageVisits",
   ],
 };
 
