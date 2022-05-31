@@ -10,7 +10,7 @@ const AppointmentSection = () => {
                             <div className="card border-0 shadow rounded overflow-hidden">
                                 <ul className="nav nav-pills nav-justified flex-column flex-sm-row rounded-0 shadow overflow-hidden bg-light mb-0" id="pills-tab" role="tablist">
                                     <li className="nav-item">
-                                        <a className="nav-link rounded-0 active" id="clinic-booking" data-bs-toggle="pill" href="#pills-clinic" role="tab" aria-controls="pills-clinic" aria-selected="false">
+                                        <a className="nav-link rounded-0" id="clinic-booking" data-bs-toggle="pill" href="#pills-clinic" role="tab" aria-controls="pills-clinic" aria-selected="false">
                                             <div className="text-center pt-1 pb-1">
                                                 <h4 className="title fw-normal mb-0">Book An Appointment</h4>
                                             </div>
@@ -93,7 +93,7 @@ const AppointmentSection = () => {
                                                 </div>
 
                                                 <div className="col-lg-12">
-                                                    <button type="submit" className="btn btn-primary float-right">Book An Appointment</button>
+                                                    <button type="submit" className="btn btn-orange float-right">Book An Appointment</button>
                                                 </div>
                                             </div>
                                         </form>

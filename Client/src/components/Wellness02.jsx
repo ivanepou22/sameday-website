@@ -51,7 +51,7 @@ const Wellness02 = () => {
                                         </ul>
                                     </div>
                                     <div>
-                                        <Link to="/wellness-center" className="btn btn-orange">Read More <RiArrowRightSLine /></Link>
+                                        <Link to="/wellness-center" className="link">Read More <RiArrowRightSLine /></Link>
                                     </div>
                                 </div>
                             </div>

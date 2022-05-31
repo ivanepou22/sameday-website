@@ -26,7 +26,7 @@ export const SDRoutes = {
     PatientVisits: { path: '/admin/patient-visits' },
     PatientLogs: { path: '/admin/patient-logs' },
     Orders: { path: '/admin/orders' },
-    adminLogin: { path: '/admin/login' },
+    adminLogin: { path: '/admin' },
     adminRegister: { path: '/admin/register' },
     adminForgotPassword: { path: '/admin/forgot-password' },
 }

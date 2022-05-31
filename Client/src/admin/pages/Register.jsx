@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { authSelector, register } from "../../feautures/auth/authSlice";
-import { TopIcon } from "../../components";
 import same_day_logo from "../../assets/images/Sameday-original.png";
 
 const Register = () => {
@@ -38,7 +37,6 @@ const Register = () => {
 
   return (
     <>
-      <TopIcon />
       <section className="bg-half-150 d-table w-100 bg-light bg-light-gray">
         <div className="container">
           <div className="row justify-content-center">
@@ -154,7 +152,7 @@ const Register = () => {
                           <small className="text-dark me-2">
                             Already have an account ?
                           </small>{" "}
-                          <Link to="/admin/login" className="text-dark fw-bold">
+                          <Link to="/admin" className="text-dark fw-bold">
                             Sign in
                           </Link>
                         </p>

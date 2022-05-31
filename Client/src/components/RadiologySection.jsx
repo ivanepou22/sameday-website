@@ -18,7 +18,7 @@ const RadiologySection = () => {
                                 further give a more in-depth analysis as to what is going on with the patient.
                             </p>
                             <div className="mt-4">
-                                <Link to="/radiology-services" className="btn btn-orange"> Learn More <RiArrowRightSLine /></Link>
+                                <Link to="/radiology-services" className="link"> Learn More <RiArrowRightSLine /></Link>
                             </div>
                         </div>
                     </div>

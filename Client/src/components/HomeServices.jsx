@@ -113,7 +113,7 @@ const HomeServices = () => {
                                                 </p>
                                             </li>
                                             <li>
-                                                <Link to="/about" className="btn btn-orange">Read More <RiArrowRightSLine /></Link>
+                                                <Link to="/about" className="link">Read More <RiArrowRightSLine /></Link>
                                             </li>
                                         </ul>
                                     </div>

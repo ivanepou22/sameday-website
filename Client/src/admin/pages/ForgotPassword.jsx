@@ -1,13 +1,11 @@
 /* eslint-disable */
 import React from 'react'
-import { TopIcon } from '../../components'
 import same_day_logo from '../../assets/images/Sameday-original.png'
 import { Link } from 'react-router-dom'
 
 const ForgotPassword = () => {
     return (
         <>
-            <TopIcon />
             <section className="bg-home d-flex bg-light align-items-center">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -31,7 +29,7 @@ const ForgotPassword = () => {
                                                 </div>
                                             </div>
                                             <div className="mx-auto">
-                                                <p className="mb-0 mt-3"><small className="text-dark me-2">Remember your password ?</small> <Link to="/admin/login" className="text-dark h6 mb-0">Sign in</Link></p>
+                                                <p className="mb-0 mt-3"><small className="text-dark me-2">Remember your password ?</small> <Link to="/admin" className="text-dark h6 mb-0">Sign in</Link></p>
                                             </div>
                                         </div>
                                     </form>

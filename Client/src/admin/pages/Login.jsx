@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { TopIcon } from "../../components";
 import same_day_logo from "../../assets/images/Sameday-original.png";
 import { authSelector, login } from "../../feautures/auth/authSlice";
 
@@ -35,7 +34,6 @@ const Login = () => {
 
   return (
     <>
-      <TopIcon />
       <section className="bg-home d-flex bg-light align-items-center">
         <div className="container">
           <div className="row justify-content-center">
