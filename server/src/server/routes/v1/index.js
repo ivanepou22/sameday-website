@@ -7,6 +7,7 @@ import doctorRoute from "./doctor.route.js";
 import patientRoute from "./patient.route.js";
 import serviceRoute from "./service.route.js";
 import logRoute from "./log.route.js";
+import visitRoute from "./visit.route.js";
 
 const router = express.Router();
 
@@ -66,6 +67,13 @@ const logRoutes = [
   },
 ];
 
+const visitRoutes = [
+  {
+    path: "/visits",
+    route: visitRoute,
+  },
+];
+
 defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
@@ -95,6 +103,10 @@ serviceRoutes.forEach((route) => {
 });
 
 logRoutes.forEach((route) => {
+  router.use(route.path, route.route);
+});
+
+visitRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
 
