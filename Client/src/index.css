@@ -260,6 +260,19 @@ body {
   padding-top: .2rem;
 }
 
+.choose-title-1 {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 700;
+  font-family: poppins;
+}
+
+.choose-title-2 {
+  color: #F46524;
+  font-size: 20px;
+  font-family: poppins;
+}
+
 @media screen and (max-width: 1199px) {
   .login-register {
     display: none !important;

@@ -25,6 +25,7 @@ import WellnessContent from './WellnessContent';
 import Wellness02 from './Wellness02';
 import Radiology from './Radiology';
 import RadiologySection from './RadiologySection';
+import LabSection from './LabSection';
 export {
     Header,
     HeroSection,
@@ -52,5 +53,6 @@ export {
     Wellness02,
     Radiology,
     RadiologySection,
+    LabSection,
     Footer
 }

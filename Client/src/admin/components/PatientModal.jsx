@@ -19,7 +19,7 @@ const PatientModal = (props) => {
                         <div className="modal-body p-3 pt-4">
                             <form>
                                 <div className="row">
-                                    <div className="col-lg-12">
+                                    <div className="col-lg-6 col-md-6">
                                         <div className="mb-3">
                                             <label className="form-label">Patient Number <span className="text-danger">*</span></label>
                                             <input name="pNumber" id="pNumber" type="text" className="form-control" placeholder="Patient Number :" />
@@ -66,7 +66,12 @@ const PatientModal = (props) => {
                                             <input name="phone" id="phone" type="tel" className="form-control" placeholder="Your Phone :" />
                                         </div>
                                     </div>
-
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">Image <span className="text-danger">*</span></label>
+                                            <input name="image" id="image" type="file" className="form-control" placeholder="Your Image :" />
+                                        </div>
+                                    </div>
                                     <div className="col-lg-12">
                                         <div className="mb-3">
                                             <label className="form-label">Address <span className="text-danger">*</span></label>

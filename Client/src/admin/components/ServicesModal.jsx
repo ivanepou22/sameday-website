@@ -19,10 +19,16 @@ const ServicesModal = (props) => {
                         <div className="modal-body p-3 pt-4">
                             <form>
                                 <div className="row">
-                                    <div className="col-lg-12">
+                                    <div className="col-lg-6 col-md-6">
                                         <div className="mb-3">
                                             <label className="form-label">Name <span className="text-danger">*</span></label>
                                             <input name="sName" id="sName" type="text" className="form-control" placeholder="Service Name :" />
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">Image <span className="text-danger">*</span></label>
+                                            <input name="image" id="image" type="file" className="form-control" placeholder="Image :" />
                                         </div>
                                     </div>
                                     <div className="col-lg-12">

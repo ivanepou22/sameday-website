@@ -19,7 +19,7 @@ const DoctorsModal = (props) => {
                         <div className="modal-body p-3 pt-4">
                             <form>
                                 <div className="row">
-                                    <div className="col-lg-6 col-md-6">
+                                    <div className="col-lg-12 col-md-6">
                                         <div className="mb-3">
                                             <label className="form-label">Full Name <span className="text-danger">*</span></label>
                                             <input name="f_name" id="f_name" type="text" className="form-control" placeholder="Your Full Name :" />
@@ -31,7 +31,12 @@ const DoctorsModal = (props) => {
                                             <input name="email" id="email" type="email" className="form-control" placeholder="Your email :" />
                                         </div>
                                     </div>
-
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">Image <span className="text-danger">*</span></label>
+                                            <input name="image" id="image" type="file" className="form-control" />
+                                        </div>
+                                    </div>
                                     <div className="col-lg-6 col-md-6">
                                         <div className="mb-3">
                                             <label className="form-label">Your Phone <span className="text-danger">*</span></label>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer, Header, HeroSection } from '../components'
+import { Footer, Header, HeroSection, LabSection } from '../components'
 
 const LaboratoryServices = () => {
     return (
@@ -15,6 +15,7 @@ const LaboratoryServices = () => {
                 companyName="SameDay Laboratories"
                 showBreadcrumb={true}
             />
+            <LabSection />
             <Footer />
         </>
     )

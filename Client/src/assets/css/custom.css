@@ -286,6 +286,10 @@
   padding-bottom: 60px !important;
 }
 
+.margin-bottom-1rem {
+  margin-bottom: 2rem !important;
+}
+
 .reg-log {
 padding-top: -20px !important;
 }
@@ -315,6 +319,10 @@ padding-top: -20px !important;
   background-size: 10px 10px !important;
   height: 10px !important;
   width: 10px !important;
+}
+
+.bg-lighter {
+  background-color: #F3F3F5;
 }
 
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul li a:before {
