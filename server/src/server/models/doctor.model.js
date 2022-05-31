@@ -30,9 +30,8 @@ const doctorSchema = new Schema(
       trim: true,
     },
     specialities: {
-      type: String,
+      type: Array,
       required: true,
-      trim: true,
     },
   },
   { timestamps: true }
