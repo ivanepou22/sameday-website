@@ -1,29 +1,56 @@
 import mongoose from "mongoose";
-import { toJson, paginate } from "./plugins/index.js"
+import validator from "validator";
+import { toJson, paginate } from "./plugins/index.js";
 
 const { Schema } = mongoose;
 
-const AppointmentSchema = new Schema({
+const AppointmentSchema = new Schema(
+  {
     date: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
     time: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     doctor: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Doctor",
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Doctor",
+      required: true,
     },
     patient: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Patient",
-        required: true
-    }
-}
-    , { timestamps: true }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Patient",
+      required: true,
+    },
+    comment: {
+      type: String,
+      required: false,
+    },
+    phone: {
+      type: String,
+      required: true,
+      minlength: [10, "Phone number must be at least 10 characters long"],
+    },
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+      trim: true,
+      validate(value) {
+        if (!validator.isEmail(value)) {
+          throw new Error("Invalid email");
+        }
+      },
+    },
+    department: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+  },
+  { timestamps: true }
 );
 
 AppointmentSchema.index({ date: 1, time: 1 });
