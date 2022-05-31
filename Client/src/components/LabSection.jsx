@@ -41,7 +41,7 @@ const LabSection = () => {
                                         <ul>
                                             <div className="dropdown-divider border-top"></div>
                                             <li>
-                                                <p>
+                                                <p className='text-muted'>
                                                     We offer a comprehensive and holistic approach to wellness care - we will work closely with your Health
                                                     care provider and insurance companies to ensure that all of your needs are attended to. We do this while at
                                                     the same time providing world class service , results that are of highest quality and accuracy at a very
@@ -67,7 +67,7 @@ const LabSection = () => {
                                         <ul>
                                             <div className="dropdown-divider border-top"></div>
                                             <li>
-                                                <p>
+                                                <p className='text-muted'>
                                                     Sameday Laboratories and Diagnostics is using cutting
                                                     edge technology to release accurate and reliable test
                                                     results to our clients faster so they can make critical
@@ -94,7 +94,7 @@ const LabSection = () => {
                                         <ul>
                                             <div className="dropdown-divider border-top"></div>
                                             <li>
-                                                <p>
+                                                <p className='text-muted'>
                                                     UTD and SUD testing help clients make decisions for patient
                                                     pain management care. Accurate results are necessary for
                                                     Doctors to adjust medication and identify necessary changes
@@ -121,7 +121,7 @@ const LabSection = () => {
                                         <ul>
                                             <div className="dropdown-divider border-top"></div>
                                             <li>
-                                                <p>
+                                                <p className='text-muted'>
                                                     Testing samples can only happen after we receive them,
                                                     and our courier service can get your collected samples
                                                     from your facility to our lab daily, or on-demand when
@@ -148,7 +148,7 @@ const LabSection = () => {
                                         <ul>
                                             <div className="dropdown-divider border-top"></div>
                                             <li>
-                                                <p>
+                                                <p className='text-muted'>
                                                     With our CGx and PGx testing we can elevate your
                                                     diagnostic capabilities for patient care. From cancer
                                                     screening to identifying pharmaceutical interactions with a
