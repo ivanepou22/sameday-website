@@ -3,6 +3,7 @@ import authReducer from "./feautures/auth/authSlice";
 import ordersReducer from "./feautures/orders/ordersSlice";
 import patientsReducer from "./feautures/patients/patientSlice";
 import cartReducer from "./feautures/cart/cartSlice";
+import appointmentReducer from "./feautures/appointment/appointmentSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     orders: ordersReducer,
     patient: patientsReducer,
     cart: cartReducer,
+    appointment: appointmentReducer,
   },
 });
 

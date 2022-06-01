@@ -6,10 +6,10 @@ const login = async (payload) => {
   if (!data.tokens) {
     throw new Error(data.message);
   }
-  localStorage.setItem("access_token", data.tokens.access.token);
-  localStorage.setItem("refresh_token", data.tokens.refresh.token);
+  localStorage.setItem("access_token", JSON.stringify(data.tokens.access))
+  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh))
   localStorage.setItem("user", JSON.stringify(data.user));
-  return data;
+  return data.user;
 };
 
 const register = async (payload) => {
@@ -18,8 +18,8 @@ const register = async (payload) => {
   if (!data.tokens) {
     throw new Error(data.message);
   }
-  localStorage.setItem("access_token", data.tokens.access.token);
-  localStorage.setItem("refresh_token", data.tokens.refresh.token);
+  localStorage.setItem("access_token", JSON.stringify(data.tokens.access))
+  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh))
   localStorage.setItem("user", JSON.stringify(data.user));
   return data;
 };
