@@ -3,6 +3,9 @@ import API from "../api";
 const createAppointment = async (appointment) => {
   const response = await API.post("/appointments", appointment);
   const data = await response.json();
+  if (data.code) {
+    throw new Error(data.message);
+  }
   return data;
 };
 
