@@ -58,11 +58,6 @@ const Register = () => {
               <div className="card login-page bg-white shadow mt-4 rounded border-0">
                 <div className="card-body">
                   <h4 className="text-center">Sign Up</h4>
-                  {isError && (
-                    <div className="alert alert-danger" role="alert">
-                      {errorMessage}
-                    </div>
-                  )}
                   <form
                     onSubmit={handleSubmit}
                     className="login-form mt-4 font-size-15"
