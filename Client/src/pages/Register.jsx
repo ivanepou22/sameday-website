@@ -26,7 +26,14 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(register(formData));
+    const name = formData.first_name + " " + formData.last_name;
+    dispatch(
+      register({
+        email: formData.email,
+        password: formData.password,
+        name,
+      })
+    );
   };
 
   useEffect(() => {
