@@ -23,7 +23,7 @@ const serviceSchema = new Schema({
     },
     category: {
         type: String,
-        enum: ["Labaratory", "Radiology", "Wellness", "COVID"],
+        enum: ["Laboratory", "Radiology", "Wellness", "COVID"],
         required: true
     },
     image: {
