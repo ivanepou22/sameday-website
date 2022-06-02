@@ -354,6 +354,10 @@ padding-top: -20px !important;
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
+.bg-light-yellow {
+  background-color: #FCFAF2 !important;
+}
+
 @media screen and (max-width: 1550px) {
   .height-70vh {
     height: 85vh !important;
