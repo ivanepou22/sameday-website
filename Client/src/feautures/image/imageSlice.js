@@ -36,8 +36,8 @@ export const UploadImage = createAsyncThunk(
   "image/uploadImage",
   async (file, { rejectWithValue }) => {
     try {
-      const imageUrl = await uploadImage(file);
-      return imageUrl;
+      const { secure_url } = await uploadImage(file);
+      return secure_url;
     } catch (error) {
       return rejectWithValue(error);
     }

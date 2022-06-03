@@ -27,19 +27,19 @@ const DoctorsModal = (props) => {
     }));
   };
 
-  const handleImageChange = () => {
+  const handleImageChange = (e) => {
     const data = new FormData();
-    data.append("file", formData.image);
-    data.append("upload_preset", "samedayworkslab_images");
+    data.append("file", e.target.files[0]);
+    data.append("upload_preset", "ggikucjk");
     dispatch(UploadImage(data));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleImageChange();
+    
     if (imageUrl) {
       console.log(imageUrl);
-      // dispatch(createDoctor({ ...formData, image: imageUrl }));
+      dispatch(createDoctor({ ...formData, image: imageUrl }));
     }
   };
 
@@ -127,7 +127,7 @@ const DoctorsModal = (props) => {
                         accept="image/*"
                         className="form-control"
                         placeholder="Your image :"
-                        onChange={handleChange}
+                        onChange={handleImageChange}
                         value={formData.image}
                       />
                     </div>
