@@ -28,7 +28,7 @@ export const appointmentSlice = createSlice({
       state.errorMessage = "";
     });
     builder.addCase(fetchAppointments.fulfilled, (state, action) => {
-      state.appointments = action.payload;
+      state.appointments = action.payload.results;
       state.isLoading = false;
       state.isError = false;
       state.errorMessage = "";

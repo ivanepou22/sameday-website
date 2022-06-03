@@ -15,6 +15,12 @@ export const imageSlice = createSlice({
     setImageUrl: (state, action) => {
       state.imageUrl = action.payload;
     },
+    reset: (state) => {
+      state.imageUrl = null;
+      state.imageLoading = false;
+      state.imageError = null;
+      state.isError = false;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(UploadImage.pending, (state) => {

@@ -52,7 +52,7 @@ const DoctorsTable = () => {
               </Link>
             </div>
           </div>
-          <DocTable />
+          <DocTable isLoading={isLoading} doctors={doctors} />
           <div className="row text-center">
             <div className="col-12 mt-4">
               <div className="d-md-flex align-items-center text-center justify-content-between">

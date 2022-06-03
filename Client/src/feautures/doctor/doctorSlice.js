@@ -51,7 +51,7 @@ export const doctorSlice = createSlice({
     });
     builder.addCase(getDoctors.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.doctors = action.payload;
+      state.doctors = action.payload.results;
     });
     builder.addCase(getDoctors.rejected, (state, action) => {
       state.isLoading = false;

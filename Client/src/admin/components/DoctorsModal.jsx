@@ -9,7 +9,7 @@ import { imageSelector, UploadImage } from "../../feautures/image/imageSlice";
 
 const DoctorsModal = (props) => {
   const dispatch = useDispatch();
-  const { isLoading, isError, errorMessage } = useSelector(doctorSelector);
+  const { isLoading, isError, errorMessage, doctor } = useSelector(doctorSelector);
   const { imageUrl } = useSelector(imageSelector);
   const { show, setShowModal } = props;
   const [formData, setFormData] = useState({
@@ -27,6 +27,7 @@ const DoctorsModal = (props) => {
     }));
   };
 
+
   const handleImageChange = (e) => {
     const data = new FormData();
     data.append("file", e.target.files[0]);
@@ -36,10 +37,14 @@ const DoctorsModal = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (imageUrl) {
-      console.log(imageUrl);
-      dispatch(createDoctor({ ...formData, image: imageUrl }));
+      dispatch(createDoctor({ 
+        full_name: formData.name[0],
+        email: formData.email[0],
+        phone_number: formData.phone[0],
+        specialities: formData.specialities,
+        image: imageUrl,
+       }));
     }
   };
 
@@ -81,6 +86,7 @@ const DoctorsModal = (props) => {
               ></button>
             </div>
             <div className="modal-body p-3 pt-4">
+              {isError && <div className="alert alert-danger">{errorMessage}</div>}
               <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="row">
                   <div className="col-lg-12 col-md-6">
@@ -152,7 +158,11 @@ const DoctorsModal = (props) => {
                   <div className="col-lg-6 col-md-6">
                     <div className="mb-3">
                       <label className="form-label">Specialties</label>
-                      <select className="form-control doctor-name select2input">
+                      <select 
+                      name="specialities"
+                      value={formData.specialities}
+                      onChange={handleChange}
+                      className="form-control doctor-name select2input">
                         <option defaultValue="">Select Specialty</option>
                         <option defaultValue="CA">General Doctor</option>
                         <option defaultValue="CR">Pediatrician</option>
