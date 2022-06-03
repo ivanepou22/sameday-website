@@ -9,6 +9,7 @@ import { patientService } from "./patient.service.js";
 import { serviceService } from "./service.service.js";
 import { logService } from "./log.service.js";
 import { visitService } from "./visit.service.js";
+import { imageService } from "./image.service.js";
 
 export {
   authService,
@@ -21,5 +22,6 @@ export {
   patientService,
   serviceService,
   logService,
-  visitService
+  visitService,
+  imageService,
 };

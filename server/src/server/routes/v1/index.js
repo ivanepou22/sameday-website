@@ -8,6 +8,7 @@ import patientRoute from "./patient.route.js";
 import serviceRoute from "./service.route.js";
 import logRoute from "./log.route.js";
 import visitRoute from "./visit.route.js";
+import imageRoute from "./upload.route.js";
 
 const router = express.Router();
 
@@ -74,6 +75,13 @@ const visitRoutes = [
   },
 ];
 
+const imageRoutes = [
+  {
+    path: "/images",
+    route: imageRoute,
+  },
+];
+
 defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
@@ -107,6 +115,10 @@ logRoutes.forEach((route) => {
 });
 
 visitRoutes.forEach((route) => {
+  router.use(route.path, route.route);
+});
+
+imageRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
 
