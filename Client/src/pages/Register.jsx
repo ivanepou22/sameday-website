@@ -138,7 +138,7 @@ const Register = () => {
                             />
                             <label
                               className="form-check-label"
-                              for="accept-tnc-check"
+                              htmlFor="accept-tnc-check"
                             >
                               I Accept{" "}
                               <Link to="#/" className="text-primary">

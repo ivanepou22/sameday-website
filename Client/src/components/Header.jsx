@@ -1,9 +1,11 @@
 /* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { authSelector } from '../feautures/auth/authSlice'
+import Avatar from 'react-avatar';
 // icons
 import { RiSearchLine } from 'react-icons/ri'
-// import { BiCog } from 'react-icons/bi'
 import { GrDashboard } from 'react-icons/gr'
 import { FiSettings } from 'react-icons/fi'
 import { AiOutlineLogout } from 'react-icons/ai'
@@ -12,7 +14,6 @@ import { HiOutlineShoppingBag } from 'react-icons/hi'
 import { SiGnuprivacyguard } from 'react-icons/si'
 // Logo
 import same_day_logo from '../assets/images/Sameday-original.png'
-import doc11 from '../assets/images/doctors/01.jpg';
 import doc1 from "../assets/images/client/09.jpg";
 // styles
 import '../assets/css/custom.css'
@@ -26,12 +27,9 @@ const Header = () => {
     const [showMobileMenu, setShowMobileMenu] = React.useState(false);
     const [openSubMenu, setOpenSubMenu] = React.useState(false);
     const [showAboutSubmenu, setShowAboutSubmenu] = React.useState(false);
-    const [user, setUser] = React.useState({
-        name: 'John Doe',
-        email: 'johndoe@gmail.com',
-        avatar: doc1,
-        role: 'Doctor',
-    });
+
+    const { user } = useSelector(authSelector);
+
 
     const [cart, setCart] = React.useState([
         {
@@ -123,15 +121,15 @@ const Header = () => {
                         </li>
 
                         {
-                            user.email ? (
+                            user ? (
                                 <li className="list-inline-item mb-0 ms-1">
                                     <div className="dropdown dropdown-primary">
-                                        <button type="button" className={`btn btn-pills dropdown-toggle p-0 border-orange ${showProfile ? 'show' : ''}`} onClick={handleShowProfile} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={showProfile}>
-                                            <img src={doc1} className="avatar avatar-ex-small rounded-circle" alt="" />
+                                        <button type="button" className={`btn btn-pills dropdown-toggle p-0  ${showProfile ? 'show' : ''}`} onClick={handleShowProfile} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={showProfile}>
+                                            <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="40" round={true} color={['#F46524']} />
                                         </button>
                                         <div className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${showProfile ? 'show profile-drop' : ''}`} style={{ minWidth: "200px" }}>
                                             <Link className="dropdown-item d-flex align-items-center text-dark" to="#/">
-                                                <img src={doc1} className="avatar avatar-md-sm rounded-circle border shadow" alt="" />
+                                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="40" round={true} color={['#F46524']} />
                                                 <div className="flex-1 ms-2">
                                                     <span className="d-block mb-1" onClick={() => setShowProfile(false)}>{user.name}</span>
                                                     <small className="text-muted" onClick={() => setShowProfile(false)}>{user.email}</small>
