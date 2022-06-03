@@ -6,8 +6,8 @@ import { AiOutlineDashboard, AiOutlineCalendar } from "react-icons/ai";
 import { BsListTask, BsArrowDownCircle } from 'react-icons/bs'
 import { RiFileUserLine } from 'react-icons/ri'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
-import img1 from "../assets/images/client/09.jpg";
 import { authSelector } from '../feautures/auth/authSlice';
+import Avatar from 'react-avatar';
 
 
 const DashboardSection = () => {
@@ -97,7 +97,7 @@ const DashboardSection = () => {
                     <div className="row">
                         <div className="col">
                             <div className="d-flex align-items-center">
-                                <img src={img1} className="avatar avatar-md-md rounded-circle" alt="" />
+                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="70" round={true} color={['#F46524']} />
                                 <div className="ms-3">
                                     <h6 className="text-muted mb-0">Hello,</h6>
                                     <h5 className="mb-0">{user.name}</h5>
