@@ -1,5 +1,5 @@
 const { fetch: originalFetch } = window;
-const API_URL = process.env.REACT_APP_API_URL
+const API_URL = process.env.REACT_APP_API_URL;
 const access_token = JSON.parse(localStorage.getItem("access_token"));
 const expired = () => {
   const expires = access_token.expire;
@@ -16,8 +16,8 @@ const refreshToken = async () => {
       "Content-Type": "application/json",
     },
     body: {
-      refreshToken: refresh_token.token
-    }
+      refreshToken: refresh_token.token,
+    },
   });
   const { access: newAccessToken, refresh: newRefreshToken } = await res.json();
   localStorage.setItem("access_token", JSON.stringify({ newAccessToken }));
@@ -102,6 +102,16 @@ class API {
       },
       body: JSON.stringify(data),
     });
+  }
+
+  static uploadImage(formData) {
+    return fetch(
+      `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
   }
 }
 

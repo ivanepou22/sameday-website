@@ -1,11 +1,16 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { doctorSelector } from "../../feautures/doctor/doctorSlice";
+import {
+  doctorSelector,
+  createDoctor,
+} from "../../feautures/doctor/doctorSlice";
+import { imageSelector, UploadImage } from "../../feautures/image/imageSlice";
 
 const DoctorsModal = (props) => {
   const dispatch = useDispatch();
   const { isLoading, isError, errorMessage } = useSelector(doctorSelector);
+  const { imageUrl } = useSelector(imageSelector);
   const { show, setShowModal } = props;
   const [formData, setFormData] = useState({
     name: "",
@@ -22,9 +27,20 @@ const DoctorsModal = (props) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleImageChange = () => {
+    const data = new FormData();
+    data.append("file", formData.image);
+    data.append("upload_preset", "samedayworkslab_images");
+    dispatch(UploadImage(data));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    handleImageChange();
+    if (imageUrl) {
+      console.log(imageUrl);
+      // dispatch(createDoctor({ ...formData, image: imageUrl }));
+    }
   };
 
   const handleClose = () => {
@@ -108,6 +124,7 @@ const DoctorsModal = (props) => {
                         name="image"
                         id="image"
                         type="file"
+                        accept="image/*"
                         className="form-control"
                         placeholder="Your image :"
                         onChange={handleChange}
@@ -146,7 +163,7 @@ const DoctorsModal = (props) => {
                   <div className="col-lg-12">
                     <div className="float-right">
                       <button type="submit" className="btn btn-primary">
-                        { isLoading ? "Loading..." : "Add Doctor" }
+                        {isLoading ? "Loading..." : "Add Doctor"}
                       </button>
                     </div>
                   </div>
