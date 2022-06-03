@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.8494cd2b.css",
-    "main.js": "/static/js/main.3e926064.js",
+    "main.js": "/static/js/main.abbeb54e.js",
     "static/media/AlarmingUnselfishKangaroo-size_restricted.gif": "/static/media/AlarmingUnselfishKangaroo-size_restricted.e99f2504e14408a444f1.gif",
     "static/media/doctorabout-removebg-preview.png": "/static/media/doctorabout-removebg-preview.8eb3d66dee5e2543342b.png",
     "static/media/wellness005-removebg-preview.png": "/static/media/wellness005-removebg-preview.1538e36d3bbd76a7b810.png",
@@ -49,10 +49,10 @@
     "static/media/chevron-right.svg": "/static/media/chevron-right.61c607bb99397366b3b2.svg",
     "static/media/caret-right-fill.svg": "/static/media/caret-right-fill.b654783430974bfcf616.svg",
     "main.8494cd2b.css.map": "/static/css/main.8494cd2b.css.map",
-    "main.3e926064.js.map": "/static/js/main.3e926064.js.map"
+    "main.abbeb54e.js.map": "/static/js/main.abbeb54e.js.map"
   },
   "entrypoints": [
     "static/css/main.8494cd2b.css",
-    "static/js/main.3e926064.js"
+    "static/js/main.abbeb54e.js"
   ]
 }
