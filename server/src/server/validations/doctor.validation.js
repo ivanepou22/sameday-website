@@ -3,17 +3,17 @@ import { objectId, phoneNumber } from "./custom.validation.js";
 
 const createDoctor = {
   body: Joi.object().keys({
-    name: Joi.string().required(),
+    full_name: Joi.string().required(),
     email: Joi.string().email().required(),
     specialities: Joi.array().required(),
-    phone_number: Joi.string().custom(phoneNumber).required(),
+    phone_number: Joi.string().required(),
     image: Joi.string().required(),
   }),
 };
 
 const queryDoctors = {
   query: Joi.object().keys({
-    name: Joi.string(),
+    full_name: Joi.string(),
     specialities: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
@@ -33,10 +33,10 @@ const updateDoctor = {
   }),
   body: Joi.object()
     .keys({
-      name: Joi.string(),
+      full_name: Joi.string(),
       email: Joi.string().email(),
       specialities: Joi.string(),
-      phone_number: Joi.string().custom(phoneNumber),
+      phone_number: Joi.string(),
       image: Joi.string(),
     })
     .min(1),

@@ -33,6 +33,11 @@ const doctorSchema = new Schema(
       type: Array,
       required: true,
     },
+    image: {
+      type: String,
+      required: true,
+      trim: true,
+    }
   },
   { timestamps: true }
 );
