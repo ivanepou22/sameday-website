@@ -10,8 +10,9 @@ const createAppointment = {
         doctor: Joi.string().custom(objectId).required(),
         patient: Joi.string().custom(objectId).required(),
         email: Joi.string().email().required(),
-        phone: Joi.string().custom(phoneNumber).required(),
+        phone: Joi.string().required(),
         department: Joi.string().required(),
+        comment: Joi.string().required()
     }),
 };
 

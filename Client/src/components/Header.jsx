@@ -57,7 +57,6 @@ const Header = () => {
         },
     ]);
 
-    console.log(setUser, setCart);
     const handleCanvas = () => {
         setShowSearchModal(!showSearchModal);
     }
@@ -67,7 +66,6 @@ const Header = () => {
     const handleShowSettings = () => {
         setShowSettings(!showSettings);
     }
-    console.log(handleShowSettings);
     const handleShowMobileMenu = () => {
         setShowMobileMenu(!showMobileMenu);
     }
