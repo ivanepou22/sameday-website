@@ -15,7 +15,7 @@ import { RiArrowRightSLine } from 'react-icons/ri';
 
 const WellnessPackages = () => {
     const [quantity, setQuantity] = React.useState(1);
-    console.log(setQuantity);
+    
     return (
         <>
             <section className="section font-size-15 padding-top-bottom-40">
