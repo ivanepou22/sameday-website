@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { FiUser } from 'react-icons/fi'
 import { AiOutlineDashboard, AiOutlineCalendar } from "react-icons/ai";
@@ -6,8 +7,11 @@ import { BsListTask, BsArrowDownCircle } from 'react-icons/bs'
 import { RiFileUserLine } from 'react-icons/ri'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import img1 from "../assets/images/client/09.jpg";
+import { authSelector } from '../feautures/auth/authSlice';
+
 
 const DashboardSection = () => {
+    const { user } = useSelector(authSelector)
     const [dashboard, setDashboard] = React.useState(true);
     const [showOrders, setShowOrders] = React.useState(false);
     const [showAppointments, setShowAppointments] = React.useState(false);
@@ -96,7 +100,7 @@ const DashboardSection = () => {
                                 <img src={img1} className="avatar avatar-md-md rounded-circle" alt="" />
                                 <div className="ms-3">
                                     <h6 className="text-muted mb-0">Hello,</h6>
-                                    <h5 className="mb-0">Mrs. Christopher</h5>
+                                    <h5 className="mb-0">{user.name}</h5>
                                 </div>
                             </div>
                         </div>
@@ -164,9 +168,9 @@ const DashboardSection = () => {
                         <div className="col-md-8 col-12 mt-4 pt-2">
                             <div className="tab-content" id="pills-tabContent">
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${dashboard ? 'active show' : ''}`} id="dash" role="tabpanel" aria-labelledby="dashboard">
-                                    <p className="text-muted">Hello <span className="text-dark">christopher</span> (not <span className="text-dark fw-bold">christopher</span>? <Link to="#" className="text-danger fw-bold">Log out</Link>)</p>
+                                    <p className="text-muted">Hello <span className="text-dark">{user.name}</span> (not <span className="text-dark fw-bold">{user.name}</span>? <Link to="#" className="text-danger fw-bold">Log out</Link>)</p>
 
-                                    <p className="text-muted mb-0">From your account dashboard you can view your <Link to="#" className="text-danger fw-bold">recent orders</Link>, manage your <Link to="#" className="text-danger fw-bold">shipping and billing addresses</Link>, and <Link to="#" className="text-danger fw-bold">edit your password and account details</Link>.</p>
+                                    <p className="text-muted mb-0">From your account dashboard you can view your <Link to="#orders" className="text-danger fw-bold">recent orders</Link>, manage your <Link to="#" className="text-danger fw-bold">shipping and billing addresses</Link>, and <Link to="#" className="text-danger fw-bold">edit your password and account details</Link>.</p>
                                 </div>
 
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${showOrders ? 'active show' : ''}`} id="orders" role="tabpanel" aria-labelledby="order-history">
@@ -356,25 +360,25 @@ const DashboardSection = () => {
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">First Name</label>
-                                                    <input name="name" id="first-name" type="text" className="form-control" defaultValue="Cally" />
+                                                    <input name="name" id="first-name" type="text" className="form-control" defaultValue={user.name.split(" ")[0]} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Last Name</label>
-                                                    <input name="name" id="last-name" type="text" className="form-control" defaultValue="Joseph" />
+                                                    <input name="name" id="last-name" type="text" className="form-control" defaultValue={user.name.split(" ")[1]} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Your Email</label>
-                                                    <input name="email" id="email" type="email" className="form-control" defaultValue="callyjoseph@gmail.com" />
+                                                    <input name="email" id="email" type="email" className="form-control" defaultValue={user.email} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Display Name</label>
-                                                    <input name="name" id="display-name" type="text" className="form-control" defaultValue="christopher" />
+                                                    <input name="name" id="display-name" type="text" className="form-control" defaultValue={user.name} />
                                                 </div>
                                             </div>
 
