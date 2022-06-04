@@ -1,22 +1,25 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { FiUser } from 'react-icons/fi'
 import { AiOutlineDashboard, AiOutlineCalendar } from "react-icons/ai";
-import { BsListTask, BsArrowDownCircle } from 'react-icons/bs'
+import { BsListTask } from 'react-icons/bs'
 import { RiFileUserLine } from 'react-icons/ri'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { authSelector } from '../feautures/auth/authSlice';
 import Avatar from 'react-avatar';
+import { appointmentSelector, fetchAppointments } from '../feautures/appointment/appointmentSlice';
+import moment from 'moment';
 
 
 const DashboardSection = () => {
+    const dispatch = useDispatch();
     const { user } = useSelector(authSelector)
+    const { appointments } = useSelector(appointmentSelector)
     const [dashboard, setDashboard] = React.useState(true);
     const [showOrders, setShowOrders] = React.useState(false);
     const [showAppointments, setShowAppointments] = React.useState(false);
     const [showVisits, setShowVisits] = React.useState(false);
-    const [showDownloads, setShowDownloads] = React.useState(false);
     const [showAddress, setShowAddress] = React.useState(false);
     const [showProfile, setShowProfile] = React.useState(false);
 
@@ -25,7 +28,6 @@ const DashboardSection = () => {
         setShowOrders(false);
         setShowAppointments(false);
         setShowVisits(false);
-        setShowDownloads(false);
         setShowAddress(false);
         setShowProfile(false);
     }
@@ -35,7 +37,6 @@ const DashboardSection = () => {
         setShowOrders(true);
         setShowAppointments(false);
         setShowVisits(false);
-        setShowDownloads(false);
         setShowAddress(false);
         setShowProfile(false);
     }
@@ -45,7 +46,6 @@ const DashboardSection = () => {
         setShowOrders(false);
         setShowAppointments(true);
         setShowVisits(false);
-        setShowDownloads(false);
         setShowAddress(false);
         setShowProfile(false);
     }
@@ -55,17 +55,6 @@ const DashboardSection = () => {
         setShowOrders(false);
         setShowAppointments(false);
         setShowVisits(true);
-        setShowDownloads(false);
-        setShowAddress(false);
-        setShowProfile(false);
-    }
-
-    const handleDownloads = () => {
-        setDashboard(false);
-        setShowOrders(false);
-        setShowAppointments(false);
-        setShowVisits(false);
-        setShowDownloads(true);
         setShowAddress(false);
         setShowProfile(false);
     }
@@ -75,7 +64,6 @@ const DashboardSection = () => {
         setShowOrders(false);
         setShowAppointments(false);
         setShowVisits(false);
-        setShowDownloads(false);
         setShowAddress(true);
         setShowProfile(false);
     }
@@ -85,10 +73,16 @@ const DashboardSection = () => {
         setShowOrders(false);
         setShowAppointments(false);
         setShowVisits(false);
-        setShowDownloads(false);
         setShowAddress(false);
         setShowProfile(true);
     }
+
+    useEffect(() => {
+        dispatch(fetchAppointments())
+    }, [dispatch])
+
+    //filter appointments by patient
+    const filteredAppointments = appointments?.filter(appointment => appointment.patient === user.id);
 
     return (
         <>
@@ -97,7 +91,7 @@ const DashboardSection = () => {
                     <div className="row">
                         <div className="col">
                             <div className="d-flex align-items-center">
-                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="70" round={true} color={['#F46524']} />
+                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="70" round={true} color={'#F46524'} />
                                 <div className="ms-3">
                                     <h6 className="text-muted mb-0">Hello,</h6>
                                     <h5 className="mb-0">{user.name}</h5>
@@ -140,14 +134,6 @@ const DashboardSection = () => {
                                 </li>
 
                                 <li className="nav-item mt-2">
-                                    <Link to={'#downloads'} onClick={handleDownloads} className={`nav-link rounded ${showDownloads ? 'active' : ''}`} id="download" data-bs-toggle="pill" href="#down" role="tab" aria-controls="down" aria-selected="false">
-                                        <div className="text-start py-1 px-3">
-                                            <h6 className="mb-0"><BsArrowDownCircle className="uil uil-arrow-circle-down h5 align-middle me-2 mb-0"></BsArrowDownCircle> Downloads</h6>
-                                        </div>
-                                    </Link>
-                                </li>
-
-                                <li className="nav-item mt-2">
                                     <Link to={'#address'} onClick={handleAddress} className={`nav-link rounded ${showAddress ? 'active' : ''}`} id="addresses" data-bs-toggle="pill" href="#address" role="tab" aria-controls="address" aria-selected="false">
                                         <div className="text-start py-1 px-3">
                                             <h6 className="mb-0"><HiOutlineLocationMarker className="uil uil-map-marker h5 align-middle me-2 mb-0"></HiOutlineLocationMarker> Addresses</h6>
@@ -170,7 +156,7 @@ const DashboardSection = () => {
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${dashboard ? 'active show' : ''}`} id="dash" role="tabpanel" aria-labelledby="dashboard">
                                     <p className="text-muted">Hello <span className="text-dark">{user.name}</span> (not <span className="text-dark fw-bold">{user.name}</span>? <Link to="#" className="text-danger fw-bold">Log out</Link>)</p>
 
-                                    <p className="text-muted mb-0">From your account dashboard you can view your <Link to="#orders" className="text-danger fw-bold">recent orders</Link>, manage your <Link to="#" className="text-danger fw-bold">shipping and billing addresses</Link>, and <Link to="#" className="text-danger fw-bold">edit your password and account details</Link>.</p>
+                                    <p className="text-muted mb-0">From your account dashboard you can view your <Link to="#/" onClick={handleOrders} className="text-danger fw-bold">recent orders</Link>, manage your <Link to="#/" onClick={handleProfile} className="text-danger fw-bold">your password and account details</Link>.</p>
                                 </div>
 
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${showOrders ? 'active show' : ''}`} id="orders" role="tabpanel" aria-labelledby="order-history">
@@ -220,37 +206,32 @@ const DashboardSection = () => {
                                         <table className="table mb-0 table-center table-nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th className="border-bottom p-3" scope="col">Appoint no.</th>
-                                                    <th className="border-bottom p-3" scope="col">Date</th>
-                                                    <th className="border-bottom p-3" scope="col">Status</th>
-                                                    <th className="border-bottom p-3" scope="col">Cost</th>
-                                                    <th className="border-bottom p-3" scope="col">Action</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Appoint no.</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Date</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Time</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Dept</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Doctor</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Comment</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Email</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Phone</th>
+                                                    <th className="border-bottom p-3 white-space-wrap-none" scope="col">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td className="p-3">7107</td>
-                                                    <td className="p-3">1st November 2020</td>
-                                                    <td className="text-success p-3">Delivered</td>
-                                                    <td className="p-3">$ 320 <span className="text-muted">for 2items</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
+                                                {filteredAppointments?.map(appointment => (
+                                                    <tr key={appointment.id}>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.id}</td>
+                                                        <td className="p-3 white-space-wrap-none">{moment(appointment.date).format('DD/MM/YYYY')}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.time}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.department}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.doctor}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.comment}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.email}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.phone}</td>
+                                                        <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
+                                                    </tr>
+                                                ))}
 
-                                                <tr>
-                                                    <td className="p-3">8007</td>
-                                                    <td className="p-3">4td November 2020</td>
-                                                    <td className="text-muted p-3">Processing</td>
-                                                    <td className="p-3">$ 800 <span className="text-muted">for 1item</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td className="p-3">8008</td>
-                                                    <td className="p-3">4th November 2020</td>
-                                                    <td className="text-danger p-3">Canceled</td>
-                                                    <td className="p-3">$ 800 <span className="text-muted">for 1item</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -291,27 +272,6 @@ const DashboardSection = () => {
                                                     <td className="text-danger p-3">Canceled</td>
                                                     <td className="p-3">$ 800 <span className="text-muted">for 1item</span></td>
                                                     <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <div className={`tab-pane fade bg-white shadow rounded p-4 ${showDownloads ? 'active show' : ''}`} id="down" role="tabpanel" aria-labelledby="download">
-                                    <div className="table-responsive bg-white shadow rounded">
-                                        <table className="table mb-0 table-center table-nowrap">
-                                            <thead>
-                                                <tr>
-                                                    <th className="border-bottom p-3" scope="col">Product Name</th>
-                                                    <th className="border-bottom p-3" scope="col">Description</th>
-                                                    <th className="border-bottom p-3" scope="col">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td className="p-3"> Quick heal </td>
-                                                    <td className="text-muted p-3">It is said that song composers of the past <br /> used dummy texts as lyrics when writing <br /> melodies in order to have a 'ready-made' <br /> text to sing with the melody.</td>
-                                                    <td className="text-success p-3">Downloaded</td>
                                                 </tr>
                                             </tbody>
                                         </table>

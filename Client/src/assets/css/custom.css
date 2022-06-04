@@ -358,6 +358,10 @@ padding-top: -20px !important;
   background-color: #FCFAF2 !important;
 }
 
+.white-space-wrap-none {
+  white-space: nowrap !important;
+}
+
 @media screen and (max-width: 1550px) {
   .height-70vh {
     height: 85vh !important;
