@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authSelector } from "../feautures/auth/authSlice";
 import {
   appointmentSelector,
   createAppointment,
 } from "../feautures/appointment/appointmentSlice";
+import { doctorSelector, getDoctors } from "../feautures/doctor/doctorSlice";
 
 const AppointmentSection = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(authSelector);
   const { isLoading, isError, errorMessage } = useSelector(appointmentSelector);
+  const { doctors } = useSelector(doctorSelector);
+
   const [formData, setFormData] = useState({
     patient: user.id,
     email: user.email,
@@ -33,7 +36,7 @@ const AppointmentSection = () => {
     dispatch(
       createAppointment({
         patient: formData.patient,
-        doctor: formData.patient[0],
+        doctor: formData.doctor[0],
         email: formData.email,
         phone: formData.phone[0],
         time: formData.time[0],
@@ -42,7 +45,26 @@ const AppointmentSection = () => {
         comment: formData.comment[0],
       })
     );
+    //clear form
+    setFormData({
+      patient: user.id,
+      email: user.email,
+      phone: "",
+      date: "",
+      time: "",
+      department: "",
+      doctor: "",
+      comment: "",
+    });
+
   };
+
+  useEffect(() => {
+    dispatch(getDoctors());
+  }
+    , [dispatch]);
+
+
 
   return (
     <>
@@ -178,6 +200,7 @@ const AppointmentSection = () => {
                               name="department"
                               className="form-control department-name select2input"
                             >
+                              <option value="">Select Department</option>
                               <option value="EY">Eye Care</option>
                               <option value="GY">Gynecologist</option>
                               <option value="PS">Psychotherapist</option>
@@ -199,14 +222,12 @@ const AppointmentSection = () => {
                               name="doctor"
                               className="form-control doctor-name select2input"
                             >
-                              <option value="CA">Dr. Calvin Carlo</option>
-                              <option value="CR">Dr. Cristino Murphy</option>
-                              <option value="AL">Dr. Alia Reddy</option>
-                              <option value="TO">Dr. Toni Kovar</option>
-                              <option value="JE">Dr. Jessica McFarlane</option>
-                              <option value="EL">Dr. Elsie Sherman</option>
-                              <option value="BE">Dr. Bertha Magers</option>
-                              <option value="LO">Dr. Louis Batey</option>
+                              <option value="">Select a Doctor</option>
+                              {doctors?.map((doctor) => (
+                                <option key={doctor.id} value={doctor.id}>
+                                  {doctor.full_name}
+                                </option>
+                              ))}
                             </select>
                           </div>
                         </div>

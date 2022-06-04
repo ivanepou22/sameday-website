@@ -125,11 +125,11 @@ const Header = () => {
                                 <li className="list-inline-item mb-0 ms-1">
                                     <div className="dropdown dropdown-primary">
                                         <button type="button" className={`btn btn-pills dropdown-toggle p-0  ${showProfile ? 'show' : ''}`} onClick={handleShowProfile} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded={showProfile}>
-                                            <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="40" round={true} color={['#F46524']} />
+                                            <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="40" round={true} color={'#F46524'} />
                                         </button>
                                         <div className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${showProfile ? 'show profile-drop' : ''}`} style={{ minWidth: "200px" }}>
                                             <Link className="dropdown-item d-flex align-items-center text-dark" to="#/">
-                                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="40" round={true} color={['#F46524']} />
+                                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="40" round={true} color={'#F46524'} />
                                                 <div className="flex-1 ms-2">
                                                     <span className="d-block mb-1" onClick={() => setShowProfile(false)}>{user.name}</span>
                                                     <small className="text-muted" onClick={() => setShowProfile(false)}>{user.email}</small>
