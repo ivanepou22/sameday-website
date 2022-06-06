@@ -18,6 +18,10 @@ const getUserById = async (id) => {
   return User.findById(id);
 };
 
+const getAdminUser = async (email) => {
+  return User.findOne({ email, role: "admin"})
+}
+
 const getuserByEmail = async (email) => {
   return User.findOne({ email });
 };
@@ -51,5 +55,6 @@ export const userService = {
     getuserByEmail,
     updateUserById,
     deleteUserById,
-    queryUsers
+    queryUsers,
+    getAdminUser
 };

@@ -13,6 +13,14 @@ const loginUserWithEmailAndPassword = async (email, password) => {
   return user;
 };
 
+const loginAdmin = async (email, password) => {
+  const admin = await userService.getAdminUser(email);
+  if (!admin || !(await admin.isPasswordMatch(password))) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, "Incorrect email or password");
+  }
+  return admin;
+};
+
 const logout = async (refreshToken) => {
   const refreshTokenDoc = await Token.findOne({
     token: refreshToken,
@@ -27,10 +35,7 @@ const logout = async (refreshToken) => {
 
 const refreshAuth = async (refreshToken) => {
   try {
-    const refreshTokenDoc = await tokenService.verifyToken(
-      refreshToken,
-      tokenTypes.REFRESH
-    );
+    const refreshTokenDoc = await tokenService.verifyToken(refreshToken, tokenTypes.REFRESH);
     const user = await userService.getUserById(refreshTokenDoc.user);
     if (!user) {
       throw new Error();
@@ -82,4 +87,5 @@ export const authService = {
   refreshAuth,
   resetPassword,
   verifyEmail,
-}
+  loginAdmin,
+};
