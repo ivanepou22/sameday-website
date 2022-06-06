@@ -87,6 +87,24 @@ export const authSlices = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     });
+    builder.addCase(refreshToken.pending, (state, action) => {
+      state.isLoading = true;
+      state.isSuccess = false;
+      state.isError = false;
+      state.errorMessage = "";
+    });
+    builder.addCase(refreshToken.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.isError = false;
+      state.errorMessage = "";
+    });
+    builder.addCase(refreshToken.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    });
   },
 });
 
@@ -114,6 +132,18 @@ export const logout = createAsyncThunk(
   }
 );
 
+export const refreshToken = createAsyncThunk(
+  "auth/refreshToken",
+  async (payload, thunkAPI) => {
+    try {
+      const response = await authService.refreshToken();
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const register = createAsyncThunk(
   "auth/register",
   async (payload, thunkAPI) => {
@@ -125,7 +155,6 @@ export const register = createAsyncThunk(
     }
   }
 );
-
 
 export const { reset } = authSlices.actions;
 export const authSelector = (state) => state.auth;

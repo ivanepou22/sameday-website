@@ -6,8 +6,8 @@ const login = async (payload) => {
   if (!data.tokens) {
     throw new Error(data.message);
   }
-  localStorage.setItem("access_token", JSON.stringify(data.tokens.access))
-  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh))
+  localStorage.setItem("access_token", JSON.stringify(data.tokens.access));
+  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh));
   localStorage.setItem("user", JSON.stringify(data.user));
   return data.user;
 };
@@ -18,8 +18,8 @@ const register = async (payload) => {
   if (!data.tokens) {
     throw new Error(data.message);
   }
-  localStorage.setItem("access_token", JSON.stringify(data.tokens.access))
-  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh))
+  localStorage.setItem("access_token", JSON.stringify(data.tokens.access));
+  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh));
   localStorage.setItem("user", JSON.stringify(data.user));
   return data;
 };
@@ -30,8 +30,20 @@ const logout = async () => {
   localStorage.removeItem("user");
 };
 
+const refreshToken = async () => {
+  const res = await API._refreshToken();
+  const data = await res.json();
+  if (!data.tokens) {
+    throw new Error(data.message);
+  }
+  localStorage.setItem("access_token", JSON.stringify(data.tokens.access));
+  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh));
+  return data;
+};
+
 export const authService = {
   login,
   register,
   logout,
+  refreshToken,
 };

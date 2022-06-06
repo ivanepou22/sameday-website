@@ -34,6 +34,7 @@ import {
   Register as AdminRegister,
   ForgotPassword as AdminForgotPassword,
 } from "./admin/pages";
+import UserProtectedRoute from "./components/UserProtectedRoute";
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
       <h1>
         <BrowserRouter>
           <Routes>
+            <Route element={<UserProtectedRoute />}>
+            <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
+            </Route>
             <Route path={SDRoutes.Home.path} element={<Home />} />
             <Route path={SDRoutes.About.path} element={<About />} />
             <Route path={SDRoutes.Contact.path} element={<Contact />} />
@@ -55,7 +59,6 @@ function App() {
             <Route path={SDRoutes.CovidTesting.path} element={<CovidTesting />} />
             <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
             <Route path={SDRoutes.PatientProfile.path} element={<PatientProfile />} />
-            <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
             <Route path={SDRoutes.ShoppingCart.path} element={<ShoppingCart />} />
             <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
             <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
