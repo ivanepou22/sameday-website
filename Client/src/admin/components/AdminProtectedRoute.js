@@ -10,7 +10,7 @@ const AdminProtectedRoute = () => {
     return <Navigate to={SDRoutes.Home.path} />;
   }
 
-  return user && user.role === "admin" ? <Outlet /> : <Navigate to="/admin" />;
+  return user ? <Outlet /> : <Navigate to="/admin" />;
 };
 
 export default AdminProtectedRoute

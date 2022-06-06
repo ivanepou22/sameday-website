@@ -6,7 +6,11 @@ import AuthLayout from "../components/AuthLayout";
 const UserProtectedRoute = () => {
   const { user, isAuthenticated } = useSelector(authSelector);
 
-  return user && isAuthenticated && user.role !== "admin" ? (
+  if (user && user.role === "admin") {
+    return <Navigate to="/admin" />;
+  }
+
+  return user && isAuthenticated ? (
     <AuthLayout>
       <Outlet />
     </AuthLayout>
