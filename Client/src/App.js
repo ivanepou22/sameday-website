@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SDRoutes } from './routes';
+import { SDRoutes } from "./routes";
 import {
   Home,
   About,
@@ -20,7 +20,7 @@ import {
   Checkout,
   BlogDetails,
   ServiceDetails,
-} from './pages';
+} from "./pages";
 import {
   Dashboard,
   Patients,
@@ -35,6 +35,7 @@ import {
   ForgotPassword as AdminForgotPassword,
 } from "./admin/pages";
 import UserProtectedRoute from "./components/UserProtectedRoute";
+import AdminProtectedRoute from "./admin/components/AdminProtectedRoute";
 
 function App() {
   return (
@@ -43,7 +44,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<UserProtectedRoute />}>
-            <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
+              <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.Dashboard.path} element={<Dashboard />} />
             </Route>
             <Route path={SDRoutes.Home.path} element={<Home />} />
             <Route path={SDRoutes.About.path} element={<About />} />
@@ -63,7 +67,6 @@ function App() {
             <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
             <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
             <Route path={SDRoutes.ServiceDetails.path} element={<ServiceDetails />} />
-            <Route path={SDRoutes.Dashboard.path} element={<Dashboard />} />
             <Route path={SDRoutes.Patients.path} element={<Patients />} />
             <Route path={SDRoutes.Appointments.path} element={<Appointments />} />
             <Route path={SDRoutes.Doctors.path} element={<Doctors />} />
