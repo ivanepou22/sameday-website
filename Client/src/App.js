@@ -61,19 +61,43 @@ function App() {
             <Route path={SDRoutes.RadiologyServices.path} element={<RadiologyServices />} />
             <Route path={SDRoutes.LaboratoryServices.path} element={<LaboratoryServices />} />
             <Route path={SDRoutes.CovidTesting.path} element={<CovidTesting />} />
-            <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
-            <Route path={SDRoutes.PatientProfile.path} element={<PatientProfile />} />
+
+            <Route element={<UserProtectedRoute />}>
+              <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
+            </Route>
+            <Route element={<UserProtectedRoute />}>
+              <Route path={SDRoutes.PatientProfile.path} element={<PatientProfile />} />
+            </Route>
             <Route path={SDRoutes.ShoppingCart.path} element={<ShoppingCart />} />
-            <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
+            <Route element={<UserProtectedRoute />}>
+              <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
+            </Route>
             <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
             <Route path={SDRoutes.ServiceDetails.path} element={<ServiceDetails />} />
-            <Route path={SDRoutes.Patients.path} element={<Patients />} />
-            <Route path={SDRoutes.Appointments.path} element={<Appointments />} />
-            <Route path={SDRoutes.Doctors.path} element={<Doctors />} />
-            <Route path={SDRoutes.Services.path} element={<Services />} />
-            <Route path={SDRoutes.PatientVisits.path} element={<PatientVisits />} />
-            <Route path={SDRoutes.PatientLogs.path} element={<PatientLogs />} />
-            <Route path={SDRoutes.Orders.path} element={<Orders />} />
+
+            {/* // Admin Routes */}
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.Patients.path} element={<Patients />} />
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.Appointments.path} element={<Appointments />} />
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.Doctors.path} element={<Doctors />} />
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.Services.path} element={<Services />} />
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.PatientVisits.path} element={<PatientVisits />} />
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.PatientLogs.path} element={<PatientLogs />} />
+            </Route>
+            <Route element={<AdminProtectedRoute />}>
+              <Route path={SDRoutes.Orders.path} element={<Orders />} />
+            </Route>
+
             <Route path={SDRoutes.adminLogin.path} element={<AdminLogin />} />
             <Route path={SDRoutes.adminRegister.path} element={<AdminRegister />} />
             <Route path={SDRoutes.adminForgotPassword.path} element={<AdminForgotPassword />} />
