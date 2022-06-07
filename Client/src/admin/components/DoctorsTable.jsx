@@ -16,7 +16,6 @@ const DoctorsTable = () => {
   const handleShowModal = () => {
     setShowModal(true);
   };
-  console.log(doctors);
 
   useEffect(() => {
     dispatch(getDoctors());
