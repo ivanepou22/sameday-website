@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { doctorSelector, createDoctor } from "../../feautures/doctor/doctorSlice";
 import { imageSelector, UploadImage, reset } from "../../feautures/image/imageSlice";
-import { useEffect } from "react";
 
 const DoctorsModal = (props) => {
   const dispatch = useDispatch();
   const { isLoading, isError, errorMessage, doctor } = useSelector(doctorSelector);
-  const { imageUrl, imageLoading } = useSelector(imageSelector);
+  const { imageUrl } = useSelector(imageSelector);
   const { show, setShowModal } = props;
   const [formData, setFormData] = useState({
     name: "",
