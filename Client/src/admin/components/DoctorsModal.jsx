@@ -175,8 +175,8 @@ const DoctorsModal = (props) => {
                         className="form-control doctor-name select2input"
                       >
                         <option defaultValue="">Select Specialty</option>
-                        <option defaultValue="CA">General Doctor</option>
-                        <option defaultValue="CR">Pediatrician</option>
+                        <option defaultValue="General Doctor">General Doctor</option>
+                        <option defaultValue="Pediatrician">Pediatrician</option>
                       </select>
                     </div>
                   </div>
