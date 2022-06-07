@@ -6,6 +6,8 @@ import cartReducer from "./feautures/cart/cartSlice";
 import appointmentReducer from "./feautures/appointment/appointmentSlice";
 import doctorReducer from "./feautures/doctor/doctorSlice";
 import imageReducer from "./feautures/image/imageSlice";
+import serviceReducer from "./feautures/services/serviceSlice";
+import visitReducer from "./feautures/visit/visitSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +18,8 @@ const store = configureStore({
     appointment: appointmentReducer,
     doctors: doctorReducer,
     image: imageReducer,
+    service: serviceReducer,
+    visit: visitReducer,
   },
 });
 
