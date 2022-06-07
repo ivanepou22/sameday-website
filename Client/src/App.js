@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import { SDRoutes } from "./routes";
 import {
   Home,
@@ -36,11 +37,12 @@ import {
 } from "./admin/pages";
 import UserProtectedRoute from "./components/UserProtectedRoute";
 import AdminProtectedRoute from "./admin/components/AdminProtectedRoute";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>
+        <ToastContainer />
         <BrowserRouter>
           <Routes>
             <Route element={<UserProtectedRoute />}>
@@ -103,7 +105,6 @@ function App() {
             <Route path={SDRoutes.adminForgotPassword.path} element={<AdminForgotPassword />} />
           </Routes>
         </BrowserRouter>
-      </h1>
     </div>
   );
 }

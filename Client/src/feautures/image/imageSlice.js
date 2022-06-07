@@ -50,6 +50,6 @@ export const UploadImage = createAsyncThunk(
   }
 );
 
-export const { setImageUrl } = imageSlice.actions;
+export const { setImageUrl, reset } = imageSlice.actions;
 export const imageSelector = (state) => state.image;
 export default imageSlice.reducer;

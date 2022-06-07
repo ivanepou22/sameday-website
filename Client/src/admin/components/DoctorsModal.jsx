@@ -1,14 +1,10 @@
 /* eslint-disable */
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from 'react-toastify';
-import {
-  doctorSelector,
-  createDoctor,
-} from "../../feautures/doctor/doctorSlice";
-import { imageSelector, UploadImage } from "../../feautures/image/imageSlice";
-import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from 'react';
+import { toast } from "react-toastify";
+import { doctorSelector, createDoctor } from "../../feautures/doctor/doctorSlice";
+import { imageSelector, UploadImage, reset } from "../../feautures/image/imageSlice";
+import { useEffect } from "react";
 
 const DoctorsModal = (props) => {
   const dispatch = useDispatch();
@@ -30,42 +26,39 @@ const DoctorsModal = (props) => {
     }));
   };
 
-
-
-  //write a react tostify promise to upload image
-  let imageUploadPromise = () => {
-    const uploadPromise = new Promise((resolve, reject) => {
-      resolve(imageLoading);
-      toast.promise(uploadPromise, {
-        pending: "Image is Uploading...",
-        success: "Image Uploaded Successfully",
-        error: "Image Upload Failed",
-      })
-    }
-    );
-  };
-
-
   const handleImageChange = (e) => {
-    imageUploadPromise();
-    const data = new FormData();
-    data.append("file", e.target.files[0]);
-    data.append("upload_preset", "ggikucjk");
-    dispatch(UploadImage(data));
+    dispatch(reset());
+    const ps = new Promise((resolve, reject) => {
+      const data = new FormData();
+      data.append("file", e.target.files[0]);
+      data.append("upload_preset", "ggikucjk");
+      resolve(dispatch(UploadImage(data)));
+    });
+    toast.promise(ps, {
+      pending: "Uploading...",
+      success: "Image uploaded successfully",
+      error: "Image upload failed",
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (imageUrl) {
-      dispatch(createDoctor({
-        full_name: formData.name[0],
-        email: formData.email[0],
-        phone_number: formData.phone[0],
-        specialities: formData.specialities,
-        image: imageUrl,
-      }));
+      dispatch(
+        createDoctor({
+          full_name: formData.name[0],
+          email: formData.email[0],
+          phone_number: formData.phone[0],
+          specialities: formData.specialities,
+          image: imageUrl,
+        })
+      );
+    } else {
+      toast.error("Please upload an image");
+      return;
     }
   };
+
 
   const handleClose = () => {
     setShowModal(false);
@@ -74,8 +67,7 @@ const DoctorsModal = (props) => {
   return (
     <>
       <div
-        className={`modal modal-blur fade bg-gray ${show ? "display-block show" : "display-none"
-          }`}
+        className={`modal modal-blur fade bg-gray ${show ? "display-block show" : "display-none"}`}
         id="appointmentform"
         tabIndex="-1"
         onClick={handleClose}
@@ -104,7 +96,7 @@ const DoctorsModal = (props) => {
               ></button>
             </div>
             <div className="modal-body p-3 pt-4">
-              <ToastContainer />
+              {doctor && doctor.id && <div className="alert alert-success">Doctor created successfully</div>}
               {isError && <div className="alert alert-danger">{errorMessage}</div>}
               <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <div className="row">
@@ -181,7 +173,8 @@ const DoctorsModal = (props) => {
                         name="specialities"
                         value={formData.specialities}
                         onChange={handleChange}
-                        className="form-control doctor-name select2input">
+                        className="form-control doctor-name select2input"
+                      >
                         <option defaultValue="">Select Specialty</option>
                         <option defaultValue="CA">General Doctor</option>
                         <option defaultValue="CR">Pediatrician</option>

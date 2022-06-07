@@ -28,6 +28,7 @@ export const doctorSlice = createSlice({
     builder.addCase(createDoctor.fulfilled, (state, action) => {
       state.isLoading = false;
       state.doctor = action.payload;
+      state.doctors.push(action.payload);
     });
     builder.addCase(createDoctor.rejected, (state, action) => {
       state.isLoading = false;
