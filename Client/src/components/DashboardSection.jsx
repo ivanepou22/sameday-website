@@ -91,10 +91,10 @@ const DashboardSection = () => {
                     <div className="row">
                         <div className="col">
                             <div className="d-flex align-items-center">
-                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user.name} size="70" round={true} color={'#F46524'} />
+                                <Avatar className="avatar avatar-md-sm rounded-circle border shadow" name={user?.name} size="70" round={true} color={'#F46524'} />
                                 <div className="ms-3">
                                     <h6 className="text-muted mb-0">Hello,</h6>
-                                    <h5 className="mb-0">{user.name}</h5>
+                                    <h5 className="mb-0">{user?.name}</h5>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@ const DashboardSection = () => {
                         <div className="col-md-8 col-12 mt-4 pt-2">
                             <div className="tab-content" id="pills-tabContent">
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${dashboard ? 'active show' : ''}`} id="dash" role="tabpanel" aria-labelledby="dashboard">
-                                    <p className="text-muted">Hello <span className="text-dark">{user.name}</span> (not <span className="text-dark fw-bold">{user.name}</span>? <Link to="#" className="text-danger fw-bold">Log out</Link>)</p>
+                                    <p className="text-muted">Hello <span className="text-dark">{user?.name}</span> (not <span className="text-dark fw-bold">{user?.name}</span>? <Link to="#" className="text-danger fw-bold">Log out</Link>)</p>
 
                                     <p className="text-muted mb-0">From your account dashboard you can view your <Link to="#/" onClick={handleOrders} className="text-danger fw-bold">recent orders</Link>, manage your <Link to="#/" onClick={handleProfile} className="text-danger fw-bold">your password and account details</Link>.</p>
                                 </div>
@@ -320,25 +320,25 @@ const DashboardSection = () => {
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">First Name</label>
-                                                    <input name="name" id="first-name" type="text" className="form-control" defaultValue={user.name.split(" ")[0]} />
+                                                    <input name="name" id="first-name" type="text" className="form-control" defaultValue={user?.name.split(" ")[0]} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Last Name</label>
-                                                    <input name="name" id="last-name" type="text" className="form-control" defaultValue={user.name.split(" ")[1]} />
+                                                    <input name="name" id="last-name" type="text" className="form-control" defaultValue={user?.name.split(" ")[1]} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Your Email</label>
-                                                    <input name="email" id="email" type="email" className="form-control" defaultValue={user.email} />
+                                                    <input name="email" id="email" type="email" className="form-control" defaultValue={user?.email} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Display Name</label>
-                                                    <input name="name" id="display-name" type="text" className="form-control" defaultValue={user.name} />
+                                                    <input name="name" id="display-name" type="text" className="form-control" defaultValue={user?.name} />
                                                 </div>
                                             </div>
 
