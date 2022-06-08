@@ -100,7 +100,7 @@ const WellnessPackages = (props) => {
                       </ul>
 
                       <div className="qty-icons">
-                        <button className="btn btn-soft-primary ms-2"><BsCart /> Add to Cart</button>
+                        <button className="btn btn-primary ms-2"><BsCart /> Add to Cart</button>
                       </div>
                     </div>
                     <div className="card-body content pt-4 p-2">

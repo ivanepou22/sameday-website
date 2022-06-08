@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Footer, Header, HeroSection, WellnessContent, WellnessPackages } from '../components';
+import { useDispatch, useSelector } from 'react-redux';
+import { serviceSelector, getServices } from '../feautures/services/serviceSlice';
 
 const WellnessCenter = () => {
+    const dispatch = useDispatch();
+    const { services } = useSelector(serviceSelector);
+
+    useEffect(() => {
+        dispatch(getServices());
+    }, [dispatch]);
+
     return (
         <>
             <Header />
@@ -17,7 +26,7 @@ const WellnessCenter = () => {
                 showBreadcrumb={true}
             />
             <WellnessContent />
-            <WellnessPackages />
+            <WellnessPackages services={services} />
             <Footer />
         </>
     )
