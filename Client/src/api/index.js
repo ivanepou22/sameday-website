@@ -7,7 +7,7 @@ class API {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${access_token.token}`,
+        Authorization: `Bearer ${access_token?.token}`,
       },
     });
   }
