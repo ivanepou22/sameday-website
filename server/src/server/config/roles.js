@@ -1,5 +1,13 @@
 const allRoles = {
-  user: ["manageOrders", "manageAppointments", "getAppointments", "getDoctors"],
+  user: [
+    "manageOrders",
+    "getVisits",
+    "getLogs",
+    "getServices",
+    "manageAppointments",
+    "getAppointments",
+    "getDoctors",
+  ],
   admin: [
     "getUsers",
     "manageUsers",
