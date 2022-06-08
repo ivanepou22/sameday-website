@@ -256,11 +256,19 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
-              <li>
-                <Link to="/create-appointment" className="sub-menu-item">
-                  Booking
-                </Link>
-              </li>
+              {user ? (
+                <li>
+                  <Link to="/create-appointment" className="sub-menu-item">
+                    Booking
+                  </Link>
+                </li>
+              ) : (
+                <li>
+                  <Link to="/login?redirect=/create-appointment" className="sub-menu-item">
+                    Booking
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

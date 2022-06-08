@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { TopIcon } from "../components";
 import same_day_logo from "../assets/images/Sameday-original.png";
@@ -9,11 +9,14 @@ import { authSelector, login } from "../feautures/auth/authSlice";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams()
   const { isLoading, isError, user, errorMessage } = useSelector(authSelector);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const redirectUrl = searchParams.get("redirect") || "/";
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -29,7 +32,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate(redirectUrl);
     }
   }, [user, dispatch, navigate]);
 
