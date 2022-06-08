@@ -26,6 +26,11 @@ const cartSlice = createSlice({
       state.cart = cart;
       state.total = total;
       state.totalItems = totalItems;
+      // persist cart in local storage
+      
+
+
+
     },
     removeFromCart: (state, action) => {
       let { cart, total, totalItems } = state;

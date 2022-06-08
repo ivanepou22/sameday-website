@@ -220,7 +220,7 @@ const DashboardSection = () => {
                                             <tbody>
                                                 {filteredAppointments?.map(appointment => (
                                                     <tr key={appointment.id}>
-                                                        <td className="p-3 white-space-wrap-none">{appointment.id}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.appNumber}</td>
                                                         <td className="p-3 white-space-wrap-none">{moment(appointment.date).format('DD/MM/YYYY')}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.time}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.department}</td>
