@@ -108,7 +108,6 @@ const WellnessPackages = (props) => {
                         </button>
                         <input
                           min="0"
-                          defaultValue={quantity.quantity}
                           value={quantity.quantity}
                           name="quantity"
                           type="number"
