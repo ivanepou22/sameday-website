@@ -6,6 +6,7 @@ import { AiOutlineHeart, AiOutlineEye, AiOutlineShoppingCart } from "react-icons
 import { RiArrowRightSLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../feautures/cart/cartSlice";
+import { BsCart } from 'react-icons/bs';
 
 const WellnessPackages = (props) => {
   const dispatch = useDispatch();
@@ -28,14 +29,14 @@ const WellnessPackages = (props) => {
   const handleRemoveFromCart = (e, service) => {
     quantity > 0
       ? setQuantity((prev) => ({
-          ...prev,
-          quantity: prev.quantity - 1,
-          id: service.id,
-        }))
+        ...prev,
+        quantity: prev.quantity - 1,
+        id: service.id,
+      }))
       : setQuantity({
-          quantity: 0,
-          id: "",
-        });
+        quantity: 0,
+        id: "",
+      });
     if (quantity > 0 && e.target.id === service.id) {
       dispatch(removeFromCart(service));
     }
@@ -63,13 +64,13 @@ const WellnessPackages = (props) => {
             </div>
           </div>
 
-          {services?.map((service, index) => {
-            return (
-              <div className="row font-size-15 md-5" key={service.id}>
-                <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+          <div className="row font-size-15 md-5">
+            {services?.map((service) => {
+              return (
+                <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2" key={service.id}>
                   <div className="card shop-list border-0">
                     <div className="shop-image position-relative overflow-hidden rounded shadow">
-                      <Link to="/service-details">
+                      <Link to={`/service-details/${service.id}`}>
                         <img
                           src={
                             service.image
@@ -99,33 +100,11 @@ const WellnessPackages = (props) => {
                       </ul>
 
                       <div className="qty-icons">
-                        <button
-                          id={service.id}
-                          onClick={(e) => handleRemoveFromCart(e, service)}
-                          className="btn btn-pills btn-icon btn-primary minus mx-1"
-                        >
-                          -
-                        </button>
-                        <input
-                          min="0"
-                          defaultValue={quantity.quantity}
-                          value={quantity.quantity}
-                          name="quantity"
-                          type="number"
-                          readOnly
-                          className="btn btn-pills btn-icon btn-primary qty-btn quantity mx-1"
-                        />
-                        <button
-                          id={service.id}
-                          onClick={(e) => handleAddToCart(e, service)}
-                          className="btn btn-pills btn-icon btn-primary plus"
-                        >
-                          +
-                        </button>
+                        <button className="btn btn-soft-primary ms-2"><BsCart /> Add to Cart</button>
                       </div>
                     </div>
                     <div className="card-body content pt-4 p-2">
-                      <Link to="/service-details" className="text-dark product-name h6">
+                      <Link to={`/service-details/${service.id}`} className="text-dark product-name h6">
                         {service.name}
                       </Link>
                       <div className="d-flex justify-content-between mt-1">
@@ -151,9 +130,9 @@ const WellnessPackages = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
     </>
