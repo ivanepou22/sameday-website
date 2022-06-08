@@ -28,14 +28,14 @@ const WellnessPackages = (props) => {
   const handleRemoveFromCart = (e, service) => {
     quantity > 0
       ? setQuantity((prev) => ({
-          ...prev,
-          quantity: prev.quantity - 1,
-          id: service.id,
-        }))
+        ...prev,
+        quantity: prev.quantity - 1,
+        id: service.id,
+      }))
       : setQuantity({
-          quantity: 0,
-          id: "",
-        });
+        quantity: 0,
+        id: "",
+      });
     if (quantity > 0 && e.target.id === service.id) {
       dispatch(removeFromCart(service));
     }
@@ -63,10 +63,10 @@ const WellnessPackages = (props) => {
             </div>
           </div>
 
-          {services?.map((service, index) => {
-            return (
-              <div className="row font-size-15 md-5" key={service.id}>
-                <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+          <div className="row font-size-15 md-5">
+            {services?.map((service) => {
+              return (
+                <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2" key={service.id}>
                   <div className="card shop-list border-0">
                     <div className="shop-image position-relative overflow-hidden rounded shadow">
                       <Link to="/service-details">
@@ -151,9 +151,9 @@ const WellnessPackages = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
     </>
