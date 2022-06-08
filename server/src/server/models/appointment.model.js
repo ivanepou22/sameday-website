@@ -8,7 +8,7 @@ const { Schema } = mongoose;
 const appointmentNumber = () => {
   const prefix = "SD-AP"
   const number = new Date().getTime();
-  return prefix + number.toString().slice(number.toString().length - 7) * Math.ceil(Math.random())
+  return prefix + number.toString().slice(number.toString().length - 7) * Math.ceil(Math.random() * 2)
 }
 
 const AppointmentSchema = new Schema(

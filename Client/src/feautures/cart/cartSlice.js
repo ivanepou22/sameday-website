@@ -1,7 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 const initialState = {
-  cart: [],
+  cart: cart,
   total: 0,
   totalItems: 0,
 };
@@ -27,10 +30,7 @@ const cartSlice = createSlice({
       state.total = total;
       state.totalItems = totalItems;
       // persist cart in local storage
-      
-
-
-
+      localStorage.setItem("cart", JSON.stringify(cart));
     },
     removeFromCart: (state, action) => {
       let { cart, total, totalItems } = state;
