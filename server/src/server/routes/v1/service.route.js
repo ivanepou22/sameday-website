@@ -18,7 +18,7 @@ router
   .post(auth("manageServices"), validate(serviceValidation.createService), createService);
 router
   .route("/:serviceId")
-  .get(auth("manageServices"), validate(serviceValidation.getService), getService)
+  .get(validate(serviceValidation.getService), getService)
   .patch(auth("manageServices"), validate(serviceValidation.updateService), updateService)
   .delete(auth("manageServices"), validate(serviceValidation.deleteService), deleteService);
 
