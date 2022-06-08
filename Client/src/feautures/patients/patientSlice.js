@@ -33,7 +33,7 @@ const patientSlice = createSlice({
     builder.addCase(createPatient.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.errorMessage = action.error.message;
+      state.errorMessage = action.payload
     });
 
     builder.addCase(getPatients.pending, (state, action) => {
@@ -41,12 +41,12 @@ const patientSlice = createSlice({
     });
     builder.addCase(getPatients.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.patients = action.payload;
+      state.patients = action.payload.results;
     });
     builder.addCase(getPatients.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.errorMessage = action.error.message;
+      state.errorMessage = action.payload
     });
     builder.addCase(getPatient.pending, (state, action) => {
       state.isLoading = true;
@@ -58,7 +58,7 @@ const patientSlice = createSlice({
     builder.addCase(getPatient.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.errorMessage = action.error.message;
+      state.errorMessage = action.payload
     });
     builder.addCase(updatePatient.pending, (state, action) => {
       state.isLoading = true;
@@ -70,7 +70,7 @@ const patientSlice = createSlice({
     builder.addCase(updatePatient.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.errorMessage = action.error.message;
+      state.errorMessage = action.payload
     });
     builder.addCase(deletePatient.pending, (state, action) => {
       state.isLoading = true;
@@ -82,7 +82,7 @@ const patientSlice = createSlice({
     builder.addCase(deletePatient.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
-      state.errorMessage = action.error.message;
+      state.errorMessage = action.payload
     });
   },
 });

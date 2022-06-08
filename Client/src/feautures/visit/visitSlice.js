@@ -40,7 +40,7 @@ export const visitSlice = createSlice({
     });
     builder.addCase(getVisits.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.visits = action.payload;
+      state.visits = action.payload.results;
     });
     builder.addCase(getVisits.rejected, (state, action) => {
       state.isLoading = false;
