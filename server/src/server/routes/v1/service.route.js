@@ -14,7 +14,7 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(auth("getServices"), validate(serviceValidation.getServices), getServices)
+  .get(validate(serviceValidation.getServices), getServices)
   .post(auth("manageServices"), validate(serviceValidation.createService), createService);
 router
   .route("/:serviceId")
