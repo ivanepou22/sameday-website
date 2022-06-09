@@ -179,12 +179,18 @@ const DashboardSection = () => {
                                             <tbody>
                                                 {filteredOrders.map(ord => (
                                                     <tr key={ord.id}>
-                                                    <td className="p-3">{ord.orderNumber}</td>
-                                                    <td className="p-3">{moment(ord.orderDate).format('DD/MM/YYYY')}</td>
-                                                    <td className="text-success p-3">{ord.orderStatus}</td>
-                                                    <td className="p-3">UGX {ord.orderTotal} <span className="text-muted">for {ord.orderItems.length} Items</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
+                                                        <td className="p-3">{ord.orderNumber}</td>
+                                                        <td className="p-3">{moment(ord.orderDate).format('DD/MM/YYYY')}</td>
+                                                        <td className="text-success p-3">{ord.orderStatus}</td>
+                                                        <td className="p-3">
+                                                            {ord.orderTotal?.toLocaleString('en-US', {
+                                                                style: 'currency',
+                                                                currency: 'UGX',
+                                                                maximumFractionDigits: 2,
+                                                            })}
+                                                            <span className="text-muted"> for {ord.orderItems.length} Items</span></td>
+                                                        <td className="p-3"><Link to="#/" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
+                                                    </tr>
                                                 ))}
                                             </tbody>
                                         </table>

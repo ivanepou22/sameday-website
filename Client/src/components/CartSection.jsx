@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsBagCheck } from 'react-icons/bs'
 import {
   addToCart,
   cartSelector,
@@ -11,6 +12,7 @@ import {
 
 //icons
 import { FcEmptyTrash } from 'react-icons/fc'
+import { BsCartPlus } from 'react-icons/bs';
 
 const CartSection = () => {
   const dispatch = useDispatch();
@@ -131,10 +133,7 @@ const CartSection = () => {
               <div className="row">
                 <div className="col-lg-8 col-md-6 mt-4 pt-2">
                   <Link to="/shop" className="btn btn-primary">
-                    Shop More
-                  </Link>
-                  <Link to="/shop" className="btn btn-soft-primary ms-2">
-                    Update Cart
+                    <BsCartPlus /> Shop More
                   </Link>
                 </div>
                 <div className="col-lg-4 col-md-6 ms-auto mt-4 pt-2">
@@ -174,7 +173,7 @@ const CartSection = () => {
                   </div>
                   <div className="mt-4 pt-2 text-end">
                     <Link to="/checkout" className="btn btn-primary">
-                      Proceed to checkout
+                      <BsBagCheck />  Proceed to checkout
                     </Link>
                   </div>
                 </div>

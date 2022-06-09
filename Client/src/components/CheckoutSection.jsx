@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { authSelector } from "../feautures/auth/authSlice";
 import { cartSelector, clearCart } from "../feautures/cart/cartSlice";
 import { createOrder, ordersSelector } from "../feautures/orders/ordersSlice";
 import { updateUser } from "../feautures/user/userSlice";
 
 const CheckoutSection = () => {
-  const dispatch = useDispatch();
-  const { isLoading, isError, errorMessage } = useSelector(ordersSelector);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { isLoading, isError, errorMessage } = useSelector(ordersSelector)
   const { user } = useSelector(authSelector);
   const { cart, totalItems, totalPrice } = useSelector(cartSelector);
   const [userData, setUserData] = useState({
@@ -38,9 +40,10 @@ const CheckoutSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createOrder(formData));
-    dispatch(clearCart());
     dispatch(updateUser(userData))
+    dispatch(createOrder(formData));
+    dispatch(clearCart())
+    navigate('/')
   };
   return (
     <>
@@ -66,27 +69,11 @@ const CheckoutSection = () => {
                       <span className="text-muted">UGX {item.total}</span>
                     </li>
                   ))}
-                  <li className="d-flex justify-content-between bg-light p-3 border-bottom">
-                    <div className="text-success">
-                      <h6 className="my-0">Promo code</h6>
-                      <small>EXAMPLECODE</small>
-                    </div>
-                    <span className="text-success">&minus;UGX 5</span>
-                  </li>
                   <li className="d-flex justify-content-between p-3">
                     <span>Total (UGX)</span>
                     <strong>UGX {totalPrice}</strong>
                   </li>
                 </ul>
-
-                <form>
-                  <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Promo code" />
-                    <button type="submit" className="btn btn-secondary">
-                      Redeem
-                    </button>
-                  </div>
-                </form>
               </div>
             </div>
 

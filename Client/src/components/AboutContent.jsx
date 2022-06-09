@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { GiTransparentTubes } from 'react-icons/gi';
 import { FaJoomla } from 'react-icons/fa';
 import { BsFlower2, BsFillCheckCircleFill, BsCheck2Circle, BsTelephone } from 'react-icons/bs';
 import { BiLocationPlus, BiEnvelope } from 'react-icons/bi';
@@ -8,6 +7,8 @@ import { SiTripadvisor } from 'react-icons/si';
 import { GiThreePointedShuriken } from 'react-icons/gi';
 import bgContact from '../assets/images/PIX/contact-removebg-preview.png';
 import ContactMap from './ContactMap';
+import { RiVirusLine } from 'react-icons/ri';
+import { ImLab } from 'react-icons/im'
 
 const AboutContent = () => {
     return (
@@ -162,10 +163,16 @@ const AboutContent = () => {
                                     </Link>
                                 </div>
 
-                                <div className="card border-0 bg-light p-4 btn-orange  border-radius-10">
-                                    <Link to="laboratory-services" className="text-primary align-text-center">
-                                        <GiTransparentTubes className='white-text font-size-50' />
+                                <div className="card border-0 bg-light p-4 btn-orange mx-2 border-radius-10">
+                                    <Link to="/laboratory-services" className="text-primary align-text-center">
+                                        <ImLab className='white-text font-size-50' />
                                         <h5 className="mt-1 white-text font-size-30">Laboratory <br />Services</h5>
+                                    </Link>
+                                </div>
+                                <div className="card border-0 bg-light p-4 btn-orange  border-radius-10">
+                                    <Link to="/covid-testing" className="text-primary align-text-center">
+                                        <RiVirusLine className='white-text font-size-50' />
+                                        <h5 className="mt-1 white-text font-size-30">Covid <br />Testing</h5>
                                     </Link>
                                 </div>
                             </div>
