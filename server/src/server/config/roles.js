@@ -1,6 +1,7 @@
 const allRoles = {
   user: [
     "manageOrders",
+    "getOrders",
     "getVisits",
     "getLogs",
     "getServices",

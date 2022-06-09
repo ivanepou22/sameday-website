@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseAutoPopulate from "mongoose-autopopulate";
 import validator from "validator";
 import { toJson, paginate } from "./plugins/index.js";
 
@@ -29,6 +30,7 @@ const AppointmentSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Doctor",
       required: true,
+      autopopulate: true
     },
     patient: {
       type: mongoose.Schema.Types.ObjectId,
@@ -69,6 +71,7 @@ AppointmentSchema.index({ date: 1, doctor: 1 });
 AppointmentSchema.index({ date: 1, patient: 1 });
 AppointmentSchema.plugin(toJson);
 AppointmentSchema.plugin(paginate);
+AppointmentSchema.plugin(mongooseAutoPopulate);
 
 const Appointment = mongoose.model("Appointment", AppointmentSchema);
 export default Appointment;
