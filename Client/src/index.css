@@ -273,6 +273,25 @@ body {
   font-family: poppins;
 }
 
+.cart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-empty span {
+  font-size: 16px;
+  color: rgb(243, 145, 145);
+  font-weight: 600;
+  font-family: poppins;
+}
+
+.empty-bin {
+  font-size: 5rem;
+}
+
 @media screen and (max-width: 1199px) {
   .login-register {
     display: none !important;
