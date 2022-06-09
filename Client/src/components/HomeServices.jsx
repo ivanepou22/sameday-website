@@ -5,10 +5,10 @@ import bgContact from "../assets/images//about//doctorabout-removebg-preview.png
 import { BsFlower2, BsTelephone, BsGlobe } from "react-icons/bs";
 import { FaJoomla } from "react-icons/fa";
 import { RiArrowRightSLine, RiTimerLine, RiVirusLine } from "react-icons/ri";
-import { GiTransparentTubes } from "react-icons/gi";
 import { AiOutlineMail } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { ImLab } from 'react-icons/im'
 
 const HomeServices = () => {
     return (
@@ -154,7 +154,7 @@ const HomeServices = () => {
 
                                 <div className="card border-0 bg-light p-4 btn-orange mx-2 border-radius-10">
                                     <Link to="/laboratory-services" className="text-primary align-text-center">
-                                        <GiTransparentTubes className='white-text font-size-50' />
+                                        <ImLab className='white-text font-size-50' />
                                         <h5 className="mt-1 white-text font-size-30">Laboratory <br />Services</h5>
                                     </Link>
                                 </div>
