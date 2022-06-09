@@ -87,7 +87,7 @@ const ServiceDetailSection = () => {
                                     {
                                         isInCart ? (
                                             <Link
-                                                to="#"
+                                                to="/shopping-cart"
                                                 className="btn btn-soft-primary ms-2 mt-3"
                                             >
                                                 <BsCart /> Go to Cart

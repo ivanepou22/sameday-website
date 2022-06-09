@@ -58,17 +58,20 @@ const WellnessPackages = (props) => {
                       </Link>
                       <ul className="list-unstyled shop-icons">
                         <li>
-                          <Link to="#" className="btn btn-icon btn-pills btn-soft-danger">
+                          <Link to="#" className="btn btn-icon btn-pills btn-danger">
                             <AiOutlineHeart />
                           </Link>
                         </li>
                         <li className="mt-2">
-                          <Link to="#" className="btn btn-icon btn-pills btn-soft-primary">
+                          <Link to={`/service-details/${service.id}`} className="btn btn-icon btn-pills btn-primary">
                             <AiOutlineEye />
                           </Link>
                         </li>
                         <li className="mt-2">
-                          <Link to="#" className="btn btn-icon btn-pills btn-soft-warning">
+                          <Link to="#"
+                            onClick={() => handleAddToCart(service)}
+                            className="btn btn-icon btn-pills btn-warning"
+                          >
                             <AiOutlineShoppingCart />
                           </Link>
                         </li>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import bgContact from "../assets/images//about//doctorabout-removebg-preview.png";
 import { BsFlower2, BsTelephone, BsGlobe } from "react-icons/bs";
 import { FaJoomla } from "react-icons/fa";
-import { RiArrowRightSLine, RiTimerLine } from "react-icons/ri";
+import { RiArrowRightSLine, RiTimerLine, RiVirusLine } from "react-icons/ri";
 import { GiTransparentTubes } from "react-icons/gi";
 import { AiOutlineMail } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
@@ -152,10 +152,16 @@ const HomeServices = () => {
                                     </Link>
                                 </div>
 
-                                <div className="card border-0 bg-light p-4 btn-orange  border-radius-10">
-                                    <Link to="laboratory-services" className="text-primary align-text-center">
+                                <div className="card border-0 bg-light p-4 btn-orange mx-2 border-radius-10">
+                                    <Link to="/laboratory-services" className="text-primary align-text-center">
                                         <GiTransparentTubes className='white-text font-size-50' />
                                         <h5 className="mt-1 white-text font-size-30">Laboratory <br />Services</h5>
+                                    </Link>
+                                </div>
+                                <div className="card border-0 bg-light p-4 btn-orange  border-radius-10">
+                                    <Link to="/covid-testing" className="text-primary align-text-center">
+                                        <RiVirusLine className='white-text font-size-50' />
+                                        <h5 className="mt-1 white-text font-size-30">Covid <br />Testing</h5>
                                     </Link>
                                 </div>
                             </div>
