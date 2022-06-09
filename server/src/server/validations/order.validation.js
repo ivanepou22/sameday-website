@@ -5,7 +5,6 @@ const createOrder = {
     body: Joi.object().keys({
         userId: Joi.string().custom(objectId),
         orderDate: Joi.date().required(),
-        orderStatus: Joi.string().required().valid("pending", "approved", "rejected", "delivered"),
         orderItems: Joi.array().items(
             Joi.object().keys({
                 itemId: Joi.string().custom(objectId).required(),

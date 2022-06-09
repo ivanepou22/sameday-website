@@ -3,8 +3,20 @@ import { toJson, paginate } from "./plugins/index.js";
 
 const { Schema } = mongoose;
 
+const generateOrderNumber = () => {
+  const prefix = "SD-ORD";
+  const number = new Date().getTime();
+  return (
+    prefix + number.toString().slice(number.toString().length - 7) * Math.ceil(Math.random() * 2)
+  );
+};
+
 const orderSchema = new Schema(
   {
+    orderNumber: {
+      type: String,
+      default: () => generateOrderNumber(),
+    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -16,7 +28,7 @@ const orderSchema = new Schema(
     },
     orderStatus: {
       type: String,
-      required: true,
+      default: "pending",
       enum: ["pending", "approved", "rejected", "delivered"],
     },
     orderItems: [
@@ -45,8 +57,6 @@ const orderSchema = new Schema(
 orderSchema.plugin(toJson);
 orderSchema.plugin(paginate);
 
-
 const Order = mongoose.model("Order", orderSchema);
-
 
 export default Order;
