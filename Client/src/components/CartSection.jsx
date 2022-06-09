@@ -67,16 +67,27 @@ const CartSection = () => {
                               </td>
                               <td className="p-3">
                                 <div className="d-flex align-items-center">
-                                  <img
-                                    src={item?.image}
-                                    className="img-fluid avatar avatar-small rounded shadow"
-                                    style={{ height: "auto" }}
-                                    alt=""
-                                  />
-                                  <h6 className="mb-0 ms-3">{item?.name}</h6>
+                                  <Link to={`/service-details/${item.id}`}>
+                                    <img
+                                      src={item?.image}
+                                      className="img-fluid avatar avatar-small rounded shadow"
+                                      style={{ height: "auto" }}
+                                      alt=""
+                                    />
+                                  </Link>
+                                  <Link to={`/service-details/${item.id}`}>
+                                    <h6 className="mb-0 ms-3">{item?.name}</h6>
+                                  </Link>
                                 </div>
                               </td>
-                              <td className="text-center p-3">UGX {item.price}</td>
+                              <td className="text-center p-3">
+                                {
+                                  item?.price?.toLocaleString('en-US', {
+                                    style: 'currency',
+                                    currency: 'UGX',
+                                    maximumFractionDigits: 2,
+                                  })
+                                }</td>
                               <td className="text-center shop-list p-3">
                                 <div className="qty-icons">
                                   <button
@@ -101,7 +112,14 @@ const CartSection = () => {
                                   </button>
                                 </div>
                               </td>
-                              <td className="text-end font-weight-bold p-3">UGX {item.total}</td>
+                              <td className="text-end font-weight-bold p-3">
+                                {
+                                  item?.total?.toLocaleString('en-US', {
+                                    style: 'currency',
+                                    currency: 'UGX',
+                                    maximumFractionDigits: 2,
+                                  })
+                                }</td>
                             </tr>
                           ))
                         }
@@ -125,7 +143,15 @@ const CartSection = () => {
                       <tbody>
                         <tr>
                           <td className="h6 p-3">Subtotal</td>
-                          <td className="text-end font-weight-bold p-3">UGX {totalPrice}</td>
+                          <td className="text-end font-weight-bold p-3">
+                            {
+                              totalPrice?.toLocaleString('en-US', {
+                                style: 'currency',
+                                currency: 'UGX',
+                                maximumFractionDigits: 2,
+                              })
+                            }
+                          </td>
                         </tr>
                         <tr>
                           <td className="h6 p-3">Taxes</td>
@@ -133,7 +159,15 @@ const CartSection = () => {
                         </tr>
                         <tr className="bg-light">
                           <td className="h6 p-3">Total</td>
-                          <td className="text-end font-weight-bold p-3">UGX {totalPrice}</td>
+                          <td className="text-end font-weight-bold p-3">
+                            {
+                              totalPrice?.toLocaleString('en-US', {
+                                style: 'currency',
+                                currency: 'UGX',
+                                maximumFractionDigits: 2,
+                              })
+                            }
+                          </td>
                         </tr>
                       </tbody>
                     </table>
