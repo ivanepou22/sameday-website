@@ -75,13 +75,13 @@ const cartSlice = createSlice({
       total -= product.price * product.quantity;
       totalItems -= product.quantity;
       state.cart = cart;
-      state.total = total;
+      state.total = total
       state.totalItems = totalItems
       state.totalPrice = cart.map((item) => item.total).reduce((a, b) => a + b, 0);
       localStorage.setItem("cart", JSON.stringify(cart));
-      localStorage.setItem("total", JSON.stringify(total || 0));
-      localStorage.setItem("totalItems", JSON.stringify(state.totalItems || 0));
-      localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice || 0));
+      localStorage.setItem("total", JSON.stringify(total));
+      localStorage.setItem("totalItems", JSON.stringify(state.totalItems));
+      localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
     },
   },
 });

@@ -84,7 +84,7 @@ const ServiceDetailSection = () => {
                   >
                     <BsCart /> Add to Cart
                   </Link>
-                  {isInCart && (
+                  {/* {isInCart && (
                     <Link
                       to="#"
                       onClick={() => dispatch(clearItemFromCart(service))}
@@ -92,7 +92,7 @@ const ServiceDetailSection = () => {
                     >
                       <AiOutlineClose /> Remove From Cart
                     </Link>
-                  )}
+                  )} */}
                 </div>
               </div>
             </div>
