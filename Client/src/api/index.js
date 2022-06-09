@@ -1,44 +1,38 @@
+import customFetch from "../utils/fetchInstance";
 const API_URL = process.env.REACT_APP_API_URL;
-const access_token = JSON.parse(localStorage.getItem("access_token"));
 
 class API {
   static get(url) {
-    return fetch(`${API_URL}${url}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${access_token?.token}`,
-      },
-    });
+    return customFetch(url);
   }
   static post(url, data) {
-    return fetch(`${API_URL}${url}`, {
+    const config = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${access_token.token}`,
       },
       body: JSON.stringify(data),
-    });
+    };
+    return customFetch(url, config);
   }
   static patch(url, data) {
-    return fetch(`${API_URL}${url}`, {
+    const config = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${access_token.token}`,
       },
       body: JSON.stringify(data),
-    });
+    };
+    return customFetch(url, config);
   }
   static delete(url) {
-    return fetch(`${API_URL}${url}`, {
+    const config = {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${access_token.token}`,
       },
-    });
+    };
+    return customFetch(url, config);
   }
   static login(data) {
     return fetch(`${API_URL}/auth/login`, {
@@ -67,17 +61,6 @@ class API {
         body: formData,
       }
     );
-  }
-
-  static _refreshToken() {
-    const refresh_token = JSON.parse(localStorage.getItem("refresh_token"));
-    return fetch(`${API_URL}/auth/refresh`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ refreshToken: refresh_token.token }),
-    });
   }
 }
 
