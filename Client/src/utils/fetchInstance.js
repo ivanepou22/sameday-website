@@ -14,8 +14,9 @@ let refreshToken = async (refresh_token) => {
     body: JSON.stringify({ refreshToken: refresh_token }),
   });
   let data = await res.json();
-  localStorage.setItem("access_token", JSON.stringify(data.tokens.access));
-  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh));
+  console.log(data)
+  localStorage.setItem("access_token", JSON.stringify(data.access));
+  localStorage.setItem("refresh_token", JSON.stringify(data.refresh));
   return data;
 };
 
@@ -36,6 +37,7 @@ let customFetch = async (url, config = {}) => {
     Authorization: `Bearer ${newAccessToken || access_token.token}`,
   };
 
+  // proceed with the request after refreshing the token
   return originalRequest(url, config);
 };
 
