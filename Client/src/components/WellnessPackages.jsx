@@ -75,9 +75,9 @@ const WellnessPackages = (props) => {
                       </ul>
 
                       <div className="qty-icons">
-                        <button 
-                        onClick={() => handleAddToCart(service)}
-                        className="btn btn-primary ms-2"><BsCart /> Add to Cart</button>
+                        <button
+                          onClick={() => handleAddToCart(service)}
+                          className="btn btn-primary ms-2"><BsCart /> Add to Cart</button>
                       </div>
                     </div>
                     <div className="card-body content pt-4 p-2">
@@ -85,7 +85,13 @@ const WellnessPackages = (props) => {
                         {service.name}
                       </Link>
                       <div className="d-flex justify-content-between mt-1">
-                        <h6 className="text-muted small font-italic mb-0 mt-1">{service.price} </h6>
+                        <h6 className="text-muted small font-italic mb-0 mt-1">
+                          {service?.price?.toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'UGX',
+                            maximumFractionDigits: 2,
+                          })}
+                        </h6>
                         <ul className="list-unstyled text-warning mb-0">
                           <li className="list-inline-item">
                             <BsStarFill />
