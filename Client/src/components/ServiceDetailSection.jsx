@@ -84,13 +84,25 @@ const ServiceDetailSection = () => {
                                     <Link to="/shop" className="btn btn-primary mt-3">
                                         <BsCartPlus /> Shop Now
                                     </Link>
-                                    <Link
-                                        to="#"
-                                        onClick={() => dispatch(addToCart(service))}
-                                        className="btn btn-soft-primary ms-2 mt-3"
-                                    >
-                                        <BsCart /> Add to Cart
-                                    </Link>
+                                    {
+                                        isInCart ? (
+                                            <Link
+                                                to="#"
+                                                className="btn btn-soft-primary ms-2 mt-3"
+                                            >
+                                                <BsCart /> Go to Cart
+                                            </Link>
+                                        ) : (
+                                            <Link
+                                                to="#"
+                                                onClick={() => dispatch(addToCart(service))}
+                                                className="btn btn-soft-primary ms-2 mt-3"
+                                            >
+                                                <BsCart /> Add to Cart
+                                            </Link>
+                                        )
+                                    }
+
                                     {/* {isInCart && (
                     <Link
                       to="#"
