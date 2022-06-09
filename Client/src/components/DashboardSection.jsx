@@ -87,7 +87,7 @@ const DashboardSection = () => {
 
     //filter appointments by patient
     const filteredAppointments = appointments?.filter(appointment => appointment.patient === user.id);
-    const filteredOrders = orders?.filter(order => order.userId === user.id)
+    const filteredOrders = orders?.filter(order => order.userId.id === user.id)
 
     return (
         <>
@@ -215,7 +215,7 @@ const DashboardSection = () => {
                                                         <td className="p-3 white-space-wrap-none">{moment(appointment.date).format('DD/MM/YYYY')}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.time}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.department}</td>
-                                                        <td className="p-3 white-space-wrap-none">{appointment.doctor}</td>
+                                                        <td className="p-3 white-space-wrap-none">{appointment.doctor.full_name}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.comment}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.email}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.phone}</td>
