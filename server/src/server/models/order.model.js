@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import mongooseAutoPopulate from "mongoose-autopopulate"
 import { toJson, paginate } from "./plugins/index.js";
 
 const { Schema } = mongoose;
@@ -21,6 +22,7 @@ const orderSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+      autopopulate: true,
     },
     orderDate: {
       type: Date,
@@ -56,6 +58,7 @@ const orderSchema = new Schema(
 
 orderSchema.plugin(toJson);
 orderSchema.plugin(paginate);
+orderSchema.plugin(mongooseAutoPopulate);
 
 const Order = mongoose.model("Order", orderSchema);
 
