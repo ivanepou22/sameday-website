@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { authSelector } from "../feautures/auth/authSlice";
 import { cartSelector, clearCart } from "../feautures/cart/cartSlice";
-import { createOrder, ordersSelector } from "../feautures/orders/ordersSlice"
+import { createOrder, ordersSelector } from "../feautures/orders/ordersSlice";
+import { updateUser } from "../feautures/user/userSlice";
 
 const CheckoutSection = () => {
-  const dispatch = useDispatch()
-  const { isLoading, isError, errorMessage } = useSelector(ordersSelector)
+  const dispatch = useDispatch();
+  const { isLoading, isError, errorMessage } = useSelector(ordersSelector);
   const { user } = useSelector(authSelector);
   const { cart, totalItems, totalPrice } = useSelector(cartSelector);
+  const [userData, setUserData] = useState({
+    address: "",
+    country: "",
+    state: "",
+    zip: "",
+    id: user.id,
+  });
   const [formData, setFormData] = useState({
     orderDate: new Date(),
     userId: user.id,
@@ -21,10 +29,18 @@ const CheckoutSection = () => {
     orderTotal: totalPrice,
   });
 
+  const handleChange = (e) => {
+    setUserData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createOrder(formData))
-    dispatch(clearCart())
+    dispatch(createOrder(formData));
+    dispatch(clearCart());
+    dispatch(updateUser(userData))
   };
   return (
     <>
@@ -151,32 +167,28 @@ const CheckoutSection = () => {
                       <input
                         type="text"
                         className="form-control"
-                        id="address"
+                        name="address"
                         placeholder="1234 Main St"
                         required
+                        value={userData.address}
+                        onChange={handleChange}
                       />
                       <div className="invalid-feedback">Please enter your shipping address.</div>
                     </div>
-
-                    <div className="col-12">
-                      <label htmlFor="address2" className="form-label">
-                        Address 2 <span className="text-muted">(Optional)</span>
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="address2"
-                        placeholder="Apartment or suite"
-                      />
-                    </div>
-
                     <div className="col-md-5">
                       <label htmlFor="country" className="form-label">
                         Country
                       </label>
-                      <select className="form-select form-control" id="country" required>
+                      <select
+                        name="country"
+                        value={userData.country}
+                        onChange={handleChange}
+                        className="form-select form-control"
+                        id="country"
+                        required
+                      >
                         <option value="">Choose...</option>
-                        <option>United States</option>
+                        <option value="US">United States</option>
                       </select>
                       <div className="invalid-feedback">Please select a valid country.</div>
                     </div>
@@ -185,9 +197,16 @@ const CheckoutSection = () => {
                       <label htmlFor="state" className="form-label">
                         State
                       </label>
-                      <select className="form-select form-control" id="state" required>
+                      <select
+                        name="state"
+                        value={userData.state}
+                        onChange={handleChange}
+                        className="form-select form-control"
+                        id="state"
+                        required
+                      >
                         <option value="">Choose...</option>
-                        <option>California</option>
+                        <option value="CA">California</option>
                       </select>
                       <div className="invalid-feedback">Please provide a valid state.</div>
                     </div>
@@ -199,9 +218,11 @@ const CheckoutSection = () => {
                       <input
                         type="text"
                         className="form-control"
-                        id="zip"
+                        name="zip"
                         placeholder=""
                         required
+                        value={userData.zip}
+                        onChange={handleChange}
                       />
                       <div className="invalid-feedback">Zip code required.</div>
                     </div>
