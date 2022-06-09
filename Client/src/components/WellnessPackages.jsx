@@ -5,42 +5,17 @@ import { Link } from "react-router-dom";
 import { AiOutlineHeart, AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../feautures/cart/cartSlice";
+import { addToCart } from "../feautures/cart/cartSlice";
 import { BsCart } from 'react-icons/bs';
 
 const WellnessPackages = (props) => {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState({
-    quantity: 0,
-    id: "",
-  });
   const { services } = props;
 
-  const handleAddToCart = (e, service) => {
-    setQuantity((prev) => ({
-      ...prev,
-      quantity: prev.quantity + 1,
-      id: service.id,
-    }));
-    if (e.target.id === service.id) {
-      dispatch(addToCart(service));
-    }
+  const handleAddToCart = (service) => {
+    dispatch(addToCart(service))
   };
-  const handleRemoveFromCart = (e, service) => {
-    quantity > 0
-      ? setQuantity((prev) => ({
-        ...prev,
-        quantity: prev.quantity - 1,
-        id: service.id,
-      }))
-      : setQuantity({
-        quantity: 0,
-        id: "",
-      });
-    if (quantity > 0 && e.target.id === service.id) {
-      dispatch(removeFromCart(service));
-    }
-  };
+
   return (
     <>
       <section className="section font-size-15 padding-top-bottom-40">
@@ -100,7 +75,9 @@ const WellnessPackages = (props) => {
                       </ul>
 
                       <div className="qty-icons">
-                        <button className="btn btn-primary ms-2"><BsCart /> Add to Cart</button>
+                        <button 
+                        onClick={() => handleAddToCart(service)}
+                        className="btn btn-primary ms-2"><BsCart /> Add to Cart</button>
                       </div>
                     </div>
                     <div className="card-body content pt-4 p-2">
