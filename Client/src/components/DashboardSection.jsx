@@ -10,12 +10,14 @@ import { authSelector } from '../feautures/auth/authSlice';
 import Avatar from 'react-avatar';
 import { appointmentSelector, fetchAppointments } from '../feautures/appointment/appointmentSlice';
 import moment from 'moment';
+import { getOrders, ordersSelector } from '../feautures/orders/ordersSlice';
 
 
 const DashboardSection = () => {
     const dispatch = useDispatch();
     const { user } = useSelector(authSelector)
     const { appointments } = useSelector(appointmentSelector)
+    const { orders, isLoading } = useSelector(ordersSelector)
     const [dashboard, setDashboard] = React.useState(true);
     const [showOrders, setShowOrders] = React.useState(false);
     const [showAppointments, setShowAppointments] = React.useState(false);
@@ -77,12 +79,15 @@ const DashboardSection = () => {
         setShowProfile(true);
     }
 
+    console.log(orders)
     useEffect(() => {
         dispatch(fetchAppointments())
+        dispatch(getOrders())
     }, [dispatch])
 
     //filter appointments by patient
     const filteredAppointments = appointments?.filter(appointment => appointment.patient === user.id);
+    const filteredOrders = orders?.filter(order => order.userId === user.id)
 
     return (
         <>
@@ -172,29 +177,15 @@ const DashboardSection = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td className="p-3">7107</td>
-                                                    <td className="p-3">1st November 2020</td>
-                                                    <td className="text-success p-3">Delivered</td>
-                                                    <td className="p-3">$ 320 <span className="text-muted">for 2items</span></td>
+                                                {filteredOrders.map(ord => (
+                                                    <tr key={ord.id}>
+                                                    <td className="p-3">{ord.orderNumber}</td>
+                                                    <td className="p-3">{moment(ord.orderDate).format('DD/MM/YYYY')}</td>
+                                                    <td className="text-success p-3">{ord.orderStatus}</td>
+                                                    <td className="p-3">UGX {ord.orderTotal} <span className="text-muted">for {ord.orderItems.length} Items</span></td>
                                                     <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
                                                 </tr>
-
-                                                <tr>
-                                                    <td className="p-3">8007</td>
-                                                    <td className="p-3">4td November 2020</td>
-                                                    <td className="text-muted p-3">Processing</td>
-                                                    <td className="p-3">$ 800 <span className="text-muted">for 1item</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td className="p-3">8008</td>
-                                                    <td className="p-3">4th November 2020</td>
-                                                    <td className="text-danger p-3">Canceled</td>
-                                                    <td className="p-3">$ 800 <span className="text-muted">for 1item</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
+                                                ))}
                                             </tbody>
                                         </table>
                                     </div>

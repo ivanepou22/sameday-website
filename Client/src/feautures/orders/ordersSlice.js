@@ -145,5 +145,5 @@ export const getOrder = createAsyncThunk("orders/getOrder", async (id, thunkAPI)
 });
 
 export const { reset } = ordersSlice.actions;
-export const ordersSelector = (state) => state.orders.orders;
+export const ordersSelector = (state) => state.orders;
 export default ordersSlice.reducer;

@@ -1,9 +1,31 @@
-import React from "react";
-import { useSelector } from "react-redux"
-import { authSelector } from "../feautures/auth/authSlice"
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { authSelector } from "../feautures/auth/authSlice";
+import { cartSelector, clearCart } from "../feautures/cart/cartSlice";
+import { createOrder, ordersSelector } from "../feautures/orders/ordersSlice"
 
 const CheckoutSection = () => {
-    const { user } = useSelector(authSelector)
+  const dispatch = useDispatch()
+  const { isLoading, isError, errorMessage } = useSelector(ordersSelector)
+  const { user } = useSelector(authSelector);
+  const { cart, totalItems, totalPrice } = useSelector(cartSelector);
+  const [formData, setFormData] = useState({
+    orderDate: new Date(),
+    userId: user.id,
+    orderItems: [
+      {
+        itemId: cart.map((item) => item.id)[0],
+        itemQuantity: cart.map((item) => item.quantity)[0],
+      },
+    ],
+    orderTotal: totalPrice,
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createOrder(formData))
+    dispatch(clearCart())
+  };
   return (
     <>
       <section className="section font-size-15 padding-top-20">
@@ -13,40 +35,31 @@ const CheckoutSection = () => {
               <div className="card rounded shadow p-4 border-0">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <span className="h5 mb-0">Your cart</span>
-                  <span className="badge bg-primary rounded-pill">3</span>
+                  <span className="badge bg-primary rounded-pill">{totalItems}</span>
                 </div>
                 <ul className="list-group mb-3 border">
-                  <li className="d-flex justify-content-between lh-sm p-3 border-bottom">
-                    <div>
-                      <h6 className="my-0">Product name</h6>
-                      <small className="text-muted">Brief description</small>
-                    </div>
-                    <span className="text-muted">$12</span>
-                  </li>
-                  <li className="d-flex justify-content-between lh-sm p-3 border-bottom">
-                    <div>
-                      <h6 className="my-0">Second product</h6>
-                      <small className="text-muted">Brief description</small>
-                    </div>
-                    <span className="text-muted">$8</span>
-                  </li>
-                  <li className="d-flex justify-content-between lh-sm p-3 border-bottom">
-                    <div>
-                      <h6 className="my-0">Third item</h6>
-                      <small className="text-muted">Brief description</small>
-                    </div>
-                    <span className="text-muted">$5</span>
-                  </li>
+                  {cart.map((item) => (
+                    <li
+                      key={item.id}
+                      className="d-flex justify-content-between lh-sm p-3 border-bottom"
+                    >
+                      <div>
+                        <h6 className="my-0">{item.name}</h6>
+                        <small className="text-muted">{item.description}</small>
+                      </div>
+                      <span className="text-muted">UGX {item.total}</span>
+                    </li>
+                  ))}
                   <li className="d-flex justify-content-between bg-light p-3 border-bottom">
                     <div className="text-success">
                       <h6 className="my-0">Promo code</h6>
                       <small>EXAMPLECODE</small>
                     </div>
-                    <span className="text-success">−$5</span>
+                    <span className="text-success">&minus;UGX 5</span>
                   </li>
                   <li className="d-flex justify-content-between p-3">
-                    <span>Total (USD)</span>
-                    <strong>$20</strong>
+                    <span>Total (UGX)</span>
+                    <strong>UGX {totalPrice}</strong>
                   </li>
                 </ul>
 
@@ -64,10 +77,10 @@ const CheckoutSection = () => {
             <div className="col-md-7 col-lg-8">
               <div className="card rounded shadow p-4 border-0">
                 <h5 className="mb-3">Billing address</h5>
-                <form className="needs-validation" novalidate>
+                <form onSubmit={handleSubmit} className="needs-validation">
                   <div className="row g-3">
                     <div className="col-sm-6">
-                      <label for="firstName" className="form-label">
+                      <label htmlFor="firstName" className="form-label">
                         First name
                       </label>
                       <input
@@ -82,7 +95,7 @@ const CheckoutSection = () => {
                     </div>
 
                     <div className="col-sm-6">
-                      <label for="lastName" className="form-label">
+                      <label htmlFor="lastName" className="form-label">
                         Last name
                       </label>
                       <input
@@ -97,7 +110,7 @@ const CheckoutSection = () => {
                     </div>
 
                     <div className="col-12">
-                      <label for="username" className="form-label">
+                      <label htmlFor="username" className="form-label">
                         Username
                       </label>
                       <div className="input-group has-validation">
@@ -115,7 +128,7 @@ const CheckoutSection = () => {
                     </div>
 
                     <div className="col-12">
-                      <label for="email" className="form-label">
+                      <label htmlFor="email" className="form-label">
                         Email <span className="text-muted">(Optional)</span>
                       </label>
                       <input
@@ -127,12 +140,12 @@ const CheckoutSection = () => {
                         readOnly
                       />
                       <div className="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
+                        Please enter a valid email address htmlFor shipping updates.
                       </div>
                     </div>
 
                     <div className="col-12">
-                      <label for="address" className="form-label">
+                      <label htmlFor="address" className="form-label">
                         Address
                       </label>
                       <input
@@ -146,7 +159,7 @@ const CheckoutSection = () => {
                     </div>
 
                     <div className="col-12">
-                      <label for="address2" className="form-label">
+                      <label htmlFor="address2" className="form-label">
                         Address 2 <span className="text-muted">(Optional)</span>
                       </label>
                       <input
@@ -158,7 +171,7 @@ const CheckoutSection = () => {
                     </div>
 
                     <div className="col-md-5">
-                      <label for="country" className="form-label">
+                      <label htmlFor="country" className="form-label">
                         Country
                       </label>
                       <select className="form-select form-control" id="country" required>
@@ -169,7 +182,7 @@ const CheckoutSection = () => {
                     </div>
 
                     <div className="col-md-4">
-                      <label for="state" className="form-label">
+                      <label htmlFor="state" className="form-label">
                         State
                       </label>
                       <select className="form-select form-control" id="state" required>
@@ -180,7 +193,7 @@ const CheckoutSection = () => {
                     </div>
 
                     <div className="col-md-3">
-                      <label for="zip" className="form-label">
+                      <label htmlFor="zip" className="form-label">
                         Zip
                       </label>
                       <input
@@ -196,20 +209,20 @@ const CheckoutSection = () => {
 
                   <div className="form-check mt-4 pt-4 border-top">
                     <input type="checkbox" className="form-check-input" id="same-address" />
-                    <label className="form-check-label" for="same-address">
+                    <label className="form-check-label" htmlFor="same-address">
                       Shipping address is the same as my billing address
                     </label>
                   </div>
 
                   <div className="form-check">
                     <input type="checkbox" className="form-check-input" id="save-info" />
-                    <label className="form-check-label" for="save-info">
-                      Save this information for next time
+                    <label className="form-check-label" htmlFor="save-info">
+                      Save this information htmlFor next time
                     </label>
                   </div>
                   <div className="padding-top-20 float-right">
                     <button className="btn btn-primary" type="submit">
-                      Continue to checkout
+                      {isLoading ? "Creating Order..." : "Checkout"}
                     </button>
                   </div>
                 </form>
