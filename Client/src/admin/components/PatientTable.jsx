@@ -20,7 +20,7 @@ const PatientTable = () => {
                             <h5 className="mb-0">Patients</h5>
                             <nav aria-label="breadcrumb" className="d-inline-block mt-2">
                                 <ul className="breadcrumb breadcrumb-muted bg-transparent rounded mb-0 p-0">
-                                    <li className="breadcrumb-item"><a href="/admin/dashboard">SameDay Lab Works</a></li>
+                                    <li className="breadcrumb-item"><Link to="/admin/dashboard">SameDay Lab Works</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">Patients</li>
                                 </ul>
                             </nav>

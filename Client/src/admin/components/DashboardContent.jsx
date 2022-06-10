@@ -4,8 +4,19 @@ import { HiOutlineUserGroup } from 'react-icons/hi'
 import { FaAmbulance, FaRegListAlt } from 'react-icons/fa'
 import { VscGlobe } from 'react-icons/vsc'
 import { CgUserList } from 'react-icons/cg'
+import { useDispatch, useSelector } from 'react-redux'
+import { doctorSelector, getDoctors } from "../../feautures/doctor/doctorSlice";
+import { useEffect } from 'react';
 
 const DashboardContent = () => {
+    const dispatch = useDispatch();
+    const { doctors } = useSelector(doctorSelector);
+
+    useEffect(() => {
+        dispatch(getDoctors());
+    }
+        , [dispatch]);
+
     return (
         <>
             <div className="container-fluid font-size-15">
@@ -33,8 +44,8 @@ const DashboardContent = () => {
                                         <HiOutlineUserGroup className="uil uil-social-distancing h3 mb-0"></HiOutlineUserGroup>
                                     </div>
                                     <div className="flex-1 ms-2">
-                                        <h5 className="mb-0">112</h5>
-                                        <p className="text-muted mb-0">Staff Members</p>
+                                        <h5 className="mb-0">{doctors?.length}</h5>
+                                        <p className="text-muted mb-0">Doctors</p>
                                     </div>
                                 </div>
                             </div>

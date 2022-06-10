@@ -79,15 +79,14 @@ const DashboardSection = () => {
         setShowProfile(true);
     }
 
-    console.log(orders)
     useEffect(() => {
         dispatch(fetchAppointments())
         dispatch(getOrders())
     }, [dispatch])
 
-    //filter appointments by patient
-    const filteredAppointments = appointments?.filter(appointment => appointment.patient === user.id);
-    const filteredOrders = orders?.filter(order => order.userId.id === user.id)
+    //filter appointments and orders by patient
+    const filteredAppointments = appointments?.filter(appointment => appointment.patient.id === user.id);
+    const filteredOrders = orders?.filter(order => order.userId.id === user.id);
 
     return (
         <>

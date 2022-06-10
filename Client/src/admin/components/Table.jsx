@@ -33,7 +33,7 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((ap) => (
+          {data?.map((ap) => (
             <tr key={ap.id}>
               <th className="p-3">{ap.appNumber}</th>
               <td className="py-3">
