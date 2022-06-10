@@ -7,6 +7,8 @@ import ServiceTable from './ServiceTable';
 import PatientVisitTable from './PatientVisitTable';
 import PatientLogTable from './PatientLogTable';
 import OrderTable from './OrderTable';
+import UsersTable from './UsersTable';
+import UserModal from './UserModal';
 export {
     AsideMenu,
     PatientTable,
@@ -17,4 +19,6 @@ export {
     PatientVisitTable,
     PatientLogTable,
     OrderTable,
+    UsersTable,
+    UserModal,
 }

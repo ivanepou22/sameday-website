@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import img1 from '../../assets/images/Sameday-original.png'
 
 //icons
-import { AiOutlineDashboard } from 'react-icons/ai'
+import { AiOutlineDashboard, AiOutlineUsergroupAdd } from 'react-icons/ai'
 import { FaStethoscope } from 'react-icons/fa'
 import { HiOutlineUsers } from 'react-icons/hi'
 import { RiWheelchairLine } from 'react-icons/ri'
@@ -20,6 +20,7 @@ const AsideMenu = () => {
     const [openPatient, setOpenPatient] = React.useState(false)
     const [openServices, setOpenServices] = React.useState(false)
     const [openBlog, setOpenBlog] = React.useState(false)
+    const [openUsers, setOpenUsers] = React.useState(false)
 
     const [doctorActive, setDoctorActive] = React.useState(false)
     const [patientActive, setPatientActive] = React.useState(false)
@@ -27,6 +28,7 @@ const AsideMenu = () => {
     const [blogActive, setBlogActive] = React.useState(false)
     const [dashboardActive, setDashboardActive] = React.useState(false)
     const [appointmentActive, setAppointmentActive] = React.useState(false)
+    const [usersActive, setUsersActive] = React.useState(false)
 
     const handleOpenDoctor = () => {
         setOpenDoctor(!openDoctor)
@@ -36,6 +38,7 @@ const AsideMenu = () => {
         setBlogActive(false);
         setDashboardActive(false);
         setAppointmentActive(false);
+        setUsersActive(false);
     }
 
     const handleOpenPatient = () => {
@@ -46,6 +49,7 @@ const AsideMenu = () => {
         setBlogActive(false);
         setDashboardActive(false);
         setAppointmentActive(false);
+        setUsersActive(false);
     }
 
     const handleOpenServices = () => {
@@ -56,6 +60,7 @@ const AsideMenu = () => {
         setBlogActive(false);
         setDashboardActive(false);
         setAppointmentActive(false);
+        setUsersActive(false);
     }
 
     const handleOpenBlog = () => {
@@ -66,6 +71,7 @@ const AsideMenu = () => {
         setBlogActive(true);
         setDashboardActive(false);
         setAppointmentActive(false);
+        setUsersActive(false);
     }
 
     const handleOpenDashboard = () => {
@@ -75,6 +81,7 @@ const AsideMenu = () => {
         setBlogActive(false);
         setDashboardActive(true);
         setAppointmentActive(false);
+        setUsersActive(false);
     }
 
     const handleOpenAppointment = () => {
@@ -84,6 +91,18 @@ const AsideMenu = () => {
         setBlogActive(false);
         setDashboardActive(false);
         setAppointmentActive(true);
+        setUsersActive(false);
+    }
+
+    const handleOpenUsers = () => {
+        setOpenUsers(!openUsers)
+        setDoctorActive(false);
+        setPatientActive(false);
+        setServicesActive(false);
+        setBlogActive(false);
+        setDashboardActive(false);
+        setAppointmentActive(false);
+        setUsersActive(true);
     }
 
     return (
@@ -131,12 +150,20 @@ const AsideMenu = () => {
                             </div>
                         </li>
                         <div className="dropdown-divider border-top"></div>
+                        <li className={`sidebar-dropdown ${usersActive ? 'active' : ''}`}>
+                            <Link to="#/" onClick={handleOpenUsers} ><AiOutlineUsergroupAdd className="uil uil-flip-h me-2 d-inline-block"></AiOutlineUsergroupAdd>Users</Link>
+                            <div className={`sidebar-submenu ${openUsers ? 'd-block' : ''}`}>
+                                <ul>
+                                    <li><Link onClick={handleOpenUsers} to="/admin/users">  Users</Link></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <div className="dropdown-divider border-top"></div>
                         <li className={`sidebar-dropdown ${blogActive ? 'active' : ''}`}>
                             <Link to="#/" onClick={handleOpenBlog} ><FiGlobe className="uil uil-flip-h me-2 d-inline-block"></FiGlobe>Blogs</Link>
                             <div className={`sidebar-submenu ${openBlog ? 'd-block' : ''}`}>
                                 <ul>
                                     <li><Link onClick={handleOpenBlog} to="/">  Blogs</Link></li>
-                                    <li><Link onClick={handleOpenBlog} to="/">  Blog Detail</Link></li>
                                 </ul>
                             </div>
                         </li>

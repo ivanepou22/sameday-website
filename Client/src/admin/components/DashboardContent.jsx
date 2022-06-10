@@ -2,8 +2,8 @@ import React from 'react'
 import { RiHotelBedLine, RiFirstAidKitLine, RiServiceLine } from 'react-icons/ri'
 import { HiOutlineUserGroup } from 'react-icons/hi'
 import { FaAmbulance, FaRegListAlt } from 'react-icons/fa'
-import { VscGlobe } from 'react-icons/vsc'
 import { CgUserList } from 'react-icons/cg'
+import { AiOutlineUsergroupAdd } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
 import { doctorSelector, getDoctors } from "../../feautures/doctor/doctorSlice";
 import { useEffect } from 'react';
@@ -108,7 +108,7 @@ const DashboardContent = () => {
                             <div className="card features feature-primary rounded border-0 shadow p-4">
                                 <div className="d-flex align-items-center">
                                     <div className="icon text-center rounded-md">
-                                        <VscGlobe className="uil uil-medkit h3 mb-0"></VscGlobe>
+                                        <AiOutlineUsergroupAdd className="uil uil-medkit h3 mb-0"></AiOutlineUsergroupAdd>
                                     </div>
                                     <div className="flex-1 ms-2">
                                         <h5 className="mb-0">

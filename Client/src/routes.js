@@ -29,4 +29,5 @@ export const SDRoutes = {
     adminLogin: { path: '/admin' },
     adminRegister: { path: '/admin/register' },
     adminForgotPassword: { path: '/admin/forgot-password' },
+    adminUsers: { path: '/admin/users' },
 }
