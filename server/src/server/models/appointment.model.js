@@ -34,8 +34,9 @@ const AppointmentSchema = new Schema(
     },
     patient: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Patient",
+      ref: "User",
       required: true,
+      autopopulate: true
     },
     comment: {
       type: String,
