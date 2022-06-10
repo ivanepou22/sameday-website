@@ -13,15 +13,14 @@ const Table = (props) => {
       <table className="table table-center bg-white mb-0">
         <thead>
           <tr>
+            <th className="border-bottom p-3">No.</th>
             <th className="border-bottom p-3" style={{ minWidth: "50px" }}>
-              Appointment Number
+              Number
             </th>
             <th className="border-bottom p-3" style={{ minWidth: "180px" }}>
               Full Name
             </th>
             <th className="border-bottom p-3">Age</th>
-            <th className="border-bottom p-3">Gender</th>
-            <th className="border-bottom p-3">Address</th>
             <th className="border-bottom p-3">Phone</th>
             <th className="border-bottom p-3">Department</th>
             <th className="border-bottom p-3" style={{ minWidth: "150px" }}>
@@ -33,44 +32,45 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {data?.map((ap) => (
+          {data?.map((ap, index) => (
             <tr key={ap.id}>
-              <th className="p-3">{ap.appNumber}</th>
-              <td className="py-3">
-                <Link to="patients.html#" className="text-dark">
+              <td className="p-3 white-space-wrap-none">{index + 1}</td>
+              <td className="p-3 white-space-wrap-none">
+                <Link to="#/">
                   <div className="d-flex align-items-center">
-                    <span className="ms-2">{ap.patient.name}</span>
+                    {ap.appNumber}
                   </div>
                 </Link>
               </td>
-              <td className="p-3">{ap.patient.age || 20}</td>
-              <td className="p-3">Female</td>
-              <td className="p-3">{ap.patient.address}</td>
-              <td className="p-3">{ap.phone}</td>
-              <td className="p-3">{ap.department}</td>
-              <td className="p-3">{new Date(ap.date).toDateString()}</td>
-              <td className="p-3">{ap.time}</td>
-              <td className="p-3">
+              <td className="p-3 white-space-wrap-none">
+                <Link to="#/">
+                  <div className="d-flex align-items-center">
+                    {ap.patient.name}
+                  </div>
+                </Link>
+              </td>
+              <td className="p-3 white-space-wrap-none">{ap.patient.age || 20}</td>
+              <td className="p-3 white-space-wrap-none">{ap.phone}</td>
+              <td className="p-3 white-space-wrap-none">{ap.department}</td>
+              <td className="p-3 white-space-wrap-none">{new Date(ap.date).toDateString()}</td>
+              <td className="p-3 white-space-wrap-none">{ap.time}</td>
+              <td className="p-3 white-space-wrap-none">
                 <span className="badge bg-soft-warning">Pending</span>
               </td>
-              <td className="text-end p-3">
+              <td className="text-end p-3 white-space-wrap-none">
                 <Link
-                  to="patients.html#"
+                  to="#/"
                   className="btn btn-icon btn-pills btn-soft-primary my-1"
-                  data-bs-toggle="modal"
-                  data-bs-target="#viewprofile"
                 >
                   <AiOutlineEye />
                 </Link>
                 <Link
-                  to="patients.html#"
-                  className="btn btn-icon btn-pills btn-soft-success my-1"
-                  data-bs-toggle="modal"
-                  data-bs-target="#editprofile"
+                  to="#/"
+                  className="btn btn-icon btn-pills btn-soft-success my-1 mx-2"
                 >
                   <FaRegEdit />
                 </Link>
-                <Link to="patients.html#" className="btn btn-icon btn-pills btn-soft-danger">
+                <Link to="#/" className="btn btn-icon btn-pills btn-soft-danger">
                   <AiOutlineDelete />
                 </Link>
               </td>

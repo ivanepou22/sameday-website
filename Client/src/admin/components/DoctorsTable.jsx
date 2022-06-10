@@ -32,7 +32,7 @@ const DoctorsTable = () => {
               <nav aria-label="breadcrumb" className="d-inline-block mt-2">
                 <ul className="breadcrumb breadcrumb-muted bg-transparent rounded mb-0 p-0">
                   <li className="breadcrumb-item">
-                    <a href="/admin/dashboard">SameDay Lab Works</a>
+                    <Link to="/admin/dashboard">SameDay Lab Works</Link>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
                     Doctors

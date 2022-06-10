@@ -7,16 +7,29 @@ import { CgUserList } from 'react-icons/cg'
 import { useDispatch, useSelector } from 'react-redux'
 import { doctorSelector, getDoctors } from "../../feautures/doctor/doctorSlice";
 import { useEffect } from 'react';
+import { appointmentSelector, fetchAppointments } from "../../feautures/appointment/appointmentSlice";
+import { serviceSelector, getServices } from '../../feautures/services/serviceSlice';
+import { ordersSelector, getOrders } from '../../feautures/orders/ordersSlice'
+import { userSelector, fetchUsers } from '../../feautures/user/userSlice'
 
 const DashboardContent = () => {
     const dispatch = useDispatch();
     const { doctors } = useSelector(doctorSelector);
+    const { appointments } = useSelector(appointmentSelector);
+    const { services } = useSelector(serviceSelector);
+    const { orders } = useSelector(ordersSelector);
+    const { users } = useSelector(userSelector);
 
     useEffect(() => {
         dispatch(getDoctors());
+        dispatch(fetchAppointments());
+        dispatch(getServices());
+        dispatch(getOrders());
+        dispatch(fetchUsers());
     }
         , [dispatch]);
 
+    console.log(users.results);
     return (
         <>
             <div className="container-fluid font-size-15">
@@ -44,7 +57,12 @@ const DashboardContent = () => {
                                         <HiOutlineUserGroup className="uil uil-social-distancing h3 mb-0"></HiOutlineUserGroup>
                                     </div>
                                     <div className="flex-1 ms-2">
-                                        <h5 className="mb-0">{doctors?.length}</h5>
+                                        <h5 className="mb-0">
+                                            {doctors?.length?.toLocaleString('en-US', {
+                                                maximumFractionDigits: 2,
+                                                minimumFractionDigits: 2
+                                            })}
+                                        </h5>
                                         <p className="text-muted mb-0">Doctors</p>
                                     </div>
                                 </div>
@@ -73,7 +91,14 @@ const DashboardContent = () => {
                                         <RiFirstAidKitLine className="uil uil-medkit h3 mb-0"></RiFirstAidKitLine>
                                     </div>
                                     <div className="flex-1 ms-2">
-                                        <h5 className="mb-0">273</h5>
+                                        <h5 className="mb-0">
+                                            {
+                                                appointments?.length?.toLocaleString('en-US', {
+                                                    maximumFractionDigits: 2,
+                                                    minimumFractionDigits: 2
+                                                })
+                                            }
+                                        </h5>
                                         <p className="text-muted mb-0">Appointments</p>
                                     </div>
                                 </div>
@@ -87,8 +112,16 @@ const DashboardContent = () => {
                                         <VscGlobe className="uil uil-medkit h3 mb-0"></VscGlobe>
                                     </div>
                                     <div className="flex-1 ms-2">
-                                        <h5 className="mb-0">580</h5>
-                                        <p className="text-muted mb-0">Blogs</p>
+                                        <h5 className="mb-0">
+                                            {
+                                                users.results?.length?.toLocaleString('en-US', {
+                                                    maximumFractionDigits: 2,
+                                                    minimumFractionDigits: 2
+                                                })
+
+                                            }
+                                        </h5>
+                                        <p className="text-muted mb-0">Users</p>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +148,14 @@ const DashboardContent = () => {
                                         <RiServiceLine className="uil uil-medkit h3 mb-0"></RiServiceLine>
                                     </div>
                                     <div className="flex-1 ms-2">
-                                        <h5 className="mb-0">589</h5>
+                                        <h5 className="mb-0">
+                                            {
+                                                services?.length?.toLocaleString('en-US', {
+                                                    maximumFractionDigits: 2,
+                                                    minimumFractionDigits: 2
+                                                })
+                                            }
+                                        </h5>
                                         <p className="text-muted mb-0">Services</p>
                                     </div>
                                 </div>
@@ -129,7 +169,14 @@ const DashboardContent = () => {
                                         <FaRegListAlt className="uil uil-medkit h3 mb-0"></FaRegListAlt>
                                     </div>
                                     <div className="flex-1 ms-2">
-                                        <h5 className="mb-0">415</h5>
+                                        <h5 className="mb-0">
+                                            {
+                                                orders?.length?.toLocaleString('en-US', {
+                                                    maximumFractionDigits: 2,
+                                                    minimumFractionDigits: 2
+                                                })
+                                            }
+                                        </h5>
                                         <p className="text-muted mb-0">Orders</p>
                                     </div>
                                 </div>
