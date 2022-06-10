@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { RiAddLine } from 'react-icons/ri'
-import Table from './Table'
 import ServicesModal from './ServicesModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { serviceSelector, getServices } from '../../feautures/services/serviceSlice';

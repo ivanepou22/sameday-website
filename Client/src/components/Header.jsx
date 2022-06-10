@@ -15,7 +15,6 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { SiGnuprivacyguard } from "react-icons/si";
 // Logo
 import same_day_logo from "../assets/images/Sameday-original.png";
-import doc1 from "../assets/images/client/09.jpg";
 // styles
 import "../assets/css/custom.css";
 import SearchModal from "./SearchModal";
@@ -38,9 +37,6 @@ const Header = () => {
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
   };
-  const handleShowSettings = () => {
-    setShowSettings(!showSettings);
-  };
   const handleShowMobileMenu = () => {
     setShowMobileMenu(!showMobileMenu);
   };
@@ -57,7 +53,7 @@ const Header = () => {
         {/* nav-sticky */}
         <div className="container">
           <div>
-            <Link className="logo" to="/">
+            <Link className="logo" to="#/">
               <span className="logo-light-mode">
                 <img src={same_day_logo} className="l-dark" height="34" alt="" />
                 <img src={same_day_logo} className="l-light" height="34" alt="" />
@@ -125,9 +121,8 @@ const Header = () => {
                     />
                   </button>
                   <div
-                    className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${
-                      showProfile ? "show profile-drop" : ""
-                    }`}
+                    className={`dropdown-menu dd-menu dropdown-menu-end bg-white shadow border-0 mt-3 py-3 ${showProfile ? "show profile-drop" : ""
+                      }`}
                     style={{ minWidth: "200px" }}
                   >
                     <Link className="dropdown-item d-flex align-items-center text-dark" to="#/">

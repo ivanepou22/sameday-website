@@ -8,6 +8,15 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const Table = (props) => {
   const { data } = props;
+
+  //calculate the number of days between two dates
+  const getDays = (date1, date2) => {
+    date1 = new Date(date1);
+    date2 = new Date(date2);
+    const diff = date1 - date2;
+    return (diff / (1000 * 60 * 60 * 24));
+  }
+
   return (
     <>
       <table className="table table-center bg-white mb-0">
@@ -52,7 +61,16 @@ const Table = (props) => {
               <td className="p-3 white-space-wrap-none">{ap.patient.age || 20}</td>
               <td className="p-3 white-space-wrap-none">{ap.phone}</td>
               <td className="p-3 white-space-wrap-none">{ap.department}</td>
-              <td className="p-3 white-space-wrap-none">{new Date(ap.date).toDateString()}</td>
+              <td className="p-3 white-space-wrap-none">{
+                getDays(ap.date, new Date()) >= 0 ?
+                  <span className="badge bg-soft-success">
+                    {new Date(ap.date).toDateString()}
+                  </span>
+                  : <span className="badge bg-soft-danger">
+                    {new Date(ap.date).toDateString()}
+                  </span>
+
+              }</td>
               <td className="p-3 white-space-wrap-none">{ap.time}</td>
               <td className="p-3 white-space-wrap-none">
                 <span className="badge bg-soft-warning">Pending</span>

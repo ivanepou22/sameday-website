@@ -201,14 +201,10 @@ const AppointmentSection = () => {
                               className="form-control department-name select2input"
                             >
                               <option value="">Select Department</option>
-                              <option value="EY">Eye Care</option>
-                              <option value="GY">Gynecologist</option>
-                              <option value="PS">Psychotherapist</option>
-                              <option value="OR">Orthopedic</option>
-                              <option value="DE">Dentist</option>
-                              <option value="GA">Gastrologist</option>
-                              <option value="UR">Urologist</option>
-                              <option value="NE">Neurologist</option>
+                              <option value="Wellness">Wellness</option>
+                              <option value="Radiology">Radiology</option>
+                              <option value="Covid">Covid Testing</option>
+                              <option value="Laboratory">Laboratory Services</option>
                             </select>
                           </div>
                         </div>

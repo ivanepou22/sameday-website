@@ -29,7 +29,6 @@ const DashboardContent = () => {
     }
         , [dispatch]);
 
-    console.log(users.results);
     return (
         <>
             <div className="container-fluid font-size-15">
