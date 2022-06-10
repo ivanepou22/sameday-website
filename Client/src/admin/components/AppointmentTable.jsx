@@ -6,7 +6,8 @@ import AppointmentModal from "./AppointmentModal";
 
 const AppointmentTable = (props) => {
   const [showModal, setShowModal] = React.useState(false);
-  const { appointments, isLoading } = props;
+  const { data, isLoading } = props;
+
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -45,7 +46,7 @@ const AppointmentTable = (props) => {
           <div className="row">
             <div className="col-12 mt-4">
               <div className="table-responsive shadow rounded">
-                <Table />
+               {!isLoading &&  <Table data={data} />}
               </div>
             </div>
           </div>
