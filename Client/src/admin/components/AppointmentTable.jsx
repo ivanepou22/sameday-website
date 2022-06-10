@@ -13,6 +13,8 @@ const AppointmentTable = (props) => {
     setShowModal(true);
   };
 
+  console.log(data);
+
   return (
     <>
       <div className="container-fluid">
@@ -46,7 +48,7 @@ const AppointmentTable = (props) => {
           <div className="row">
             <div className="col-12 mt-4">
               <div className="table-responsive shadow rounded">
-               {!isLoading &&  <Table data={data} />}
+                {!isLoading && <Table data={data} />}
               </div>
             </div>
           </div>

@@ -27,11 +27,12 @@ const Table = (props) => {
               Number
             </th>
             <th className="border-bottom p-3" style={{ minWidth: "180px" }}>
-              Full Name
+              Patient Name
             </th>
             <th className="border-bottom p-3">Age</th>
             <th className="border-bottom p-3">Phone</th>
             <th className="border-bottom p-3">Department</th>
+            <th className="border-bottom p-3">Doctor</th>
             <th className="border-bottom p-3" style={{ minWidth: "150px" }}>
               Date
             </th>
@@ -61,6 +62,7 @@ const Table = (props) => {
               <td className="p-3 white-space-wrap-none">{ap.patient.age || 20}</td>
               <td className="p-3 white-space-wrap-none">{ap.phone}</td>
               <td className="p-3 white-space-wrap-none">{ap.department}</td>
+              <td className="p-3 white-space-wrap-none">{ap.doctor.full_name}</td>
               <td className="p-3 white-space-wrap-none">{
                 getDays(ap.date, new Date()) >= 0 ?
                   <span className="badge bg-soft-success">
