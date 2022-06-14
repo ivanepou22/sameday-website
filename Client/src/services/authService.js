@@ -41,9 +41,22 @@ const refreshToken = async () => {
   return data;
 };
 
+const adminLogin = async (payload) => {
+  const res = await API.loginAdmin(payload);
+  const data = await res.json();
+  if (!data.tokens) {
+    throw new Error(data.message);
+  }
+  localStorage.setItem("access_token", JSON.stringify(data.tokens.access));
+  localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh));
+  localStorage.setItem("user", JSON.stringify(data.user));
+  return data.user;
+}
+
 export const authService = {
   login,
   register,
   logout,
   refreshToken,
+  adminLogin,
 };

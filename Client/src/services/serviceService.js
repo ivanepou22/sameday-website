@@ -6,7 +6,7 @@ const createService = async (service) => {
   return data;
 };
 const getServices = async () => {
-  const res = await API.get("/services");
+  const res = await API.noAuthGet("/services");
   const data = await res.json();
   return data;
 };
