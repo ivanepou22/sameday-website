@@ -5,6 +5,11 @@ class API {
   static get(url) {
     return customFetch(url);
   }
+
+  static noAuthGet(url) {
+    return fetch(`${API_URL}${url}`);
+  }
+
   static post(url, data) {
     const config = {
       method: "POST",
@@ -36,6 +41,15 @@ class API {
   }
   static login(data) {
     return fetch(`${API_URL}/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  }
+  static loginAdmin(data) {
+    return fetch(`${API_URL}/auth/admin/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
