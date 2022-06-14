@@ -19,7 +19,7 @@ const loginAdmin = catchAsync(async (req, res) => {
   const { email, password } = req.body;
   const admin = await authService.loginAdmin(email, password);
   const tokens = await tokenService.generateAuthTokens(admin);
-  res.send({ admin, tokens });
+  res.send({ user: admin, tokens });
 });
 
 const logout = catchAsync(async (req, res) => {

@@ -64,4 +64,5 @@ export default {
   forgotPassword,
   resetPassword,
   verifyEmail,
+  loginAdmin
 };
