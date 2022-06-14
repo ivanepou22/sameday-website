@@ -11,6 +11,8 @@ const WellnessCenter = () => {
         dispatch(getServices());
     }, [dispatch]);
 
+    console.log(services);
+
     return (
         <>
             <Header />

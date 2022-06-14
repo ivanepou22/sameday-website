@@ -14,6 +14,7 @@ const Home = () => {
 
     //limited to 8 services
     const servicesList = services.slice(0, 8);
+    console.log(servicesList);
 
     return (
         <>
