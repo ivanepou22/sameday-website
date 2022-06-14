@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState } from "react";
+import React from "react";
 import { BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AiOutlineHeart, AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
@@ -31,7 +31,6 @@ const WellnessPackages = (props) => {
                 </p>
                 <div className="mt-4">
                   <Link to="/shop" className="btn btn-orange">
-                    {" "}
                     Shop Now <RiArrowRightSLine />
                   </Link>
                 </div>
