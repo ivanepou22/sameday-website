@@ -21,6 +21,7 @@ import {
   Checkout,
   BlogDetails,
   ServiceDetails,
+  Clinics,
 } from "./pages";
 import {
   Dashboard,
@@ -67,7 +68,7 @@ function App() {
           <Route path={SDRoutes.RadiologyServices.path} element={<RadiologyServices />} />
           <Route path={SDRoutes.LaboratoryServices.path} element={<LaboratoryServices />} />
           <Route path={SDRoutes.CovidTesting.path} element={<CovidTesting />} />
-
+          <Route path={SDRoutes.Clinics.path} element={<Clinics />} />
           <Route element={<UserProtectedRoute />}>
             <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
           </Route>

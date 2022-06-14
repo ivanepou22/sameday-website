@@ -13,6 +13,7 @@ import '../assets/css/Sliders.css';
 import { Pagination, Navigation, Autoplay } from "swiper";
 //Images
 import img1 from "../assets/images/about/wellness005-removebg-preview.png";
+import clinics from "../assets/images/about/clinics.png";
 import img2 from "../assets/images/about/rdg03-removebg-preview.png";
 import img3 from "../assets/images/about/lab0020-removebg-preview.png";
 import img4 from "../assets/images/about//Combineb_pix_020-removebg-preview.png";
@@ -44,6 +45,33 @@ const Sliders = () => {
                 }}
                 className="mySwiper"
             >
+                <SwiperSlide>
+                    <div className="container">
+                        <div className="row align-text-left margin-right-10">
+                            <div className="col-lg-7 col-md-6 mt-4 mt-lg-0 pt- pt-lg-0">
+                                <div className="ms-lg-4 slider-wl-content">
+                                    <div className="section-title">
+                                        <p className="mb-1 slider-title">Clinics</p>
+                                        <p className="text-muted para-desc mb-0 font-size-15 color-black">
+                                            In order to provide a good service to our customers, we have opened a series of
+                                            clinics in several different locations in the Country with a range of affordable and efficient
+                                            services, please through the list of services provided per branch.
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-4">
+                                        <Link to="/clinics" className="btn btn-orange">Read More <RiArrowRightSLine /></Link>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-lg-5 col-md-6">
+                                <div className="position-relative">
+                                    <img src={clinics} className="img-fluid" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </SwiperSlide>
                 <SwiperSlide>
                     <div className="container">
                         <div className="row align-text-left margin-right-10">

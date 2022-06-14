@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { FaJoomla } from 'react-icons/fa';
 import { BsFlower2, BsFillCheckCircleFill, BsCheck2Circle, BsTelephone } from 'react-icons/bs';
-import { BiLocationPlus, BiEnvelope } from 'react-icons/bi';
+import { BiLocationPlus, BiEnvelope, BiClinic } from 'react-icons/bi';
 import { SiTripadvisor } from 'react-icons/si';
 import { GiThreePointedShuriken } from 'react-icons/gi';
 import bgContact from '../assets/images/PIX/contact-removebg-preview.png';
@@ -149,31 +149,45 @@ const AboutContent = () => {
                     <div className="row justify-content-center bg-gray">
                         <div className="col-xl-12">
                             <div className="shadow rounded overflow-hidden card-group">
-                                <div className="card border-0 bg-light p-4 btn-orange border-radius-10">
-                                    <Link to="/wellness-center" className="text-primary align-text-center">
-                                        <BsFlower2 className='white-text font-size-50' />
-                                        <h5 className="mt-1 white-text font-size-30">Wellness <br />Center</h5>
-                                    </Link>
+                                <div className='col-lg-3 col-md-6 col-12'>
+                                    <div className="card border-0 bg-light p-4 btn-orange border-radius-10 height-100">
+                                        <Link to="/clinics" className="text-primary align-text-center">
+                                            <BiClinic className='white-text font-size-50' />
+                                            <h5 className="mt-1 white-text font-size-30">Clinics <br /></h5>
+                                        </Link>
+                                    </div>
                                 </div>
-
-                                <div className="card border-0 p-4 btn-orange mx-2  border-radius-10">
-                                    <Link to="/radiology-services" className="text-primary align-text-center">
-                                        <FaJoomla className='white-text font-size-50' />
-                                        <h5 className="mt-1 white-text font-size-30">Radiology <br />Services</h5>
-                                    </Link>
+                                <div className='col-lg-2 col-md-6 col-12'>
+                                    <div className="card border-0 bg-light p-4 mx-2 btn-orange border-radius-10 height-100">
+                                        <Link to="/wellness-center" className="text-primary align-text-center">
+                                            <BsFlower2 className='white-text font-size-50' />
+                                            <h5 className="mt-1 white-text font-size-30"> <span className='white-space-wrap-none'>Wellness</span> <br /><span className='white-space-wrap-none'>Center</span></h5>
+                                        </Link>
+                                    </div>
                                 </div>
-
-                                <div className="card border-0 bg-light p-4 btn-orange mx-2 border-radius-10">
-                                    <Link to="/laboratory-services" className="text-primary align-text-center">
-                                        <ImLab className='white-text font-size-50' />
-                                        <h5 className="mt-1 white-text font-size-30">Laboratory <br />Services</h5>
-                                    </Link>
+                                <div className='col-lg-2 col-md-6 col-12'>
+                                    <div className="card border-0 p-4 btn-orange mx-2  border-radius-10 height-100">
+                                        <Link to="/radiology-services" className="text-primary align-text-center">
+                                            <FaJoomla className='white-text font-size-50' />
+                                            <h5 className="mt-1 white-text font-size-30"><span className='white-space-wrap-none'>Radiology</span> <br /><span className='white-space-wrap-none'>Services</span></h5>
+                                        </Link>
+                                    </div>
                                 </div>
-                                <div className="card border-0 bg-light p-4 btn-orange  border-radius-10">
-                                    <Link to="/covid-testing" className="text-primary align-text-center">
-                                        <RiVirusLine className='white-text font-size-50' />
-                                        <h5 className="mt-1 white-text font-size-30">Covid <br />Testing</h5>
-                                    </Link>
+                                <div className='col-lg-2 col-md-6 col-12'>
+                                    <div className="card border-0 bg-light p-4 btn-orange mx-2 border-radius-10 height-100">
+                                        <Link to="/laboratory-services" className="text-primary align-text-center">
+                                            <ImLab className='white-text font-size-50' />
+                                            <h5 className="mt-1 white-text font-size-30"><span className='white-space-wrap-none'>Laboratory</span> <br /><span className='white-space-wrap-none'>Services</span></h5>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className='col-lg-3 col-md-6 col-12'>
+                                    <div className="card border-0 bg-light p-4 btn-orange  border-radius-10 height-100">
+                                        <Link to="/covid-testing" className="text-primary align-text-center">
+                                            <RiVirusLine className='white-text font-size-50' />
+                                            <h5 className="mt-1 white-text font-size-30"><span className='white-space-wrap-none'>Covid</span> <br /><span className='white-space-wrap-none'>Testing</span></h5>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

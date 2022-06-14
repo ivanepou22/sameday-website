@@ -15,6 +15,7 @@ export const SDRoutes = {
     PatientProfile: { path: '/patient-profile' },
     Appointment: { path: '/create-appointment' },
     ShoppingCart: { path: '/shopping-cart' },
+    Clinics: { path: '/clinics' },
     Checkout: { path: '/checkout' },
     BlogDetails: { path: '/blog-details/:id' },
     ServiceDetails: { path: '/service-details/:id' },
