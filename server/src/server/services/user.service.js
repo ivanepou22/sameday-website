@@ -19,7 +19,7 @@ const getUserById = async (id) => {
 };
 
 const getAdminUser = async (email) => {
-  return User.findOne({ email, role: "admin"})
+  return User.findOne({ email, role: ["admin", "doctor"]})
 }
 
 const getuserByEmail = async (email) => {
