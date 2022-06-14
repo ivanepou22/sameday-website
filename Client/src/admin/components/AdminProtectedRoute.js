@@ -6,11 +6,11 @@ import { SDRoutes } from "../../routes";
 const AdminProtectedRoute = () => {
   const { user } = useSelector(authSelector);
 
-  if (user && user.role !== "admin") {
+  if (user && user.role === "user") {
     return <Navigate to={SDRoutes.Home.path} />;
   }
 
   return user ? <Outlet /> : <Navigate to="/admin" />;
 };
 
-export default AdminProtectedRoute
+export default AdminProtectedRoute;

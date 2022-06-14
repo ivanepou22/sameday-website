@@ -8,6 +8,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const Table = (props) => {
   const { data } = props;
+  console.log(data)
 
   //calculate the number of days between two dates
   const getDays = (date1, date2) => {
@@ -31,13 +32,6 @@ const Table = (props) => {
             </th>
             <th className="border-bottom p-3">Age</th>
             <th className="border-bottom p-3">Phone</th>
-            <th className="border-bottom p-3">Department</th>
-            <th className="border-bottom p-3">Doctor</th>
-            <th className="border-bottom p-3" style={{ minWidth: "150px" }}>
-              Date
-            </th>
-            <th className="border-bottom p-3">Time</th>
-            <th className="border-bottom p-3">Status</th>
             <th className="border-bottom p-3" style={{ minWidth: "100px" }}></th>
           </tr>
         </thead>
@@ -48,35 +42,19 @@ const Table = (props) => {
               <td className="p-3 white-space-wrap-none">
                 <Link to="#/">
                   <div className="d-flex align-items-center">
-                    {ap.appNumber}
+                    {ap?.appNumber}
                   </div>
                 </Link>
               </td>
               <td className="p-3 white-space-wrap-none">
                 <Link to="#/">
                   <div className="d-flex align-items-center">
-                    {ap.patient.name}
+                    {ap?.name}
                   </div>
                 </Link>
               </td>
-              <td className="p-3 white-space-wrap-none">{ap.patient.age || 20}</td>
-              <td className="p-3 white-space-wrap-none">{ap.phone}</td>
-              <td className="p-3 white-space-wrap-none">{ap.department}</td>
-              <td className="p-3 white-space-wrap-none">{ap.doctor.full_name}</td>
-              <td className="p-3 white-space-wrap-none">{
-                getDays(ap.date, new Date()) >= 0 ?
-                  <span className="badge bg-soft-success">
-                    {new Date(ap.date).toDateString()}
-                  </span>
-                  : <span className="badge bg-soft-danger">
-                    {new Date(ap.date).toDateString()}
-                  </span>
-
-              }</td>
-              <td className="p-3 white-space-wrap-none">{ap.time}</td>
-              <td className="p-3 white-space-wrap-none">
-                <span className="badge bg-soft-warning">Pending</span>
-              </td>
+              <td className="p-3 white-space-wrap-none">{ap?.age || 20}</td>
+              <td className="p-3 white-space-wrap-none">{ap?.phone}</td>
               <td className="text-end p-3 white-space-wrap-none">
                 <Link
                   to="#/"
