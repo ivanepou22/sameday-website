@@ -11,6 +11,7 @@ const UserModal = (props) => {
         password: "",
         first_name: "",
         last_name: "",
+        role: "",
     });
 
     const handleClose = () => {
@@ -33,6 +34,7 @@ const UserModal = (props) => {
                 email: formData.email,
                 password: formData.password,
                 name,
+                role: formData.role,
             })
         );
     };
@@ -127,8 +129,8 @@ const UserModal = (props) => {
                                             <label className="form-label">Role</label>
                                             <select
                                                 name="role"
-                                                // value={formData.role}
-                                                // onChange={handleChange}
+                                                value={formData.role}
+                                                onChange={handleChange}
                                                 className="form-control doctor-name select2input"
                                             >
                                                 <option value="">Select Role</option>

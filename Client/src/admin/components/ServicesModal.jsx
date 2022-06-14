@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { toast } from "react-toastify";
+import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectOptions, customStyles } from '../../data/SelectOptions';
 import { serviceSelector, createService } from '../../feautures/services/serviceSlice';
 import { imageSelector, UploadImage, reset } from '../../feautures/image/imageSlice';
 
@@ -9,6 +11,7 @@ const ServicesModal = (props) => {
     const { isLoading, isError, errorMessage, service } = useSelector(serviceSelector);
     const { imageUrl } = useSelector(imageSelector);
     const { show, setShowModal } = props;
+    const [subItems, setSubItems] = useState([])
 
     const [formData, setFormData] = useState({
         name: "",
@@ -41,8 +44,11 @@ const ServicesModal = (props) => {
         });
     };
 
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.table(formData);
         if (imageUrl) {
             dispatch(
                 createService({
@@ -51,6 +57,7 @@ const ServicesModal = (props) => {
                     price: formData.price[0],
                     duration: formData.duration[0],
                     category: formData.category[0],
+                    subItems: subItems,
                     image: imageUrl,
                 })
             );
@@ -62,6 +69,14 @@ const ServicesModal = (props) => {
 
     const handleClose = () => {
         setShowModal(false);
+    }
+
+    // handle multi select
+    const selectFn = (e) => {
+        console.log(subItems);
+        e.forEach(el => {
+            subItems?.includes(el.value) ? console.log('yes') : setSubItems([...subItems, el.value])
+        })
     }
 
     return (
@@ -134,19 +149,30 @@ const ServicesModal = (props) => {
                                                 <option defaultValue="COVID">covid</option>
                                                 <option defaultValue="Laboratory">Laboratory</option>
                                                 <option defaultValue="Radiology">Radiology</option>
+                                                <option defaultValue="Clinic">Clinics</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div className="col-lg-6 col-md-6">
                                         <div className="mb-3">
                                             <label className="form-label">Sub Items <span className="text-danger">*</span></label>
-                                            <select className="form-control doctor-name select2input">
-                                                <option defaultValue="">Select Items</option>
-                                                <option defaultValue="Wellness">Wellness</option>
-                                                <option defaultValue="covid">covid</option>
-                                                <option defaultValue="Laboratory">Laboratory</option>
-                                                <option defaultValue="Radiology">Radiology</option>
-                                            </select>
+                                            <Select
+                                                name="subItems"
+                                                defaultInputValue={subItems}
+                                                onChange={(e) => selectFn(e)}
+                                                options={selectOptions}
+                                                theme={(theme) => ({
+                                                    ...theme,
+                                                    borderRadius: 0,
+                                                    colors: {
+                                                        ...theme.colors,
+                                                        primary25: '#61DAFB',
+                                                        primary: '#61DAFB',
+                                                    },
+                                                })}
+                                                styles={customStyles}
+                                                isMulti
+                                            />
                                         </div>
                                     </div>
 
