@@ -9,7 +9,7 @@ const createService = {
     duration: Joi.number().required(),
     category: Joi.string().valid("Labaratory", "Radiology", "Wellness", "COVID").required(),
     image: Joi.string().required(),
-    subtItems: Joi.array(),
+    subItems: Joi.array(),
   }),
 };
 
@@ -22,7 +22,7 @@ const updateService = {
       duration: Joi.number(),
       category: Joi.string().valid("Labaratory", "Radiology", "Wellness", "COVID"),
       image: Joi.string(),
-      subtItems: Joi.array(),
+      subItems: Joi.array(),
     })
     .min(1),
   params: Joi.object().keys({
