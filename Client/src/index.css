@@ -292,6 +292,16 @@ body {
   font-size: 5rem;
 }
 
+.logout-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+}
+
 @media screen and (max-width: 1199px) {
   .login-register {
     display: none !important;

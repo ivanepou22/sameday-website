@@ -138,8 +138,8 @@ const HomeServices = () => {
 
                     <div className="row justify-content-center">
                         <div className="col-xl-12">
-                            <div className="shadow rounded overflow-hidden card-group">
-                                <div className='col-lg-3 col-md-6 col-12'>
+                            <div className="rounded overflow-hidden card-group">
+                                <div className='col-lg-3 col-md-6 col-12 mt-2'>
                                     <div className="card border-0 bg-light p-4 btn-orange border-radius-10 height-100">
                                         <Link to="/clinics" className="text-primary align-text-center">
                                             <BiClinic className='white-text font-size-50' />
@@ -147,7 +147,7 @@ const HomeServices = () => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className='col-lg-2 col-md-6 col-12'>
+                                <div className='col-lg-2 col-md-6 col-12 mt-2'>
                                     <div className="card border-0 bg-light p-4 mx-2 btn-orange border-radius-10 height-100">
                                         <Link to="/wellness-center" className="text-primary align-text-center">
                                             <BsFlower2 className='white-text font-size-50' />
@@ -155,7 +155,7 @@ const HomeServices = () => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className='col-lg-2 col-md-6 col-12'>
+                                <div className='col-lg-2 col-md-6 col-12 mt-2'>
                                     <div className="card border-0 p-4 btn-orange mx-2  border-radius-10 height-100">
                                         <Link to="/radiology-services" className="text-primary align-text-center">
                                             <FaJoomla className='white-text font-size-50' />
@@ -163,7 +163,7 @@ const HomeServices = () => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className='col-lg-2 col-md-6 col-12'>
+                                <div className='col-lg-2 col-md-6 col-12 mt-2'>
                                     <div className="card border-0 bg-light p-4 btn-orange mx-2 border-radius-10 height-100">
                                         <Link to="/laboratory-services" className="text-primary align-text-center">
                                             <ImLab className='white-text font-size-50' />
@@ -171,7 +171,7 @@ const HomeServices = () => {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className='col-lg-3 col-md-6 col-12'>
+                                <div className='col-lg-3 col-md-6 col-12 mt-2'>
                                     <div className="card border-0 bg-light p-4 btn-orange  border-radius-10 height-100">
                                         <Link to="/covid-testing" className="text-primary align-text-center">
                                             <RiVirusLine className='white-text font-size-50' />

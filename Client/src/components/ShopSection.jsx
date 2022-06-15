@@ -25,9 +25,11 @@ import img12 from "../assets/images/pharmacy/shop/medical-equptment.jpg";
 const ShopSection = () => {
     const [quantity, setQuantity] = useState(1);
 
-    const handleIncrease = () => {
-        setQuantity(prev => prev + 1)
+    //
+    const handleQuantityChange = (e) => {
+        setQuantity(e.target.value);
     }
+
     return (
         <>
             <section className="section font-size-15 padding-top-20">
@@ -54,9 +56,9 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
-                                        <button 
-                                        className="btn btn-pills btn-icon btn-primary plus">+</button>
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <button
+                                            className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
                                 <div className="card-body content pt-4 p-2">
@@ -87,7 +89,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -119,7 +121,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -151,7 +153,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -183,7 +185,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -215,7 +217,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -247,7 +249,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -279,7 +281,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -427,7 +429,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -459,7 +461,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -491,7 +493,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>
@@ -523,7 +525,7 @@ const ShopSection = () => {
 
                                     <div className="qty-icons">
                                         <button className="btn btn-pills btn-icon btn-primary minus">-</button>
-                                        <input min="1" value={quantity} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
+                                        <input min="1" value={quantity} onChange={handleQuantityChange} name="quantity" type="number" className="btn btn-pills btn-icon btn-primary qty-btn quantity" />
                                         <button className="btn btn-pills btn-icon btn-primary plus">+</button>
                                     </div>
                                 </div>

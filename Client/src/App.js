@@ -22,6 +22,7 @@ import {
   BlogDetails,
   ServiceDetails,
   Clinics,
+  Logout,
 } from "./pages";
 import {
   Dashboard,
@@ -36,6 +37,7 @@ import {
   Register as AdminRegister,
   ForgotPassword as AdminForgotPassword,
   Users,
+  LogoutAdmin
 } from "./admin/pages";
 import UserProtectedRoute from "./components/UserProtectedRoute";
 import AdminProtectedRoute from "./admin/components/AdminProtectedRoute";
@@ -81,7 +83,7 @@ function App() {
           </Route>
           <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
           <Route path={SDRoutes.ServiceDetails.path} element={<ServiceDetails />} />
-
+          <Route path={SDRoutes.Logout.path} element={<Logout />} />
           {/* // Admin Routes */}
           <Route element={<AdminProtectedRoute />}>
             <Route path={SDRoutes.Patients.path} element={<Patients />} />
@@ -108,6 +110,7 @@ function App() {
           <Route path={SDRoutes.adminLogin.path} element={<AdminLogin />} />
           <Route path={SDRoutes.adminRegister.path} element={<AdminRegister />} />
           <Route path={SDRoutes.adminForgotPassword.path} element={<AdminForgotPassword />} />
+          <Route path={SDRoutes.adminLogout.path} element={<LogoutAdmin />} />
         </Routes>
       </BrowserRouter>
     </div>

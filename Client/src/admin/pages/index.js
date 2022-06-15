@@ -10,6 +10,7 @@ import Login from './Login';
 import Register from './Register';
 import ForgotPassword from './ForgotPassword';
 import Users from './Users';
+import LogoutAdmin from './LogoutAdmin';
 export {
     Dashboard,
     Patients,
@@ -23,4 +24,5 @@ export {
     Register,
     ForgotPassword,
     Users,
+    LogoutAdmin,
 }

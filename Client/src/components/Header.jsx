@@ -53,7 +53,7 @@ const Header = () => {
         {/* nav-sticky */}
         <div className="container">
           <div>
-            <Link className="logo" to="#/">
+            <Link className="logo" to="/">
               <span className="logo-light-mode">
                 <img src={same_day_logo} className="l-dark" height="34" alt="" />
                 <img src={same_day_logo} className="l-light" height="34" alt="" />
@@ -167,7 +167,7 @@ const Header = () => {
                     <Link
                       className="dropdown-item text-dark"
                       onClick={() => setShowProfile(false)}
-                      to="#/"
+                      to="/logout"
                     >
                       <span className="mb-0 d-inline-block me-1">
                         <AiOutlineLogout />

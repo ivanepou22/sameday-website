@@ -19,6 +19,7 @@ export const SDRoutes = {
     Checkout: { path: '/checkout' },
     BlogDetails: { path: '/blog-details/:id' },
     ServiceDetails: { path: '/service-details/:id' },
+    Logout: { path: '/logout' },
     Dashboard: { path: '/admin/dashboard' },
     Patients: { path: '/admin/patients' },
     Appointments: { path: '/admin/appointments' },
@@ -31,4 +32,5 @@ export const SDRoutes = {
     adminRegister: { path: '/admin/register' },
     adminForgotPassword: { path: '/admin/forgot-password' },
     adminUsers: { path: '/admin/users' },
+    adminLogout: { path: '/admin/logout' },
 }

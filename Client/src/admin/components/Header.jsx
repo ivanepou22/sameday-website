@@ -59,7 +59,7 @@ const Header = ({ handleToggle }) => {
                                     <Link className="dropdown-item text-dark" to="#/"><span className="mb-0 d-inline-block me-1"><i className="uil uil-dashboard align-middle h6"></i></span> Dashboard</Link>
                                     <Link className="dropdown-item text-dark" to="#/"><span className="mb-0 d-inline-block me-1"><i className="uil uil-setting align-middle h6"></i></span> Profile Settings</Link>
                                     <div className="dropdown-divider border-top"></div>
-                                    <Link className="dropdown-item text-dark" to="#/"><span className="mb-0 d-inline-block me-1"><i className="uil uil-sign-out-alt align-middle h6"></i></span> Logout</Link>
+                                    <Link className="dropdown-item text-dark" to="/admin/logout"><span className="mb-0 d-inline-block me-1"><i className="uil uil-sign-out-alt align-middle h6"></i></span> Logout</Link>
                                 </div>
                             </div>
                         </li>

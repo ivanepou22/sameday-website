@@ -25,6 +25,10 @@
   height: 100% !important;
 }
 
+.height-100-vh {
+  height: 100vh !important;
+}
+
 .font-size-12 {
   font-size: 15px !important;
   font-weight: 500;

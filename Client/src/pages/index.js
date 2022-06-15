@@ -19,6 +19,7 @@ import Checkout from './Checkout';
 import BlogDetails from './BlogDetails';
 import ServiceDetails from './ServiceDetails';
 import Clinics from './Clinics';
+import Logout from './Logout';
 export {
     Home,
     About,
@@ -40,4 +41,5 @@ export {
     ServiceDetails,
     Shop,
     Clinics,
+    Logout,
 }
