@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { authSelector } from '../../feautures/auth/authSlice'
 import img1 from '../../assets/images/Sameday-original.png'
 
 //icons
@@ -16,6 +18,7 @@ import '../../assets/css/select2.min.css'
 import '../../assets/css/style.min.css'
 
 const AsideMenu = () => {
+    const { user } = useSelector(authSelector)
     const [openDoctor, setOpenDoctor] = React.useState(false)
     const [openPatient, setOpenPatient] = React.useState(false)
     const [openServices, setOpenServices] = React.useState(false)
@@ -115,7 +118,8 @@ const AsideMenu = () => {
                         </Link>
                     </div>
 
-                    <ul className="sidebar-menu pt-3">
+                   {user.role === 'admin' ? (
+                        <ul className="sidebar-menu pt-3">
                         <li className={`${dashboardActive ? 'active' : ''}`}><Link to="/admin/dashboard" onClick={handleOpenDashboard}><AiOutlineDashboard className="uil uil-dashboard me-2 d-inline-block"></AiOutlineDashboard>Dashboard</Link></li>
                         <div className="dropdown-divider border-top"></div>
                         <li className={`${appointmentActive ? 'active' : ''}`} ><Link to="/admin/appointments" onClick={handleOpenAppointment}><FaStethoscope className="uil uil-stethoscope me-2 d-inline-block"></FaStethoscope>Appointments</Link></li>
@@ -169,6 +173,25 @@ const AsideMenu = () => {
                         </li>
                         <div className="dropdown-divider border-top"></div>
                     </ul>
+                   ) : (
+                    <ul className="sidebar-menu pt-3">
+                    <li className={`${dashboardActive ? 'active' : ''}`}><Link to="/admin/dashboard" onClick={handleOpenDashboard}><AiOutlineDashboard className="uil uil-dashboard me-2 d-inline-block"></AiOutlineDashboard>Dashboard</Link></li>
+                    <div className="dropdown-divider border-top"></div>
+                    <li className={`${appointmentActive ? 'active' : ''}`} ><Link to="/admin/appointments" onClick={handleOpenAppointment}><FaStethoscope className="uil uil-stethoscope me-2 d-inline-block"></FaStethoscope>Appointments</Link></li>
+                    <div className="dropdown-divider border-top"></div>
+                    <li className={`sidebar-dropdown ${patientActive ? 'active' : ''}`}>
+                        <Link to="#/" onClick={handleOpenPatient} ><RiWheelchairLine className="uil uil-wheelchair me-2 d-inline-block"></RiWheelchairLine>Patients</Link>
+                        <div className={`sidebar-submenu ${openPatient ? 'd-block' : ''}`}>
+                            <ul>
+                                <li><Link onClick={handleOpenPatient} to="/admin/patients"> All Patients</Link></li>
+                                <li><Link onClick={handleOpenPatient} to="/admin/patient-visits"> Patient Visits</Link></li>
+                                <li><Link onClick={handleOpenPatient} to="/admin/patient-logs"> Patient Logs</Link></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <div className="dropdown-divider border-top"></div>
+                </ul>
+                   )}
                 </div>
             </nav>
         </>

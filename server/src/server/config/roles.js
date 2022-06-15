@@ -9,6 +9,17 @@ const allRoles = {
     "getAppointments",
     "getDoctors",
   ],
+  doctor: [
+    "getUsers",
+    "getDoctors",
+    "manageDoctors",
+    "getAppointments",
+    "manageAppointments",
+    "getLogs",
+    "manageLogs",
+    "getVisits",
+    "manageVisits",
+  ],
   admin: [
     "getUsers",
     "manageUsers",

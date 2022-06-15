@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import same_day_logo from "../../assets/images/Sameday-original.png";
-import { authSelector, login } from "../../feautures/auth/authSlice";
+import { authSelector, loginAdmin, reset } from "../../feautures/auth/authSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,8 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login(formData));
+    dispatch(reset());
+    dispatch(loginAdmin(formData));
   };
 
   useEffect(() => {

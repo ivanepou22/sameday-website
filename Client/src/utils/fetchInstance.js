@@ -38,7 +38,8 @@ let customFetch = async (url, config = {}) => {
   };
 
   // proceed with the request after refreshing the token
-  return await originalRequest(url, config);
+  const res = await originalRequest(url, config);
+  return res;
 };
 
 export default customFetch;

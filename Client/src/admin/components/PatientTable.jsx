@@ -4,7 +4,8 @@ import { RiAddLine } from 'react-icons/ri'
 import Table from './Table'
 import PatientModal from './PatientModal'
 
-const PatientTable = () => {
+const PatientTable = (props) => {
+    const { users } = props
     const [showModal, setShowModal] = React.useState(false);
 
     const handleShowModal = () => {
@@ -34,7 +35,7 @@ const PatientTable = () => {
                     <div className="row">
                         <div className="col-12 mt-4">
                             <div className="table-responsive shadow rounded">
-                                <Table />
+                                <Table data={users} />
                             </div>
                         </div>
                     </div>

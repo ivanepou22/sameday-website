@@ -1,6 +1,7 @@
 import { Router } from "express";
 import validate from "../../middlewares/validate.js";
 import authValidation from "../../validations/auth.validation.js";
+import userValidation from "../../validations/user.validation.js";
 import authController from "../../controllers/auth.controller.js";
 import auth from "../../middlewares/auth.js";
 
@@ -16,5 +17,6 @@ router.post('/reset-password', validate(authValidation.resetPassword), authContr
 router.post('/send-verification-email', auth(), authController.sendVerificationEmail);
 router.post('/verify-email', validate(authValidation.verifyEmail), authController.verifyEmail);
 router.post('/admin/login', validate(authValidation.loginAdmin), authController.loginAdmin);
+router.post('/admin/doctor', validate(userValidation.createUser), authController.register);
 
 export default router;
