@@ -1,9 +1,20 @@
 /* eslint-disable */
-import React from "react";
-import same_day_logo from "../../assets/images/Sameday-original.png";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import same_day_logo from "../../assets/images/Sameday-original.png";
+import { passwordSelector, reset, sendPassReset } from "../../feautures/password/passwordSlice";
 
 const ForgotPassword = () => {
+  const { isLoading, isError, errorMessage } = useSelector(passwordSelector);
+  const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(reset());
+    dispatch(sendPassReset(email));
+  };
   return (
     <>
       <section className="bg-home d-flex bg-light align-items-center">
@@ -14,7 +25,12 @@ const ForgotPassword = () => {
               <div className="card login-page bg-white shadow mt-4 rounded border-0">
                 <div className="card-body">
                   <h4 className="text-center">Recover Account</h4>
-                  <form className="login-form mt-4 font-size-15">
+                  {isError && (
+                    <div className="alert alert-danger">
+                      <strong>Error!</strong> {errorMessage}
+                    </div>
+                  )}
+                  <form onSubmit={handleSubmit} className="login-form mt-4 font-size-15">
                     <div className="row">
                       <div className="col-lg-12">
                         <p className="text-muted">
@@ -30,13 +46,17 @@ const ForgotPassword = () => {
                             className="form-control"
                             placeholder="Enter Your Email Address"
                             name="email"
-                            required=""
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                           />
                         </div>
                       </div>
                       <div className="col-lg-12">
                         <div className="d-grid">
-                          <button className="btn btn-orange">Send</button>
+                          <button type="submit" className="btn btn-orange">
+                            {isLoading ? "Sending..." : "Send"}
+                          </button>
                         </div>
                       </div>
                       <div className="mx-auto">

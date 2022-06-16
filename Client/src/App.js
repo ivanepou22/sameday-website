@@ -34,7 +34,7 @@ import {
   PatientLogs,
   Orders,
   Login as AdminLogin,
-  Register as AdminRegister,
+  // Register as AdminRegister,
   ForgotPassword as AdminForgotPassword,
   Users,
   LogoutAdmin
@@ -108,7 +108,7 @@ function App() {
           </Route>
 
           <Route path={SDRoutes.adminLogin.path} element={<AdminLogin />} />
-          <Route path={SDRoutes.adminRegister.path} element={<AdminRegister />} />
+          {/* <Route path={SDRoutes.adminRegister.path} element={<AdminRegister />} /> */}
           <Route path={SDRoutes.adminForgotPassword.path} element={<AdminForgotPassword />} />
           <Route path={SDRoutes.adminLogout.path} element={<LogoutAdmin />} />
         </Routes>
