@@ -136,6 +136,7 @@ const UserModal = (props) => {
                                                 <option value="">Select Role</option>
                                                 <option value="user">User</option>
                                                 <option value="admin">Admin</option>
+                                                <option value="doctor">Doctor</option>
                                             </select>
                                         </div>
                                     </div>

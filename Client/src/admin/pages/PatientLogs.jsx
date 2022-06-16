@@ -1,24 +1,35 @@
-import React from 'react'
-import { AsideMenu, Header, PatientLogTable } from '../components'
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLogs, logsSelector } from "../../feautures/log/logSlice";
+import { userSelector, fetchUsers } from "../../feautures/user/userSlice";
+import { AsideMenu, Header, PatientLogTable } from "../components";
 
 const PatientLogs = () => {
-    const [toggle, setToggle] = React.useState(true);
+  const [toggle, setToggle] = useState(true);
+  const dispatch = useDispatch();
+  const { users } = useSelector(userSelector);
+  const { logs } = useSelector(logsSelector)
 
-    const handleToggle = () => {
-        setToggle(!toggle);
-    }
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
 
-    return (
-        <>
-            <div className={`page-wrapper doctris-theme font-size-15 ${toggle ? 'toggled' : ''}`}>
-                <AsideMenu />
-                <main className="page-content bg-light">
-                    <Header handleToggle={handleToggle} />
-                    <PatientLogTable />
-                </main>
-            </div>
-        </>
-    )
-}
+  useEffect(() => {
+    dispatch(fetchUsers());
+    dispatch(fetchLogs());
+  }, [dispatch]);
 
-export default PatientLogs
+  return (
+    <>
+      <div className={`page-wrapper doctris-theme font-size-15 ${toggle ? "toggled" : ""}`}>
+        <AsideMenu />
+        <main className="page-content bg-light">
+          <Header handleToggle={handleToggle} />
+          <PatientLogTable logs={logs} users={users} />
+        </main>
+      </div>
+    </>
+  );
+};
+
+export default PatientLogs;
