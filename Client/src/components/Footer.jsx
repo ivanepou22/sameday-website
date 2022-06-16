@@ -34,23 +34,23 @@ const Footer = () => {
                   <h5 className="text-light title-dark footer-head">Company</h5>
                   <ul className="list-unstyled footer-list mt-4 font-size-15">
                     <li>
-                      <Link to="#" className="text-foot">
+                      <Link to="/about" className="text-foot">
                         {" "}
                         <i className="mdi mdi-chevron-right me-1"></i> About Us
                       </Link>
                     </li>
                     <li>
-                      <Link to="#" className="text-foot">
+                      <Link to="" className="text-foot">
                         <i className="mdi mdi-chevron-right me-1"></i> Services
                       </Link>
                     </li>
                     <li>
-                      <Link to="#" className="text-foot">
+                      <Link to="/shop" className="text-foot">
                         <i className="mdi mdi-chevron-right me-1"></i> Shop
                       </Link>
                     </li>
                     <li>
-                      <Link to="#" className="text-foot">
+                      <Link to="/contact" className="text-foot">
                         <i className="mdi mdi-chevron-right me-1"></i> Contact Us
                       </Link>
                     </li>
