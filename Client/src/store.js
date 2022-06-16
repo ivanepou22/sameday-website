@@ -9,6 +9,7 @@ import imageReducer from "./feautures/image/imageSlice";
 import serviceReducer from "./feautures/services/serviceSlice";
 import visitReducer from "./feautures/visit/visitSlice";
 import userReducer from "./feautures/user/userSlice";
+import passwordReducer from "./feautures/password/passwordSlice";
 
 const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ const store = configureStore({
     service: serviceReducer,
     visit: visitReducer,
     users: userReducer,
+    password: passwordReducer,
   },
 });
 

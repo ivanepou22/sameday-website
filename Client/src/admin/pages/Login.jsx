@@ -128,10 +128,10 @@ const Login = () => {
                       <div className="col-12 text-center">
                         <p className="mb-0 mt-3">
                           <small className="text-dark me-2">
-                            Don't have an account ?
+                            Not Administrator ?
                           </small>{" "}
-                          <Link to="/admin/register" className="text-dark fw-bold">
-                            Sign Up
+                          <Link to="/login" className="text-dark fw-bold">
+                            Login Here
                           </Link>
                         </p>
                       </div>

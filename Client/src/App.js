@@ -34,10 +34,10 @@ import {
   PatientLogs,
   Orders,
   Login as AdminLogin,
-  Register as AdminRegister,
+  // Register as AdminRegister,
   ForgotPassword as AdminForgotPassword,
   Users,
-  LogoutAdmin
+  LogoutAdmin,
 } from "./admin/pages";
 import UserProtectedRoute from "./components/UserProtectedRoute";
 import AdminProtectedRoute from "./admin/components/AdminProtectedRoute";
@@ -49,15 +49,6 @@ function App() {
       <ToastContainer />
       <BrowserRouter>
         <Routes>
-          <Route element={<UserProtectedRoute />}>
-            <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
-            <Route path={SDRoutes.Dashboard.path} element={<Dashboard />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
-            <Route path={SDRoutes.adminUsers.path} element={<Users />} />
-          </Route>
           <Route path={SDRoutes.Home.path} element={<Home />} />
           <Route path={SDRoutes.About.path} element={<About />} />
           <Route path={SDRoutes.Contact.path} element={<Contact />} />
@@ -72,43 +63,29 @@ function App() {
           <Route path={SDRoutes.CovidTesting.path} element={<CovidTesting />} />
           <Route path={SDRoutes.Clinics.path} element={<Clinics />} />
           <Route element={<UserProtectedRoute />}>
+            <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
             <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
-          </Route>
-          <Route element={<UserProtectedRoute />}>
+            <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
             <Route path={SDRoutes.PatientProfile.path} element={<PatientProfile />} />
           </Route>
           <Route path={SDRoutes.ShoppingCart.path} element={<ShoppingCart />} />
-          <Route element={<UserProtectedRoute />}>
-            <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
-          </Route>
           <Route path={SDRoutes.BlogDetails.path} element={<BlogDetails />} />
           <Route path={SDRoutes.ServiceDetails.path} element={<ServiceDetails />} />
           <Route path={SDRoutes.Logout.path} element={<Logout />} />
           {/* // Admin Routes */}
           <Route element={<AdminProtectedRoute />}>
+            <Route path={SDRoutes.Dashboard.path} element={<Dashboard />} />
+            <Route path={SDRoutes.adminUsers.path} element={<Users />} />
             <Route path={SDRoutes.Patients.path} element={<Patients />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
             <Route path={SDRoutes.Appointments.path} element={<Appointments />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
             <Route path={SDRoutes.Doctors.path} element={<Doctors />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
             <Route path={SDRoutes.Services.path} element={<Services />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
             <Route path={SDRoutes.PatientVisits.path} element={<PatientVisits />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
             <Route path={SDRoutes.PatientLogs.path} element={<PatientLogs />} />
-          </Route>
-          <Route element={<AdminProtectedRoute />}>
             <Route path={SDRoutes.Orders.path} element={<Orders />} />
           </Route>
-
           <Route path={SDRoutes.adminLogin.path} element={<AdminLogin />} />
-          <Route path={SDRoutes.adminRegister.path} element={<AdminRegister />} />
+          {/* <Route path={SDRoutes.adminRegister.path} element={<AdminRegister />} /> */}
           <Route path={SDRoutes.adminForgotPassword.path} element={<AdminForgotPassword />} />
           <Route path={SDRoutes.adminLogout.path} element={<LogoutAdmin />} />
         </Routes>

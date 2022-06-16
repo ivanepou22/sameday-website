@@ -1,4 +1,6 @@
+/* eslint-disable */
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   appointmentSelector,
@@ -6,10 +8,9 @@ import {
 } from "../../feautures/appointment/appointmentSlice";
 
 const AppointmentModal = (props) => {
-  const { show, setShowModal } = props;
+  const { show, setShowModal, doctors, patients } = props;
   const dispatch = useDispatch();
-  const { appointment, isLoading, isError, errorMessage } =
-    useSelector(appointmentSelector);
+  const { appointment, isLoading, isError, errorMessage } = useSelector(appointmentSelector);
 
   const handleClose = () => {
     setShowModal(false);
@@ -42,9 +43,7 @@ const AppointmentModal = (props) => {
   return (
     <>
       <div
-        className={`modal modal-blur fade bg-gray ${
-          show ? "display-block show" : "display-none"
-        }`}
+        className={`modal modal-blur fade bg-gray ${show ? "display-block show" : "display-none"}`}
         id="appointmentform"
         tabIndex="-1"
         onClick={handleClose}
@@ -73,9 +72,7 @@ const AppointmentModal = (props) => {
               ></button>
             </div>
             <div className="modal-body p-3 pt-4">
-              {isError && (
-                <div className="alert alert-danger">{errorMessage}</div>
-              )}
+              {isError && <div className="alert alert-danger">{errorMessage}</div>}
               <form onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-lg-12 col-md-6">
@@ -89,11 +86,14 @@ const AppointmentModal = (props) => {
                         onChange={handleChange}
                         className="form-control department-name select2input"
                       >
-                        <option defaultValue="">Select Patient</option>
-                        <option defaultValue="EY">John Rico</option>
-                        <option defaultValue="GY">Joseph Crocks</option>
-                        <option defaultValue="PS">Ben Simon</option>
-                        <option defaultValue="OR">Peter River</option>
+                        <option value="">Select Patient</option>
+                        {patients
+                          ?.filter((pt) => pt.role === "user")
+                          .map((pt, index) => (
+                            <option key={index} value={pt.id}>
+                              {pt.name}
+                            </option>
+                          ))}
                       </select>
                     </div>
                   </div>
@@ -161,14 +161,12 @@ const AppointmentModal = (props) => {
                         onChange={handleChange}
                         className="form-control doctor-name select2input"
                       >
-                        <option defaultValue="CA">Dr. Calvin Carlo</option>
-                        <option defaultValue="CR">Dr. Cristino Murphy</option>
-                        <option defaultValue="AL">Dr. Alia Reddy</option>
-                        <option defaultValue="TO">Dr. Toni Kovar</option>
-                        <option defaultValue="JE">Dr. Jessica McFarlane</option>
-                        <option defaultValue="EL">Dr. Elsie Sherman</option>
-                        <option defaultValue="BE">Dr. Bertha Magers</option>
-                        <option defaultValue="LO">Dr. Louis Batey</option>
+                        <option value="">Select Doctor</option>
+                        {doctors?.map((doc, index) => (
+                          <option key={index} value={doc.id}>
+                            {doc.full_name}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>

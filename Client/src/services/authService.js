@@ -25,9 +25,13 @@ const register = async (payload) => {
 };
 
 const logout = async () => {
-  localStorage.removeItem("access_token");
-  localStorage.removeItem("refresh_token");
-  localStorage.removeItem("user");
+  const refresh_token = JSON.parse(localStorage.getItem("refresh_token")).token;
+  const res = await API.post("/auth/logout", { refreshToken: refresh_token });
+  if (!res.status === 204) {
+    throw new Error(await res.json().message);
+  }
+  localStorage.clear();
+  window.location.href = "/";
 };
 
 const refreshToken = async () => {
@@ -51,7 +55,16 @@ const adminLogin = async (payload) => {
   localStorage.setItem("refresh_token", JSON.stringify(data.tokens.refresh));
   localStorage.setItem("user", JSON.stringify(data.user));
   return data.user;
-}
+};
+
+const sendPassReset = async (payload) => {
+  const res = await API.sendPassReset(payload);
+  if (res.status !== 204) {
+    const data = await res.json()
+    throw new Error(data.message);
+  }
+  return null
+};
 
 export const authService = {
   login,
@@ -59,4 +72,5 @@ export const authService = {
   logout,
   refreshToken,
   adminLogin,
+  sendPassReset
 };

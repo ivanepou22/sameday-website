@@ -6,6 +6,16 @@ class API {
     return customFetch(url);
   }
 
+  static sendPassReset(payload) {
+    return fetch(`${API_URL}/auth/forgot-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: payload}),
+    });
+  }
+
   static noAuthGet(url) {
     return fetch(`${API_URL}${url}`);
   }

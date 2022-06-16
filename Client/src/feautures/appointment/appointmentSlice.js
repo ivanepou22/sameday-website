@@ -7,6 +7,10 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: "",
+  page: 0,
+  limit: 0,
+  totalPages: 0,
+  totalResults: 0
 };
 
 export const appointmentSlice = createSlice({
@@ -24,14 +28,14 @@ export const appointmentSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchAppointments.pending, (state, action) => {
       state.isLoading = true;
-      state.isError = false;
-      state.errorMessage = "";
     });
     builder.addCase(fetchAppointments.fulfilled, (state, action) => {
-      state.appointments = action.payload.results;
       state.isLoading = false;
-      state.isError = false;
-      state.errorMessage = "";
+      state.appointments = action.payload.results;
+      state.page = action.payload.page
+      state.limit = action.payload.limit
+      state.totalPages = action.payload.totalPages
+      state.totalResults = action.payload.totalResults
     });
     builder.addCase(fetchAppointments.rejected, (state, action) => {
       state.isLoading = false;
