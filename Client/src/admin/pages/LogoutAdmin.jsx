@@ -1,5 +1,6 @@
+/* eslint-disable */
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { BounceLoader } from "react-spinners";
 import { logout } from "../../feautures/auth/authSlice"
 

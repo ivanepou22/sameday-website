@@ -1,19 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { RiAddLine } from "react-icons/ri";
 import Table from "./Table";
 import AppointmentModal from "./AppointmentModal";
 
 const AppointmentTable = (props) => {
-  const [showModal, setShowModal] = React.useState(false);
-  const { data, isLoading } = props;
-
+  const [showModal, setShowModal] = useState(false);
+  const { data, isLoading, users, doctors } = props;
 
   const handleShowModal = () => {
     setShowModal(true);
   };
-
-  console.log(data);
 
   return (
     <>
@@ -35,11 +32,7 @@ const AppointmentTable = (props) => {
             </div>
 
             <div className="col-xl-3 col-md-6 mt-4 mt-md-0 text-md-end">
-              <Link
-                to="#/"
-                onClick={handleShowModal}
-                className="btn btn-primary"
-              >
+              <Link to="#/" onClick={handleShowModal} className="btn btn-primary">
                 <RiAddLine /> Add Appointment
               </Link>
             </div>
@@ -56,9 +49,7 @@ const AppointmentTable = (props) => {
           <div className="row text-center">
             <div className="col-12 mt-4">
               <div className="d-md-flex align-items-center text-center justify-content-between">
-                <span className="text-muted me-3">
-                  Showing 1 - 10 out of 50
-                </span>
+                <span className="text-muted me-3">Showing 1 - 10 out of 50</span>
                 <ul className="pagination justify-content-center mb-0 mt-3 mt-sm-0">
                   <li className="page-item">
                     <Link className="page-link" to="#/" aria-label="Previous">
@@ -92,7 +83,12 @@ const AppointmentTable = (props) => {
         </div>
       </div>
 
-      <AppointmentModal show={showModal} setShowModal={setShowModal} />
+      <AppointmentModal
+        doctors={doctors}
+        patients={users}
+        show={showModal}
+        setShowModal={setShowModal}
+      />
     </>
   );
 };
