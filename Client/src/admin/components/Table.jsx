@@ -50,7 +50,7 @@ const Table = (props) => {
               <td className="p-3 white-space-wrap-none">
                 <Link to="#/">
                   <div className="d-flex align-items-center">
-                    {ap?.name}
+                    {ap.patient?.name}
                   </div>
                 </Link>
               </td>

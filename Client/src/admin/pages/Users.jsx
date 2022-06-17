@@ -23,7 +23,7 @@ const Users = () => {
                 <AsideMenu />
                 <main className="page-content bg-light">
                     <Header handleToggle={handleToggle} />
-                    <UsersTable users={users.results} isLoading={isLoading} />
+                    <UsersTable users={users} isLoading={isLoading} />
                 </main>
             </div>
         </>
