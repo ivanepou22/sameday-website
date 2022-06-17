@@ -113,7 +113,7 @@ const DashboardContent = () => {
                                     <div className="flex-1 ms-2">
                                         <h5 className="mb-0">
                                             {
-                                                users.results?.length?.toLocaleString('en-US', {
+                                                users?.length?.toLocaleString('en-US', {
                                                     maximumFractionDigits: 2,
                                                     minimumFractionDigits: 2
                                                 })
