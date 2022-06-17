@@ -1,14 +1,16 @@
 import mongoose from "mongoose";
+import mongooseAutoPopulate  from "mongoose-autopopulate"
 import { toJson, paginate } from "./plugins/index.js";
 
 const Schema = mongoose.Schema;
 
 const engagementLogSchema = new Schema(
   {
-    userId: {
+    patientId: {
       type: Schema.Types.ObjectId,
-      ref: "Patient",
+      ref: "User",
       required: true,
+      autopopulate: true
     },
     engagementDate: {
       type: Date,
@@ -17,7 +19,7 @@ const engagementLogSchema = new Schema(
     engagementType: {
       type: String,
       required: true,
-      enum: [],
+      enum: ["email", "phone"],
     },
     activity: {
       type: String,
@@ -39,6 +41,7 @@ const engagementLogSchema = new Schema(
 
 engagementLogSchema.plugin(toJson);
 engagementLogSchema.plugin(paginate);
+engagementLogSchema.plugin(mongooseAutoPopulate)
 
 const EngagementLog = mongoose.model("EngagementLog", engagementLogSchema);
 

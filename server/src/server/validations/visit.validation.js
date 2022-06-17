@@ -3,6 +3,7 @@ import { objectId } from "./custom.validation.js";
 
 const createVisit = {
   body: Joi.object().keys({
+    visitNumber: Joi.string().required(),
     patientId: Joi.string().custom(objectId).required(),
     date: Joi.date().required(),
     location: Joi.string().required(),
@@ -10,6 +11,8 @@ const createVisit = {
     consultation_results: Joi.string().required(),
     medication: Joi.string().required(),
     comments: Joi.string().required(),
+    next_visit_14_days: Joi.date().required(),
+    next_visit_90_days: Joi.date().required(),
   }),
 };
 

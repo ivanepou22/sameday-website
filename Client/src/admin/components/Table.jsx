@@ -4,20 +4,14 @@ import { Link } from "react-router-dom";
 
 //icons
 import { AiOutlineEye } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 import { FaRegEdit } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
+import { deleteVisit } from "../../feautures/visit/visitSlice";
 
 const Table = (props) => {
-  const { data } = props;
-  console.log(data)
-
-  //calculate the number of days between two dates
-  const getDays = (date1, date2) => {
-    date1 = new Date(date1);
-    date2 = new Date(date2);
-    const diff = date1 - date2;
-    return (diff / (1000 * 60 * 60 * 24));
-  }
+  const { logs, loading } = props;
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -37,39 +31,31 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {data?.map((ap, index) => (
+          {logs?.map((ap, index) => (
             <tr key={ap.id}>
               <td className="p-3 white-space-wrap-none">{index + 1}</td>
               <td className="p-3 white-space-wrap-none">
                 <Link to="#/">
-                  <div className="d-flex align-items-center">
-                    {ap?.appNumber}
-                  </div>
+                  <div className="d-flex align-items-center">{ap.visitNumber}</div>
                 </Link>
               </td>
               <td className="p-3 white-space-wrap-none">
                 <Link to="#/">
-                  <div className="d-flex align-items-center">
-                    {ap.patient?.name}
-                  </div>
+                  <div className="d-flex align-items-center">{ap.patientId.name}</div>
                 </Link>
               </td>
               <td className="p-3 white-space-wrap-none">{ap?.age || 20}</td>
               <td className="p-3 white-space-wrap-none">{ap?.phone}</td>
               <td className="text-end p-3 white-space-wrap-none">
-                <Link
-                  to="#/"
-                  className="btn btn-icon btn-pills btn-soft-primary my-1"
-                >
+                <Link to="#/" className="btn btn-icon btn-pills btn-soft-primary my-1">
                   <AiOutlineEye />
                 </Link>
-                <Link
-                  to="#/"
-                  className="btn btn-icon btn-pills btn-soft-success my-1 mx-2"
-                >
+                <Link to="#/" className="btn btn-icon btn-pills btn-soft-success my-1 mx-2">
                   <FaRegEdit />
                 </Link>
-                <Link to="#/" className="btn btn-icon btn-pills btn-soft-danger">
+                <Link
+                  onClick={() => dispatch(deleteVisit(ap.id))}
+                  to="#/" className="btn btn-icon btn-pills btn-soft-danger">
                   <AiOutlineDelete />
                 </Link>
               </td>

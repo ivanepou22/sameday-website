@@ -3,6 +3,9 @@ import API from "../api";
 const createVisit = async (visit) => {
   const res = await API.post("/visits", visit);
   const data = await res.json();
+  if (res.status !== 201) {
+    throw new Error(data.message);
+  }
   return data;
 };
 const getVisits = async () => {

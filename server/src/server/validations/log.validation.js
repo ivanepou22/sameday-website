@@ -5,7 +5,7 @@ const createLog = {
   body: Joi.object().keys({
     patientId: Joi.string().custom(objectId).required(),
     notes: Joi.string().required(),
-    engagementType: Joi.string().required(),
+    engagementType: Joi.string().required().valid("email", "phone"),
     activity: Joi.string().required(),
     initiationDirection: Joi.string().required(),
     engagementDate: Joi.date().required(),
