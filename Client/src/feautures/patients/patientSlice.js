@@ -7,6 +7,10 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: "",
+  page: 0,
+  limit: 0,
+  totalPages: 0,
+  totalResults: 0
 };
 
 const patientSlice = createSlice({
@@ -42,6 +46,10 @@ const patientSlice = createSlice({
     builder.addCase(getPatients.fulfilled, (state, action) => {
       state.isLoading = false;
       state.patients = action.payload.results;
+      state.page = action.payload.page
+      state.limit = action.payload.limit
+      state.totalPages = action.payload.totalPages
+      state.totalResults = action.payload.totalResults
     });
     builder.addCase(getPatients.rejected, (state, action) => {
       state.isLoading = false;

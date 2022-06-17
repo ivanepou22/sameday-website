@@ -7,6 +7,10 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: "",
+  page: 0,
+  limit: 0,
+  totalPages: 0,
+  totalResults: 0
 };
 
 export const logsSlice = createSlice({
@@ -19,6 +23,7 @@ export const logsSlice = createSlice({
       state.isLoading = false;
       state.isError = false;
       state.errorMessage = "";
+      
     },
   },
   extraReducers: (builder) => {
@@ -41,6 +46,10 @@ export const logsSlice = createSlice({
     builder.addCase(fetchLogs.fulfilled, (state, action) => {
       state.isLoading = false;
       state.logs = action.payload.results;
+      state.page = action.payload.page
+      state.limit = action.payload.limit
+      state.totalPages = action.payload.totalPages
+      state.totalResults = action.payload.totalResults
     });
     builder.addCase(fetchLogs.rejected, (state, action) => {
       state.isLoading = false;

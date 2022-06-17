@@ -8,6 +8,10 @@ const initialState = {
   isSuccess: false,
   isError: false,
   errorMessage: "",
+  page: 0,
+  limit: 0,
+  totalPages: 0,
+  totalResults: 0
 };
 
 export const ordersSlice = createSlice({
@@ -30,6 +34,10 @@ export const ordersSlice = createSlice({
     builder.addCase(getOrders.fulfilled, (state, action) => {
       state.isLoading = false;
       state.orders = action.payload.results;
+      state.page = action.payload.page
+      state.limit = action.payload.limit
+      state.totalPages = action.payload.totalPages
+      state.totalResults = action.payload.totalResults
     });
     builder.addCase(getOrders.rejected, (state, action) => {
       state.isLoading = false;

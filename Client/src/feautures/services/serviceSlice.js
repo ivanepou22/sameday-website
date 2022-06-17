@@ -7,6 +7,10 @@ const initialState = {
   services: [],
   service: {},
   errorMessage: "",
+  page: 0,
+  limit: 0,
+  totalPages: 0,
+  totalResults: 0
 };
 
 export const serviceSlice = createSlice({
@@ -41,6 +45,10 @@ export const serviceSlice = createSlice({
     builder.addCase(getServices.fulfilled, (state, action) => {
       state.isLoading = false;
       state.services = action.payload.results;
+      state.page = action.payload.page
+      state.limit = action.payload.limit
+      state.totalPages = action.payload.totalPages
+      state.totalResults = action.payload.totalResults
     });
     builder.addCase(getServices.rejected, (state, action) => {
       state.isLoading = false;

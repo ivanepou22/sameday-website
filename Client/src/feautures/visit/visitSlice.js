@@ -7,6 +7,10 @@ const initialState = {
   visits: [],
   visit: {},
   errorMessage: "",
+  page: 0,
+  limit: 0,
+  totalPages: 0,
+  totalResults: 0
 };
 
 export const visitSlice = createSlice({
@@ -41,6 +45,10 @@ export const visitSlice = createSlice({
     builder.addCase(getVisits.fulfilled, (state, action) => {
       state.isLoading = false;
       state.visits = action.payload.results;
+      state.page = action.payload.page
+      state.limit = action.payload.limit
+      state.totalPages = action.payload.totalPages
+      state.totalResults = action.payload.totalResults
     });
     builder.addCase(getVisits.rejected, (state, action) => {
       state.isLoading = false;

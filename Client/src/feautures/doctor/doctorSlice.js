@@ -7,6 +7,10 @@ const initialState = {
   isLoading: false,
   isError: false,
   errorMessage: "",
+  page: 0,
+  limit: 0,
+  totalPages: 0,
+  totalResults: 0
 };
 
 export const doctorSlice = createSlice({
@@ -41,6 +45,10 @@ export const doctorSlice = createSlice({
     builder.addCase(getDoctor.fulfilled, (state, action) => {
       state.isLoading = false;
       state.doctor = action.payload;
+      state.page = action.payload.page
+      state.limit = action.payload.limit
+      state.totalPages = action.payload.totalPages
+      state.totalResults = action.payload.totalResults
     });
     builder.addCase(getDoctor.rejected, (state, action) => {
       state.isLoading = false;
