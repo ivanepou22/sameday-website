@@ -52,6 +52,20 @@ export const authSlices = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     });
+    builder.addCase(logoutAdmin.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(logoutAdmin.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.user = null;
+      state.isAuthenticated = false;
+      localStorage.removeItem("user");
+    });
+    builder.addCase(logoutAdmin.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    });
     builder.addCase(register.pending, (state, action) => {
       state.isLoading = true;
       state.isError = false;
@@ -97,6 +111,15 @@ export const login = createAsyncThunk("auth/login", async (payload, thunkAPI) =>
 export const logout = createAsyncThunk("auth/logout", async (payload, thunkAPI) => {
   try {
     const response = await authService.logout();
+    return response;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const logoutAdmin = createAsyncThunk("auth/logoutAdmin", async (payload, thunkAPI) => {
+  try {
+    const response = await authService.logoutAdmin();
     return response;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

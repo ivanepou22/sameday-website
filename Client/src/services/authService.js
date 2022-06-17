@@ -34,6 +34,16 @@ const logout = async () => {
   window.location.href = "/";
 };
 
+const logoutAdmin = async () => {
+  const refresh_token = JSON.parse(localStorage.getItem("refresh_token")).token;
+  const res = await API.post("/auth/logout", { refreshToken: refresh_token });
+  if (!res.status === 204) {
+    throw new Error(await res.json().message);
+  }
+  localStorage.clear();
+  window.location.href = "/admin";
+};
+
 const refreshToken = async () => {
   const res = await API._refreshToken();
   const data = await res.json();
@@ -72,5 +82,6 @@ export const authService = {
   logout,
   refreshToken,
   adminLogin,
+  logoutAdmin,
   sendPassReset
 };

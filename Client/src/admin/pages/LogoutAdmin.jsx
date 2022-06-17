@@ -2,12 +2,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux"
 import { BounceLoader } from "react-spinners";
-import { logout } from "../../feautures/auth/authSlice"
+import { logoutAdmin } from "../../feautures/auth/authSlice"
 
 const LogoutAdmin = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(logout())
+        dispatch(logoutAdmin())
     }, [dispatch])
   return (
     <div className="container justify-content-center height-100-vh">
