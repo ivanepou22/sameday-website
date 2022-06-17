@@ -10,6 +10,7 @@ const createService = {
     category: Joi.string().valid("Labaratory", "Radiology", "Wellness", "COVID").required(),
     image: Joi.string().required(),
     subItems: Joi.array(),
+    niche: Joi.array(),
   }),
 };
 
@@ -23,6 +24,7 @@ const updateService = {
       category: Joi.string().valid("Labaratory", "Radiology", "Wellness", "COVID"),
       image: Joi.string(),
       subItems: Joi.array(),
+      niche: Joi.array(),
     })
     .min(1),
   params: Joi.object().keys({

@@ -34,6 +34,10 @@ const serviceSchema = new Schema(
       type: Array,
       default: [],
     },
+    niche: {
+      type: Array,
+      default: [],
+    },
   },
   {
     timestamps: true,
