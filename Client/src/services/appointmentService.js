@@ -9,8 +9,8 @@ const createAppointment = async (appointment) => {
   return data;
 };
 
-const getAppointments = async () => {
-  const response = await API.get("/appointments");
+const getAppointments = async (payload = 1) => {
+  const response = await API.get(`/appointments?page=${payload}`);
   const data = await response.json();
   return data;
 };
