@@ -107,9 +107,9 @@ export const appointmentSlice = createSlice({
 
 export const fetchAppointments = createAsyncThunk(
   "appointment/fetchAppointments",
-  async (_, { rejectWithValue }) => {
+  async (payload, { rejectWithValue }) => {
     try {
-      const appointments = await appointmentService.getAppointments();
+      const appointments = await appointmentService.getAppointments(payload);
       return appointments;
     } catch (error) {
       return rejectWithValue(error.message);

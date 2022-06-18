@@ -1,7 +1,7 @@
 import API from "../api";
 
-const getUsers = async () => {
-  const response = await API.get("/users");
+const getUsers = async (payload = 1) => {
+  const response = await API.get(`/users?page=${payload}`);
   const data = await response.json();
   return data;
 };

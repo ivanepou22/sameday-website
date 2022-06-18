@@ -6,8 +6,8 @@ const createPatient = async (patient) => {
   return data;
 };
 
-const getPatients = async () => {
-  const res = await API.get("/patients");
+const getPatients = async (payload = 1) => {
+  const res = await API.get(`/patients?page=${payload}`);
   const data = await res.json();
   return data;
 };

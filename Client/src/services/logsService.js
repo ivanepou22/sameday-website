@@ -6,8 +6,8 @@ const createLog = async (log) => {
   return data;
 };
 
-const getLogs = async () => {
-  const res = await API.get("/logs");
+const getLogs = async (payload = 1) => {
+  const res = await API.get(`/logs?page=${payload}`);
   const data = await res.json();
   return data;
 };

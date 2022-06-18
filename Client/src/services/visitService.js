@@ -8,8 +8,8 @@ const createVisit = async (visit) => {
   }
   return data;
 };
-const getVisits = async () => {
-  const res = await API.get("/visits");
+const getVisits = async (payload = 1) => {
+  const res = await API.get(`/visits?page=${payload}`);
   const data = await res.json();
   return data;
 };

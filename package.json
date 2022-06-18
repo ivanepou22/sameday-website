@@ -4,7 +4,8 @@
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
   "main": "index.js",
   "scripts": {
-    "build": "cd Client && npm install && npm run build"
+    "build": "cd Client && npm install && npm run build",
+    "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\""
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ivanepou22/sameday-website/issues"
   },
-  "homepage": "https://ivanepou22.github.io/sameday-website/"
+  "homepage": "https://ivanepou22.github.io/sameday-website/",
+  "dependencies": {
+    "concurrently": "^7.2.2"
+  }
 }

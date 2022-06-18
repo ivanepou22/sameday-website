@@ -112,9 +112,9 @@ export const createVisit = createAsyncThunk(
   }
 );
 
-export const getVisits = createAsyncThunk("visit/getVisits", async (_, { rejectWithValue }) => {
+export const getVisits = createAsyncThunk("visit/getVisits", async (payload, { rejectWithValue }) => {
   try {
-    const res = await visitService.getVisits();
+    const res = await visitService.getVisits(payload);
     return res;
   } catch (err) {
     return rejectWithValue(err.message);

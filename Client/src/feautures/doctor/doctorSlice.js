@@ -120,7 +120,7 @@ export const getDoctors = createAsyncThunk(
   "doctors/getDoctors",
   async (payload, { rejectWithValue }) => {
     try {
-      return doctorService.getDoctors();
+      return doctorService.getDoctors(payload);
     } catch (error) {
       return rejectWithValue(error.message);
     }
