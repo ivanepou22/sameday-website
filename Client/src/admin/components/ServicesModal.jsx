@@ -19,6 +19,7 @@ const ServicesModal = (props) => {
         price: "",
         duration: "",
         category: "",
+        niche: "",
         image: "",
     });
 
@@ -57,6 +58,7 @@ const ServicesModal = (props) => {
                     price: formData.price[0],
                     duration: formData.duration[0],
                     category: formData.category[0],
+                    niche: formData.niche,
                     subItems: subItems,
                     image: imageUrl,
                 })
@@ -176,7 +178,7 @@ const ServicesModal = (props) => {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-6 col-md-6">
+                                    <div className="col-lg-12 col-md-6">
                                         <div className="mb-3">
                                             <label className="form-label">Price <span className="text-danger">*</span></label>
                                             <input
@@ -188,6 +190,22 @@ const ServicesModal = (props) => {
                                                 className="form-control"
                                                 placeholder="12,000 :"
                                             />
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">Niche <span className="text-danger">*</span></label>
+                                            <select
+                                                className="form-control doctor-name select2input"
+                                                name='niche'
+                                                value={formData.niche}
+                                                onChange={handleChange}
+                                            >
+                                                <option defaultValue="">Select Niche</option>
+                                                <option defaultValue="Women">Women</option>
+                                                <option defaultValue="Men">Men</option>
+                                                <option defaultValue="Children">Children</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div className="col-lg-6 col-md-6">

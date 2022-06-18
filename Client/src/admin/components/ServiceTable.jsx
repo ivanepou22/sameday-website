@@ -27,6 +27,7 @@ const ServiceTable = () => {
         setPage(page);
     }
 
+    console.log(services);
     return (
         <>
             <div className="container-fluid">
@@ -65,6 +66,7 @@ const ServiceTable = () => {
                                                         <th className="border-bottom p-3">No.</th>
                                                         <th className="border-bottom p-3">Name</th>
                                                         <th className="border-bottom p-3">Category</th>
+                                                        <th className="border-bottom p-3">Niche</th>
                                                         <th className="border-bottom p-3">Duration</th>
                                                         <th className="border-bottom p-3">Price</th>
                                                         <th className="border-bottom p-3">Image</th>
@@ -83,6 +85,7 @@ const ServiceTable = () => {
                                                                 </Link>
                                                             </td>
                                                             <td className="p-3 white-space-wrap-none">{service.category}</td>
+                                                            <td className="p-3 white-space-wrap-none">{service.niche}</td>
                                                             <td className="p-3 white-space-wrap-none">{service.duration} hr(s)</td>
                                                             <td className="p-3 white-space-wrap-none">
                                                                 {
