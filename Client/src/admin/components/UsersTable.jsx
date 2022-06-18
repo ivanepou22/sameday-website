@@ -1,18 +1,30 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux";
+import { userSelector, fetchUsers } from "../../feautures/user/userSlice";
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FaRegEdit } from 'react-icons/fa';
 import { AiOutlineEye } from 'react-icons/ai';
 import { RiAddLine } from 'react-icons/ri';
 import UserModal from './UserModal';
 
-const UsersTable = (props) => {
-    const { users, isLoading } = props;
+const UsersTable = () => {
+    const dispatch = useDispatch();
+    const { users, isLoading, limit, totalPages, totalResults } = useSelector(userSelector);
     const [showModal, setShowModal] = useState(false);
+    const [page, setPage] = useState(1);
 
     const handleShowModal = () => {
         setShowModal(true);
     };
+
+    const handlePageChange = (page) => {
+        setPage(page);
+    }
+
+    React.useEffect(() => {
+        dispatch(fetchUsers(page));
+    }, [dispatch, page]);
 
     return (
         <>
@@ -108,12 +120,14 @@ const UsersTable = (props) => {
                     <div className="row text-center">
                         <div className="col-12 mt-4">
                             <div className="d-md-flex align-items-center text-center justify-content-between">
-                                <span className="text-muted me-3">Showing 1 - 10 out of 50</span>
+                                <span className="text-muted me-3">Showing 1 - {limit > totalResults ? totalResults : limit} out of {totalResults}</span>
                                 <ul className="pagination justify-content-center mb-0 mt-3 mt-sm-0">
                                     <li className="page-item"><Link className="page-link" to="#/" aria-label="Previous">Prev</Link></li>
-                                    <li className="page-item active"><Link className="page-link" to="#/">1</Link></li>
-                                    <li className="page-item"><Link className="page-link" to="#/">2</Link></li>
-                                    <li className="page-item"><Link className="page-link" to="#/">3</Link></li>
+                                    {
+                                        Array.apply(null, Array(totalPages)).map((x, i) => {
+                                            return <li key={i} className="page-item"><Link className="page-link" onClick={() => handlePageChange(i + 1)} to="#/">{i + 1}</Link></li>
+                                        })
+                                    }
                                     <li className="page-item"><Link className="page-link" to="#/" aria-label="Next">Next</Link></li>
                                 </ul>
                             </div>

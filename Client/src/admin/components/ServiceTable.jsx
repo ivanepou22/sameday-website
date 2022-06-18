@@ -11,16 +11,21 @@ import { AiOutlineEye } from 'react-icons/ai';
 
 const ServiceTable = () => {
     const dispatch = useDispatch();
-    const { isLoading, services } = useSelector(serviceSelector);
+    const { isLoading, services, limit, totalPages, totalResults } = useSelector(serviceSelector);
     const [showModal, setShowModal] = React.useState(false);
+    const [page, setPage] = React.useState(1);
 
     const handleShowModal = () => {
         setShowModal(true);
     }
 
     useEffect(() => {
-        dispatch(getServices());
-    }, [dispatch]);
+        dispatch(getServices(page));
+    }, [dispatch, page]);
+
+    const handlePageChange = (page) => {
+        setPage(page);
+    }
 
     return (
         <>
@@ -123,12 +128,14 @@ const ServiceTable = () => {
                     <div className="row text-center">
                         <div className="col-12 mt-4">
                             <div className="d-md-flex align-items-center text-center justify-content-between">
-                                <span className="text-muted me-3">Showing 1 - 10 out of 50</span>
+                                <span className="text-muted me-3">Showing 1 - {limit > totalResults ? totalResults : limit} out of {totalResults}</span>
                                 <ul className="pagination justify-content-center mb-0 mt-3 mt-sm-0">
                                     <li className="page-item"><Link className="page-link" to="#/" aria-label="Previous">Prev</Link></li>
-                                    <li className="page-item active"><Link className="page-link" to="#/">1</Link></li>
-                                    <li className="page-item"><Link className="page-link" to="#/">2</Link></li>
-                                    <li className="page-item"><Link className="page-link" to="#/">3</Link></li>
+                                    {
+                                        Array.apply(null, Array(totalPages)).map((x, i) => {
+                                            return <li key={i} className="page-item"><Link className="page-link" onClick={() => handlePageChange(i + 1)} to="#/">{i + 1}</Link></li>
+                                        })
+                                    }
                                     <li className="page-item"><Link className="page-link" to="#/" aria-label="Next">Next</Link></li>
                                 </ul>
                             </div>

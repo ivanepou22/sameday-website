@@ -1,16 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { RiAddLine } from "react-icons/ri";
 import Table from "./Table";
 import AppointmentModal from "./AppointmentModal";
+import {
+  appointmentSelector,
+  fetchAppointments,
+} from "../../feautures/appointment/appointmentSlice";
+import { fetchUsers, userSelector } from "../../feautures/user/userSlice";
+import { doctorSelector, getDoctors } from "../../feautures/doctor/doctorSlice";
 
-const AppointmentTable = (props) => {
+const AppointmentTable = () => {
   const [showModal, setShowModal] = useState(false);
-  const { data, isLoading, users, doctors } = props;
+  const dispatch = useDispatch();
+  const { appointments, isLoading, limit, totalPages, totalResults } = useSelector(appointmentSelector);
+  const { users } = useSelector(userSelector);
+  const { doctors } = useSelector(doctorSelector);
+  const [page, setPage] = useState(1);
 
   const handleShowModal = () => {
     setShowModal(true);
   };
+
+  const handlePageChange = (page) => {
+    setPage(page);
+  }
+
+  useEffect(() => {
+    dispatch(fetchAppointments(page));
+    dispatch(fetchUsers());
+    dispatch(getDoctors());
+  }, [dispatch, page]);
+
 
   return (
     <>
@@ -41,7 +63,7 @@ const AppointmentTable = (props) => {
           <div className="row">
             <div className="col-12 mt-4">
               <div className="table-responsive shadow rounded">
-                {!isLoading && <Table data={data} />}
+                {!isLoading && <Table appointments={appointments} />}
               </div>
             </div>
           </div>
@@ -49,33 +71,15 @@ const AppointmentTable = (props) => {
           <div className="row text-center">
             <div className="col-12 mt-4">
               <div className="d-md-flex align-items-center text-center justify-content-between">
-                <span className="text-muted me-3">Showing 1 - 10 out of 50</span>
+                <span className="text-muted me-3">Showing 1 - {limit > totalResults ? totalResults : limit} out of {totalResults}</span>
                 <ul className="pagination justify-content-center mb-0 mt-3 mt-sm-0">
-                  <li className="page-item">
-                    <Link className="page-link" to="#/" aria-label="Previous">
-                      Prev
-                    </Link>
-                  </li>
-                  <li className="page-item active">
-                    <Link className="page-link" to="#/">
-                      1
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link" to="#/">
-                      2
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link" to="#/">
-                      3
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link className="page-link" to="#/" aria-label="Next">
-                      Next
-                    </Link>
-                  </li>
+                  <li className="page-item"><Link className="page-link" to="#/" aria-label="Previous">Prev</Link></li>
+                  {
+                    Array.apply(null, Array(totalPages)).map((x, i) => {
+                      return <li key={i} className="page-item"><Link className="page-link" onClick={() => handlePageChange(i + 1)} to="#/">{i + 1}</Link></li>
+                    })
+                  }
+                  <li className="page-item"><Link className="page-link" to="#/" aria-label="Next">Next</Link></li>
                 </ul>
               </div>
             </div>
