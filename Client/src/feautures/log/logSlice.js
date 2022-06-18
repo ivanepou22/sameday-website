@@ -111,7 +111,7 @@ export const fetchLogs = createAsyncThunk(
   "logs/fetchLogs",
   async (payload, { rejectWithValue }) => {
     try {
-      const res = await logsService.getLogs();
+      const res = await logsService.getLogs(payload);
       return res;
     } catch (error) {
       return rejectWithValue(error.message);

@@ -72,9 +72,9 @@ export const userSlice = createSlice({
   },
 });
 
-export const fetchUsers = createAsyncThunk("users/fetchUsers", async (_, { rejectWithValue }) => {
+export const fetchUsers = createAsyncThunk("users/fetchUsers", async (payload, { rejectWithValue }) => {
   try {
-    const users = await userService.getUsers();
+    const users = await userService.getUsers(payload);
     return users;
   } catch (error) {
     return rejectWithValue(error.message);

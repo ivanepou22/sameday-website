@@ -109,9 +109,9 @@ export const createPatient = createAsyncThunk(
 
 export const getPatients = createAsyncThunk(
   "patient/getPatients",
-  async (thunkAPI) => {
+  async (payload, thunkAPI) => {
     try {
-      const data = await patientService.getPatients();
+      const data = await patientService.getPatients(payload);
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);

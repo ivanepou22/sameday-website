@@ -107,9 +107,9 @@ export const ordersSlice = createSlice({
   },
 });
 
-export const getOrders = createAsyncThunk("orders/getOrders", async (thunkAPI) => {
+export const getOrders = createAsyncThunk("orders/getOrders", async (payload, thunkAPI) => {
   try {
-    const orders = await ordersService.getOrders();
+    const orders = await ordersService.getOrders(payload);
     return orders;
   } catch (error) {
     return thunkAPI.rejectWithValue(error);
