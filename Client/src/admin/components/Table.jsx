@@ -13,8 +13,6 @@ import moment from "moment";
 const Table = (props) => {
   const { appointments } = props;
   const dispatch = useDispatch()
-
-  console.log(appointments);
   return (
     <>
       <table className="table table-center bg-white mb-0">
