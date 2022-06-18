@@ -76,6 +76,36 @@ const UserModal = (props) => {
                                 <div className="row">
                                     <div className="col-lg-6 col-md-6">
                                         <div className="mb-3">
+                                            <label className="form-label">Role</label>
+                                            <select
+                                                name="role"
+                                                value={formData.role}
+                                                onChange={handleChange}
+                                                className="form-control doctor-name select2input"
+                                            >
+                                                <option value="">Select Role</option>
+                                                <option value="user">User</option>
+                                                <option value="admin">Admin</option>
+                                                <option value="doctor">Doctor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">
+                                                User Number <span className="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                name="pNumber"
+                                                id="pNumber"
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Patient Number :"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
                                             <label className="form-label">
                                                 First Name <span className="text-danger">*</span>
                                             </label>
@@ -111,6 +141,62 @@ const UserModal = (props) => {
                                     <div className="col-lg-6 col-md-6">
                                         <div className="mb-3">
                                             <label className="form-label">
+                                                Gender <span className="text-danger">*</span>
+                                            </label>
+                                            <select className="form-control doctor-name select2input">
+                                                <option defaultValue="">Select Gender</option>
+                                                <option defaultValue="female">Female</option>
+                                                <option defaultValue="male">Male</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">
+                                                {" "}
+                                                Date of Birth : <span className="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                name="date"
+                                                type="date"
+                                                className="flatpickr flatpickr-input form-control"
+                                                id="checkin-date"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">
+                                                Your Phone <span className="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                name="phone"
+                                                id="phone"
+                                                type="tel"
+                                                className="form-control"
+                                                placeholder="Your Phone :"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">
+                                                Image <span className="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                name="image"
+                                                id="image"
+                                                type="file"
+                                                className="form-control"
+                                                placeholder="Your Image :"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-6 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">
                                                 Your Email <span className="text-danger">*</span>
                                             </label>
                                             <input
@@ -126,22 +212,6 @@ const UserModal = (props) => {
                                     </div>
                                     <div className="col-lg-6 col-md-6">
                                         <div className="mb-3">
-                                            <label className="form-label">Role</label>
-                                            <select
-                                                name="role"
-                                                value={formData.role}
-                                                onChange={handleChange}
-                                                className="form-control doctor-name select2input"
-                                            >
-                                                <option value="">Select Role</option>
-                                                <option value="user">User</option>
-                                                <option value="admin">Admin</option>
-                                                <option value="doctor">Doctor</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-12 col-md-6">
-                                        <div className="mb-3">
                                             <label className="form-label">
                                                 Password <span className="text-danger">*</span>
                                             </label>
@@ -155,6 +225,21 @@ const UserModal = (props) => {
                                                 value={formData.password}
                                                 onChange={handleChange}
                                             />
+                                        </div>
+                                    </div>
+
+                                    <div className="col-lg-12 col-md-6">
+                                        <div className="mb-3">
+                                            <label className="form-label">
+                                                Address <span className="text-danger">*</span>
+                                            </label>
+                                            <textarea
+                                                name="address"
+                                                id="address"
+                                                rows="3"
+                                                className="form-control"
+                                                placeholder="Address :"
+                                            ></textarea>
                                         </div>
                                     </div>
                                     <div className="col-lg-12">
