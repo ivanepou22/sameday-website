@@ -24,9 +24,19 @@ const deleteUser = async (id) => {
   return data;
 };
 
+const createUser = async (payload) => {
+  const response = await API.post("/users/create", payload);
+  const data = await response.json();
+  if (!data.name) {
+    throw new Error(data.message);
+  }
+  return data;
+};
+
 export const userService = {
-    getUsers,
-    getUser,
-    updateUser,
-    deleteUser,
+  getUsers,
+  getUser,
+  updateUser,
+  deleteUser,
+  createUser,
 };
