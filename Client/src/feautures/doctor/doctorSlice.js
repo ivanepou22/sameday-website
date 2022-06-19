@@ -98,7 +98,7 @@ export const createDoctor = createAsyncThunk(
   "doctors/createDoctor",
   async (payload, { rejectWithValue }) => {
     try {
-      return doctorService.createDoctor(payload);
+      return await doctorService.createDoctor(payload);
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -109,7 +109,7 @@ export const getDoctor = createAsyncThunk(
   "doctors/getDoctor",
   async (payload, { rejectWithValue }) => {
     try {
-      return doctorService.getDoctor(payload);
+      return await doctorService.getDoctor(payload);
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -120,7 +120,7 @@ export const getDoctors = createAsyncThunk(
   "doctors/getDoctors",
   async (payload, { rejectWithValue }) => {
     try {
-      return doctorService.getDoctors(payload);
+      return await doctorService.getDoctors(payload);
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -131,7 +131,7 @@ export const updateDoctor = createAsyncThunk(
   "doctors/updateDoctor",
   async (payload, { rejectWithValue }) => {
     try {
-      return doctorService.updateDoctor(payload);
+      return await doctorService.updateDoctor(payload);
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -142,7 +142,7 @@ export const deleteDoctor = createAsyncThunk(
   "doctors/deleteDoctor",
   async (payload, { rejectWithValue }) => {
     try {
-      return doctorService.deleteDoctor(payload);
+      return await doctorService.deleteDoctor(payload);
     } catch (error) {
       return rejectWithValue(error.message);
     }

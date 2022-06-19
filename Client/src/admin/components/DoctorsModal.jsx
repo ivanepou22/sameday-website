@@ -21,7 +21,7 @@ const DoctorsModal = (props) => {
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -45,9 +45,9 @@ const DoctorsModal = (props) => {
     if (imageUrl) {
       dispatch(
         createDoctor({
-          full_name: formData.name[0],
-          email: formData.email[0],
-          phone_number: formData.phone[0],
+          full_name: formData.name,
+          email: formData.email,
+          phone_number: formData.phone,
           specialities: formData.specialities,
           image: imageUrl,
         })

@@ -9,7 +9,7 @@ const initialState = {
   page: 0,
   limit: 0,
   totalPages: 0,
-  totalResults: 0
+  totalResults: 0,
 };
 
 export const userSlice = createSlice({
@@ -69,17 +69,43 @@ export const userSlice = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     });
+    builder.addCase(createUser.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(createUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.users.push(action.payload);
+    });
+    builder.addCase(createUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    });
   },
 });
 
-export const fetchUsers = createAsyncThunk("users/fetchUsers", async (payload, { rejectWithValue }) => {
-  try {
-    const users = await userService.getUsers(payload);
-    return users;
-  } catch (error) {
-    return rejectWithValue(error.message);
+export const createUser = createAsyncThunk(
+  "users/createUser",
+  async (payload, { rejectWithValue }) => {
+    try {
+      return await userService.createUser(payload)
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
   }
-});
+)
+
+export const fetchUsers = createAsyncThunk(
+  "users/fetchUsers",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const users = await userService.getUsers(payload);
+      return users;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const updateUser = createAsyncThunk(
   "users/updateUser",
