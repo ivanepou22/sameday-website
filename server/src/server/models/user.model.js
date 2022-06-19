@@ -47,7 +47,7 @@ const userSchema = Schema(
       default: false,
     },
     address: {
-      type: String
+      type: String,
     },
     country: {
       type: String,
@@ -58,6 +58,28 @@ const userSchema = Schema(
     zip: {
       type: String,
     },
+    gender: {
+      type: String,
+      required: true,
+      enum: ["male", "female", "other"],
+    },
+    date_of_birth: {
+      type: String,
+      required: true,
+    },
+    patientId: {
+      type: String,
+      required: true,
+    },
+    phone_number: {
+      type: String,
+      required: true,
+      maxLenght: [10, 'Phone number must be 10 digits'],
+    },
+    image: {
+      type: String,
+      required: true,
+    }
   },
   {
     timestamps: true,
