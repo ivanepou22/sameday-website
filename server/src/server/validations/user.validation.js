@@ -6,11 +6,16 @@ const createUser = {
     email: Joi.string().required().email(),
     password: Joi.string().required().custom(password),
     name: Joi.string().required(),
-    role: Joi.string().required().valid("user", "admin","doctor"),
+    role: Joi.string().required().valid("user", "admin", "doctor"),
+    gender: Joi.string().required().valid("male", "female", "other"),
+    date_of_birth: Joi.string().required(),
+    phone_number: Joi.string().required(),
+    image: Joi.string().required(),
     country: Joi.string(),
     state: Joi.string(),
     zip: Joi.string(),
     address: Joi.string(),
+    patientId: Joi.string().required(),
   }),
 };
 
@@ -43,6 +48,10 @@ const updateUser = {
       zip: Joi.string(),
       address: Joi.string(),
       id: Joi.string(),
+      date_of_birth: Joi.string(),
+      gender: Joi.string().valid("Male", "Female", "Other"),
+      phone_number: Joi.string(),
+      image: Joi.string()
     })
     .min(1),
 };
