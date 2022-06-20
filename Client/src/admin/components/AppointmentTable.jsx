@@ -40,6 +40,9 @@ const AppointmentTable = () => {
     dispatch(getDoctors());
   }, [dispatch, page]);
 
+  console.log(appointments);
+  console.log(page);
+
   return (
     <>
       <div className="container-fluid">

@@ -75,7 +75,6 @@ const ServicesModal = (props) => {
 
     // handle multi select
     const selectFn = (e) => {
-        console.log(subItems);
         e.forEach(el => {
             subItems?.includes(el.value) ? console.log('yes') : setSubItems([...subItems, el.value])
         })

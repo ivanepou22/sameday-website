@@ -32,6 +32,8 @@ const DoctorsTable = () => {
     dispatch(getDoctors(page));
   }, [dispatch, page]);
 
+  console.log(limit, page, totalPages, totalResults);
+
   return (
     <>
       <div className="container-fluid">

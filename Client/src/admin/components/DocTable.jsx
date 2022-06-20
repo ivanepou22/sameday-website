@@ -36,7 +36,7 @@ const DocTable = (props) => {
                   </td>
                   <td className="p-3 white-space-wrap-none">{doctor.email}</td>
                   <td className="p-3 white-space-wrap-none">{doctor.phone_number}</td>
-                  <td className="p-3 white-space-wrap-none">{doctor.specialities[0]}</td>
+                  <td className="p-3 white-space-wrap-none">{doctor.specialities}</td>
                   <td className="p-3 white-space-wrap-none"><img src={doctor.image} alt='Doctor' height={12} className="avatar avatar-ex-small rounded-circle" /></td>
                   <td className="text-end p-3 white-space-wrap-none">
                     <Link

@@ -10,6 +10,7 @@ const DoctorsModal = (props) => {
   const { isLoading, isError, errorMessage, doctor } = useSelector(doctorSelector);
   const { imageUrl } = useSelector(imageSelector);
   const { show, setShowModal } = props;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,6 +42,7 @@ const DoctorsModal = (props) => {
   };
 
   const handleSubmit = async (e) => {
+    console.log(formData);
     e.preventDefault();
     if (imageUrl) {
       dispatch(
@@ -48,7 +50,7 @@ const DoctorsModal = (props) => {
           full_name: formData.name,
           email: formData.email,
           phone_number: formData.phone,
-          specialities: formData.specialities,
+          specialities: [formData.specialities],
           image: imageUrl,
         })
       );
