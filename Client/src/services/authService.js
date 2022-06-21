@@ -77,7 +77,6 @@ const sendPassReset = async (payload) => {
 };
 
 const resetPassword = async (payload) => {
-  console.log(payload);
   const res = await API.resetPassword(payload);
   if (res.status !== 204) {
     const data = await res.json();

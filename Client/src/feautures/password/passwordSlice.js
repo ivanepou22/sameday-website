@@ -4,6 +4,7 @@ import { authService } from "../../services/authService";
 const initialState = {
   isLoading: false,
   isError: false,
+  isSuccess: false,
   errorMessage: "",
 };
 
@@ -14,6 +15,7 @@ const passwordSlice = createSlice({
     reset: (state) => {
       state.isLoading = false;
       state.isError = false;
+      state.isSuccess = false;
       state.errorMessage = "";
     },
   },
@@ -23,6 +25,7 @@ const passwordSlice = createSlice({
     });
     builder.addCase(sendPassReset.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.isSuccess = true;
     });
     builder.addCase(sendPassReset.rejected, (state, action) => {
       state.isLoading = false;
@@ -34,6 +37,7 @@ const passwordSlice = createSlice({
     });
     builder.addCase(resetPassword.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.isSuccess = true;
     });
     builder.addCase(resetPassword.rejected, (state, action) => {
       state.isLoading = false;
