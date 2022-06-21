@@ -6,7 +6,7 @@ import same_day_logo from "../../assets/images/Sameday-original.png";
 import { passwordSelector, reset, sendPassReset } from "../../feautures/password/passwordSlice";
 
 const ForgotPassword = () => {
-  const { isLoading, isError, errorMessage } = useSelector(passwordSelector);
+  const { isLoading, isError, errorMessage, isSuccess } = useSelector(passwordSelector);
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
 
@@ -15,6 +15,11 @@ const ForgotPassword = () => {
     dispatch(reset());
     dispatch(sendPassReset(email));
   };
+
+  isSuccess &&
+    setTimeout(() => {
+      window.location.href = "/admin/password-reset-success";
+    }, 3000);
   return (
     <>
       <section className="bg-home d-flex bg-light align-items-center">
@@ -25,6 +30,11 @@ const ForgotPassword = () => {
               <div className="card login-page bg-white shadow mt-4 rounded border-0">
                 <div className="card-body">
                   <h4 className="text-center">Recover Account</h4>
+                  {isSuccess && (
+                    <div className="alert alert-success">
+                      Password reset link successfully created. Please check your email.
+                    </div>
+                  )}
                   {isError && (
                     <div className="alert alert-danger">
                       <strong>Error!</strong> {errorMessage}
