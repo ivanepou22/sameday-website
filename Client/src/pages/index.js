@@ -20,6 +20,7 @@ import BlogDetails from './BlogDetails';
 import ServiceDetails from './ServiceDetails';
 import Clinics from './Clinics';
 import Logout from './Logout';
+import ResetPassword from './ResetPassword';
 export {
     Home,
     About,
@@ -42,4 +43,5 @@ export {
     Shop,
     Clinics,
     Logout,
+    ResetPassword
 }

@@ -11,6 +11,7 @@ import Register from './Register';
 import ForgotPassword from './ForgotPassword';
 import Users from './Users';
 import LogoutAdmin from './LogoutAdmin';
+import AdminResetPassword from './AdminResetPassword';
 export {
     Dashboard,
     Patients,
@@ -25,4 +26,5 @@ export {
     ForgotPassword,
     Users,
     LogoutAdmin,
+    AdminResetPassword,
 }

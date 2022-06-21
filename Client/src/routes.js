@@ -6,6 +6,7 @@ export const SDRoutes = {
     Login: { path: '/login' },
     Register: { path: '/register' },
     ForgotPassword: { path: '/forgot-password' },
+    ResetPassword: { path: '/reset-password' },
     Shop: { path: '/shop' },
     WellnessCenter: { path: '/wellness-center' },
     RadiologyServices: { path: '/radiology-services' },
@@ -33,4 +34,5 @@ export const SDRoutes = {
     adminForgotPassword: { path: '/admin/forgot-password' },
     adminUsers: { path: '/admin/users' },
     adminLogout: { path: '/admin/logout' },
+    adminResetPassword: { path: '/admin/reset-password' },
 }
