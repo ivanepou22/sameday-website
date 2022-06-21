@@ -9,7 +9,7 @@ import { resetPassword, passwordSelector, reset } from "../feautures/password/pa
 const ResetPassword = () => {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { isLoading, isError, errorMessage } = useSelector(passwordSelector);
+  const { isLoading, isError, errorMessage, isSuccess } = useSelector(passwordSelector);
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
@@ -29,6 +29,12 @@ const ResetPassword = () => {
     dispatch(resetPassword(formData));
   };
 
+  isSuccess &&
+    setTimeout(() => {
+      // redirect to success page
+      window.location.href = "/password-reset-success";
+    }, 2000);
+
   return (
     <>
       <TopIcon />
@@ -42,6 +48,9 @@ const ResetPassword = () => {
                   <h4 className="text-center">Reset Password</h4>
 
                   <form onSubmit={handleSubmit} className="login-form mt-4 font-size-15">
+                    {isSuccess && (
+                      <div className="alert alert-success">Password reset successfully</div>
+                    )}
                     {isError && <div className="alert alert-danger">{errorMessage}</div>}
                     <div className="row">
                       <div className="col-lg-12">

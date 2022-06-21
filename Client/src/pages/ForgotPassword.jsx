@@ -8,12 +8,12 @@ import { sendPassReset, passwordSelector, reset } from "../feautures/password/pa
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const { isLoading, isError, errorMessage } = useSelector(passwordSelector);
+  const { isLoading, isError, errorMessage, isSuccess } = useSelector(passwordSelector);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(reset())
+    dispatch(reset());
     dispatch(sendPassReset(email));
   };
 
@@ -28,6 +28,12 @@ const ForgotPassword = () => {
               <div className="card login-page bg-white shadow mt-4 rounded border-0">
                 <div className="card-body">
                   <h4 className="text-center">Recover Account</h4>
+                  {isSuccess && (
+                    <div className="alert alert-success">
+                      Password reset link has been sent to your email
+                    </div>
+                  )}
+
                   {isError && (
                     <div className="alert alert-danger">
                       <strong>Error!</strong> {errorMessage}
@@ -58,7 +64,7 @@ const ForgotPassword = () => {
                       <div className="col-lg-12">
                         <div className="d-grid">
                           <button type="submit" className="btn btn-orange">
-                            { isLoading ? "Sending...": "Send"}
+                            {isLoading ? "Sending..." : "Send"}
                           </button>
                         </div>
                       </div>
