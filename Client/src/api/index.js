@@ -12,7 +12,17 @@ class API {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: payload}),
+      body: JSON.stringify({ email: payload }),
+    });
+  }
+  static resetPassword(data) {
+    console.log(data);
+    return fetch(`${API_URL}/auth/reset-password?token=${data.token}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ password: data.password }),
     });
   }
 

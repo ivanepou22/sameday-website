@@ -44,6 +44,8 @@ import {
 import UserProtectedRoute from "./components/UserProtectedRoute";
 import AdminProtectedRoute from "./admin/components/AdminProtectedRoute";
 import "react-toastify/dist/ReactToastify.css";
+import PasswordResetSuccess from "./pages/PasswordResetSuccess";
+import AdminPasswordResetSuccess from "./admin/pages/AdminPasswordResetSuccess";
 
 function App() {
   return (
@@ -58,6 +60,7 @@ function App() {
           <Route path={SDRoutes.Login.path} element={<Login />} />
           <Route path={SDRoutes.Register.path} element={<Register />} />
           <Route path={SDRoutes.ForgotPassword.path} element={<ForgotPassword />} />
+          <Route path={SDRoutes.PasswordResetSuccess.path} element={<PasswordResetSuccess />} />
           <Route path={SDRoutes.Shop.path} element={<Shop />} />
           <Route path={SDRoutes.WellnessCenter.path} element={<WellnessCenter />} />
           <Route path={SDRoutes.RadiologyServices.path} element={<RadiologyServices />} />
@@ -92,6 +95,7 @@ function App() {
           <Route path={SDRoutes.adminForgotPassword.path} element={<AdminForgotPassword />} />
           <Route path={SDRoutes.adminLogout.path} element={<LogoutAdmin />} />
           <Route path={SDRoutes.adminResetPassword.path} element={<AdminResetPassword />} />
+          <Route path={SDRoutes.AdminPasswordResetSuccess.path} element={<AdminPasswordResetSuccess />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -70,10 +70,20 @@ const adminLogin = async (payload) => {
 const sendPassReset = async (payload) => {
   const res = await API.sendPassReset(payload);
   if (res.status !== 204) {
-    const data = await res.json()
+    const data = await res.json();
     throw new Error(data.message);
   }
-  return null
+  return null;
+};
+
+const resetPassword = async (payload) => {
+  console.log(payload);
+  const res = await API.resetPassword(payload);
+  if (res.status !== 204) {
+    const data = await res.json();
+    throw new Error(data.message);
+  }
+  return null;
 };
 
 export const authService = {
@@ -83,5 +93,6 @@ export const authService = {
   refreshToken,
   adminLogin,
   logoutAdmin,
-  sendPassReset
+  sendPassReset,
+  resetPassword,
 };

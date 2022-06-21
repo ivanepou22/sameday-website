@@ -87,7 +87,7 @@ const generateResetPasswordToken = async (email) => {
     throw new ApiError(httpStatus.NOT_FOUND, "No user found with that email");
   }
 
-  const expires = moment().add(config.jwt.resetPasswordExpires, "seconds");
+  const expires = moment().add(config.jwt.resetPasswordExpirationMinutes, "seconds");
   const resetPasswordToken = generateToken(
     user.id,
     expires,

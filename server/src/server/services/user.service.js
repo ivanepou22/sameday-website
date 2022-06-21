@@ -1,4 +1,5 @@
 import httpStatus from "http-status";
+import bcrypt from "bcryptjs";
 import { User } from "../models/index.js";
 import ApiError from "../utils/ApiError.js";
 
@@ -25,6 +26,15 @@ const getAdminUser = async (email) => {
 const getuserByEmail = async (email) => {
   return User.findOne({ email });
 };
+
+const updatePassword = async (id, password) => {
+  const hashedPassword = await bcrypt.hash(password.password, 10);
+  const update = User.findByIdAndUpdate(id, { password: hashedPassword });
+  if (!update) {
+    throw new ApiError(httpStatus.NOT_FOUND, "User not found");
+  }
+  return update;
+}
 
 const updateUserById = async (id, userBody) => {
   const user = await getUserById(id);
@@ -56,5 +66,6 @@ export const userService = {
     updateUserById,
     deleteUserById,
     queryUsers,
-    getAdminUser
+    getAdminUser,
+    updatePassword
 };

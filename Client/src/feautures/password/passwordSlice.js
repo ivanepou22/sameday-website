@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { authService } from "../../services/authService"
+import { authService } from "../../services/authService";
 
 const initialState = {
   isLoading: false,
@@ -29,6 +29,17 @@ const passwordSlice = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     });
+    builder.addCase(resetPassword.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(resetPassword.fulfilled, (state, action) => {
+      state.isLoading = false;
+    });
+    builder.addCase(resetPassword.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    });
   },
 });
 
@@ -37,6 +48,18 @@ export const sendPassReset = createAsyncThunk(
   async (email, { rejectWithValue }) => {
     try {
       const data = await authService.sendPassReset(email);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  "password/resetPassword",
+  async (payload, { rejectWithValue }) => {
+    try {
+      const data = await authService.resetPassword(payload);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
