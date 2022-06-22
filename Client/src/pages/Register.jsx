@@ -2,20 +2,29 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { authSelector, register } from "../feautures/auth/authSlice";
 import { reset as resetImage, UploadImage, imageSelector } from "../feautures/image/imageSlice";
 import { TopIcon } from "../components";
+import { generatePatientNumber } from "../utils/utils";
 import same_day_logo from "../assets/images/Sameday-original.png";
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { imageUrl } = useSelector(imageSelector);
   const { isLoading, isError, user, errorMessage } = useSelector(authSelector);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     first_name: "",
     last_name: "",
+    phone_number: "",
+    address: "",
+    gender: "",
+    date_of_birth: "",
+    role: "user",
+    patientId: generatePatientNumber(),
   });
 
   const handleImageUpload = (e) => {
@@ -43,13 +52,29 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = formData.first_name + " " + formData.last_name;
-    dispatch(
-      register({
-        email: formData.email,
-        password: formData.password,
-        name,
-      })
-    );
+    const data = {
+      email: formData.email,
+      password: formData.password,
+      name,
+      phone_number: formData.phone_number,
+      address: formData.address,
+      role: formData.role,
+      patientId: formData.patientId,
+      date_of_birth: formData.date_of_birth,
+      gender: formData.gender,
+    };
+
+    if (imageUrl) {
+      dispatch(
+        register({
+          ...data,
+          image: imageUrl,
+        })
+      );
+    } else {
+      toast.error("Please upload Image!");
+      return;
+    }
   };
 
   useEffect(() => {
@@ -64,50 +89,17 @@ const Register = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8 col-md-8">
-              <img
-                src={same_day_logo}
-                height="35"
-                className="mx-auto d-block"
-                alt=""
-              />
+              <img src={same_day_logo} height="35" className="mx-auto d-block" alt="" />
               <div className="card login-page bg-white shadow mt-4 rounded border-0">
                 <div className="card-body">
                   <h4 className="text-center">Sign Up</h4>
-                  {isError && <div className="alert alert-danger" role="alert">{errorMessage}</div>}
-                  <form
-                    onSubmit={handleSubmit}
-                    className="login-form mt-4 font-size-15"
-                  >
+                  {isError && (
+                    <div className="alert alert-danger" role="alert">
+                      {errorMessage}
+                    </div>
+                  )}
+                  <form onSubmit={handleSubmit} className="login-form mt-4 font-size-15">
                     <div className="row">
-                      <div className="col-lg-12 col-md-6">
-                        <div className="mb-3">
-                          <label className="form-label">Role</label>
-                          <select
-                            name="role"
-                            value={formData.role}
-                            onChange={handleChange}
-                            className="form-control doctor-name select2input"
-                          >
-                            <option value="">Select Role</option>
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                            <option value="doctor">Doctor</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="col-lg-12 col-md-6">
-                        <div className="mb-3">
-                          <input
-                            name="patientId"
-                            value={formData.patientId}
-                            readOnly
-                            id="pNumber"
-                            type="hidden"
-                            className="form-control"
-                            placeholder="Patient Number :"
-                          />
-                        </div>
-                      </div>
                       <div className="col-lg-6 col-md-6">
                         <div className="mb-3">
                           <label className="form-label">
@@ -258,6 +250,8 @@ const Register = () => {
                           ></textarea>
                         </div>
                       </div>
+                      <input type="hidden" name="role" value={formData.role} readOnly />
+                      <input type="hidden" name="patientId" value={formData.patientId} readOnly />
                       <div className="col-md-12">
                         <div className="mb-3">
                           <div className="form-check">
@@ -267,11 +261,8 @@ const Register = () => {
                               defaultChecked
                               id="accept-tnc-check"
                             />
-                            <label
-                              className="form-check-label"
-                              htmlFor="accept-tnc-check"
-                            >
-                              I Accept{" "}
+                            <label className="form-check-label" htmlFor="accept-tnc-check">
+                              I Accept
                               <Link to="#/" className="text-primary">
                                 Terms And Condition
                               </Link>
@@ -288,9 +279,7 @@ const Register = () => {
                       </div>
                       <div className="mx-auto">
                         <p className="mb-0 mt-3">
-                          <small className="text-dark me-2">
-                            Already have an account ?
-                          </small>{" "}
+                          <small className="text-dark me-2">Already have an account ?</small>{" "}
                           <Link to="/login" className="text-dark fw-bold">
                             Sign in
                           </Link>
