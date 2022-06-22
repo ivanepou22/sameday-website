@@ -5,8 +5,8 @@ const createService = async (service) => {
   const data = await res.json();
   return data;
 };
-const getServices = async () => {
-  const res = await API.noAuthGet("/services");
+const getServices = async (payload = 1) => {
+  const res = await API.noAuthGet(`/services?page=${payload}&limit=100`);
   const data = await res.json();
   return data;
 };

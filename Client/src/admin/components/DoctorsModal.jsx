@@ -54,6 +54,7 @@ const DoctorsModal = (props) => {
           image: imageUrl,
         })
       );
+      handleClose();
     } else {
       toast.error("Please upload an image");
       return;

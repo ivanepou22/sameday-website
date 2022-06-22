@@ -47,6 +47,7 @@ const PatientModal = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //   dispatch(createPatient())
+    handleClose();
   };
 
   return (

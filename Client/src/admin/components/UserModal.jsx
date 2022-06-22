@@ -69,6 +69,7 @@ const UserModal = (props) => {
           address: formData.address,
         })
       );
+      handleClose();
     } else {
       toast.error("Please upload an image");
       return;
@@ -268,8 +269,8 @@ const UserModal = (props) => {
                         Password <span className="text-danger">*</span>
                       </label>
                       <input
-                        id="phone"
-                        type="text"
+                        id="password"
+                        type="password"
                         className="form-control"
                         placeholder="Password :"
                         required

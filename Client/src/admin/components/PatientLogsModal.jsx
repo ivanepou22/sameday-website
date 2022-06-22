@@ -31,6 +31,7 @@ const PatientLogsModal = (props) => {
     e.preventDefault();
     dispatch(reset())
     dispatch(createLog(formData));
+    handleClose();
   };
 
   return (
@@ -65,7 +66,7 @@ const PatientLogsModal = (props) => {
               ></button>
             </div>
             <div className="modal-body p-3 pt-4">
-              {log && <div className="alert alert-success">Visit added successfully</div> }
+              {log && <div className="alert alert-success">Visit added successfully</div>}
               {isError && <div className="alert alert-danger">{errorMessage}</div>}
               <form onSubmit={handleSubmit}>
                 <div className="row">
