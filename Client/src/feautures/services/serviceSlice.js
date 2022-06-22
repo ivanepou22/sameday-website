@@ -128,7 +128,7 @@ export const getService = createAsyncThunk(
   "service/getService",
   async (id, { rejectWithValue }) => {
     try {
-      const res = await serviceService.getService(id);
+      const res = await serviceService.getServiceNoAuth(id);
       return res;
     } catch (err) {
       return rejectWithValue(err.message);

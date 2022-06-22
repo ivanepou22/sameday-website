@@ -20,7 +20,6 @@ const ServiceDetailSection = () => {
     dispatch(getService(id));
   }, [dispatch, id]);
 
-  console.log(isInCart);
   return (
     <>
       <section className="section font-size-15 padding-top-20">

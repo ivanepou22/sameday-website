@@ -10,8 +10,8 @@ const getServices = async () => {
   const data = await res.json();
   return data;
 };
-const getService = async (id) => {
-  const res = await API.get(`/services/${id}`);
+const getServiceNoAuth = async (id) => {
+  const res = await API.noAuthGet(`/services/${id}`);
   const data = await res.json();
   return data;
 };
@@ -28,7 +28,7 @@ const deleteService = async (id) => {
 export const serviceService = {
   createService,
   getServices,
-  getService,
+  getServiceNoAuth,
   updateService,
   deleteService,
 };
