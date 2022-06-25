@@ -4,9 +4,9 @@
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
   "main": "index.js",
   "scripts": {
+    "prod":"cd server && yarn && yarn start",
     "build": "cd Client && npm install && npm run build",
-    "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\"",
-    "prod":"cd server && yarn && yarn start"
+    "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\""
   },
   "repository": {
     "type": "git",
