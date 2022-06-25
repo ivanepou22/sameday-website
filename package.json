@@ -4,7 +4,6 @@
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
   "scripts": {
     "prod":"cd server && yarn && yarn start",
-    "build": "cd Client && npm install && npm run build",
     "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\""
   },
   "repository": {
