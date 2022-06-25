@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
   "scripts": {
-    "client":"cd Client && npm install --save --legacy-peer-deps && npm run build",
+    "client":"cd Client && npm install && npm run build",
     "build":"cd server && npm install && npm start",
     "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\""
   },
