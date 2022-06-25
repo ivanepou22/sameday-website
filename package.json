@@ -2,7 +2,6 @@
   "name": "sameday-website",
   "version": "1.0.0",
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
-  "main": "index.js",
   "scripts": {
     "prod":"cd server && yarn && yarn start",
     "build": "cd Client && npm install && npm run build",
