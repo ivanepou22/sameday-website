@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "cd Client && npm install && npm run build",
-    "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\""
+    "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\"",
+    "prod":"cd server && yarn && yarn start"
   },
   "repository": {
     "type": "git",
