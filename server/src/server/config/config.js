@@ -5,8 +5,6 @@ import Joi from 'joi';
 dotenv.config()
 
 
-
-
 export default {
     jwt: {
         secret: process.env.JWT_SECRET,
@@ -17,5 +15,13 @@ export default {
     },
     email: {
         from: process.env.EMAIL_FROM
-    }
- }
+    },
+    google: {
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        redirectUri: process.env.GOOGLE_REDIRECT_URI,
+        refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+        email: process.env.GOOGLE_EMAIL,
+        accessToken: process.env.GOOGLE_ACCESS_TOKEN,
+    },
+}
