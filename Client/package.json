@@ -2,7 +2,7 @@
   "name": "samedaylaboratories",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://sameday-website-kappa.vercel.app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@testing-library/jest-dom": "^5.16.4",
