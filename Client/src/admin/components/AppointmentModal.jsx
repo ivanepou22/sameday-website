@@ -1,6 +1,5 @@
 /* eslint-disable */
 import React, { useState } from "react";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   appointmentSelector,
@@ -10,7 +9,7 @@ import {
 const AppointmentModal = (props) => {
   const { show, setShowModal, doctors, patients } = props;
   const dispatch = useDispatch();
-  const { appointment, isLoading, isError, errorMessage } = useSelector(appointmentSelector);
+  const {isLoading, isError, errorMessage } = useSelector(appointmentSelector);
 
   const handleClose = () => {
     setShowModal(false);
