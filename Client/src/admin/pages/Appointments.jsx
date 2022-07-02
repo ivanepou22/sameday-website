@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AppointmentTable, AsideMenu, Header } from "../components";
 
 

@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { authSelector, register } from "../feautures/auth/authSlice";
 import { reset as resetImage, UploadImage, imageSelector } from "../feautures/image/imageSlice";
-import { TopIcon } from "../components";
 import { generatePatientNumber } from "../utils/utils";
 import same_day_logo from "../assets/images/Sameday-original.png";
 
