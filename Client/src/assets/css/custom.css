@@ -2,7 +2,9 @@
   background-color: #F46524 !important;
   color: white !important;
 }
-
+.text-orange {
+  color: #F46524 !important;
+}
 .btn-orange:hover {
   background-color: #da8056 !important;
   color: white !important;
@@ -33,7 +35,9 @@
   font-size: 15px !important;
   font-weight: 500;
 }
-
+.font-size-16 {
+  font-size: 16px !important;
+}
 .font-size-15 {
     font-size: 15px !important;
     letter-spacing: normal;
@@ -364,6 +368,11 @@ padding-top: -20px !important;
 
 .white-space-wrap-none {
   white-space: nowrap !important;
+}
+
+.margin-top-down {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }
 
 @media screen and (max-width: 1550px) {

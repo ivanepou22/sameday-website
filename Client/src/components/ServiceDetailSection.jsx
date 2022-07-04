@@ -5,6 +5,7 @@ import { getService, serviceSelector } from "../feautures/services/serviceSlice"
 import { useDispatch, useSelector } from "react-redux";
 import { BsCart, BsCartPlus } from "react-icons/bs";
 import { addToCart, cartSelector } from "../feautures/cart/cartSlice";
+import { AiOutlineCheck } from "react-icons/ai";
 
 const ServiceDetailSection = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,8 @@ const ServiceDetailSection = () => {
     dispatch(getService(id));
   }, [dispatch, id]);
 
+  console.log(service);
+
   return (
     <>
       <section className="section font-size-15 padding-top-20">
@@ -34,14 +37,14 @@ const ServiceDetailSection = () => {
                         ? service.image
                         : "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png"
                     }
-                    className="img-fluid rounded"
+                    className="img-fluid height-100 rounded"
                     alt=""
                   />
                 </div>
               </div>
             </div>
 
-            <div className="col-md-7 mt-4 mt-sm-0 pt-2 pt-sm-0">
+            <div className="col-md-7 mt-2 mt-sm-0 pt-2 pt-sm-0">
               <div className="section-title ms-md-4">
                 <h4 className="title">{service.name}</h4>
                 <h5 className="text-muted">
@@ -51,31 +54,21 @@ const ServiceDetailSection = () => {
                     maximumFractionDigits: 2,
                   })}
                 </h5>
-                <ul className="list-unstyled text-warning h5 mb-0">
-                  <li className="list-inline-item">
-                    <i className="mdi mdi-star"></i>
-                  </li>
-                  <li className="list-inline-item">
-                    <i className="mdi mdi-star"></i>
-                  </li>
-                  <li className="list-inline-item">
-                    <i className="mdi mdi-star"></i>
-                  </li>
-                  <li className="list-inline-item">
-                    <i className="mdi mdi-star"></i>
-                  </li>
-                  <li className="list-inline-item">
-                    <i className="mdi mdi-star"></i>
-                  </li>
-                  <li className="list-inline-item me-2 h6 text-muted">(20 Ratting)</li>
-                </ul>
+                <h5 className="mt-2 py-2">Overview :</h5>
+                {
+                  service.description === "." ? ("") : (
+                    <p className="text-muted">{service.description}</p>
+                  )
+                }
 
-                <h5 className="mt-4 py-2">Overview :</h5>
-                <p className="text-muted">{service.description}</p>
-
+                {
+                  service?.subItems?.map((item, index) => (
+                        <span key={index} className="mt-5 text-orange font-size-16"><AiOutlineCheck /> {item}.<br /></span>
+                  ))
+                }
                 <div className="d-flex shop-list align-items-center">
-                  <h6 className="mb-0">Quantity:</h6>
-                  <div className="qty-icons ms-3">
+                  <h6 className="mt-5">Quantity:</h6>
+                  <div className="qty-icons ms-3 mt-5">
                     <input
                       min="0"
                       name="quantity"

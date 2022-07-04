@@ -15,7 +15,7 @@ const WellnessCenter = () => {
         <>
             <Header />
             <HeroSection
-                pageName="Wellness Center"
+                pageName="Wellness Clinic"
                 pageDescription="
                     One of the unique things that sets us apart from others is that we focus on
                     wellness and preventive care for our patients -we have a highly skilled team

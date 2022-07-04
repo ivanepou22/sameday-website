@@ -237,7 +237,7 @@ const Header = () => {
                   </li>
                   <li>
                     <Link to="/wellness-center" className="sub-menu-item">
-                      Wellness Center
+                      Wellness Clinic
                     </Link>
                   </li>
                   <li>

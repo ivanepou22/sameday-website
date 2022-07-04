@@ -10,7 +10,7 @@ const Wellness01 = () => {
                     <div className="row justify-content-center">
                         <div className="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                             <div className="custom-choose">
-                                <h5 className="choose-title">Wellness Center</h5>
+                                <h5 className="choose-title">Wellness Clinic</h5>
                                 <div className="choose-content">
                                     <ul>
                                         <li><span><BsFillCheckCircleFill /> </span>

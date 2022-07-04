@@ -18,7 +18,7 @@ const Wellness02 = () => {
                         </div>
                         <div className="col-lg-8 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                             <div className="custom-choose">
-                                <h5 className="choose-title">Wellness Center Services</h5>
+                                <h5 className="choose-title">Wellness Clinic Services</h5>
                                 <div className="choose-content">
                                     <ul>
                                         <li><span><BsFillCheckCircleFill /> </span>
