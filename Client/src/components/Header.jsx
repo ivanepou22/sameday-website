@@ -14,7 +14,8 @@ import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { SiGnuprivacyguard } from "react-icons/si";
 // Logo
-import same_day_logo from "../assets/images/Sameday-original.png";
+// import same_day_logo from "../assets/images/Sameday-original.png";
+import same_day_logo1 from "../assets/images/about/logo.PNG";
 // styles
 import "../assets/css/custom.css";
 import SearchModal from "./SearchModal";
@@ -55,10 +56,10 @@ const Header = () => {
           <div>
             <Link className="logo" to="/">
               <span className="logo-light-mode">
-                <img src={same_day_logo} className="l-dark" height="34" alt="" />
-                <img src={same_day_logo} className="l-light" height="34" alt="" />
+                <img src={same_day_logo1} className="l-dark" height="34" alt="" />
+                <img src={same_day_logo1} className="l-light" height="34" alt="" />
               </span>
-              <img src={same_day_logo} height="34" className="logo-dark-mode" alt="" />
+              <img src={same_day_logo1} height="34" className="logo-dark-mode" alt="" />
             </Link>
           </div>
           <div className="menu-extras">

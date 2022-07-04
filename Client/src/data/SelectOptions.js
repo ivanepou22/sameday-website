@@ -5,7 +5,7 @@ export const selectOptions = [
     { value: 'Urine Examination, Routine; URINE, R/E', label: 'Urine Examination, Routine; URINE, R/E' },
     { value: 'Thyroid function tests', label: 'Thyroid function tests' },
     { value: 'Liver & Kidney Panel', label: 'Liver & Kidney Panel' },
-    { value: 'Iron', label: 'Iron' },
+    { value: 'Iron & Lipid Panel', label: 'Iron & Lipid Panel' },
     { value: 'Lipid Profile', label: 'Lipid Profile' },
     { value: 'Vitamin D 25 – Hydroxy', label: 'Vitamin D 25 – Hydroxy' },
     { value: 'Apolipoproteins A1 & B', label: 'Apolipoproteins A1 & B' },
@@ -13,6 +13,8 @@ export const selectOptions = [
     { value: 'Cardio C-Reactive Protein', label: 'Cardio C-Reactive Protein' },
     { value: 'Vitamin B12; CYANOCOBALAMIN', label: 'Vitamin B12; CYANOCOBALAMIN' },
     { value: 'Vitamin B12', label: 'Vitamin B12' },
+    { value: 'Physical Examination', label: 'Physical Examination' },
+    { value: 'HbA1c :Glycosylated Hemoglobin', label: 'HbA1c :Glycosylated Hemoglobin' },
 ];
 
 export const customStyles = {

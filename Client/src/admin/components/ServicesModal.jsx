@@ -201,6 +201,7 @@ const ServicesModal = (props) => {
                                                 onChange={handleChange}
                                             >
                                                 <option defaultValue="">Select Niche</option>
+                                                <option defaultValue="General">General</option>
                                                 <option defaultValue="Women">Women</option>
                                                 <option defaultValue="Men">Men</option>
                                                 <option defaultValue="Children">Children</option>
