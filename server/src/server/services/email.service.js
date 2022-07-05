@@ -1,81 +1,120 @@
-import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
-import config from '../config/config.js';
-import logger from '../config/logger.js';
-
+import nodemailer from "nodemailer";
+import ejs from "ejs";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { htmlToText } from "html-to-text";
+import juice from "juice";
+import { google } from "googleapis";
+import config from "../config/config.js";
+import logger from "../config/logger.js";
 
 const OAuth2 = google.auth.OAuth2;
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 const createTransporter = async () => {
-  const oauth2Client = new OAuth2(
-    config.google.clientId,
-    config.google.clientSecret,
-    config.google.redirectUri,
-  );
-  oauth2Client.setCredentials({
-    refresh_token: config.google.refreshToken,
-  });
-  const accessToken = await new Promise((resolve, reject) => {
-    oauth2Client.getAccessToken((err, token) => {
-      if (err) {
-        reject(err);
-      }
-      resolve(token);
+  let transporter;
+  if (process.env.NODE_ENV === "production") {
+    const oauth2Client = new OAuth2(
+      config.google.clientId,
+      config.google.clientSecret,
+      config.google.redirectUri
+    );
+    oauth2Client.setCredentials({
+      refresh_token: config.google.refreshToken,
     });
-  });
+    const accessToken = await new Promise((resolve, reject) => {
+      oauth2Client.getAccessToken((err, token) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(token);
+      });
+    });
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      type: 'OAuth2',
-      user: config.google.email,
-      accessToken,
-      clientId: config.google.clientId,
-      clientSecret: config.google.clientSecret,
-      refreshToken: config.google.refreshToken,
-    },
+    transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        type: "OAuth2",
+        user: config.google.email,
+        accessToken,
+        clientId: config.google.clientId,
+        clientSecret: config.google.clientSecret,
+        refreshToken: config.google.refreshToken,
+      },
+    });
+  } else {
+    transporter = nodemailer.createTransport({
+      host: "localhost",
+      port: 25,
+      auth: {
+        user: "admin@localhost",
+        pass: "admin",
+      },
+    });
   }
-  );
 
   return transporter;
-}
+};
 
-//const transport = createTransporter();
+const sendEmail = async (to, subject, text, templateName, templateVars) => {
+  // templates are stored in the server/src/server/templates folder
+  const templatePath = path.join(__dirname, `../templates/${templateName}.html`);
+  if (templateName && fs.existsSync(templatePath)) {
+    const template = fs.readFileSync(templatePath, "utf8");
+    const html = ejs.render(template, templateVars);
+    text = htmlToText(html);
+    text = juice(html);
 
-/* istanbul ignore next */
-// if (process.env.NODE_ENV !== 'test') {
-//   transport
-//     .verify()
-//     .then(() => logger.info('Connected to email server'))
-//     .catch(() => logger.warn('Unable to connect to email server. Make sure you have configured the SMTP options in .env'));
-// }
-
-const sendEmail = async (to, subject, text) => {
-  const msg = { from: config.email.from, to, subject, text };
-  //await transport.sendMail(msg);
-  try {
     const transporter = await createTransporter();
-    await transporter.sendMail(msg);
-  }
-  catch (err) {
-    logger.error(err);
+    const mailOptions = {
+      from: config.email.from,
+      to,
+      subject,
+      text,
+      html,
+    };
+    await transporter.sendMail(mailOptions);
+  } else {
   }
 };
 
+const sendNotifyEmail = async (subject = "", text = {}, type) => {
+  // console.log(text);
+  switch (type) {
+    case "NEW USER":
+      subject = "New user Registered";
+    case "NEW ORDER":
+      subject = `<b>New Order placed #${text.orderNumber}</b>`;
+      break;
+    default:
+      subject = "New user Registered";
+  }
+  const to = "admin@localhost.com";
+  const template = type.toLowerCase().split(" ").join("-");
 
+  await sendEmail(to, subject, "", template, {
+    orderNumber: text.orderNumber,
+    orderTotal: text.orderTotal,
+    orderDate: text.orderDate,
+  });
+};
 
 const sendResetPasswordEmail = async (to, token, origin) => {
-  const subject = 'Reset password';
+  const subject = "Reset password";
   // replace this url with the link to the reset password page of your front-end app
-  const resetPasswordUrl = `${origin}/reset-password?token=${token}`;
-  const text = `Dear user,
-  To reset your password, click on this link: ${resetPasswordUrl}
-  If you did not request any password resets, then ignore this email.`;
-  await sendEmail(to, subject, text);
+  const resetLink = `${origin}/reset-password?token=${token}`;
+  const templateVars = {
+    emailAddress: "test@test.com",
+    resetLink,
+  };
+  await sendEmail(to, subject, "", "reset-password", templateVars);
 };
 
 const sendVerificationEmail = async (to, token) => {
-  const subject = 'Email Verification';
+  const subject = "Email Verification";
   // replace this url with the link to the email verification page of your front-end app
   const verificationEmailUrl = `http://localhost:5000/api/v1/auth/verify-email?token=${token}`;
   const text = `Dear user,
@@ -85,4 +124,9 @@ const sendVerificationEmail = async (to, token) => {
   await sendEmail(to, subject, text);
 };
 
-export const emailService = { sendEmail, sendResetPasswordEmail, sendVerificationEmail };
+export const emailService = {
+  sendEmail,
+  sendNotifyEmail,
+  sendResetPasswordEmail,
+  sendVerificationEmail,
+};
