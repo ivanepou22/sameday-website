@@ -92,7 +92,7 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
     default:
       subject = "New user Registered";
   }
-  const to = "admin@localhost.com";
+  const to = process.env.NODE_ENV === "production" ? config.google.email : "admin@localhost.com";
   const template = type.toLowerCase().split(" ").join("-");
 
   await sendEmail(to, subject, "", template, {
