@@ -3,6 +3,9 @@ import API from "../api";
 const createService = async (service) => {
   const res = await API.post("/services", service);
   const data = await res.json();
+  if(res.status !== 201) {
+    throw new Error(data.message);
+  }
   return data;
 };
 const getServices = async (payload = 1) => {
