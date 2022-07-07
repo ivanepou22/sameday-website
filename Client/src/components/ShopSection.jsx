@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { serviceSelector, getServices } from '../feautures/services/serviceSlice';
+import { addToCart } from "../feautures/cart/cartSlice";
 
 //icons
 import { AiOutlineHeart, AiOutlineEye, AiOutlineShoppingCart } from 'react-icons/ai'
@@ -60,6 +61,10 @@ const ShopSection = () => {
 
         dispatch(getServices());
     }, [dispatch, niche]);
+
+    const handleAddToCart = (service) => {
+        dispatch(addToCart(service))
+      };
 
     //filter services by category
     const filterServicesWellness = services?.filter(service => service.category === 'Wellness');
