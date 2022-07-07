@@ -31,7 +31,7 @@ class API {
   }
 
   static contact(data) {
-    return fetch(`${API_URL}/api/v1/emails`, {
+    return fetch(`${API_URL}/emails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

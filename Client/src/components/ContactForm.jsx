@@ -5,7 +5,7 @@ import { createContact, reset, contactSelector } from "../feautures/contact/cont
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const { isLoading, isError, errorMessage } = useSelector(contactSelector);
+  const { isLoading, isError, errorMessage, contact } = useSelector(contactSelector);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -24,6 +24,12 @@ const ContactForm = () => {
     e.preventDefault();
     dispatch(reset());
     dispatch(createContact(data));
+    setData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
   };
 
   return (
@@ -32,6 +38,7 @@ const ContactForm = () => {
         <div className="custom-form rounded shadow p-3">
           <h5 className="mb-4">Get in touch!</h5>
           {isError && <p className="text-danger">{errorMessage}</p>}
+          {contact.message && <p className="text-success">{contact.message}</p>}
           <form onSubmit={sendMessage} name="myForm" className="font-size-15">
             <p id="error-msg"></p>
             <div id="simple-msg"></div>

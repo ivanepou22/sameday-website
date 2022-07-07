@@ -39,10 +39,10 @@ export const createContact = createAsyncThunk(
   "contact/createContact",
   async (data, { rejectWithValue }) => {
     try {
-      const res = await contactService.createContact(data);
+      const res = await contactService.contact(data);
       return res;
     } catch (err) {
-      return rejectWithValue(err);
+      return rejectWithValue(err.message);
     }
   }
 );

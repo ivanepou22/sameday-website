@@ -10,7 +10,9 @@ const sendContactEmail = catchAsync(async (req, res) => {
     message,
   };
   await emailService.sendContactEmail(subject, text);
-  res.status(httpStatus.NO_CONTENT).send();
+  res.status(httpStatus.OK).send({
+    message: "Message sent, we will get back to you soon",
+  });
 });
 
 export default {
