@@ -20,7 +20,6 @@ const ShopSection = () => {
     const [activeGeneral, setActiveGeneral] = useState(false);
 
     useEffect(() => {
-        console.log(niche);
         if (niche === 'all') {
             setActiveAll(true);
             setActiveWomen(false);
