@@ -88,11 +88,11 @@ server/~$ yarn dev # start the development server
 | POST   | /api/v1/auth/refresh | Refresh a user's token |
 
 ### Bugs
-For any bugs, please raise an issue on [GitHub](https://github.com/ivanepou/sameday-website)
+For any bugs, please raise an issue on [GitHub](https://github.com/ivanepou22/sameday-website/)
 
 
 ### Contributing
-For any contributions, please raise an issue on [GitHub](https://github.com/ivanepou/sameday-website) or create a pull request.
+For any contributions, please raise an issue on [GitHub](https://github.com/ivanepou22/sameday-website) or create a pull request.
 
 
 ### License
