@@ -11,13 +11,64 @@ import { BsCart, BsStarFill } from 'react-icons/bs';
 const ShopSection = () => {
     const dispatch = useDispatch();
     const { services } = useSelector(serviceSelector);
+    const [niche, setNiche] = useState('all');
+    //active class for the navbar
+    const [activeAll, setActiveAll] = useState(false);
+    const [activeWomen, setActiveWomen] = useState(false);
+    const [activeMen, setActiveMen] = useState(false);
+    const [activeChildren, setActiveChildren] = useState(false);
+    const [activeGeneral, setActiveGeneral] = useState(false);
 
     useEffect(() => {
+        if (niche === 'all') {
+            setActiveAll(true);
+            setActiveWomen(false);
+            setActiveMen(false);
+            setActiveChildren(false);
+            setActiveGeneral(false);
+        } else if (niche === 'Women') {
+            setActiveAll(false);
+            setActiveWomen(true);
+            setActiveMen(false);
+            setActiveChildren(false);
+            setActiveGeneral(false);
+        } else if (niche === 'Men') {
+            setActiveAll(false);
+            setActiveWomen(false);
+            setActiveMen(true);
+            setActiveChildren(false);
+            setActiveGeneral(false);
+        } else if (niche === 'Children') {
+            setActiveAll(false);
+            setActiveWomen(false);
+            setActiveMen(false);
+            setActiveChildren(true);
+            setActiveGeneral(false);
+        } else if (niche === 'General') {
+            setActiveAll(false);
+            setActiveWomen(false);
+            setActiveMen(false);
+            setActiveChildren(false);
+            setActiveGeneral(true);
+        } else {
+            setActiveAll(false);
+            setActiveWomen(false);
+            setActiveMen(false);
+            setActiveChildren(false);
+            setActiveGeneral(false);
+        }
+
         dispatch(getServices());
-    }, [dispatch]);
+    }, [dispatch, niche]);
 
     //filter services by category
-    const filterServices = services?.filter(service => service.category === 'Wellness');
+    const filterServicesWellness = services?.filter(service => service.category === 'Wellness');
+    let filterServicesByNiche = filterServicesWellness;
+
+    //filter services by niche
+    if (niche !== 'all') {
+        filterServicesByNiche = filterServicesWellness.filter(service => service.niche[0] === niche);
+    }
 
     return (
         <>
@@ -28,11 +79,17 @@ const ShopSection = () => {
                             <h5 className="mb-0">WELLNESS CLINIC PACKAGES</h5>
                         </div>
                     </div>
-                    <div className="row">
-
+                    <div className="row justify-content-center margin-top-0">
+                        <div className="packages-niche">
+                            <button className={`btn btn-outline-primary btn-sm btn-block ${activeAll ? 'active': ''}`} onClick={() => setNiche('all')}>All</button>
+                            <button className={`btn btn-outline-primary btn-sm btn-block ${activeWomen ? 'active': ''}`} onClick={() => setNiche('Women')}>Women</button>
+                            <button className={`btn btn-outline-primary btn-sm btn-block ${activeChildren ? 'active': ''}`} onClick={() => setNiche('Children')}>Children</button>
+                            <button className={`btn btn-outline-primary btn-sm btn-block ${activeMen ? 'active': ''}`} onClick={() => setNiche('Men')}>Men</button>
+                            <button className={`btn btn-outline-primary btn-sm btn-block ${activeGeneral ? 'active': ''}`} onClick={() => setNiche('General')}>General</button>
+                        </div>
                     </div>
                     <div className="row">
-                        {filterServices?.map((service) => {
+                        {filterServicesByNiche?.map((service) => {
                             return (
                                 <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2" key={service.id}>
                                     <div className="card shop-list border-0">
