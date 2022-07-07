@@ -16,6 +16,9 @@ const WellnessPackages = (props) => {
     dispatch(addToCart(service))
   };
 
+  //filter services by category
+  const filterServices = services?.filter(service => service.category === 'Wellness');
+
   return (
     <>
       <section className="section font-size-15 padding-top-bottom-40">
@@ -39,7 +42,7 @@ const WellnessPackages = (props) => {
           </div>
 
           <div className="row font-size-15 md-5">
-            {services?.map((service) => {
+            {filterServices?.map((service) => {
               return (
                 <div className="col-lg-3 col-md-6 col-12 mt-4 pt-2" key={service.id}>
                   <div className="card shop-list border-0">

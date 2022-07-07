@@ -67,12 +67,28 @@ const CheckoutSection = () => {
                         <h6 className="my-0">{item.name}</h6>
                         <small className="text-muted">{item.description}</small>
                       </div>
-                      <span className="text-muted">UGX {item.total}</span>
+                      <span className="text-muted">
+                        {
+                          item.total?.toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'UGX',
+                            maximumFractionDigits: 2,
+                          })
+                        }
+                      </span>
                     </li>
                   ))}
                   <li className="d-flex justify-content-between p-3">
                     <span>Total (UGX)</span>
-                    <strong>UGX {totalPrice}</strong>
+                    <strong>
+                      {
+                        totalPrice?.toLocaleString('en-US', {
+                          style: 'currency',
+                          currency: 'UGX',
+                          maximumFractionDigits: 2,
+                        })
+                      }
+                    </strong>
                   </li>
                 </ul>
               </div>
