@@ -30,6 +30,16 @@ class API {
     return fetch(`${API_URL}${url}`);
   }
 
+  static contact(data) {
+    return fetch(`${API_URL}/api/v1/emails`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  }
+
   static post(url, data) {
     const config = {
       method: "POST",

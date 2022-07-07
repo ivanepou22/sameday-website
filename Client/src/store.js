@@ -11,6 +11,7 @@ import visitReducer from "./feautures/visit/visitSlice";
 import userReducer from "./feautures/user/userSlice";
 import passwordReducer from "./feautures/password/passwordSlice";
 import logsReducer from "./feautures/log/logSlice";
+import contactReducer from "./feautures/contact/contactSlice";
 
 const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ const store = configureStore({
     users: userReducer,
     password: passwordReducer,
     logs: logsReducer,
+    contact: contactReducer,
   },
 });
 
