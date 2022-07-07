@@ -124,9 +124,18 @@ const sendVerificationEmail = async (to, token) => {
   await sendEmail(to, subject, text);
 };
 
+const sendContactEmail = async (to, subject, text) => {
+  const templateVars = {
+    message: text.message,
+    name: text.name,
+  }
+  await sendEmail(to, subject, text, "contact-email", templateVars);
+}
+
 export const emailService = {
   sendEmail,
   sendNotifyEmail,
   sendResetPasswordEmail,
   sendVerificationEmail,
+  sendContactEmail,
 };

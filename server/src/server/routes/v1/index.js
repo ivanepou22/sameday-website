@@ -9,6 +9,7 @@ import serviceRoute from "./service.route.js";
 import logRoute from "./log.route.js";
 import visitRoute from "./visit.route.js";
 import imageRoute from "./upload.route.js";
+import emailRoute from "./email.route.js";
 
 const router = express.Router();
 
@@ -82,6 +83,13 @@ const imageRoutes = [
   },
 ];
 
+const emailRoutes = [
+  {
+    path: "/emails",
+    route: emailRoute,
+  },
+];
+
 defaultRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
@@ -119,6 +127,10 @@ visitRoutes.forEach((route) => {
 });
 
 imageRoutes.forEach((route) => {
+  router.use(route.path, route.route);
+});
+
+emailRoutes.forEach((route) => {
   router.use(route.path, route.route);
 });
 
