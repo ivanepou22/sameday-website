@@ -7,8 +7,8 @@ import { AiOutlineEye } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { FaRegEdit } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
-import { deleteVisit } from "../../feautures/visit/visitSlice";
 import moment from "moment";
+import { deleteAppointment } from "../../feautures/appointment/appointmentSlice";
 
 const Table = (props) => {
   const { appointments } = props;
@@ -45,13 +45,13 @@ const Table = (props) => {
                   <div className="d-flex align-items-center">{moment(ap.date).format('DD-MM-YYYY')}</div>
                 </Link>
               </td>
-              <td className="p-2 white-space-wrap-none">{ap.time}</td>
-              <td className="p-2 white-space-wrap-none">{ap?.patient.name}</td>
-              <td className="p-2 white-space-wrap-none">{ap?.email}</td>
-              <td className="p-2 white-space-wrap-none">{ap?.phone}</td>
-              <td className="p-2 white-space-wrap-none">{ap?.doctor.full_name}</td>
-              <td className="p-2">{ap?.comment}</td>
-              <td className="p-2 white-space-wrap-none">{ap?.department}</td>
+              <td className="p-2 white-space-wrap-none" titile={ap.time}>{ap.time}</td>
+              <td className="p-2 white-space-wrap-none" title={ap?.patient.name}>{ap?.patient.name}</td>
+              <td className="p-2 white-space-wrap-none" title={ap?.email} >{ap?.email.length > 10 ? ap?.email.substring(0, 10) + '...' : ap?.email}</td>
+              <td className="p-2 white-space-wrap-none" title={ap?.phone}>{ap?.phone}</td>
+              <td className="p-2 white-space-wrap-none" title={ap?.doctor.full_name}>{ap?.doctor.full_name}</td>
+              <td className="p-2">{ap?.comment.length > 20 ? ap?.comment.substring(0, 20) + '...' : ap?.comment}</td>
+              <td className="p-2 white-space-wrap-none" title={ap?.department}>{ap?.department}</td>
               <td className="text-end p-2 white-space-wrap-none">
                 <Link to="#/" className="btn btn-icon btn-pills btn-soft-primary my-1">
                   <AiOutlineEye />
@@ -60,7 +60,8 @@ const Table = (props) => {
                   <FaRegEdit />
                 </Link>
                 <Link
-                  onClick={() => dispatch(deleteVisit(ap.id))}
+                title={`Delete ${ap?.appNumber}`}
+                  onClick={() => dispatch(deleteAppointment(ap?.id))}
                   to="#/" className="btn btn-icon btn-pills btn-soft-danger">
                   <AiOutlineDelete />
                 </Link>

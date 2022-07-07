@@ -2,11 +2,12 @@ import httpStatus from "http-status";
 import pick from "../utils/pick.js";
 import catchAsync from "../utils/catchAsync.js";
 import ApiError from "../utils/ApiError.js";
-import { orderService } from "../services/index.js";
+import { emailService, orderService } from "../services/index.js";
 
 const createOrder = catchAsync(async (req, res) => {
     const userId = req.user.id;
     const order = await orderService.createOrder({ userId, ...req.body });
+    await emailService.sendNotifyEmail("", order, 'NEW ORDER')
     res.status(httpStatus.CREATED).send(order);
 })
 

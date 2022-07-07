@@ -10,7 +10,7 @@ const initialState = {
   page: 0,
   limit: 0,
   totalPages: 0,
-  totalResults: 0
+  totalResults: 0,
 };
 
 export const appointmentSlice = createSlice({
@@ -32,10 +32,10 @@ export const appointmentSlice = createSlice({
     builder.addCase(fetchAppointments.fulfilled, (state, action) => {
       state.isLoading = false;
       state.appointments = action.payload.results;
-      state.page = action.payload.page
-      state.limit = action.payload.limit
-      state.totalPages = action.payload.totalPages
-      state.totalResults = action.payload.totalResults
+      state.page = action.payload.page;
+      state.limit = action.payload.limit;
+      state.totalPages = action.payload.totalPages;
+      state.totalResults = action.payload.totalResults;
     });
     builder.addCase(fetchAppointments.rejected, (state, action) => {
       state.isLoading = false;
@@ -92,7 +92,7 @@ export const appointmentSlice = createSlice({
     });
     builder.addCase(deleteAppointment.fulfilled, (state, action) => {
       state.appointments = state.appointments.filter((appointment) => {
-        return appointment._id !== action.payload;
+        return appointment.id !== action.payload;
       });
       state.isLoading = false;
       state.isError = false;
@@ -133,9 +133,7 @@ export const createAppointment = createAsyncThunk(
   "appointment/createAppointment",
   async (appointment, { rejectWithValue }) => {
     try {
-      const newAppointment = await appointmentService.createAppointment(
-        appointment
-      );
+      const newAppointment = await appointmentService.createAppointment(appointment);
       return newAppointment;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -147,9 +145,7 @@ export const updateAppointment = createAsyncThunk(
   "appointment/updateAppointment",
   async (appointment, { rejectWithValue }) => {
     try {
-      const updatedAppointment = await appointmentService.updateAppointment(
-        appointment
-      );
+      const updatedAppointment = await appointmentService.updateAppointment(appointment);
       return updatedAppointment;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -162,7 +158,7 @@ export const deleteAppointment = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const deletedAppointment = await appointmentService.deleteAppointment(id);
-      return deletedAppointment;
+      return id;
     } catch (error) {
       return rejectWithValue(error.message);
     }
