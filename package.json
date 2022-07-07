@@ -4,7 +4,7 @@
   "description": "<small>SAMEDAY LABORATORIES & DIAGNOSTICS</small>",
   "scripts": {
     "client":"cd Client && npm install && npm run build",
-    "build":"cd server && npm install && npm start",
+    "start":"cd server && npm install && npm start",
     "dev": "concurrently \"cd Client && npm start\" \"cd server && npm run dev\""
   },
   "repository": {
