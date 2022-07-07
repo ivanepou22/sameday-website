@@ -302,6 +302,18 @@ body {
   gap: 1rem;
 }
 
+.packages-niche {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: poppins, sans-serif;
+  word-wrap: none;
+  color: #202942;
+  font-size: 15px;
+  margin-bottom: 1rem;
+  gap: .5rem;
+}
+
 @media screen and (max-width: 1199px) {
   .login-register {
     display: none !important;
