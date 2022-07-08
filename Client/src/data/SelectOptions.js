@@ -83,6 +83,13 @@ export const selectOptions = [
     {value: " PSA & CEA", label: " PSA & CEA"},
     {value: "CEA, Beta HCG & Prostate Ultra Sound Scan", label: " CEA, Beta HCG & Prostate Ultra Sound Scan"},
     {value: "CA-125 & CA-19.9", label: "CA-125 & CA-19.9"},
+    {value: "Result within 12 hours", label: "Result within 12 hours"},
+    {value: "Walk-In Test", label: "Walk-In Test"},
+    {value: "Result within 6 hours", label: "Result within 6 hours"},
+    {value: "Result within 15 minutes", label: "Result within 15 minutes"},
+    {value: "Result within 24 hours", label: "Result within 24 hours"},
+    {value: "Without Certificate", label: "Without Certificate"},
+    {value: "Express Testing", label: "Express Testing"},
 ];
 
 export const customStyles = {
@@ -117,3 +124,5 @@ export const customStyles = {
         };
     },
 };
+
+export const covidServices = [];

@@ -1,7 +1,16 @@
-import React from 'react'
-import { Footer, Header, HeroSection } from '../components'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { serviceSelector, getServices } from '../feautures/services/serviceSlice';
+import { Footer, Header, HeroSection, CovidPackages } from '../components'
 
 const CovidTesting = () => {
+    const dispatch = useDispatch();
+    const { services } = useSelector(serviceSelector);
+
+    useEffect(() => {
+        dispatch(getServices());
+    }, [dispatch]);
+
     return (
         <>
             <Header />
@@ -17,6 +26,7 @@ const CovidTesting = () => {
                 companyName="SameDay Laboratories"
                 showBreadcrumb={true}
             />
+            <CovidPackages services={services} />
             <Footer />
         </>
     )

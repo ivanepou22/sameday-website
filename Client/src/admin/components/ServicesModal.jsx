@@ -183,7 +183,7 @@ const ServicesModal = (props) => {
                       >
                         <option defaultValue="">Select Category</option>
                         <option defaultValue="Wellness">Wellness</option>
-                        <option defaultValue="COVID">covid</option>
+                        <option defaultValue="COVID">COVID</option>
                         <option defaultValue="Laboratory">Laboratory</option>
                         <option defaultValue="Radiology">Radiology</option>
                         <option defaultValue="Clinic">Clinics</option>
