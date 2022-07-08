@@ -8,6 +8,8 @@ import {
   WellnessPackages,
   Wellness02,
   RadiologySection,
+  CovidPackages,
+  CovidContent,
 } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { serviceSelector, getServices } from "../feautures/services/serviceSlice";
@@ -31,6 +33,8 @@ const Home = () => {
       <Wellness02 />
       <WellnessPackages services={servicesList} />
       <RadiologySection />
+      <CovidContent />
+      <CovidPackages services={services} />
       <Footer />
     </>
   );

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { serviceSelector, getServices } from '../feautures/services/serviceSlice';
 import { Footer, Header, HeroSection, CovidPackages } from '../components'
+import CovidContent from './../components/CovidContent';
 
 const CovidTesting = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const CovidTesting = () => {
                 companyName="SameDay Laboratories"
                 showBreadcrumb={true}
             />
+            <CovidContent />
             <CovidPackages services={services} />
             <Footer />
         </>
