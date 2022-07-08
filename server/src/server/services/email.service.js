@@ -59,7 +59,7 @@ const createTransporter = async () => {
   return transporter;
 };
 
-const sendEmail = async (to, subject, text, templateName, templateVars) => {
+const sendEmail = async (to, subject, text, templateName, templateVars, from = "") => {
   // templates are stored in the server/src/server/templates folder
   const templatePath = path.join(__dirname, `../templates/${templateName}.html`);
   if (templateName && fs.existsSync(templatePath)) {
@@ -70,7 +70,7 @@ const sendEmail = async (to, subject, text, templateName, templateVars) => {
 
     const transporter = await createTransporter();
     const mailOptions = {
-      from: config.email.from,
+      from: from ? from : config.email.from,
       to,
       subject,
       text,
@@ -124,9 +124,19 @@ const sendVerificationEmail = async (to, token) => {
   await sendEmail(to, subject, text);
 };
 
+const sendContactEmail = async (subject, text) => {
+  const templateVars = {
+    message: text.message,
+    name: text.name,
+  };
+  const to = process.env.NODE_ENV === "production" ? config.google.email : "admin@localhost.com";
+  await sendEmail(to, subject, text, "contact-email", templateVars, text.email);
+};
+
 export const emailService = {
   sendEmail,
   sendNotifyEmail,
   sendResetPasswordEmail,
   sendVerificationEmail,
+  sendContactEmail,
 };
