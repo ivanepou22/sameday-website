@@ -15,117 +15,7 @@ const HomeServices = () => {
     return (
         <>
             <section className="section font-size-15 margin-top-0 padding-top-0">
-                <div className="container margin-top-neg-20 padding-bottom-40">
-                    <div className="row justify-content-center margin-top-0">
-                        <div className="col-xl-12">
-                            <div className="bg-white shadow rounded overflow-hidden card-group">
-                                <div className="card border-0 bg-light p-4">
-                                    <h5 className="mt-1">Contact Us</h5>
-                                    <ul className="list-unstyled mt-2">
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0"><BsTelephone /></p>
-                                            <p className="text-primary mb-0">+256 775 108 946</p>
-                                        </li>
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0"><AiOutlineMail /></p>
-                                            <p className="text-primary mb-0">info@samedaylabwork.com</p>
-                                        </li>
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0"><BsGlobe /></p>
-                                            <p className="text-primary mb-0">www.samedaylabwork.com</p>
-                                        </li>
-                                    </ul>
-                                    <Link to="/contact" className="text-primary">Read More <RiArrowRightSLine /></Link>
-                                </div>
-
-                                <div className="card border-0 p-4">
-                                    <h5 className="mt-1">Locations</h5>
-                                    <ul className="list-unstyled mt-2">
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0"><GoLocation /></p>
-                                            <p className="text-primary mb-0">18 Lugogo By-Pass – Kampala.</p>
-                                        </li>
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0"><GoLocation /></p>
-                                            <p className="text-primary mb-0">Lugard Avenue – Entebbe.</p>
-                                        </li>
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0"><GoLocation /></p>
-                                            <p className="text-primary mb-0">Airport Road - Entebbe Airport.</p>
-                                        </li>
-                                    </ul>
-                                    <Link to="/contact" className="text-primary">Read More <RiArrowRightSLine /></Link>
-                                </div>
-
-                                <div className="card border-0 bg-light p-4">
-                                    <h5 className="mt-1">Opening Hours</h5>
-                                    <ul className="list-unstyled mt-2">
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0">Monday - Friday</p>
-                                            <p className="text-primary mb-0"><RiTimerLine /> All Day</p>
-                                        </li>
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0">Saturday</p>
-                                            <p className="text-primary mb-0"><RiTimerLine /> All Day</p>
-                                        </li>
-                                        <li className="d-flex justify-content-between">
-                                            <p className="text-muted mb-0">Sunday</p>
-                                            <p className="text-primary mb-0"><RiTimerLine /> All Day</p>
-                                        </li>
-                                    </ul>
-                                    <Link to="/contact" className="text-primary">Read More <RiArrowRightSLine /></Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <section className="section about-section font-size-15 margin-top-0 padding-top-bottom-40 padding-bottom-0">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-5 col-md-6 padding-0 margin-0">
-                                <div className="me-lg-5 padding-0 margin-0 contact-img">
-                                    <img src={bgContact} className="img-fluid" alt="" />
-                                </div>
-                            </div>
-                            <div className="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
-                                <div className="custom-choose">
-                                    <h5 className="choose-title">About Us</h5>
-                                    <div className="choose-content">
-                                        <ul>
-                                            <li><span><BsFillCheckCircleFill /> </span>
-                                                <p>
-                                                    Sameday Laboratories and Diagnostics is a Full-Service Wellness Center,Clinic,
-                                                    Laboratory and Diagnostic Center focused on preventive care.
-                                                </p>
-                                            </li>
-                                            <li><span><BsFillCheckCircleFill /> </span>
-                                                <p>
-                                                    One of the unique things that sets us apart from others is that we focus on
-                                                    wellness and preventive care for our patients -we have a highly skilled team
-                                                    of health care professionals including nurses and doctors that will evaluate
-                                                    the results of our patient's lab studies and give you advice accordingly.
-                                                </p>
-                                            </li>
-                                            <li><span><BsFillCheckCircleFill /> </span>
-                                                <p>
-                                                    With our expertise, professionalism, state-of-the-art and highly sterile laboratories for your test needs,
-                                                    highly skilled, trained and experienced staff, we aim to be the leading voice of transformation and improvement of
-                                                    health care in Uganda.
-                                                </p>
-                                            </li>
-                                            <li>
-                                                <Link to="/about" className="link">Read More <RiArrowRightSLine /></Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <div className="container mt-100 mt-60">
+            <div className="container mt-3">
                     <div className="row justify-content-center">
                         <div className="col-12">
                             <div className="section-title mb-4 pb-2 text-center">
@@ -183,6 +73,51 @@ const HomeServices = () => {
                         </div>
                     </div>
                 </div>
+                <section className="section about-section font-size-15 mt-4 padding-top-bottom-40 padding-bottom-0">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-5 col-md-6 padding-0 margin-0">
+                                <div className="me-lg-5 padding-0 margin-0 contact-img">
+                                    <img src={bgContact} className="img-fluid" alt="" />
+                                </div>
+                            </div>
+                            <div className="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                                <div className="custom-choose">
+                                    <h5 className="choose-title">About Us</h5>
+                                    <div className="choose-content">
+                                        <ul>
+                                            <li><span><BsFillCheckCircleFill /> </span>
+                                                <p>
+                                                    Sameday Laboratories and Diagnostics is a Full-Service Wellness Center,Clinic,
+                                                    Laboratory and Diagnostic Center focused on preventive care.
+                                                </p>
+                                            </li>
+                                            <li><span><BsFillCheckCircleFill /> </span>
+                                                <p>
+                                                    One of the unique things that sets us apart from others is that we focus on
+                                                    wellness and preventive care for our patients -we have a highly skilled team
+                                                    of health care professionals including nurses and doctors that will evaluate
+                                                    the results of our patient's lab studies and give you advice accordingly.
+                                                </p>
+                                            </li>
+                                            <li><span><BsFillCheckCircleFill /> </span>
+                                                <p>
+                                                    With our expertise, professionalism, state-of-the-art and highly sterile laboratories for your test needs,
+                                                    highly skilled, trained and experienced staff, we aim to be the leading voice of transformation and improvement of
+                                                    health care in Uganda.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <Link to="/about" className="link">Read More <RiArrowRightSLine /></Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
             </section>
         </>
     )
