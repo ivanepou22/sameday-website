@@ -15,6 +15,70 @@ const ContactMap = () => {
                     </div>
                 </div>
             </div>
+            <div className="container margin-top-neg-20 padding-bottom-40">
+                <div className="row justify-content-center margin-top-0">
+                    <div className="col-xl-12">
+                        <div className="bg-white shadow rounded overflow-hidden card-group">
+                            <div className="card border-0 bg-light p-4">
+                                <h5 className="mt-1">Contact Us</h5>
+                                <ul className="list-unstyled mt-2">
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0"><BsTelephone /></p>
+                                        <p className="text-primary mb-0">+256 775 108 946</p>
+                                    </li>
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0"><AiOutlineMail /></p>
+                                        <p className="text-primary mb-0">info@samedaylabwork.com</p>
+                                    </li>
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0"><BsGlobe /></p>
+                                        <p className="text-primary mb-0">www.samedaylabwork.com</p>
+                                    </li>
+                                </ul>
+                                <Link to="/contact" className="text-primary">Read More <RiArrowRightSLine /></Link>
+                            </div>
+
+                            <div className="card border-0 p-4">
+                                <h5 className="mt-1">Locations</h5>
+                                <ul className="list-unstyled mt-2">
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0"><GoLocation /></p>
+                                        <p className="text-primary mb-0">18 Lugogo By-Pass – Kampala.</p>
+                                    </li>
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0"><GoLocation /></p>
+                                        <p className="text-primary mb-0">Lugard Avenue – Entebbe.</p>
+                                    </li>
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0"><GoLocation /></p>
+                                        <p className="text-primary mb-0">Airport Road - Entebbe Airport.</p>
+                                    </li>
+                                </ul>
+                                <Link to="/contact" className="text-primary">Read More <RiArrowRightSLine /></Link>
+                            </div>
+
+                            <div className="card border-0 bg-light p-4">
+                                <h5 className="mt-1">Opening Hours</h5>
+                                <ul className="list-unstyled mt-2">
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0">Monday - Friday</p>
+                                        <p className="text-primary mb-0"><RiTimerLine /> All Day</p>
+                                    </li>
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0">Saturday</p>
+                                        <p className="text-primary mb-0"><RiTimerLine /> All Day</p>
+                                    </li>
+                                    <li className="d-flex justify-content-between">
+                                        <p className="text-muted mb-0">Sunday</p>
+                                        <p className="text-primary mb-0"><RiTimerLine /> All Day</p>
+                                    </li>
+                                </ul>
+                                <Link to="/contact" className="text-primary">Read More <RiArrowRightSLine /></Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
