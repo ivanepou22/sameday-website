@@ -1,6 +1,12 @@
 /* eslint-disable */
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+import { BsTelephone, BsGlobe } from "react-icons/bs";
+import { RiArrowRightSLine, RiTimerLine, RiVirusLine } from "react-icons/ri";
+import { AiOutlineMail } from "react-icons/ai";
+import { GoLocation } from "react-icons/go";
+
 const ContactMap = () => {
     return (
         <>
@@ -15,7 +21,7 @@ const ContactMap = () => {
                     </div>
                 </div>
             </div>
-            <div className="container margin-top-neg-20 padding-bottom-40">
+            <div className="container padding-bottom-40">
                 <div className="row justify-content-center margin-top-0">
                     <div className="col-xl-12">
                         <div className="bg-white shadow rounded overflow-hidden card-group">
