@@ -6,7 +6,7 @@
 
 ```bash
 server/~$ npm install -g yarn # install yarn
-server/~$ yarn install # install dependencies
+server/~$ yarn # install dependencies
 server/~$ mv .env.example .env # move .env.example to .env
 server/~$ yarn dev # start the development server
 ```
