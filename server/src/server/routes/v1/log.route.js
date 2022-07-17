@@ -17,7 +17,7 @@ router.route('/:logId')
     .delete(auth('manageLogs'), validate(logValidation.deleteLog), deleteLog);
 
 router.route('/user/:userId')
-    .get(auth('getLogs'), validate(logValidation.getLogByUser), getLogByUser);
+    .get(auth('getLogs'), validate(logValidation.getLogsByUserId), getLogByUser);
 
 
 export default router;

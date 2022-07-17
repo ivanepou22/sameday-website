@@ -51,7 +51,9 @@ const updateUser = {
       date_of_birth: Joi.string(),
       gender: Joi.string().valid("Male", "Female", "Other"),
       phone_number: Joi.string(),
-      image: Joi.string()
+      image: Joi.string(),
+      role: Joi.string(),
+      isEmailVerified: Joi.boolean()
     })
     .min(1),
 };
