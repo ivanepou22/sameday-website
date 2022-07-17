@@ -14,11 +14,12 @@ const CheckoutSection = () => {
   const { user } = useSelector(authSelector);
   const { cart, totalItems, totalPrice } = useSelector(cartSelector);
   const [userData, setUserData] = useState({
-    address: "",
-    country: "",
-    state: "",
-    zip: "",
+    address: user.address || "",
+    country: user.country || "",
+    state: user.state || "",
+    zip: user.zip || "",
     id: user.id,
+    ...user
   });
   const [formData, setFormData] = useState({
     orderDate: new Date(),
