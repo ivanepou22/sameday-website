@@ -7,7 +7,6 @@ import { htmlToText } from "html-to-text";
 import juice from "juice";
 import { google } from "googleapis";
 import config from "../config/config.js";
-import logger from "../config/logger.js";
 
 const OAuth2 = google.auth.OAuth2;
 const __filename = fileURLToPath(import.meta.url);
