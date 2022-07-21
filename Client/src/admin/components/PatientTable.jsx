@@ -8,7 +8,7 @@ import { fetchUsers, userSelector } from "../../feautures/user/userSlice";
 
 const PatientTable = () => {
   const dispatch = useDispatch();
-  const { isLoading, isError, errorMessage, users, limit, totalPages, totalResults } =
+  const { users, limit, totalPages, totalResults } =
     useSelector(userSelector);
   const [showModal, setShowModal] = React.useState(false);
   const [page, setPage] = React.useState(1);

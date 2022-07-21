@@ -2,23 +2,23 @@ import React from 'react'
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { AiFillCheckSquare } from 'react-icons/ai';
 import { RiArrowRightSLine } from 'react-icons/ri';
-import wellness1 from '../assets/images/new/moodcow_wellness.png';
+import wellness1 from '../assets/images//about/WellnessBg.PNG';
 import { Link } from 'react-router-dom';
 
 const Wellness02 = () => {
     return (
         <>
-            <section className="section about-section font-size-15 margin-top-0 padding-top-bottom-40 bg-light-gray">
+            <section className="section about-section font-size-15 margin-top-0 padding-top-bottom-40">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-4 col-md-6 padding-0 margin-0">
                             <div className="me-lg-5 padding-0 margin-0 contact-img">
-                                <img src={wellness1} className="img-fluid" alt="" />
+                                <img src={wellness1} className="img-fluid height-100" alt="" />
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                             <div className="custom-choose">
-                                <h5 className="choose-title">Wellness Clinic Services</h5>
+                                <h5 className="choose-title text-orange">Wellness Clinic Services</h5>
                                 <div className="choose-content">
                                     <ul>
                                         <li><span><BsFillCheckCircleFill /> </span>

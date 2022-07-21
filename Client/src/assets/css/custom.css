@@ -43,7 +43,10 @@
     letter-spacing: normal;
     font-weight: 400;
 }
-
+.font-size-18 {
+    font-size: 18px !important;
+    color: #818ca0 !important;
+}
 .padding-bottom-20 {
   padding-bottom: 20px !important;
 }
@@ -129,6 +132,10 @@
 
 .margin-tp-3rem {
   margin-top: 3rem;
+}
+
+.margin-tp-20-per {
+  margin-top: 20%;
 }
 
 .bg-light-gray {
@@ -224,7 +231,7 @@
 }
 
 .height-70vh {
-  height: 70vh !important;
+  height: 60vh !important;
 }
 
 .bg-light-orange {
@@ -237,10 +244,10 @@
 
 .slider-title {
   font-size: 40px !important;
-  color: #0D436A !important;
+  color: #F46524 !important;
   font-weight: 700;
-  text-transform: uppercase;
-  font-family: 'Roboto', poppins, sans-serif;
+  text-transform: capitalize;
+  font-family: poppins, sans-serif;
   word-wrap: none;
 }
 

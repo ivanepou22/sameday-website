@@ -25,7 +25,7 @@ const CovidPackages = (props) => {
                         <div className="col-12">
                             <div className="section-title mb-4 pb-2 text-center">
                                 <span className="badge badge-pill badge-soft-primary mb-3">Packages</span>
-                                <h4 className="choose-title mb-4">COVID Testing Packages</h4>
+                                <h4 className="choose-title mb-4 text-orange">COVID Testing Packages</h4>
                                 <p className="text-muted mx-auto para-desc mb-0">
                                     We perform advanced Polymerase Chain Reaction (PCR) and PCR-SARS-CoV-2
                                     rapid diagnostic testing on travelers, the general public, and on behalf of private institutions.

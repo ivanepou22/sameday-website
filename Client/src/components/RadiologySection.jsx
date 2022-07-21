@@ -12,7 +12,7 @@ const RadiologySection = () => {
                 <div className="row justify-content-center">
                     <div className="col-12">
                         <div className="section-title mb-4 pb-2 text-center">
-                            <h4 className="choose-title mb-4">Our Radiology Services</h4>
+                            <h4 className="choose-title mb-4 text-orange">Our Radiology Services</h4>
                             <p className="text-muted mx-auto para-desc mb-0">
                                 We have a comprehensive radiology department that includes x-rays ultrasound and ECG‘s to
                                 further give a more in-depth analysis as to what is going on with the patient.
