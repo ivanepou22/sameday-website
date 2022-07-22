@@ -57,20 +57,12 @@ const Sliders = () => {
                 loop={true}
                 autoplay={{
                     delay: 6000,
-                    // pauseOnMouseEnter: false
                 }}
-                direction={"vertical"}
                 pagination={{
                     clickable: true,
-                    renderBullet: function (index, className) {
-                        return '<span class="' + className + '">' + (index + 1) + "</span>";
-                    },
                 }}
+                navigation={true}
                 modules={[Pagination, Navigation, Autoplay]}
-                navigation={{
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                }}
                 className="mySwiper"
             >
                 <SwiperSlide>
