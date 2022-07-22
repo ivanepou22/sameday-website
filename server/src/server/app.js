@@ -35,7 +35,7 @@ app.use(passport.initialize());
 passport.use("jwt", jwtStrategy);
 
 if (process.env.NODE_ENV === "production") {
-  app.use("/aip/v1/auth", authLimiter);
+  app.use("/api/v1/auth", authLimiter);
 }
 
 app.use("/api/v1", routes);
