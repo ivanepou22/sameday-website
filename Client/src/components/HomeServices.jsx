@@ -10,12 +10,6 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 const HomeServices = () => {
-    const aboutImg = {
-        backgroundImage: `url("${bgContact}")`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "right bottom",
-    }
     return (
         <>
             <section className="section font-size-15 margin-top-0 padding-top-0">

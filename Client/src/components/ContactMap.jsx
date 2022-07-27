@@ -26,7 +26,7 @@ const ContactMap = () => {
                     <div className="col-xl-12">
                         <div className="bg-white shadow rounded overflow-hidden card-group">
                             <div className="card border-0 bg-light p-4">
-                                <h5 className="mt-1">Contact Us</h5>
+                                <h5 className="mt-1 text-orange">Contact Us</h5>
                                 <ul className="list-unstyled mt-2">
                                     <li className="d-flex justify-content-between">
                                         <p className="text-muted mb-0"><BsTelephone /></p>
@@ -45,7 +45,7 @@ const ContactMap = () => {
                             </div>
 
                             <div className="card border-0 p-4">
-                                <h5 className="mt-1">Locations</h5>
+                                <h5 className="mt-1 text-orange">Locations</h5>
                                 <ul className="list-unstyled mt-2">
                                     <li className="d-flex justify-content-between">
                                         <p className="text-muted mb-0"><GoLocation /></p>
@@ -64,7 +64,7 @@ const ContactMap = () => {
                             </div>
 
                             <div className="card border-0 bg-light p-4">
-                                <h5 className="mt-1">Opening Hours</h5>
+                                <h5 className="mt-1 text-orange">Opening Hours</h5>
                                 <ul className="list-unstyled mt-2">
                                     <li className="d-flex justify-content-between">
                                         <p className="text-muted mb-0">Monday - Friday</p>
