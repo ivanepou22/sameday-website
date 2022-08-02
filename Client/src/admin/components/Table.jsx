@@ -12,7 +12,8 @@ import moment from "moment";
 const Table = (props) => {
   const { data } = props;
   const dispatch = useDispatch()
-  
+
+  console.log(data);
   // TODO: FIX PATIENTS
   return (
     <>
@@ -33,7 +34,9 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
-          {data?.filter(u => u.role === "user")?.map((ap, index) => (
+          {
+          // ?.filter(u => u.role === "user")
+          data?.map((ap, index) => (
             <tr key={ap.id}>
               <td className="p-3 white-space-wrap-none">{index + 1}</td>
               <td className="p-3 white-space-wrap-none">

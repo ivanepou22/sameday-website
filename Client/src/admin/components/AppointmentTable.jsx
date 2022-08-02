@@ -69,7 +69,7 @@ const AppointmentTable = () => {
           <div className="row">
             <div className="col-12 mt-4">
               <div className="table-responsive shadow rounded">
-                {!isLoading && <Table appointments={appointments} />}
+                {!isLoading && <Table data={appointments} />}
               </div>
             </div>
           </div>
