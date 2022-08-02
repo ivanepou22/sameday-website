@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RiAddLine } from "react-icons/ri";
-import Table from "./Table";
 import PatientModal from "./PatientModal";
 import { fetchUsers, userSelector } from "../../feautures/user/userSlice";
+import { FaRegEdit } from "react-icons/fa";
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 
 const PatientTable = () => {
   const dispatch = useDispatch();
-  const { users, limit, totalPages, totalResults } =
-    useSelector(userSelector);
+  const { users, isLoading, limit, totalPages, totalResults } = useSelector(userSelector);
   const [showModal, setShowModal] = React.useState(false);
   const [page, setPage] = React.useState(1);
 
@@ -30,6 +30,9 @@ const PatientTable = () => {
   React.useEffect(() => {
     dispatch(fetchUsers(page));
   }, [dispatch, page]);
+
+  //filter users by role
+  const filteredUsers = users.filter((user) => user.role === "user");
 
   return (
     <>
@@ -60,7 +63,73 @@ const PatientTable = () => {
           <div className="row">
             <div className="col-12 mt-4">
               <div className="table-responsive shadow rounded">
-                <Table data={users} />
+                {isLoading ? (
+                  <div className="text-center">
+                    <div className="spinner-border text-primary" role="status">
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                ) : (
+                  <table className="table table-center bg-white mb-0">
+                    <thead>
+                      <tr>
+                        <th className="border-bottom p-3">No.</th>
+                        <th className="border-bottom p-3">PatientID</th>
+                        <th className="border-bottom p-3">Name</th>
+                        <th className="border-bottom p-3">Email</th>
+                        <th className="border-bottom p-3">Role</th>
+                        <th className="border-bottom p-3">Gender</th>
+                        <th className="border-bottom p-3">DOB</th>
+                        <th className="border-bottom p-3">Address</th>
+                        <th className="border-bottom p-3">Country</th>
+                        <th className="border-bottom p-3">State</th>
+                        <th className="border-bottom p-3">Zip</th>
+                        <th className="border-bottom p-3">Phone</th>
+                        <th className="border-bottom p-3">Image</th>
+                        <th className="border-bottom p-3" style={{ minWidth: "100px" }}></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredUsers?.map((user, index) => (
+                        <tr key={user.id}>
+                          <td className="p-3 white-space-wrap-none">{index + 1}</td>
+                          <td className="p-3 white-space-wrap-none">{user.patientId}</td>
+                          <td className="py-3 white-space-wrap-none">
+                            <Link to="#/">
+                              <div className="d-flex align-items-center">
+                                <span className="ms-2">{user.name}</span>
+                              </div>
+                            </Link>
+                          </td>
+                          <td className="p-3 white-space-wrap-none">{user.email}</td>
+                          <td className="p-3 white-space-wrap-none">{user.role}</td>
+                          <td className="p-3 white-space-wrap-none">{user.gender}</td>
+                          <td className="p-3 white-space-wrap-none">{user.date_of_birth}</td>
+                          <td className="p-3">{user.address}</td>
+                          <td className="p-3 white-space-wrap-none">{user.country}</td>
+                          <td className="p-3 white-space-wrap-none">{user.state}</td>
+                          <td className="p-3 white-space-wrap-none">{user.zip}</td>
+                          <td className="p-3 white-space-wrap-none">{user.phone_number}</td>
+                          <td className="p-3 white-space-wrap-none"><img src={user.image} alt='User' height={12} className="avatar avatar-ex-small rounded-circle" /></td>
+                          <td className="text-end p-3 white-space-wrap-none">
+                            <Link to="#/" className="btn btn-icon btn-pills btn-soft-primary my-1">
+                              <AiOutlineEye />
+                            </Link>
+                            <Link
+                              to="#/"
+                              className="btn btn-icon btn-pills btn-soft-success my-1 mx-2"
+                            >
+                              <FaRegEdit />
+                            </Link>
+                            <Link to="#/" className="btn btn-icon btn-pills btn-soft-danger">
+                              <AiOutlineDelete />
+                            </Link>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
               </div>
             </div>
           </div>

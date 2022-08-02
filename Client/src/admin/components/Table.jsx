@@ -11,10 +11,8 @@ import moment from "moment";
 
 const Table = (props) => {
   const { data } = props;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  console.log(data);
-  // TODO: FIX PATIENTS
   return (
     <>
       <table className="table table-center bg-white mb-0">
