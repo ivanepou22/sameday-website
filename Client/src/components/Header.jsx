@@ -231,11 +231,6 @@ const Header = () => {
                 <span className="menu-arrow"></span>
                 <ul className={openSubMenu ? "submenu open" : "submenu"}>
                   <li>
-                    <Link to="/clinics" className="sub-menu-item">
-                      Clinics
-                    </Link>
-                  </li>
-                  <li>
                     <Link to="/wellness-center" className="sub-menu-item">
                       Wellness Clinic
                     </Link>
