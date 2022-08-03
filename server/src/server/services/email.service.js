@@ -106,7 +106,7 @@ const sendResetPasswordEmail = async (to, token, origin) => {
   // replace this url with the link to the reset password page of your front-end app
   const resetLink = `${origin}/reset-password?token=${token}`;
   const templateVars = {
-    emailAddress: "test@test.com",
+    emailAddress: to,
     resetLink,
   };
   await sendEmail(to, subject, "", "reset-password", templateVars);
