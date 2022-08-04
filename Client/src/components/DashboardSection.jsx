@@ -3,13 +3,14 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { FiUser } from 'react-icons/fi'
-import { AiOutlineDashboard, AiOutlineCalendar } from "react-icons/ai";
+import { AiOutlineDashboard, AiOutlineCalendar, AiOutlineEye } from "react-icons/ai";
 import { BsListTask } from 'react-icons/bs'
 import { RiFileUserLine } from 'react-icons/ri'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { authSelector } from '../feautures/auth/authSlice';
 import Avatar from 'react-avatar';
 import { appointmentSelector, fetchAppointments } from '../feautures/appointment/appointmentSlice';
+import { getVisits, visitSelector } from "../feautures/visit/visitSlice";
 import moment from 'moment';
 import { getOrders, ordersSelector } from '../feautures/orders/ordersSlice';
 
@@ -18,13 +19,15 @@ const DashboardSection = () => {
     const dispatch = useDispatch();
     const { user } = useSelector(authSelector)
     const { appointments } = useSelector(appointmentSelector)
-    const { orders, isLoading } = useSelector(ordersSelector)
+    const { orders } = useSelector(ordersSelector)
+    const { visits, isLoading: visitLoading } = useSelector(visitSelector)
     const [dashboard, setDashboard] = React.useState(true);
     const [showOrders, setShowOrders] = React.useState(false);
     const [showAppointments, setShowAppointments] = React.useState(false);
     const [showVisits, setShowVisits] = React.useState(false);
     const [showAddress, setShowAddress] = React.useState(false);
     const [showProfile, setShowProfile] = React.useState(false);
+
 
     const handleDashboard = () => {
         setDashboard(true);
@@ -83,11 +86,14 @@ const DashboardSection = () => {
     useEffect(() => {
         dispatch(fetchAppointments())
         dispatch(getOrders())
+        dispatch(getVisits());
     }, [dispatch])
 
     //filter appointments and orders by patient
     const filteredAppointments = appointments?.filter(appointment => appointment.patient.id === user.id);
     const filteredOrders = orders?.filter(order => order.userId.id === user.id);
+    const filteredVisits = visits?.filter(visit => visit.patientId.id === user.id);
+    console.log(filteredVisits);
 
     return (
         <>
@@ -235,43 +241,75 @@ const DashboardSection = () => {
                                 </div>
 
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${showVisits ? 'active show' : ''}`} id="visits" role="tabpanel" aria-labelledby="order-history">
-                                    <div className="table-responsive bg-white shadow rounded">
-                                        <table className="table mb-0 table-center table-nowrap">
-                                            <thead>
-                                                <tr>
-                                                    <th className="border-bottom p-3" scope="col">Visit no.</th>
-                                                    <th className="border-bottom p-3" scope="col">Date</th>
-                                                    <th className="border-bottom p-3" scope="col">Status</th>
-                                                    <th className="border-bottom p-3" scope="col">Total</th>
-                                                    <th className="border-bottom p-3" scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td className="p-3">7107</td>
-                                                    <td className="p-3">1st November 2020</td>
-                                                    <td className="text-success p-3">Delivered</td>
-                                                    <td className="p-3">$ 320 <span className="text-muted">for 2items</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td className="p-3">8007</td>
-                                                    <td className="p-3">4td November 2020</td>
-                                                    <td className="text-muted p-3">Processing</td>
-                                                    <td className="p-3">$ 800 <span className="text-muted">for 1item</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td className="p-3">8008</td>
-                                                    <td className="p-3">4th November 2020</td>
-                                                    <td className="text-danger p-3">Canceled</td>
-                                                    <td className="p-3">$ 800 <span className="text-muted">for 1item</span></td>
-                                                    <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div className="row">
+                                        <div className="col-12 mt-4">
+                                            <div className="table-responsive shadow rounded">
+                                                {
+                                                    visitLoading ?
+                                                        <div className="text-center">
+                                                            <div className="spinner-border text-primary" role="status">
+                                                                <span className="sr-only">Loading...</span>
+                                                            </div>
+                                                        </div>
+                                                        :
+                                                        (
+                                                            <table className="table table-center bg-white mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">No.</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Number</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Patient</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Patient Email</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Date</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Location</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Next-Visit-14-Days</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Next-Visit-90-Days</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Address</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Results</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Medication</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none">Notes</th>
+                                                                        <th className="border-bottom p-3 white-space-wrap-none" style={{ minWidth: "100px" }}></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {filteredVisits?.map((visit, index) => (
+                                                                        <tr key={visit.id}>
+                                                                            <td className="p-3 white-space-wrap-none">{index + 1}</td>
+                                                                            <td className="py-3 white-space-wrap-none">
+                                                                                <Link to="#/">
+                                                                                    <div className="d-flex align-items-center">
+                                                                                        <span className="ms-2">{visit.visitNumber}</span>
+                                                                                    </div>
+                                                                                </Link>
+                                                                            </td>
+                                                                            <td className="p-3 white-space-wrap-none">{visit.patientId.name}</td>
+                                                                            <td className="p-3 white-space-wrap-none">{visit.patientId.email}</td>
+                                                                            <td className="p-3 white-space-wrap-none">
+                                                                                {moment(visit.date).format("DD-MM-YYYY")}
+                                                                            </td>
+                                                                            <td className="p-3 white-space-wrap-none">{visit.location}</td>
+                                                                            <td className="p-3 white-space-wrap-none">{moment(visit.next_visit_14_days).format('DD-MM-YYYY')}</td>
+                                                                            <td className="p-3 white-space-wrap-none">{moment(visit.next_visit_90_days).format('DD-MM-YYYY')}</td>
+                                                                            <td className="p-3 white-space-wrap-none">{visit.address}</td>
+                                                                            <td className="p-3 white-space-wrap-none">{visit.consultation_results}</td>
+                                                                            <td className="p-3 white-space-wrap-none">{visit.medication}</td>
+                                                                            <td className="p-3 white-space-wrap-none">{visit.comments}</td>
+                                                                            <td className="text-end p-3 white-space-wrap-none">
+                                                                                <Link
+                                                                                    to="#/"
+                                                                                    className="btn btn-icon btn-pills btn-soft-primary my-1"
+                                                                                >
+                                                                                    <AiOutlineEye />
+                                                                                </Link>
+                                                                            </td>
+                                                                        </tr>
+                                                                    ))}
+                                                                </tbody>
+                                                            </table>
+                                                        )
+                                                }
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -317,60 +355,26 @@ const DashboardSection = () => {
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">First Name</label>
-                                                    <input name="name" id="first-name" type="text" className="form-control" defaultValue={user?.name.split(" ")[0]} />
+                                                    <input name="name" disabled id="first-name" type="text" className="form-control" defaultValue={user?.name.split(" ")[0]} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Last Name</label>
-                                                    <input name="name" id="last-name" type="text" className="form-control" defaultValue={user?.name.split(" ")[1]} />
+                                                    <input name="name" disabled id="last-name" type="text" className="form-control" defaultValue={user?.name.split(" ")[1]} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Your Email</label>
-                                                    <input name="email" id="email" type="email" className="form-control" defaultValue={user?.email} />
+                                                    <input name="email" disabled id="email" type="email" className="form-control" defaultValue={user?.email} />
                                                 </div>
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label">Display Name</label>
-                                                    <input name="name" id="display-name" type="text" className="form-control" defaultValue={user?.name} />
+                                                    <input name="name" disabled id="display-name" type="text" className="form-control" defaultValue={user?.name} />
                                                 </div>
-                                            </div>
-
-                                            <div className="col-lg-12 mt-2 mb-0">
-                                                <button className="btn btn-primary">Save Changes</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                    <h5 className="mt-4">Change password :</h5>
-                                    <form>
-                                        <div className="row mt-3">
-                                            <div className="col-lg-12">
-                                                <div className="mb-3">
-                                                    <label className="form-label">Old password :</label>
-                                                    <input type="password" className="form-control" placeholder="Old password" required="" />
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-12">
-                                                <div className="mb-3">
-                                                    <label className="form-label">New password :</label>
-                                                    <input type="password" className="form-control" placeholder="New password" required="" />
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-12">
-                                                <div className="mb-3">
-                                                    <label className="form-label">Re-type New password :</label>
-                                                    <input type="password" className="form-control" placeholder="Re-type New password" required="" />
-                                                </div>
-                                            </div>
-
-                                            <div className="col-lg-12 mt-2 mb-0">
-                                                <button className="btn btn-primary">Save Password</button>
                                             </div>
                                         </div>
                                     </form>

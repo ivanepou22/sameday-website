@@ -154,16 +154,6 @@ const Header = () => {
                       </span>{" "}
                       Dashboard
                     </Link>
-                    <Link
-                      className="dropdown-item text-dark"
-                      onClick={() => setShowProfile(false)}
-                      to="/patient-profile"
-                    >
-                      <span className="mb-0 d-inline-block me-1">
-                        <FiSettings />
-                      </span>{" "}
-                      Profile Settings
-                    </Link>
                     <div className="dropdown-divider border-top"></div>
                     <Link
                       className="dropdown-item text-dark"
