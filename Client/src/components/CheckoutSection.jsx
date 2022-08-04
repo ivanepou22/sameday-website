@@ -80,6 +80,14 @@ const CheckoutSection = () => {
                     </li>
                   ))}
                   <li className="d-flex justify-content-between p-3">
+                    <span className="text-muted">
+                      Do You Prefer Home Service ?
+                    </span>
+                    <span className="text-muted">
+                      <input type="checkbox" className="form-check-input" id="save-info" />
+                    </span>
+                  </li>
+                  <li className="d-flex justify-content-between p-3">
                     <span>Total (UGX)</span>
                     <strong>
                       {
