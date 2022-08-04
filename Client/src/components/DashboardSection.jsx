@@ -350,6 +350,18 @@ const DashboardSection = () => {
                                             </div>
                                             <div className="col-md-6">
                                                 <div className="mb-3">
+                                                    <label className="form-label">Gender</label>
+                                                    <input name="email" disabled id="email" type="email" className="form-control" defaultValue={user?.gender} />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <label className="form-label">Email Verified ?:</label>
+                                                    <input name="name" disabled id="display-name" type="text" className="form-control" defaultValue={user?.isEmailVerified} />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
                                                     <label className="form-label">Your Email</label>
                                                     <input name="email" disabled id="email" type="email" className="form-control" defaultValue={user?.email} />
                                                 </div>
@@ -358,6 +370,18 @@ const DashboardSection = () => {
                                                 <div className="mb-3">
                                                     <label className="form-label">Display Name</label>
                                                     <input name="name" disabled id="display-name" type="text" className="form-control" defaultValue={user?.name} />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <label className="form-label">Date of Birth</label>
+                                                    <input name="email" disabled id="email" type="email" className="form-control" defaultValue={user?.date_of_birth} />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="mb-3">
+                                                    <label className="form-label">Patient No.</label>
+                                                    <input name="name" disabled id="display-name" type="text" className="form-control" defaultValue={user?.patientId} />
                                                 </div>
                                             </div>
                                         </div>
