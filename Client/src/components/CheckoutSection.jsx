@@ -193,29 +193,29 @@ const CheckoutSection = () => {
                         required
                       >
                         <option value="">Choose...</option>
-                        <option value="US">United States</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="South Sudan">South Sudan</option>
                       </select>
                       <div className="invalid-feedback">Please select a valid country.</div>
                     </div>
-
                     <div className="col-md-4">
                       <label htmlFor="state" className="form-label">
-                        State
+                        District
                       </label>
-                      <select
+                      <input
+                        type="text"
                         name="state"
                         value={userData.state}
                         onChange={handleChange}
-                        className="form-select form-control"
+                        className="form-control"
                         id="state"
                         required
-                      >
-                        <option value="">Choose...</option>
-                        <option value="CA">California</option>
-                      </select>
-                      <div className="invalid-feedback">Please provide a valid state.</div>
+                      />
                     </div>
-
                     <div className="col-md-3">
                       <label htmlFor="zip" className="form-label">
                         Zip
