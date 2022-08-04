@@ -93,7 +93,6 @@ const DashboardSection = () => {
     const filteredAppointments = appointments?.filter(appointment => appointment.patient.id === user.id);
     const filteredOrders = orders?.filter(order => order.userId.id === user.id);
     const filteredVisits = visits?.filter(visit => visit.patientId.id === user.id);
-    console.log(filteredVisits);
 
     return (
         <>
@@ -317,31 +316,16 @@ const DashboardSection = () => {
                                     <h6 className="text-muted mb-0">The following addresses will be used on the checkout page by default.</h6>
 
                                     <div className="row">
-                                        <div className="col-lg-6 mt-4 pt-2">
+                                        <div className="col-lg-10 mt-4 pt-2">
                                             <div className="d-flex align-items-center mb-4 justify-content-between">
-                                                <h5 className="mb-0">Billing Address:</h5>
+                                                <h5 className="mb-0">Address & Contacts:</h5>
                                                 <Link to="#" className="text-primary h5 mb-0" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i className="uil uil-edit align-middle"></i></Link>
                                             </div>
                                             <div className="pt-4 border-top">
-                                                <p className="h6">Cally Joseph</p>
-                                                <p className="text-muted mb-0">C/54 Northwest Freeway, </p>
-                                                <p className="text-muted mb-0">Suite 558,</p>
-                                                <p className="text-muted mb-0">Houston, USA 485</p>
-                                                <p className="text-muted mb-0">+123 897 5468</p>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-lg-6 mt-4 pt-2">
-                                            <div className="d-flex align-items-center mb-4 justify-content-between">
-                                                <h5 className="mb-0">Shipping Address:</h5>
-                                                <Link to="#" className="text-primary h5 mb-0" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i className="uil uil-edit align-middle"></i></Link>
-                                            </div>
-                                            <div className="pt-4 border-top">
-                                                <p className="h6">Cally Joseph</p>
-                                                <p className="text-muted mb-0">C/54 Northwest Freeway, </p>
-                                                <p className="text-muted mb-0">Suite 558,</p>
-                                                <p className="text-muted mb-0">Houston, USA 485</p>
-                                                <p className="text-muted mb-0">+123 897 5468</p>
+                                                <p className="text-muted mb-0">{`Address: ${user?.address}`}</p>
+                                                <p className="text-muted mb-0">{`Country: ${user?.country}`}</p>
+                                                <p className="text-muted mb-0">{`State: ${user?.state}`}</p>
+                                                <p className="text-muted mb-0">{`Zip Code: ${user?.zip}`}</p>
                                             </div>
                                         </div>
                                     </div>
