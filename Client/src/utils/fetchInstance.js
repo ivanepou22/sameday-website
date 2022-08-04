@@ -14,7 +14,6 @@ let refreshToken = async (refresh_token) => {
     body: JSON.stringify({ refreshToken: refresh_token }),
   });
   let data = await res.json();
-  console.log(data)
   localStorage.setItem("access_token", JSON.stringify(data.access));
   localStorage.setItem("refresh_token", JSON.stringify(data.refresh));
   return data;
