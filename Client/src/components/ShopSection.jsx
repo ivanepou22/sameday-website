@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { serviceSelector, getServices } from '../feautures/services/serviceSlice';
 import { addToCart } from "../feautures/cart/cartSlice";
 
+
 //icons
 import { AiOutlineHeart, AiOutlineEye, AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsCart, BsStarFill } from 'react-icons/bs';
@@ -79,7 +80,7 @@ const ShopSection = () => {
                                                         src={
                                                             service.image
                                                                 ? service.image
-                                                                : "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png"
+                                                                : require('../assets/images/loader/loader.gif')  
                                                         }
                                                         className="img-fluid"
                                                         alt=""

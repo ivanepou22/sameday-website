@@ -3,35 +3,40 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authSelector } from "../feautures/auth/authSlice";
-import { cartSelector, clearCart } from "../feautures/cart/cartSlice";
+import { cartSelector, clearCart, homeService } from "../feautures/cart/cartSlice";
 import { createOrder, ordersSelector } from "../feautures/orders/ordersSlice";
 import { updateUser } from "../feautures/user/userSlice";
 
 const CheckoutSection = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const { isLoading, isError, errorMessage } = useSelector(ordersSelector)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLoading, isError, errorMessage } = useSelector(ordersSelector);
   const { user } = useSelector(authSelector);
   const { cart, totalItems, totalPrice } = useSelector(cartSelector);
+  const [checked, setChecked] = useState(false);
   const [userData, setUserData] = useState({
     address: user.address || "",
     country: user.country || "",
     state: user.state || "",
     zip: user.zip || "",
     id: user.id,
-    ...user
+    ...user,
   });
+
   const [formData, setFormData] = useState({
     orderDate: new Date(),
     userId: user.id,
-    orderItems: [
-      {
-        itemId: cart.map((item) => item.id)[0],
-        itemQuantity: cart.map((item) => item.quantity)[0],
-      },
-    ],
+    orderItems: cart.map((item) => ({
+      itemId: item.id,
+      itemQuantity: item.quantity,
+      itemPrice: item.price,
+      itemName: item.name,
+    })),
     orderTotal: totalPrice,
+    homeService: checked,
   });
+
+  console.log(formData);
 
   const handleChange = (e) => {
     setUserData((prev) => ({
@@ -42,10 +47,10 @@ const CheckoutSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateUser(userData))
+    dispatch(updateUser(userData));
     dispatch(createOrder(formData));
-    dispatch(clearCart())
-    navigate('/')
+    dispatch(clearCart());
+    navigate("/");
   };
   return (
     <>
@@ -69,34 +74,42 @@ const CheckoutSection = () => {
                         <small className="text-muted">{item.description}</small>
                       </div>
                       <span className="text-muted">
-                        {
-                          item.total?.toLocaleString('en-US', {
-                            style: 'currency',
-                            currency: 'UGX',
-                            maximumFractionDigits: 2,
-                          })
-                        }
+                        {item.total?.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "UGX",
+                          maximumFractionDigits: 2,
+                        })}
                       </span>
                     </li>
                   ))}
                   <li className="d-flex justify-content-between p-3">
+                    <span className="text-muted">Do You Prefer Home Service ?</span>
                     <span className="text-muted">
-                      Do You Prefer Home Service ?
-                    </span>
-                    <span className="text-muted">
-                      <input type="checkbox" className="form-check-input" id="save-info" />
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="save-info"
+                        value={checked}
+                        onChange={(e) => {
+                          // POTENTIAL BUG: If the user clicks the checkbox,
+                          // the value of the checkbox will be set to "on" and price of 5000 will be added to the total
+                          // however, if the user clicks the checkbox again, the value will be set to "off" and the price 
+                          // of 5000 will be removed from the total but the UI will still show the previous value of $price + 5000
+                          // only updates when refreshing the page
+                          setChecked(e.target.checked);
+                          dispatch(homeService(e.target.checked));
+                        }}
+                      />
                     </span>
                   </li>
                   <li className="d-flex justify-content-between p-3">
                     <span>Total (UGX)</span>
                     <strong>
-                      {
-                        totalPrice?.toLocaleString('en-US', {
-                          style: 'currency',
-                          currency: 'UGX',
-                          maximumFractionDigits: 2,
-                        })
-                      }
+                      {totalPrice?.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "UGX",
+                        maximumFractionDigits: 2,
+                      })}
                     </strong>
                   </li>
                 </ul>

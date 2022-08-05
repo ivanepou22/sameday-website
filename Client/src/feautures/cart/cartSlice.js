@@ -64,10 +64,10 @@ const cartSlice = createSlice({
       localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
     },
     clearCart: (state) => {
-      state.cart = []
-      state.total = 0
-      state.totalItems = 0
-      state.totalPrice = 0
+      state.cart = [];
+      state.total = 0;
+      state.totalItems = 0;
+      state.totalPrice = 0;
       localStorage.setItem("cart", JSON.stringify(state.cart));
       localStorage.setItem("total", JSON.stringify(state.total));
       localStorage.setItem("totalItems", JSON.stringify(state.totalItems));
@@ -90,9 +90,25 @@ const cartSlice = createSlice({
       localStorage.setItem("totalItems", JSON.stringify(state.totalItems));
       localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
     },
+    homeService: (state, action) => {
+      // when user adds home service, add 5000 to total
+      // otherwise do nothing
+      let checked = action.payload;
+      if (checked) {
+        state.total += 5000;
+        state.totalPrice = state.cart.map((item) => item.total).reduce((a, b) => a + b, 0) + 5000;
+        localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
+      } else {
+        state.total -= 5000;
+        localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice - 5000));
+      }
+      localStorage.setItem("total", JSON.stringify(state.total));
+      localStorage.setItem("totalItems", JSON.stringify(state.totalItems));
+    },
   },
 });
 
 export const cartSelector = (state) => state.cart;
-export const { addToCart, removeFromCart, clearCart, clearItemFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, clearItemFromCart, homeService } =
+  cartSlice.actions;
 export default cartSlice.reducer;
