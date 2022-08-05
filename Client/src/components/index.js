@@ -28,6 +28,7 @@ import RadiologySection from './RadiologySection';
 import LabSection from './LabSection';
 import CovidPackages from './CovidPackages';
 import CovidContent from './CovidContent';
+import EditAppointment from './EditAppointment';
 export {
     Header,
     HeroSection,
@@ -58,5 +59,6 @@ export {
     LabSection,
     CovidPackages,
     CovidContent,
+    EditAppointment,
     Footer
 }

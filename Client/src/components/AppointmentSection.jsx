@@ -16,7 +16,7 @@ const AppointmentSection = () => {
   const [formData, setFormData] = useState({
     patient: user.id,
     email: user.email,
-    phone: "",
+    phone: user.phone_number,
     date: "",
     time: "",
     department: "",
