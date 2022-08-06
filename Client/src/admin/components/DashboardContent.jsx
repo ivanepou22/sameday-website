@@ -14,6 +14,7 @@ import { userSelector, fetchUsers } from '../../feautures/user/userSlice';
 import { fetchLogs, logsSelector } from "../../feautures/log/logSlice";
 import { getVisits, visitSelector } from "../../feautures/visit/visitSlice";
 import { Link } from 'react-router-dom'
+import DashChart from './DashChart'
 
 const DashboardContent = () => {
     const dispatch = useDispatch();
@@ -242,7 +243,9 @@ const DashboardContent = () => {
                                         </select>
                                     </div>
                                 </div>
-                                <div id="dashboard" className="apex-chart"></div>
+                                <div id="dashboard" className="apex-chart">
+                                    <DashChart />
+                                </div>
                             </div>
                         </div>
 
@@ -258,7 +261,9 @@ const DashboardContent = () => {
                                         </select>
                                     </div>
                                 </div>
-                                <div id="department" className="apex-chart"></div>
+                                <div id="department" className="apex-chart">
+                                    <DashChart />
+                                </div>
                             </div>
                         </div>
                     </div>
