@@ -181,9 +181,9 @@ const DashboardSection = () => {
                         <div className="col-md-8 col-12 mt-4 pt-2">
                             <div className="tab-content" id="pills-tabContent">
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${dashboard ? 'active show' : ''}`} id="dash" role="tabpanel" aria-labelledby="dashboard">
-                                    <p className="text-muted">Hello <span className="text-dark">{user?.name}</span> (not <span className="text-dark fw-bold">{user?.name}</span>? <Link to="#" className="text-danger fw-bold">Log out</Link>)</p>
+                                    <p className="text-muted">Hello <span className="text-dark">{user?.name}</span> (not <span className="text-dark fw-bold">{user?.name}</span>? <Link to="/logout" className="text-danger fw-bold">Log out</Link>)</p>
 
-                                    <p className="text-muted mb-0">From your account dashboard you can view your <Link to="#/" onClick={handleOrders} className="text-danger fw-bold">recent orders</Link>, manage your <Link to="#/" onClick={handleProfile} className="text-danger fw-bold">your password and account details</Link>.</p>
+                                    <p className="text-muted mb-0">From your account dashboard you can view your <Link to="#/" onClick={handleOrders} className="text-danger fw-bold">recent orders</Link>, manage your <Link to="#/" onClick={handleProfile} className="text-danger fw-bold">your account details</Link>.</p>
                                 </div>
 
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${showOrders ? 'active show' : ''}`} id="orders" role="tabpanel" aria-labelledby="order-history">
@@ -335,7 +335,7 @@ const DashboardSection = () => {
                                     <div className="row">
                                         <div className="col-lg-10 mt-4 pt-2">
                                             <div className="d-flex align-items-center mb-4 justify-content-between">
-                                                <h5 className="mb-0">Address & Contacts:</h5>
+                                                <h5 className="mb-0">Address &amp; Contacts:</h5>
                                                 <Link to="#" className="text-primary h5 mb-0" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i className="uil uil-edit align-middle"></i></Link>
                                             </div>
                                             <div className="pt-4 border-top">

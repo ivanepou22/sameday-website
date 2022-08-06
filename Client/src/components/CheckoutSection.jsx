@@ -6,6 +6,7 @@ import { authSelector } from "../feautures/auth/authSlice";
 import { cartSelector, clearCart, homeService } from "../feautures/cart/cartSlice";
 import { createOrder, ordersSelector } from "../feautures/orders/ordersSlice";
 import { updateUser } from "../feautures/user/userSlice";
+import { generateOrderNumber } from "../utils/utils";
 
 const CheckoutSection = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,8 @@ const CheckoutSection = () => {
   });
 
   const [formData, setFormData] = useState({
-    orderDate: new Date(),
+    orderNumber: generateOrderNumber(),
+    orderDate: new Date().toLocaleDateString(),
     userId: user.id,
     orderItems: cart.map((item) => ({
       itemId: item.id,
@@ -36,7 +38,7 @@ const CheckoutSection = () => {
     homeService: checked,
   });
 
-  console.log(formData);
+  // console.log(formData);
 
   const handleChange = (e) => {
     setUserData((prev) => ({
@@ -47,7 +49,7 @@ const CheckoutSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateUser(userData));
+    // dispatch(updateUser(userData));
     dispatch(createOrder(formData));
     dispatch(clearCart());
     navigate("/");
@@ -91,13 +93,14 @@ const CheckoutSection = () => {
                         id="save-info"
                         value={checked}
                         onChange={(e) => {
+                          console.log("checked " + e.target.checked);
                           // POTENTIAL BUG: If the user clicks the checkbox,
                           // the value of the checkbox will be set to "on" and price of 5000 will be added to the total
-                          // however, if the user clicks the checkbox again, the value will be set to "off" and the price 
+                          // however, if the user clicks the checkbox again, the value will be set to "off" and the price
                           // of 5000 will be removed from the total but the UI will still show the previous value of $price + 5000
                           // only updates when refreshing the page
-                          setChecked(e.target.checked);
-                          dispatch(homeService(e.target.checked));
+                          setChecked(!checked);
+                          dispatch(homeService(!checked));
                         }}
                       />
                     </span>
@@ -105,7 +108,7 @@ const CheckoutSection = () => {
                   <li className="d-flex justify-content-between p-3">
                     <span>Total (UGX)</span>
                     <strong>
-                      {totalPrice?.toLocaleString("en-US", {
+                      {totalPrice.toLocaleString("en-US", {
                         style: "currency",
                         currency: "UGX",
                         maximumFractionDigits: 2,
@@ -213,7 +216,9 @@ const CheckoutSection = () => {
                         id="country"
                         required
                       >
-                        <option value="">Choose...</option>
+                        <option value={user?.country ? user?.country : ""}>
+                          {user?.country ? user?.country : "Choose..."}
+                        </option>
                         <option value="Uganda">Uganda</option>
                         <option value="Kenya">Kenya</option>
                         <option value="Tanzania">Tanzania</option>
@@ -252,20 +257,6 @@ const CheckoutSection = () => {
                       />
                       <div className="invalid-feedback">Zip code required.</div>
                     </div>
-                  </div>
-
-                  <div className="form-check mt-4 pt-4 border-top">
-                    <input type="checkbox" className="form-check-input" id="same-address" />
-                    <label className="form-check-label" htmlFor="same-address">
-                      Shipping address is the same as my billing address
-                    </label>
-                  </div>
-
-                  <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="save-info" />
-                    <label className="form-check-label" htmlFor="save-info">
-                      Save this information htmlFor next time
-                    </label>
                   </div>
                   <div className="padding-top-20 float-right">
                     <button className="btn btn-primary" type="submit">
