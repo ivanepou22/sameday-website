@@ -1,22 +1,15 @@
 import mongoose from "mongoose";
-import mongooseAutoPopulate from "mongoose-autopopulate"
+import mongooseAutoPopulate from "mongoose-autopopulate";
 import { toJson, paginate } from "./plugins/index.js";
 
 const { Schema } = mongoose;
 
-const generateOrderNumber = () => {
-  const prefix = "SD-ORD";
-  const number = new Date().getTime();
-  return (
-    prefix + number.toString().slice(number.toString().length - 7) * Math.ceil(Math.random() * 2)
-  );
-};
 
 const orderSchema = new Schema(
   {
     orderNumber: {
       type: String,
-      default: () => generateOrderNumber(),
+      required: true,
     },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -44,6 +37,19 @@ const orderSchema = new Schema(
           type: Number,
           required: true,
         },
+        itemName: {
+          type: String,
+          required: true,
+        },
+        itemPrice: {
+          type: String,
+          required: true,
+        },
+        homeService: {
+          type: Boolean,
+          required: true,
+          default: false
+        }
       },
     ],
     orderTotal: {
