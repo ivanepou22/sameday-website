@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { FiUser } from 'react-icons/fi'
@@ -13,6 +13,8 @@ import { appointmentSelector, fetchAppointments } from '../feautures/appointment
 import { getVisits, visitSelector } from "../feautures/visit/visitSlice";
 import moment from 'moment';
 import { getOrders, ordersSelector } from '../feautures/orders/ordersSlice';
+import EditAppointment from './EditAppointment';
+import OrderDetails from './OrderDetails';
 
 
 const DashboardSection = () => {
@@ -27,6 +29,10 @@ const DashboardSection = () => {
     const [showVisits, setShowVisits] = React.useState(false);
     const [showAddress, setShowAddress] = React.useState(false);
     const [showProfile, setShowProfile] = React.useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [appoint, setAppoint] = useState([]);
+    const [showOrder, setShowOrder] = useState(false);
+    const [order, setOrder] = useState([]);
 
 
     const handleDashboard = () => {
@@ -88,6 +94,17 @@ const DashboardSection = () => {
         dispatch(getOrders())
         dispatch(getVisits());
     }, [dispatch])
+
+
+    const handleShowModal = (appointment) => {
+        setAppoint(appointment)
+        setShowModal(true);
+    };
+
+    const handleOrder = (order) => {
+        setOrder(order)
+        setShowOrder(true);
+    }
 
     //filter appointments and orders by patient
     const filteredAppointments = appointments?.filter(appointment => appointment.patient.id === user.id);
@@ -194,7 +211,7 @@ const DashboardSection = () => {
                                                                 maximumFractionDigits: 2,
                                                             })}
                                                             <span className="text-muted"> for {ord.orderItems.length} Items</span></td>
-                                                        <td className="p-3"><Link to="#/" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
+                                                        <td className="p-3"><Link to="#" className="text-primary" onClick={() => handleOrder(ord)}>View <i className="uil uil-arrow-right"></i></Link></td>
                                                     </tr>
                                                 ))}
                                             </tbody>
@@ -230,7 +247,7 @@ const DashboardSection = () => {
                                                         <td className="p-3 white-space-wrap-none">{appointment.comment}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.email}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.phone}</td>
-                                                        <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
+                                                        <td className="p-3"><Link to="#" className="text-primary" onClick={() => { handleShowModal(appointment) }} >View<i className="uil uil-arrow-right"></i></Link></td>
                                                     </tr>
                                                 ))}
 
@@ -330,9 +347,6 @@ const DashboardSection = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
-
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${showProfile ? 'active show' : ''}`} id="account" role="tabpanel" aria-labelledby="account-details">
                                     <form>
                                         <div className="row">
@@ -392,6 +406,12 @@ const DashboardSection = () => {
                     </div>
                 </div>
             </section>
+            <EditAppointment
+                show={showModal}
+                appointment={appoint}
+                setShowModal={setShowModal}
+            />
+            <OrderDetails show={showOrder} setShowOrder={setShowOrder} order={order} />
         </>
     )
 }
