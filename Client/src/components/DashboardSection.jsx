@@ -14,6 +14,7 @@ import { getVisits, visitSelector } from "../feautures/visit/visitSlice";
 import moment from 'moment';
 import { getOrders, ordersSelector } from '../feautures/orders/ordersSlice';
 import EditAppointment from './EditAppointment';
+import OrderDetails from './OrderDetails';
 
 
 const DashboardSection = () => {
@@ -30,6 +31,8 @@ const DashboardSection = () => {
     const [showProfile, setShowProfile] = React.useState(false);
     const [showModal, setShowModal] = useState(false);
     const [appoint, setAppoint] = useState([]);
+    const [showOrder, setShowOrder] = useState(false);
+    const [order, setOrder] = useState([]);
 
 
     const handleDashboard = () => {
@@ -98,8 +101,11 @@ const DashboardSection = () => {
         setShowModal(true);
     };
 
-    console.log(appoint);
-    console.log(showModal);
+    const handleOrder = (order) => {
+        setOrder(order)
+        setShowOrder(true);
+    }
+
     //filter appointments and orders by patient
     const filteredAppointments = appointments?.filter(appointment => appointment.patient.id === user.id);
     const filteredOrders = orders?.filter(order => order.userId.id === user.id);
@@ -205,7 +211,7 @@ const DashboardSection = () => {
                                                                 maximumFractionDigits: 2,
                                                             })}
                                                             <span className="text-muted"> for {ord.orderItems.length} Items</span></td>
-                                                        <td className="p-3"><Link to="#/" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
+                                                        <td className="p-3"><Link to="#" className="text-primary" onClick={() => handleOrder(ord)}>View <i className="uil uil-arrow-right"></i></Link></td>
                                                     </tr>
                                                 ))}
                                             </tbody>
@@ -405,6 +411,7 @@ const DashboardSection = () => {
                 appointment={appoint}
                 setShowModal={setShowModal}
             />
+            <OrderDetails show={showOrder} setShowOrder={setShowOrder} order={order} />
         </>
     )
 }

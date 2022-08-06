@@ -82,7 +82,7 @@ const EditAppointment = (props) => {
                           type="date"
                           className="flatpickr flatpickr-input form-control"
                           id="checkin-date"
-                          value={moment(appointment.date).format("DD-MMM-YY")}
+                          defaultValue={moment(appointment.date).format("DD-MMM-YY")}
                         />
                       </div>
                     </div>
