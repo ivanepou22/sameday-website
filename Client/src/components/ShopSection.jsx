@@ -80,7 +80,7 @@ const ShopSection = () => {
                                                         src={
                                                             service.image
                                                                 ? service.image
-                                                                : require('../assets/images/loader/loader.gif')  
+                                                                : "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png"
                                                         }
                                                         className="img-fluid"
                                                         alt=""
