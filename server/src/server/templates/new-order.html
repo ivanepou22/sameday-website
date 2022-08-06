@@ -6,40 +6,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Order</title>
     <style>
-      /* style the table */
-      table {
-        border-collapse: collapse;
-        width: 100%;
+      body {
+        text-align: center;
+        margin: 0 auto;
+        width: 650px;
+        font-family: "Open Sans", sans-serif;
+        background-color: #e2e2e2;
+        display: block;
       }
-      th,
-      td {
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        display: inline-block;
+        text-decoration: unset;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      p {
+        margin: 15px 0;
+      }
+
+      h5 {
+        color: #444;
         text-align: left;
-        padding: 8px;
+        font-weight: 400;
       }
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
+
+      .text-center {
+        text-align: center;
       }
-      th {
-        background-color: #4caf50;
-        color: white;
+
+      .main-bg-light {
+        background-color: #fafafa;
+      }
+
+      .title {
+        color: #444444;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 0;
+        text-transform: uppercase;
+        display: inline-block;
+        line-height: 1;
+      }
+
+      table {
+        margin-top: 30px;
+      }
+
+      table.top-0 {
+        margin-top: 0;
+      }
+
+      table.order-detail {
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+      }
+
+      table.order-detail tr:nth-child(even) {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+
+      table.order-detail tr:nth-child(odd) {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .pad-left-right-space {
+        border: unset !important;
+      }
+
+      .pad-left-right-space td {
+        padding: 5px 15px;
+      }
+
+      .pad-left-right-space td p {
+        margin: 0;
+      }
+
+      .pad-left-right-space td b {
+        font-size: 15px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .order-detail th {
+        font-size: 16px;
+        padding: 15px;
+        text-align: center;
+        background: #fafafa;
+      }
+
+      .footer-social-icon tr td img {
+        margin-left: 5px;
+        margin-right: 5px;
       }
     </style>
   </head>
-  <body>
-    <p>Hello,</p>
-    <p>A new order <b>#<%=orderNumber %></b> has been placed</p>
-    <!-- create a table showing order details -->
-    <table>
-      <tr>
-        <th>Order Number</th>
-        <th>Order Date</th>
-        <th>Order Total</th>
-      </tr>
-      <tr>
-        <td><%=orderNumber %></td>
-        <td><%=orderDate %></td>
-        <td><%=orderTotal %></td>
-      </tr>
+  <body style="margin: 20px auto">
+    <table
+      align="center"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      style="
+        padding: 0 30px;
+        background-color: #fff;
+        -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);
+        box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);
+        width: 100%;
+      "
+    >
+      <tbody>
+        <tr>
+          <td>
+            <table
+              align="left"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              style="text-align: left"
+              width="100%"
+            >
+              <tr>
+                <td style="text-align: center">
+                  <img src="images/delivery-2.png" alt="" style="margin-bottom: 30px" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p style="font-size: 14px"><b>Hi Admin,</b></p>
+                  <p style="font-size: 14px">A new Order has been placed on your website.</p>
+                  <p style="font-size: 14px">Order Number : #<%=orderNumber %>,</p>
+                </td>
+              </tr>
+            </table>
+            <table
+              class="order-detail"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              align="left"
+              style="width: 100%; margin-bottom: 50px"
+            >
+              <tr align="left">
+                <th>PRODUCT</th>
+                <th style="padding-left: 15px">QUANTITY</th>
+                <th>PRICE</th>
+              </tr>
+              <!-- loop through data -->
+              <% for(var i = 0; i < orderItems.length; i ++) { %>
+              <tr>
+                <td valign="top" style="padding-left: 15px">
+                  <h5 style="margin-top: 15px"><%=orderItems[i].itemName %></h5>
+                </td>
+                <td valign="top" style="padding-left: 15px">
+                  <h5 style="font-size: 14px; color: #444; margin-top: 10px">
+                    QTY : <span><%=orderItems[i].itemQuantity %></span>
+                  </h5>
+                </td>
+                <td valign="top" style="padding-left: 15px">
+                  <h5 style="font-size: 14px; color: #444; margin-top: 15px">
+                    <b>UGX: <%=orderItems[i].itemPrice %></b>
+                  </h5>
+                </td>
+              </tr>
+              <% }; %>
+
+              <tr class="pad-left-right-space">
+                <td class="m-t-5" colspan="2" align="left">
+                  <p style="font-size: 14px">Subtotal :</p>
+                </td>
+                <td class="m-t-5" colspan="2" align="right">
+                  <b style>UGX: <%=orderTotal %></b>
+                </td>
+              </tr>
+              <tr class="pad-left-right-space">
+                <td class="m-b-5" colspan="2" align="left">
+                  <p style="font-size: 14px">Total :</p>
+                </td>
+                <td class="m-b-5" colspan="2" align="right">
+                  <b>UGX: <%=orderTotal %></b>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </body>
 </html>

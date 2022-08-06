@@ -98,6 +98,7 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
     orderNumber: text.orderNumber,
     orderTotal: text.orderTotal,
     orderDate: text.orderDate,
+    orderItems: text.orderItems,
   });
 };
 
