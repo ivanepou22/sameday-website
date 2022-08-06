@@ -39,3 +39,11 @@ export const generateNext90Days = () => {
   // format in mm/dd/yyyy
   return nxt90.toISOString().split("T")[0];
 };
+
+export const generateOrderNumber = () => {
+  const prefix = "SD-ORD";
+  const number = new Date().getTime();
+  return (
+    prefix + number.toString().slice(number.toString().length - 7) * Math.ceil(Math.random() * 2)
+  );
+};
