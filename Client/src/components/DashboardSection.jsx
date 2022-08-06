@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { FiUser } from 'react-icons/fi'
@@ -13,6 +13,7 @@ import { appointmentSelector, fetchAppointments } from '../feautures/appointment
 import { getVisits, visitSelector } from "../feautures/visit/visitSlice";
 import moment from 'moment';
 import { getOrders, ordersSelector } from '../feautures/orders/ordersSlice';
+import EditAppointment from './EditAppointment';
 
 
 const DashboardSection = () => {
@@ -27,6 +28,8 @@ const DashboardSection = () => {
     const [showVisits, setShowVisits] = React.useState(false);
     const [showAddress, setShowAddress] = React.useState(false);
     const [showProfile, setShowProfile] = React.useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [appoint, setAppoint] = useState([]);
 
 
     const handleDashboard = () => {
@@ -89,6 +92,14 @@ const DashboardSection = () => {
         dispatch(getVisits());
     }, [dispatch])
 
+
+    const handleShowModal = (appointment) => {
+        setAppoint(appointment)
+        setShowModal(true);
+    };
+
+    console.log(appoint);
+    console.log(showModal);
     //filter appointments and orders by patient
     const filteredAppointments = appointments?.filter(appointment => appointment.patient.id === user.id);
     const filteredOrders = orders?.filter(order => order.userId.id === user.id);
@@ -230,7 +241,7 @@ const DashboardSection = () => {
                                                         <td className="p-3 white-space-wrap-none">{appointment.comment}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.email}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.phone}</td>
-                                                        <td className="p-3"><Link to="#" className="text-primary">View <i className="uil uil-arrow-right"></i></Link></td>
+                                                        <td className="p-3"><Link to="#" className="text-primary" onClick={() => { handleShowModal(appointment) }} >View<i className="uil uil-arrow-right"></i></Link></td>
                                                     </tr>
                                                 ))}
 
@@ -330,9 +341,6 @@ const DashboardSection = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
-
                                 <div className={`tab-pane fade bg-white shadow rounded p-4 ${showProfile ? 'active show' : ''}`} id="account" role="tabpanel" aria-labelledby="account-details">
                                     <form>
                                         <div className="row">
@@ -392,6 +400,11 @@ const DashboardSection = () => {
                     </div>
                 </div>
             </section>
+            <EditAppointment
+                show={showModal}
+                appointment={appoint}
+                setShowModal={setShowModal}
+            />
         </>
     )
 }
