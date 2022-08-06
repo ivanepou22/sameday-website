@@ -7,7 +7,7 @@ const createUser = async (userBody) => {
   if (await User.isEmailTaken(userBody.email)) {
     throw new ApiError(httpStatus.CONFLICT, "Email is already taken");
   }
-  return User.create(userBody)
+  return User.create(userBody);
 };
 
 const queryUsers = async (filter, options) => {
@@ -20,8 +20,8 @@ const getUserById = async (id) => {
 };
 
 const getAdminUser = async (email) => {
-  return User.findOne({ email, role: ["admin", "doctor"]})
-}
+  return User.findOne({ email, role: ["admin", "doctor"] });
+};
 
 const getuserByEmail = async (email) => {
   return User.findOne({ email });
@@ -34,14 +34,17 @@ const updatePassword = async (id, password) => {
     throw new ApiError(httpStatus.NOT_FOUND, "User not found");
   }
   return update;
-}
+};
 
 const updateUserById = async (id, userBody) => {
   const user = await getUserById(id);
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, "User not found");
   }
-  if (userBody.email && (await User.isEmailTaken(userBody.email))) {
+
+  // check if the incoming email is different from the user email in database
+  // if so, check if that email already exists
+  if (user.email !== userBody.email && (await User.isEmailTaken(userBody.email))) {
     throw new ApiError(httpStatus.CONFLICT, "Email is already taken");
   }
 
@@ -60,12 +63,12 @@ const deleteUserById = async (id) => {
 };
 
 export const userService = {
-    createUser,
-    getUserById,
-    getuserByEmail,
-    updateUserById,
-    deleteUserById,
-    queryUsers,
-    getAdminUser,
-    updatePassword
+  createUser,
+  getUserById,
+  getuserByEmail,
+  updateUserById,
+  deleteUserById,
+  queryUsers,
+  getAdminUser,
+  updatePassword,
 };
