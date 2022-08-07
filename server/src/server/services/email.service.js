@@ -61,7 +61,7 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
     case "NEW USER":
       subject = "New user Registered";
     case "NEW ORDER":
-      subject = `<b>New Order placed #${text.orderNumber}</b>`;
+      subject = `New Order placed #${text.orderNumber}`;
       break;
     default:
       subject = "New user Registered";

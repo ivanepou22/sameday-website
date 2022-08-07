@@ -78,7 +78,6 @@ const userSchema = Schema(
     },
     image: {
       type: String,
-      required: true,
     }
   },
   {

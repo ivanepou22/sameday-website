@@ -49,7 +49,7 @@ const updateUser = {
       address: Joi.string(),
       id: Joi.string(),
       date_of_birth: Joi.string(),
-      gender: Joi.string().valid("Male", "Female", "Other"),
+      gender: Joi.string().valid("male", "female", "other"),
       phone_number: Joi.string(),
       image: Joi.string(),
       role: Joi.string(),
