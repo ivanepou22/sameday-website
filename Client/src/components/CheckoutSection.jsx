@@ -49,7 +49,9 @@ const CheckoutSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(updateUser(userData));
+    // delete patient ID such that it is not modified in the database
+    delete userData.patientId
+    dispatch(updateUser(userData));
     dispatch(createOrder(formData));
     dispatch(clearCart());
     navigate("/");

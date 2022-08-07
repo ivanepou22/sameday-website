@@ -37,7 +37,7 @@ const OrderDetails = (props) => {
                 role={show ? "dialog" : ""}
             >
                 <div
-                    className="modal-dialog modal-lg modal-dialog-centered"
+                    className="modal-dialog modal-lg modal-dialog-centered shadow rounded"
                     onClick={(e) => {
                         e.stopPropagation();
                     }}

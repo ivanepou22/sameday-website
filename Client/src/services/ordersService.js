@@ -7,7 +7,7 @@ const createOrder = async (order) => {
 };
 
 const getOrders = async (payload = 1) => {
-  const res = await API.get(`/orders?page=${payload}`);
+  const res = await API.get(`/orders?page=${payload}&limit=100`);
   const data = await res.json();
   return data;
 };
