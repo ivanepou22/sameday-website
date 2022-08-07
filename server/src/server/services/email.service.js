@@ -44,7 +44,7 @@ const sendEmail = async (to, subject, text, templateName, templateVars, from = "
 
     const transporter = await createTransporter();
     const mailOptions = {
-      from: from ? from : config.email.from,
+      from: config.email.from,
       to,
       subject,
       text,
@@ -66,7 +66,7 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
     default:
       subject = "New user Registered";
   }
-  const to = process.env.NODE_ENV === "production" ? config.google.email : "admin@localhost.com";
+  const to = process.env.NODE_ENV === "production" ? config.email.from : "admin@localhost.com";
   const template = type.toLowerCase().split(" ").join("-");
 
   await sendEmail(to, subject, "", template, {
