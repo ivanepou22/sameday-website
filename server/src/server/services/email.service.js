@@ -5,10 +5,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { htmlToText } from "html-to-text";
 import juice from "juice";
-import { google } from "googleapis";
 import config from "../config/config.js";
 
-const OAuth2 = google.auth.OAuth2;
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
