@@ -1,4 +1,3 @@
-import moment from "moment";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,14 +15,9 @@ const EditAppointment = (props) => {
     };
 
     const [formData, setFormData] = useState({
-      date: "",
-      time: "",
-      doctor: "",
-      patient: "",
-      comment: "",
-      phone: "",
-      email: "",
-      department: "",
+      date: appointment.date,
+      time: appointment.time,
+      comment: appointment.comment,
     });
 
     const handleChange = (e) => {
@@ -82,7 +76,8 @@ const EditAppointment = (props) => {
                           type="date"
                           className="flatpickr flatpickr-input form-control"
                           id="checkin-date"
-                          defaultValue={moment(appointment.date).format("DD-MMM-YY")}
+                          value={formData.date}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -98,7 +93,7 @@ const EditAppointment = (props) => {
                           className="form-control timepicker"
                           id="input-time"
                           placeholder="03:30 PM"
-                          defaultValue={appointment.time}
+                          value={formData.time}
                         />
                       </div>
                     </div>
@@ -116,7 +111,6 @@ const EditAppointment = (props) => {
                           placeholder="Your Message :"
                           value={formData.comment}
                           onChange={handleChange}
-                          defaultValue={appointment.comment}
                         ></textarea>
                       </div>
                     </div>
@@ -124,7 +118,7 @@ const EditAppointment = (props) => {
                     <div className="col-lg-12">
                       <div className="d-grid">
                         <button type="submit" className="btn btn-primary">
-                          {isLoading ? "Loading..." : "Book an Appointment"}
+                          {isLoading ? "Loading..." : "Update Appointment"}
                         </button>
                       </div>
                     </div>

@@ -247,7 +247,7 @@ const DashboardSection = () => {
                                                         <td className="p-3 white-space-wrap-none">{appointment.comment}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.email}</td>
                                                         <td className="p-3 white-space-wrap-none">{appointment.phone}</td>
-                                                        <td className="p-3"><Link to="#" className="text-primary" onClick={() => { handleShowModal(appointment) }} >View<i className="uil uil-arrow-right"></i></Link></td>
+                                                        <td className="p-3"><Link to="#" className="text-primary" onClick={() => { handleShowModal(appointment) }} >Edit<i className="uil uil-arrow-right"></i></Link></td>
                                                     </tr>
                                                 ))}
 
