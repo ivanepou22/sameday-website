@@ -16,33 +16,10 @@ const __dirname = path.dirname(__filename);
 const createTransporter = async () => {
   let transporter;
   if (process.env.NODE_ENV === "production") {
-    const oauth2Client = new OAuth2(
-      config.google.clientId,
-      config.google.clientSecret,
-      config.google.redirectUri
-    );
-    oauth2Client.setCredentials({
-      refresh_token: config.google.refreshToken,
-    });
-    const accessToken = await new Promise((resolve, reject) => {
-      oauth2Client.getAccessToken((err, token) => {
-        if (err) {
-          reject(err);
-        }
-        resolve(token);
-      });
-    });
-
     transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        type: "OAuth2",
-        user: config.google.email,
-        accessToken,
-        clientId: config.google.clientId,
-        clientSecret: config.google.clientSecret,
-        refreshToken: config.google.refreshToken,
-      },
+      host: config.email.host,
+      port: config.email.port,
+      auth: config.email.auth,
     });
   } else {
     transporter = nodemailer.createTransport({
@@ -129,7 +106,7 @@ const sendContactEmail = async (subject, text) => {
     message: text.message,
     name: text.name,
   };
-  const to = process.env.NODE_ENV === "production" ? config.google.email : "admin@localhost.com";
+  const to = process.env.NODE_ENV === "production" ? config.email.from : "admin@localhost.com";
   await sendEmail(to, subject, text, "contact-email", templateVars, text.email);
 };
 
