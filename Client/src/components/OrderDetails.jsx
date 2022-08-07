@@ -1,6 +1,5 @@
 import moment from "moment";
 import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { serviceSelector, getServices } from '../feautures/services/serviceSlice';

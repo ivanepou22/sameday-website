@@ -107,9 +107,9 @@ const DashboardSection = () => {
     }
 
     //filter appointments and orders by patient
-    const filteredAppointments = appointments?.filter(appointment => appointment.patient.id === user.id);
-    const filteredOrders = orders?.filter(order => order.userId.id === user.id);
-    const filteredVisits = visits?.filter(visit => visit.patientId.id === user.id);
+    const filteredAppointments = appointments?.filter(appointment => appointment?.patient?.id === user?.id);
+    const filteredOrders = orders?.filter(order => order?.userId?.id === user?.id);
+    const filteredVisits = visits?.filter(visit => visit?.patientId?.id === user?.id);
 
     return (
         <>
