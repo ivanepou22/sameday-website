@@ -2,10 +2,10 @@ import moment from "moment";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { serviceSelector, getServices } from '../feautures/services/serviceSlice';
+import { serviceSelector, getServices } from '../../feautures/services/serviceSlice';
 import { useEffect } from "react";
 
-const OrderDetails = (props) => {
+const OrderDetail = (props) => {
     const { show, setShowOrder, order } = props;
     const dispatch = useDispatch();
     const { services } = useSelector(serviceSelector);
@@ -185,4 +185,5 @@ const OrderDetails = (props) => {
         </>
     );
 };
-export default OrderDetails
+
+export default OrderDetail

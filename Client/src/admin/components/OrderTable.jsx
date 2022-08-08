@@ -4,14 +4,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { ordersSelector, getOrders } from "../../feautures/orders/ordersSlice";
 import moment from "moment";
 import { RiAddLine } from "react-icons/ri";
-import { AiOutlineDelete } from 'react-icons/ai';
 import { FaRegEdit } from 'react-icons/fa';
 import { AiOutlineEye } from 'react-icons/ai';
+import OrderDetail from './OrderDetail';
 
 const OrderTable = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const { orders, limit, totalPages, totalResults } = useSelector(ordersSelector);
+  const [showOrder, setShowOrder] = useState(false);
+  const [order, setOrder] = useState([]);
 
   React.useEffect(() => {
     dispatch(getOrders(page));
@@ -27,6 +29,11 @@ const OrderTable = () => {
       setPage(page);
     }
   };
+
+  const handleOrder = (order) => {
+    setOrder(order)
+    setShowOrder(true);
+}
 
   return (
     <>
@@ -99,6 +106,7 @@ const OrderTable = () => {
                             className="btn btn-icon btn-pills btn-soft-primary my-1"
                             data-bs-toggle="modal"
                             data-bs-target="#viewprofile"
+                            onClick={() => handleOrder(order)}
                           >
                             <AiOutlineEye />
                           </Link>
@@ -109,9 +117,6 @@ const OrderTable = () => {
                             data-bs-target="#editprofile"
                           >
                             <FaRegEdit />
-                          </Link>
-                          <Link to="#/" className="btn btn-icon btn-pills btn-soft-danger">
-                            <AiOutlineDelete />
                           </Link>
                         </td>
                       </tr>
@@ -168,6 +173,7 @@ const OrderTable = () => {
           </div>
         </div>
       </div>
+      <OrderDetail show={showOrder} setShowOrder={setShowOrder} order={order} />
     </>
   );
 };
