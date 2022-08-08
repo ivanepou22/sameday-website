@@ -7,12 +7,14 @@ import { RiAddLine } from "react-icons/ri";
 import { FaRegEdit } from 'react-icons/fa';
 import { AiOutlineEye } from 'react-icons/ai';
 import OrderDetail from './OrderDetail';
+import UpdateOrder from "./UpdateOrder";
 
 const OrderTable = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const { orders, limit, totalPages, totalResults } = useSelector(ordersSelector);
   const [showOrder, setShowOrder] = useState(false);
+  const [showEditOrder, setShowEditOrder] = useState(false);
   const [order, setOrder] = useState([]);
 
   React.useEffect(() => {
@@ -33,7 +35,12 @@ const OrderTable = () => {
   const handleOrder = (order) => {
     setOrder(order)
     setShowOrder(true);
-}
+  }
+
+  const handleEditOrder = (order) => {
+    setOrder(order)
+    setShowEditOrder(true);
+  }
 
   return (
     <>
@@ -55,9 +62,9 @@ const OrderTable = () => {
             </div>
 
             <div className="col-xl-3 col-md-6 mt-4 mt-md-0 text-md-end">
-              <a href="add-doctor.html" className="btn btn-primary">
+              <Link to={'#'} className="btn btn-primary">
                 <RiAddLine /> Add Order
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -115,6 +122,7 @@ const OrderTable = () => {
                             className="btn btn-icon btn-pills btn-soft-success my-1 mx-2"
                             data-bs-toggle="modal"
                             data-bs-target="#editprofile"
+                            onClick={() => handleEditOrder(order)}
                           >
                             <FaRegEdit />
                           </Link>
@@ -174,6 +182,7 @@ const OrderTable = () => {
         </div>
       </div>
       <OrderDetail show={showOrder} setShowOrder={setShowOrder} order={order} />
+      <UpdateOrder show={showEditOrder} setShowEditOrder={setShowEditOrder} order={order} />
     </>
   );
 };
