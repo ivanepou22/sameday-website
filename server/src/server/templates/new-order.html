@@ -109,6 +109,11 @@
         margin-left: 5px;
         margin-right: 5px;
       }
+
+      .user-side {
+        padding-left: 2rem;
+        padding-top: 3rem;
+      }
     </style>
   </head>
   <body style="margin: 20px auto">
@@ -145,7 +150,17 @@
                 <td>
                   <p style="font-size: 14px"><b>Hi Admin,</b></p>
                   <p style="font-size: 14px">A new Order has been placed on your website.</p>
-                  <p style="font-size: 14px">Order Number : #<%=orderNumber %>,</p>
+                  <span style="font-size: 14px">Order Number : <%=orderNumber %>,</span><br />
+                  <span style="font-size: 14px">Order Date : <%=orderDate %>,</span><br />
+                </td>
+                <td class="user-side">
+                  <p>.</p>
+                  <p>.</p>
+                  <span style="font-size: 14px">Name : <%=userName %>,</span><br />
+                  <span style="font-size: 14px">Email : <%=userEmail %>,</span><br />
+                  <span style="font-size: 14px">Phone : <%=userPhone %>,</span><br />
+                  <span style="font-size: 14px">Address : <%=userAddress %>,</span><br />
+                  <span style="font-size: 14px">Address 2 : <%=userAddress2 %>,</span><br />
                 </td>
               </tr>
             </table>
@@ -158,9 +173,9 @@
               style="width: 100%; margin-bottom: 50px"
             >
               <tr align="left">
-                <th>PRODUCT</th>
-                <th style="padding-left: 15px">QUANTITY</th>
-                <th>PRICE</th>
+                <th style="text-align: left;">PRODUCT</th>
+                <th style="text-align: left;">QUANTITY</th>
+                <th style="text-align: right;">PRICE</th>
               </tr>
               <!-- loop through data -->
               <% for(var i = 0; i < orderItems.length; i ++) { %>
@@ -173,8 +188,8 @@
                     QTY : <span><%=orderItems[i].itemQuantity %></span>
                   </h5>
                 </td>
-                <td valign="top" style="padding-left: 15px">
-                  <h5 style="font-size: 14px; color: #444; margin-top: 15px">
+                <td valign="top" style="text-align: right;">
+                  <h5 style="font-size: 14px; color: #444; text-align: right; padding-right: 20px; margin-top: 15px">
                     <b>UGX: <%=orderItems[i].itemPrice %></b>
                   </h5>
                 </td>
@@ -187,6 +202,14 @@
                 </td>
                 <td class="m-t-5" colspan="2" align="right">
                   <b style>UGX: <%=orderTotal %></b>
+                </td>
+              </tr>
+              <tr class="pad-left-right-space">
+                <td class="m-b-5" colspan="2" align="left">
+                  <p style="font-size: 14px">Home Service :</p>
+                </td>
+                <td class="m-b-5" colspan="2" align="right">
+                  <b>UGX: 0.00</b>
                 </td>
               </tr>
               <tr class="pad-left-right-space">

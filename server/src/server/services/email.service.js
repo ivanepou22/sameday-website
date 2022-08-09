@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { htmlToText } from "html-to-text";
 import juice from "juice";
 import config from "../config/config.js";
+import moment from "moment";
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -72,8 +73,13 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
   await sendEmail(to, subject, "", template, {
     orderNumber: text.orderNumber,
     orderTotal: text.orderTotal,
-    orderDate: text.orderDate,
+    orderDate: moment(text.orderDate).format("DD-MMM-YY"),
     orderItems: text.orderItems,
+    userName: text.userId.name,
+    userEmail: text.userId.email,
+    userPhone: text.userId.phone_number,
+    userAddress: text.userId.address,
+    userAddress2: text.userId.country + ' ' + text.userId.state + ' ' + text.userId.zip,
   });
 };
 
