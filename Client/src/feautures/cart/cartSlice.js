@@ -91,15 +91,15 @@ const cartSlice = createSlice({
       localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
     },
     homeService: (state, action) => {
-      // when user adds home service, add 5000 to total
+      // when user adds home service, add 100000 to total
       // otherwise do nothing
       let checked = action.payload;
       if (checked) {
-        state.total += 5000;
-        state.totalPrice = state.cart.map((item) => item.total).reduce((a, b) => a + b, 0) + 5000;
+        state.total += 100000;
+        state.totalPrice = state.cart.map((item) => item.total).reduce((a, b) => a + b, 0) + 100000;
         localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
       } else {
-        state.total -= 5000;
+        state.total -= 100000;
         state.totalPrice = state.cart.map((item) => item.total).reduce((a, b) => a + b, 0);
         localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
       }

@@ -54,7 +54,7 @@ const EditAppointment = (props) => {
             <div className="modal-content">
               <div className="modal-header border-bottom p-3">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Book an Appointment
+                  Edit an Appointment
                 </h5>
                 <button
                   type="button"
@@ -116,11 +116,9 @@ const EditAppointment = (props) => {
                     </div>
 
                     <div className="col-lg-12">
-                      <div className="d-grid">
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="btn btn-primary float-right">
                           {isLoading ? "Loading..." : "Update Appointment"}
                         </button>
-                      </div>
                     </div>
                   </div>
                 </form>

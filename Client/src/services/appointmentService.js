@@ -10,7 +10,7 @@ const createAppointment = async (appointment) => {
 };
 
 const getAppointments = async (payload = 1) => {
-  const response = await API.get(`/appointments?page=${payload}&limit=100`);
+  const response = await API.get(`/appointments?page=${payload}&limit=10`);
   const data = await response.json();
   return data;
 };
