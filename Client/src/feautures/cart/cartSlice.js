@@ -100,7 +100,8 @@ const cartSlice = createSlice({
         localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
       } else {
         state.total -= 5000;
-        localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice - 5000));
+        state.totalPrice = state.cart.map((item) => item.total).reduce((a, b) => a + b, 0);
+        localStorage.setItem("totalPrice", JSON.stringify(state.totalPrice));
       }
       localStorage.setItem("total", JSON.stringify(state.total));
       localStorage.setItem("totalItems", JSON.stringify(state.totalItems));

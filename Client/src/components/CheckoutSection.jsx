@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState } from "react";
+import { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authSelector } from "../feautures/auth/authSlice";
@@ -24,21 +25,25 @@ const CheckoutSection = () => {
     ...user,
   });
 
-  const [formData, setFormData] = useState({
-    orderNumber: generateOrderNumber(),
-    orderDate: new Date().toLocaleDateString(),
-    userId: user.id,
-    orderItems: cart.map((item) => ({
-      itemId: item.id,
-      itemQuantity: item.quantity,
-      itemPrice: item.price,
-      itemName: item.name,
-    })),
-    orderTotal: totalPrice,
-    homeService: checked,
-  });
+  console.log(totalPrice);
+  const formData = useMemo(
+    () => ({
+      orderNumber: generateOrderNumber(),
+      orderDate: new Date().toLocaleDateString(),
+      userId: user.id,
+      orderItems: cart.map((item) => ({
+        itemId: item.id,
+        itemQuantity: item.quantity,
+        itemPrice: item.price,
+        itemName: item.name,
+      })),
+      orderTotal: totalPrice,
+      homeService: checked,
+    }),
+    [cart, totalPrice, checked]
+  );
 
-  // console.log(formData);
+  console.log(formData);
 
   const handleChange = (e) => {
     setUserData((prev) => ({
@@ -50,7 +55,7 @@ const CheckoutSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // delete patient ID such that it is not modified in the database
-    delete userData.patientId
+    delete userData.patientId;
     dispatch(updateUser(userData));
     dispatch(createOrder(formData));
     dispatch(clearCart());
@@ -95,12 +100,6 @@ const CheckoutSection = () => {
                         id="save-info"
                         value={checked}
                         onChange={(e) => {
-                          console.log("checked " + e.target.checked);
-                          // POTENTIAL BUG: If the user clicks the checkbox,
-                          // the value of the checkbox will be set to "on" and price of 5000 will be added to the total
-                          // however, if the user clicks the checkbox again, the value will be set to "off" and the price
-                          // of 5000 will be removed from the total but the UI will still show the previous value of $price + 5000
-                          // only updates when refreshing the page
                           setChecked(!checked);
                           dispatch(homeService(!checked));
                         }}
