@@ -16,9 +16,7 @@ const UpdateOrder = (props) => {
     id: "",
   });
   const orderId = useMemo(() => order.id);
-  console.log(orderId);
 
-  console.log(formData);
   const handleSubmit = (e) => {
     e.preventDefault();
     const ps = new Promise((resolve, reject) => {

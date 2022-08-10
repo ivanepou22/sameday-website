@@ -19,7 +19,7 @@ const getOrder = async (id) => {
 };
 
 const getOrdersByUser = async (payload = 1) => {
-  const res = await API.get(`/orders?page=${payload}&limit=100`);
+  const res = await API.get(`/orders/user?page=${payload}&limit=100`);
   const data = await res.json();
   return data;
 };

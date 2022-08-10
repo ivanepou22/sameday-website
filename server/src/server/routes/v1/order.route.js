@@ -15,9 +15,12 @@ import {
 const router = express.Router();
 
 router
+  .route("/user")
+  .get(auth("getOrdersByUser"), validate(orderValidation.getOrdersByUser), getOrdersByUser);
+
+router
   .route("/")
   .get(auth("getOrders"), validate(orderValidation.getOrders), getOrders)
-  .get(auth("getOrdersByUser"), validate(orderValidation.getOrdersByUser), getOrdersByUser)
   .post(auth("manageOrders"), validate(orderValidation.createOrder), createOrder);
 router
   .route("/:orderId")
@@ -28,5 +31,4 @@ router
 router
   .route("/:orderId/status")
   .patch(auth("manageStatus"), validate(orderValidation.updateStatusById), updateStatusById);
-
 export default router;
