@@ -25,7 +25,7 @@ const CheckoutSection = () => {
     ...user,
   });
 
-  console.log(totalPrice);
+  // useMemo so that data can update incase of any change in the dependency array
   const formData = useMemo(
     () => ({
       orderNumber: generateOrderNumber(),
@@ -43,7 +43,7 @@ const CheckoutSection = () => {
     [cart, totalPrice, checked]
   );
 
-  console.log(formData);
+  // console.log(formData);
 
   const handleChange = (e) => {
     setUserData((prev) => ({

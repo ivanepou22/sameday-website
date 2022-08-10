@@ -80,8 +80,10 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
     userPhone: text.userId.phone_number,
     userAddress: text.userId.address,
     userAddress2: text.userId.country + ' ' + text.userId.state + ' ' + text.userId.zip,
+    homeService: text.homeService,
   });
 };
+
 
 const sendResetPasswordEmail = async (to, token, origin) => {
   const subject = "Reset password";

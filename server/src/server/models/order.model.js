@@ -4,7 +4,6 @@ import { toJson, paginate } from "./plugins/index.js";
 
 const { Schema } = mongoose;
 
-
 const orderSchema = new Schema(
   {
     orderNumber: {
@@ -45,13 +44,13 @@ const orderSchema = new Schema(
           type: String,
           required: true,
         },
-        homeService: {
-          type: Boolean,
-          required: true,
-          default: false
-        }
       },
     ],
+    homeService: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     orderTotal: {
       type: Number,
       required: true,
