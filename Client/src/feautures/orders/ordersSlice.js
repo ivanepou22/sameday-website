@@ -121,6 +121,26 @@ export const ordersSlice = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     });
+    builder.addCase(updateStatusById.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateStatusById.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = true;
+      state.order = action.payload;
+      state.orders = state.orders.map((order) => {
+        if (order.id === action.payload.id) {
+          return action.payload;
+        }
+        return order;
+      });
+    });
+    builder.addCase(updateStatusById.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    });
   },
 });
 
@@ -172,6 +192,7 @@ export const getOrder = createAsyncThunk("orders/getOrder", async (id, thunkAPI)
 export const getOrdersByUser = createAsyncThunk(
   "orders/getOrdersByUser",
   async (payload, thunkAPI) => {
+    console.log(payload);
     try {
       const orders = await ordersService.getOrdersByUser(payload);
       return orders;
@@ -181,7 +202,16 @@ export const getOrdersByUser = createAsyncThunk(
   }
 );
 
-export const 
+export const updateStatusById = createAsyncThunk(
+  "orders/updateStatusById",
+  async (payload, thunkAPI) => {
+    try {
+      return await ordersService.updateOrderStatus(payload);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 
 export const { reset } = ordersSlice.actions;
 export const ordersSelector = (state) => state.orders;

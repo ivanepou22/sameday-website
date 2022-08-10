@@ -39,6 +39,7 @@ const allRoles = {
     "manageLogs",
     "getVisits",
     "manageVisits",
+    "manageStatus"
   ],
 };
 

@@ -34,7 +34,7 @@ const updateStatusById = async (id, status) => {
   if (!order) {
     throw new ApiError(httpStatus.NOT_FOUND, "Order not found");
   }
-  order.status = status;
+  order.orderStatus = status;
   await order.save();
   return order;
 };
@@ -55,5 +55,5 @@ export const orderService = {
   updateOrderById,
   deleteOrderById,
   queryOrders,
-  updateStatusById
+  updateStatusById,
 };

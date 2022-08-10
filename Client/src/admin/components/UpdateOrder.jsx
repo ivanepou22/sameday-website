@@ -1,5 +1,7 @@
-import { useState } from "react";
+/* eslint-disable */
+import { useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import { updateStatusById } from "../../feautures/orders/ordersSlice";
 
 const UpdateOrder = (props) => {
@@ -11,21 +13,27 @@ const UpdateOrder = (props) => {
   };
   const [formData, setFormData] = useState({
     status: "",
+    id: "",
   });
+  const orderId = useMemo(() => order.id);
+  console.log(orderId);
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
+  console.log(formData);
   const handleSubmit = (e) => {
     e.preventDefault();
-    // use promise to update order status
-    // then close modal
-    Promise.resolve(
-
+    const ps = new Promise((resolve, reject) => {
+      resolve(dispatch(updateStatusById(formData)));
+    });
+    toast.promise(ps, {
+      pending: "Updating order status...",
+      success: "Order status updated",
+      error: "Error updating order status",
+    });
+    setShowEditOrder(false);
+    setFormData({
+      status: "",
+      id: "",
+    });
   };
 
   return (
@@ -71,7 +79,7 @@ const UpdateOrder = (props) => {
                         name="orderNumber"
                         id="orderNumber"
                         type="text"
-                        value={order.orderNumber}
+                        defaultValue={order.orderNumber}
                         className="form-control"
                         disabled
                       />
@@ -84,7 +92,7 @@ const UpdateOrder = (props) => {
                       </label>
                       <select
                         value={formData.status}
-                        onChange={handleChange}
+                        onChange={(e) => setFormData({ id: orderId, status: e.target.value })}
                         name="status"
                         className="form-control department-name select2input"
                       >

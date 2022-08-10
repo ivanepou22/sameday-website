@@ -64,6 +64,7 @@ const updateStatusById = {
   }),
   body: Joi.object().keys({
     status: Joi.string().valid("pending", "approved", "rejected", "delivered"),
+    id: Joi.string().custom(objectId),
   }),
 };
 

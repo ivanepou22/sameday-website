@@ -6,8 +6,8 @@ const createOrder = async (order) => {
   return data;
 };
 
-const getOrders = async (payload = 1) => {
-  const res = await API.get(`/orders?page=${payload}&limit=100`);
+const getOrders = async (payload = 1, limit = 10) => {
+  const res = await API.get(`/orders?page=${payload}&limit=${limit}`);
   const data = await res.json();
   return data;
 };
@@ -37,7 +37,7 @@ const deleteOrder = async (id) => {
 };
 
 const updateOrderStatus = async (order) => {
-  const res = await API.put(`/orders/${order.id}/status`, order);
+  const res = await API.patch(`/orders/${order.id}/status`, order);
   const data = await res.json();
   return data;
 }
