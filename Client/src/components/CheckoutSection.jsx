@@ -92,7 +92,7 @@ const CheckoutSection = () => {
                     </li>
                   ))}
                   <li className="d-flex justify-content-between p-3">
-                    <span className="text-muted">Do You Prefer Home Service ?</span>
+                    <span className="text-muted" style={{paddingRight: "20px"}}>Prefer Home Service (UGX 100,000) ?</span>
                     <span className="text-muted">
                       <input
                         type="checkbox"
