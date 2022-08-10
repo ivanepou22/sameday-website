@@ -18,6 +18,12 @@ const getOrder = async (id) => {
   return data;
 };
 
+const getOrdersByUser = async (payload = 1) => {
+  const res = await API.get(`/orders?page=${payload}&limit=100`);
+  const data = await res.json();
+  return data;
+};
+
 const updateOrder = async (order) => {
   const res = await API.put(`/orders/${order.id}`, order);
   const data = await res.json();
@@ -30,10 +36,18 @@ const deleteOrder = async (id) => {
   return data;
 };
 
+const updateOrderStatus = async (order) => {
+  const res = await API.put(`/orders/${order.id}/status`, order);
+  const data = await res.json();
+  return data;
+}
+
 export const ordersService = {
   createOrder,
   getOrders,
   getOrder,
   updateOrder,
   deleteOrder,
+  getOrdersByUser,
+  updateOrderStatus
 };

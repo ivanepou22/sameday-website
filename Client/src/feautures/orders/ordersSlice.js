@@ -11,7 +11,7 @@ const initialState = {
   page: 0,
   limit: 0,
   totalPages: 0,
-  totalResults: 0
+  totalResults: 0,
 };
 
 export const ordersSlice = createSlice({
@@ -34,10 +34,10 @@ export const ordersSlice = createSlice({
     builder.addCase(getOrders.fulfilled, (state, action) => {
       state.isLoading = false;
       state.orders = action.payload.results;
-      state.page = action.payload.page
-      state.limit = action.payload.limit
-      state.totalPages = action.payload.totalPages
-      state.totalResults = action.payload.totalResults
+      state.page = action.payload.page;
+      state.limit = action.payload.limit;
+      state.totalPages = action.payload.totalPages;
+      state.totalResults = action.payload.totalResults;
     });
     builder.addCase(getOrders.rejected, (state, action) => {
       state.isLoading = false;
@@ -104,6 +104,23 @@ export const ordersSlice = createSlice({
       state.isError = true;
       state.errorMessage = action.payload;
     });
+    builder.addCase(getOrdersByUser.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(getOrdersByUser.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.orders = action.payload.results;
+      state.page = action.payload.page;
+      state.limit = action.payload.limit;
+      state.totalPages = action.payload.totalPages;
+      state.totalResults = action.payload.totalResults;
+    });
+    builder.addCase(getOrdersByUser.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    });
   },
 });
 
@@ -151,6 +168,20 @@ export const getOrder = createAsyncThunk("orders/getOrder", async (id, thunkAPI)
     return thunkAPI.rejectWithValue(error);
   }
 });
+
+export const getOrdersByUser = createAsyncThunk(
+  "orders/getOrdersByUser",
+  async (payload, thunkAPI) => {
+    try {
+      const orders = await ordersService.getOrdersByUser(payload);
+      return orders;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const 
 
 export const { reset } = ordersSlice.actions;
 export const ordersSelector = (state) => state.orders;

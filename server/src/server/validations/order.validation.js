@@ -50,12 +50,31 @@ const deleteOrder = {
   }),
 };
 
+const getOrdersByUser = {
+  query: Joi.object().keys({
+    sortBy: Joi.string(),
+    limit: Joi.number().integer(),
+    page: Joi.number().integer(),
+  }),
+};
+
+const updateStatusById = {
+  params: Joi.object().keys({
+    orderId: Joi.string().custom(objectId),
+  }),
+  body: Joi.object().keys({
+    status: Joi.string().valid("pending", "approved", "rejected", "delivered"),
+  }),
+};
+
 const orderValidation = {
   createOrder,
   getOrders,
   getOrder,
   updateOrder,
   deleteOrder,
+  getOrdersByUser,
+  updateStatusById,
 };
 
 export default orderValidation;

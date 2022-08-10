@@ -8,6 +8,7 @@ const allRoles = {
     "manageAppointments",
     "getAppointments",
     "getDoctors",
+    "getOrdersByUser",
   ],
   doctor: [
     "getUsers",

@@ -12,7 +12,7 @@ import Avatar from 'react-avatar';
 import { appointmentSelector, fetchAppointments } from '../feautures/appointment/appointmentSlice';
 import { getVisits, visitSelector } from "../feautures/visit/visitSlice";
 import moment from 'moment';
-import { getOrders, ordersSelector } from '../feautures/orders/ordersSlice';
+import { getOrdersByUser, ordersSelector } from '../feautures/orders/ordersSlice';
 import EditAppointment from './EditAppointment';
 import OrderDetails from './OrderDetails';
 
@@ -91,7 +91,7 @@ const DashboardSection = () => {
 
     useEffect(() => {
         dispatch(fetchAppointments())
-        dispatch(getOrders())
+        dispatch(getOrdersByUser())
         dispatch(getVisits());
     }, [dispatch])
 
