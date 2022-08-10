@@ -63,11 +63,12 @@ const OrderDetails = (props) => {
                                         <span><b>Order ID:</b>{` ${order?.id}`}</span><br />
                                         <span><b>Order Status:</b>{` ${order?.orderStatus}`}</span><br />
                                         <span><b>Order Date:</b>{` ${moment(order?.orderDate).format('DD-MMM-YYYY')}`}</span><br />
+                                        <span><b>Home Service:</b>{` ${order?.homeService}`}</span><br />
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="mb-3">
-                                        <span><strong>Name:</strong> {order?.userId?.name}</span><br />
+                                        <h6><span><strong>Name:</strong> {order?.userId?.name}</span></h6>
                                         <span><strong>Tel:</strong> {order?.userId?.phone_number}</span><br />
                                         <span><strong>Email:</strong> {order?.userId?.email}</span><br />
                                         <span><strong>Address:</strong> {order?.userId?.address}</span><br />
@@ -81,10 +82,10 @@ const OrderDetails = (props) => {
                                             <th className="border-bottom p-3" style={{ minWidth: "300px" }}>
                                                 Product
                                             </th>
-                                            <th className="border-bottom text-center p-3" style={{ minWidth: "160px" }}>
+                                            <th className="border-bottom text-start p-3" style={{ minWidth: "160px" }}>
                                                 Price
                                             </th>
-                                            <th className="border-bottom text-center p-3" style={{ minWidth: "190px" }}>
+                                            <th className="border-bottom text-start p-3" style={{ minWidth: "190px" }}>
                                                 Qty
                                             </th>
                                             <th className="border-bottom text-end p-3" style={{ minWidth: "50px" }}>
@@ -95,23 +96,20 @@ const OrderDetails = (props) => {
                                     <tbody>
                                         {order?.orderItems?.map((item) => (
                                             <tr key={item.itemId}>
-
-                                                <td className="p-3">
-                                                    <div className="d-flex align-items-center">
-                                                        <Link to={`#`} className="white-space-wrap-none">
-                                                            <h6 className="mb-0 ms-3">{filterService(item?.itemId)[0]?.name}</h6>
-                                                        </Link>
-                                                    </div>
+                                                <td className="text-start p-3">
+                                                    <Link to={`#`} className="white-space-wrap-none">
+                                                        <h6 className="mb-0">{filterService(item?.itemId)[0]?.name}</h6>
+                                                    </Link>
                                                 </td>
-                                                <td className="text-center p-3">
+                                                <td className="text-start p-3">
                                                     {
-                                                    filterService(item?.itemId)[0]?.price?.toLocaleString('en-US', {
-                                                        style: 'currency',
-                                                        currency: 'UGX',
-                                                        maximumFractionDigits: 2,
-                                                    })}
+                                                        filterService(item?.itemId)[0]?.price?.toLocaleString('en-US', {
+                                                            style: 'currency',
+                                                            currency: 'UGX',
+                                                            maximumFractionDigits: 2,
+                                                        })}
                                                 </td>
-                                                <td className="text-center shop-list p-3">
+                                                <td className="text-start shop-list p-3">
                                                     {item?.itemQuantity}
                                                 </td>
                                                 <td className="text-end font-weight-bold p-3">
@@ -131,36 +129,39 @@ const OrderDetails = (props) => {
                                             <span className="font-weight-bold">Subtotal:</span>
                                         </div>
                                         <div className="text-right">
-                                            {order?.orderTotal?.toLocaleString('en-US', {
-                                                style: 'currency',
-                                                currency: 'UGX',
-                                                maximumFractionDigits: 2,
-                                            })}
-                                        </div>
-                                    </div>
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <div className="text-left">
-                                            <span className="font-weight-bold">Shipping:</span>
-                                        </div>
-                                        <div className="text-right">
-                                            {0.00.toLocaleString('en-US', {
-                                                style: 'currency',
-                                                currency: 'UGX',
-                                                maximumFractionDigits: 2,
-                                            })
+                                            {
+                                            order?.homeService ? (
+                                                (order?.orderTotal - 100000)?.toLocaleString('en-US', {
+                                                    style: 'currency',
+                                                    currency: 'UGX',
+                                                    maximumFractionDigits: 2,
+                                                })
+                                            ) : (
+                                                order?.orderTotal?.toLocaleString('en-US', {
+                                                    style: 'currency',
+                                                    currency: 'UGX',
+                                                    maximumFractionDigits: 2,
+                                                })
+                                            )
                                             }
                                         </div>
                                     </div>
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="text-left">
-                                            <span className="font-weight-bold">Tax:</span>
+                                            <span className="font-weight-bold">Home Service:</span>
                                         </div>
                                         <div className="text-right">
-                                            {0.00.toLocaleString('en-US', {
-                                                style: 'currency',
-                                                currency: 'UGX',
-                                                maximumFractionDigits: 2,
-                                            })}
+                                            {
+                                                order?.homeService ? (100000?.toLocaleString('en-US', {
+                                                    style: 'currency',
+                                                    currency: 'UGX',
+                                                    maximumFractionDigits: 2,
+                                                })) : 0.00.toLocaleString('en-US', {
+                                                    style: 'currency',
+                                                    currency: 'UGX',
+                                                    maximumFractionDigits: 2,
+                                                })
+                                            }
                                         </div>
                                     </div>
                                     <div className="d-flex justify-content-between align-items-center">
@@ -176,7 +177,7 @@ const OrderDetails = (props) => {
                                         </div>
                                     </div>
                                 </div>
-                              <hr />
+                                <hr />
                             </div>
                         </div>
                     </div>

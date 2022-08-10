@@ -43,6 +43,11 @@
     letter-spacing: normal;
     font-weight: 400;
 }
+
+.font-weight-bold {
+  font-weight: bold !important;
+}
+
 .font-size-18 {
     font-size: 18px !important;
     color: #818ca0 !important;
