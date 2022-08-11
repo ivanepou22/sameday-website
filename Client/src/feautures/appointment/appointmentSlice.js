@@ -75,7 +75,7 @@ export const appointmentSlice = createSlice({
     });
     builder.addCase(updateAppointment.fulfilled, (state, action) => {
       state.appointments = state.appointments.map((appointment) => {
-        if (appointment._id === action.payload._id) {
+        if (appointment.id === action.payload.id) {
           return action.payload;
         }
         return appointment;
@@ -84,6 +84,24 @@ export const appointmentSlice = createSlice({
       state.isError = false;
     });
     builder.addCase(updateAppointment.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.errorMessage = action.payload;
+    });
+    builder.addCase(updateAppointmentByUser.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateAppointmentByUser.fulfilled, (state, action) => {
+      state.appointments = state.appointments.map((appointment) => {
+        if (appointment.id === action.payload.id) {
+          return action.payload;
+        }
+        return appointment;
+      });
+      state.isLoading = false;
+      state.isError = false;
+    });
+    builder.addCase(updateAppointmentByUser.rejected, (state, action) => {
       state.isLoading = false;
       state.isError = true;
       state.errorMessage = action.payload;
@@ -147,6 +165,18 @@ export const updateAppointment = createAsyncThunk(
   async (appointment, { rejectWithValue }) => {
     try {
       const updatedAppointment = await appointmentService.updateAppointment(appointment);
+      return updatedAppointment;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateAppointmentByUser = createAsyncThunk(
+  "appointment/updateAppointmentByUser",
+  async (appointment, { rejectWithValue }) => {
+    try {
+      const updatedAppointment = await appointmentService.updateAppointmentByUser(appointment);
       return updatedAppointment;
     } catch (error) {
       return rejectWithValue(error.message);
