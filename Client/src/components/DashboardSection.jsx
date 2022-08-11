@@ -29,9 +29,10 @@ const DashboardSection = () => {
   const [showAddress, setShowAddress] = React.useState(false);
   const [showProfile, setShowProfile] = React.useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [appoint, setAppoint] = useState([]);
+  const [appoint, setAppoint] = useState(null);
   const [showOrder, setShowOrder] = useState(false);
   const [order, setOrder] = useState([]);
+  const [appointment, setShowAppointment] = useState(null)
 
   const handleDashboard = () => {
     setDashboard(true);
@@ -102,6 +103,10 @@ const DashboardSection = () => {
     setOrder(order);
     setShowOrder(true);
   };
+
+  const handleAppointment = (appointment) => {
+    setAppoint(appointment);
+  }
 
   //filter appointments and orders by patient
   const filteredAppointments = appointments?.filter(

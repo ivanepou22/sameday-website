@@ -27,7 +27,7 @@ const AppointmentSection = () => {
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -36,13 +36,13 @@ const AppointmentSection = () => {
     dispatch(
       createAppointment({
         patient: formData.patient,
-        doctor: formData.doctor[0],
+        doctor: formData.doctor,
         email: formData.email,
-        phone: formData.phone[0],
-        time: formData.time[0],
-        date: new Date(formData.date[0]),
-        department: formData.department[0],
-        comment: formData.comment[0],
+        phone: formData.phone,
+        time: formData.time,
+        date: new Date(formData.date),
+        department: formData.department,
+        comment: formData.comment,
       })
     );
     //clear form
