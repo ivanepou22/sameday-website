@@ -35,4 +35,9 @@ const deleteAppointment = catchAsync(async (req, res) => {
     res.status(httpStatus.NO_CONTENT).send();
 })
 
-export { createAppointment, getAppointments, getAppointment, updateAppointment, deleteAppointment };
+const updateAppointmentByUser = catchAsync(async (req, res) => {
+    const appointment = await appointmentService.updateAppointmentByUser(req.params.appointmentId, req.body);
+    res.send(appointment);
+})
+
+export { createAppointment, getAppointments, getAppointment, updateAppointmentByUser, updateAppointment, deleteAppointment };

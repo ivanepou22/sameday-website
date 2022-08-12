@@ -31,7 +31,6 @@ const DashboardSection = () => {
   const [appoint, setAppoint] = useState(null);
   const [showOrder, setShowOrder] = useState(false);
   const [order, setOrder] = useState([]);
-  const [appointment, setShowAppointment] = useState(null)
 
   const handleDashboard = () => {
     setDashboard(true);

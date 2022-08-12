@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { ordersSelector, getOrders } from "../../feautures/orders/ordersSlice";
 import moment from "moment";
 import { RiAddLine } from "react-icons/ri";
-import { FaRegEdit } from 'react-icons/fa';
-import { AiOutlineEye } from 'react-icons/ai';
-import OrderDetail from './OrderDetail';
+import { FaRegEdit } from "react-icons/fa";
+import { AiOutlineEye } from "react-icons/ai";
+import OrderDetail from "./OrderDetail";
 import UpdateOrder from "./UpdateOrder";
 
 const OrderTable = () => {
@@ -21,7 +21,6 @@ const OrderTable = () => {
     dispatch(getOrders(page));
   }, [dispatch, page]);
 
-
   const handlePageChange = (page) => {
     if (page < 1) {
       setPage(1);
@@ -33,14 +32,14 @@ const OrderTable = () => {
   };
 
   const handleOrder = (order) => {
-    setOrder(order)
+    setOrder(order);
     setShowOrder(true);
-  }
+  };
 
   const handleEditOrder = (order) => {
-    setOrder(order)
+    setOrder(order);
     setShowEditOrder(true);
-  }
+  };
 
   return (
     <>
@@ -62,7 +61,7 @@ const OrderTable = () => {
             </div>
 
             <div className="col-xl-3 col-md-6 mt-4 mt-md-0 text-md-end">
-              <Link to={'#'} className="btn btn-primary">
+              <Link to={"#"} className="btn btn-primary">
                 <RiAddLine /> Add Order
               </Link>
             </div>
@@ -95,15 +94,28 @@ const OrderTable = () => {
                             </div>
                           </Link>
                         </td>
-                        <td className="p-3 white-space-wrap-none">{moment(order.orderDate).format('YYYY-MM-DD')}</td>
-                        <td className="p-3 white-space-wrap-none">{order.orderStatus}</td>
                         <td className="p-3 white-space-wrap-none">
-                          {order.orderTotal?.toLocaleString('en-US', {
-                            style: 'currency',
-                            currency: 'UGX',
+                          {moment(order.orderDate).format("YYYY-MM-DD")}
+                        </td>
+                        <td
+                          className={`${
+                            order.orderStatus === "pending"
+                              ? "text-warning"
+                              : order.orderStatus === "rejected"
+                              ? "text-danger"
+                              : order.orderStatus === "approved"
+                              ? "text-success"
+                              : "text-primary"
+                          } p-3 white-space-wrap-none`}
+                        >
+                          {order.orderStatus}
+                        </td>
+                        <td className="p-3 white-space-wrap-none">
+                          {order.orderTotal?.toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "UGX",
                             maximumFractionDigits: 2,
-                          })
-                          }
+                          })}
                         </td>
                         <td className="p-3 white-space-wrap-none">{order.userId.name}</td>
                         <td className="p-3 white-space-wrap-none">{order.userId.email}</td>
