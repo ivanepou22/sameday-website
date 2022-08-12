@@ -6,6 +6,7 @@ const allRoles = {
     "getLogs",
     "getServices",
     "manageAppointments",
+    "updateAppointments",
     "getAppointments",
     "getDoctors",
     "getOrdersByUser",

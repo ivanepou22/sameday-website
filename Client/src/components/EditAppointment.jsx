@@ -1,34 +1,62 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { appointmentSelector, createAppointment } from "../feautures/appointment/appointmentSlice";
+import { toast } from "react-toastify";
+import {
+  appointmentSelector,
+  updateAppointmentByUser,
+  fetchAppointment,
+} from "../feautures/appointment/appointmentSlice";
 
 const EditAppointment = (props) => {
-  const { show, setShowModal, appointment } = props;
+  const { show, setShowModal, appt } = props;
   const dispatch = useDispatch();
-  const { isLoading, isError, errorMessage } = useSelector(appointmentSelector);
+  const { appointment, isLoading, isError, errorMessage } = useSelector(appointmentSelector);
 
   const handleClose = () => {
     setShowModal(false);
   };
 
-  // const date = useMemo(() => appointment?.date);
+  const id = useMemo(() => appt?.id, [appt]);
+
+  useEffect(() => {
+    dispatch(fetchAppointment(id));
+  }, [id]);
 
   const [formData, setFormData] = useState({
-    date: show && new Date(appointment.date).toISOString().split("T")[0],
-    time: show && appointment?.time,
-    comment: show && appointment?.comment,
-    ...appointment,
+    date: isLoading ? new Date().toISOString().split("T")[0] : appointment.date,
+    time: "",
+    comment: appointment?.comment,
+    id: appointment?.id,
   });
-
-  console.log(formData);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO: change backend endpoint to allow user to edit appointment specifically 3 fields
-    dispatch(createAppointment({
-      ...formData,
-      date: new Date(formData.date).toISOString(),
-    }));
+    const ps = new Promise((resolve) => {
+      resolve(
+        dispatch(
+          updateAppointmentByUser({
+            ...formData,
+            date: new Date(formData.date).toISOString(),
+          })
+        )
+      );
+    });
+
+    toast.promise(ps, {
+      pending: "Updating appointment...",
+      success: "Appointment updated successfuly",
+      error: "Unable to update appointment",
+    });
+
+    setFormData({
+      id: "",
+      date: "",
+      time: "",
+      comment: "",
+    });
     handleClose();
   };
 
@@ -75,7 +103,7 @@ const EditAppointment = (props) => {
                         type="date"
                         className="flatpickr flatpickr-input form-control"
                         id="checkin-date"
-                        value={new Date(formData.date).toISOString().split("T")[0]}
+                        value={formData.date}
                         onChange={(e) => {
                           setFormData({ ...formData, date: e.target.value });
                         }}
@@ -94,7 +122,7 @@ const EditAppointment = (props) => {
                         className="form-control timepicker"
                         id="input-time"
                         placeholder="03:30 PM"
-                        value={formData.time}
+                        value={appointment?.time}
                         onChange={(e) => {
                           setFormData({ ...formData, time: e.target.value });
                         }}

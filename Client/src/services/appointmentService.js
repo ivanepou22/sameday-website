@@ -30,6 +30,16 @@ const updateAppointment = async (appointment) => {
   return data;
 };
 
+const updateAppointmentByUser = async (appointment) => {
+  const response = await API.patch(
+    `/appointments/${appointment.id}/user`,
+    appointment
+  );
+  const data = await response.json();
+  return data;
+};
+
+
 const deleteAppointment = async (id) => {
   const response = await API.delete(`/appointments/${id}`);
   const data = await response.json();
@@ -42,4 +52,5 @@ export const appointmentService = {
   getAppointment,
   updateAppointment,
   deleteAppointment,
+  updateAppointmentByUser
 };

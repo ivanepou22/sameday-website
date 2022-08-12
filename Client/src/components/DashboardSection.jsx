@@ -32,7 +32,6 @@ const DashboardSection = () => {
   const [appoint, setAppoint] = useState(null);
   const [showOrder, setShowOrder] = useState(false);
   const [order, setOrder] = useState([]);
-  const [appointment, setShowAppointment] = useState(null)
 
   const handleDashboard = () => {
     setDashboard(true);
@@ -705,7 +704,7 @@ const DashboardSection = () => {
           </div>
         </div>
       </section>
-      <EditAppointment show={showModal} appointment={appoint} setShowModal={setShowModal} />
+      <EditAppointment show={showModal} setShowModal={setShowModal} appt={appoint} />
       <OrderDetails show={showOrder} setShowOrder={setShowOrder} order={order} />
     </>
   );

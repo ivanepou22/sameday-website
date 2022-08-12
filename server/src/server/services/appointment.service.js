@@ -29,6 +29,18 @@ const updateAppointmentById = async (id, appointmentBody) => {
     return appointment;
 }
 
+const updateAppointmentByUser = async (id, body) => {
+    const appointment = await getAppointmentById(id)
+    if (!appointment) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Appointment not found");
+    }
+    appointment.date = body.date
+    appointment.time = body.time
+    appointment.comment = body.comment
+    await appointment.save()
+    return appointment
+}
+
 
 const deleteAppointmentById = async (id) => {
     const appointment = await getAppointmentById(id);
@@ -46,6 +58,7 @@ export const appointmentService = {
     getAppointmentByUserId,
     updateAppointmentById,
     deleteAppointmentById,
-    queryAppointments
+    queryAppointments,
+    updateAppointmentByUser
 };
 
