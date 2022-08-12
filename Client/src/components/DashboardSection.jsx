@@ -13,7 +13,6 @@ import { appointmentSelector, fetchAppointments } from "../feautures/appointment
 import { getVisits, visitSelector } from "../feautures/visit/visitSlice";
 import moment from "moment";
 import { getOrdersByUser, ordersSelector } from "../feautures/orders/ordersSlice";
-import EditAppointment from "./EditAppointment";
 import OrderDetails from "./OrderDetails";
 
 const DashboardSection = () => {
@@ -431,11 +430,8 @@ const DashboardSection = () => {
                             <td className="p-3 white-space-wrap-none">{appointment.phone}</td>
                             <td className="p-3">
                               <Link
-                                to="#"
+                                to={`/edit-appointment/${appointment.id}`}
                                 className="text-primary"
-                                onClick={() => {
-                                  handleShowModal(appointment);
-                                }}
                               >
                                 Edit<i className="uil uil-arrow-right"></i>
                               </Link>
@@ -705,7 +701,6 @@ const DashboardSection = () => {
           </div>
         </div>
       </section>
-      <EditAppointment show={showModal} appointment={appoint} setShowModal={setShowModal} />
       <OrderDetails show={showOrder} setShowOrder={setShowOrder} order={order} />
     </>
   );

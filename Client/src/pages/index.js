@@ -21,6 +21,7 @@ import ServiceDetails from './ServiceDetails';
 import Clinics from './Clinics';
 import Logout from './Logout';
 import ResetPassword from './ResetPassword';
+import EditAppoint from './EditAppoint';
 export {
     Home,
     About,
@@ -43,5 +44,6 @@ export {
     Shop,
     Clinics,
     Logout,
-    ResetPassword
+    ResetPassword,
+    EditAppoint,
 }

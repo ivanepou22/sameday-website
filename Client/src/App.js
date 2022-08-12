@@ -24,6 +24,7 @@ import {
   Clinics,
   Logout,
   ResetPassword,
+  EditAppoint
 } from "./pages";
 import {
   Dashboard,
@@ -70,6 +71,7 @@ function App() {
           <Route path={SDRoutes.ResetPassword.path} element={<ResetPassword />} />
           <Route element={<UserProtectedRoute />}>
             <Route path={SDRoutes.Appointment.path} element={<Appointment />} />
+            <Route path={SDRoutes.EditAppoint.path} element={<EditAppoint />} />
             <Route path={SDRoutes.PatientDashboard.path} element={<PatientDashboard />} />
             <Route path={SDRoutes.Checkout.path} element={<Checkout />} />
             <Route path={SDRoutes.PatientProfile.path} element={<PatientProfile />} />
