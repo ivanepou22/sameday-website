@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import bgContact from "../assets/images/about/aboutSamedayWork.jpeg";
+import bgContact from "../assets/images/about/About12.jpeg";
 import wellnessImg from "../assets/images/Icons/wellness.png";
 import radiologyImg from "../assets/images/Icons/radiology.png";
 import covidImg from "../assets/images/Icons/coronavirus.png";
