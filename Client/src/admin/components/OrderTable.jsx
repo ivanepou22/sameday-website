@@ -12,13 +12,14 @@ import UpdateOrder from "./UpdateOrder";
 const OrderTable = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const { orders, limit, totalPages, totalResults } = useSelector(ordersSelector);
+  const { orders, limit, totalPages, totalResults, isLoading } = useSelector(ordersSelector);
   const [showOrder, setShowOrder] = useState(false);
   const [showEditOrder, setShowEditOrder] = useState(false);
   const [order, setOrder] = useState([]);
 
   React.useEffect(() => {
     dispatch(getOrders(page));
+    console.log("changed");
   }, [dispatch, page]);
 
   const handlePageChange = (page) => {
@@ -84,63 +85,71 @@ const OrderTable = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {orders?.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className="p-3 white-space-wrap-none">{index + 1}</td>
-                        <td className="py-3 white-space-wrap-none">
-                          <Link to="#/">
-                            <div className="d-flex align-items-center">
-                              <span className="ms-2">{order.orderNumber}</span>
-                            </div>
-                          </Link>
-                        </td>
-                        <td className="p-3 white-space-wrap-none">
-                          {moment(order.orderDate).format("YYYY-MM-DD")}
-                        </td>
-                        <td
-                          className={`${
-                            order.orderStatus === "pending"
-                              ? "text-warning"
-                              : order.orderStatus === "rejected"
-                              ? "text-danger"
-                              : order.orderStatus === "approved"
-                              ? "text-success"
-                              : "text-primary"
-                          } p-3 white-space-wrap-none`}
-                        >
-                          {order.orderStatus}
-                        </td>
-                        <td className="p-3 white-space-wrap-none">
-                          {order.orderTotal?.toLocaleString("en-US", {
-                            style: "currency",
-                            currency: "UGX",
-                            maximumFractionDigits: 2,
-                          })}
-                        </td>
-                        <td className="p-3 white-space-wrap-none">{order.userId.name}</td>
-                        <td className="p-3 white-space-wrap-none">{order.userId.email}</td>
-                        <td className="text-end p-3 white-space-wrap-none">
-                          <Link
-                            to="#/"
-                            className="btn btn-icon btn-pills btn-soft-primary my-1"
-                            data-bs-toggle="modal"
-                            data-bs-target="#viewprofile"
-                            onClick={() => handleOrder(order)}
+                    {isLoading ? (
+                      <div className="text-center">
+                        <div className="spinner-border text-primary" role="status">
+                          <span className="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                    ) : (
+                      orders.map((order, index) => (
+                        <tr key={order.id}>
+                          <td className="p-3 white-space-wrap-none">{index + 1}</td>
+                          <td className="py-3 white-space-wrap-none">
+                            <Link to="#/">
+                              <div className="d-flex align-items-center">
+                                <span className="ms-2">{order.orderNumber}</span>
+                              </div>
+                            </Link>
+                          </td>
+                          <td className="p-3 white-space-wrap-none">
+                            {moment(order.orderDate).format("YYYY-MM-DD")}
+                          </td>
+                          <td
+                            className={`${
+                              order.orderStatus === "pending"
+                                ? "text-warning"
+                                : order.orderStatus === "rejected"
+                                ? "text-danger"
+                                : order.orderStatus === "approved"
+                                ? "text-success"
+                                : "text-primary"
+                            } p-3 white-space-wrap-none`}
                           >
-                            <AiOutlineEye />
-                          </Link>
-                          <Link
-                            to="#/"
-                            className="btn btn-icon btn-pills btn-soft-success my-1 mx-2"
-                            data-bs-toggle="modal"
-                            data-bs-target="#editprofile"
-                            onClick={() => handleEditOrder(order)}
-                          >
-                            <FaRegEdit />
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
+                            {order.orderStatus}
+                          </td>
+                          <td className="p-3 white-space-wrap-none">
+                            {order.orderTotal?.toLocaleString("en-US", {
+                              style: "currency",
+                              currency: "UGX",
+                              maximumFractionDigits: 2,
+                            })}
+                          </td>
+                          <td className="p-3 white-space-wrap-none">{order.userId.name}</td>
+                          <td className="p-3 white-space-wrap-none">{order.userId.email}</td>
+                          <td className="text-end p-3 white-space-wrap-none">
+                            <Link
+                              to="#/"
+                              className="btn btn-icon btn-pills btn-soft-primary my-1"
+                              data-bs-toggle="modal"
+                              data-bs-target="#viewprofile"
+                              onClick={() => handleOrder(order)}
+                            >
+                              <AiOutlineEye />
+                            </Link>
+                            <Link
+                              to="#/"
+                              className="btn btn-icon btn-pills btn-soft-success my-1 mx-2"
+                              data-bs-toggle="modal"
+                              data-bs-target="#editprofile"
+                              onClick={() => handleEditOrder(order)}
+                            >
+                              <FaRegEdit />
+                            </Link>
+                          </td>
+                        </tr>
+                      ))
+                    )}
                   </tbody>
                 </table>
               </div>
@@ -166,11 +175,7 @@ const OrderTable = () => {
                   </li>
                   {Array.apply(null, Array(totalPages)).map((x, i) => {
                     return (
-                      <li
-                        key={i}
-                        style={{ cursor: "pointer" }}
-                        className={`page-item ${page === i + 1 ? "active" : ""}`}
-                      >
+                      <li key={i} className={`page-item ${page === i + 1 ? "active" : ""}`}>
                         <Link className="page-link" onClick={() => handlePageChange(i + 1)} to="#/">
                           {i + 1}
                         </Link>

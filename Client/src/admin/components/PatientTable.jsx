@@ -138,7 +138,7 @@ const PatientTable = () => {
             <div className="col-12 mt-4">
               <div className="d-md-flex align-items-center text-center justify-content-between">
                 <span className="text-muted me-3">
-                  Showing 1 - {limit > totalResults ? totalResults : limit} out of {totalResults}
+                  Showing - {limit > totalResults ? totalResults : limit} out of {totalResults}
                 </span>
                 <ul className="pagination justify-content-center mb-0 mt-3 mt-sm-0">
                   <li className={`page-item ${page === 1 ? "disabled" : ""}`}>
