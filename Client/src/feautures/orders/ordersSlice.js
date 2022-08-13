@@ -5,7 +5,6 @@ const initialState = {
   orders: [],
   order: {},
   isLoading: false,
-  isSuccess: false,
   isError: false,
   errorMessage: "",
   page: 0,
@@ -22,7 +21,6 @@ export const ordersSlice = createSlice({
       state.orders = [];
       state.order = {};
       state.isLoading = false;
-      state.isSuccess = false;
       state.isError = false;
       state.errorMessage = "";
     },
@@ -32,8 +30,8 @@ export const ordersSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(getOrders.fulfilled, (state, action) => {
-      state.isLoading = false;
       state.orders = action.payload.results;
+      state.isLoading = false;
       state.page = action.payload.page;
       state.limit = action.payload.limit;
       state.totalPages = action.payload.totalPages;
@@ -41,7 +39,6 @@ export const ordersSlice = createSlice({
     });
     builder.addCase(getOrders.rejected, (state, action) => {
       state.isLoading = false;
-      state.isSuccess = false;
       state.isError = true;
       state.errorMessage = action.payload;
     });

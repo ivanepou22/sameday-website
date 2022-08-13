@@ -6,8 +6,8 @@ const createOrder = async (order) => {
   return data;
 };
 
-const getOrders = async (payload = 1, limit = 10) => {
-  const res = await API.get(`/orders?page=${payload}&limit=${limit}`);
+const getOrders = async (payload = 1) => {
+  const res = await API.get(`/orders?page=${payload}`);
   const data = await res.json();
   return data;
 };
