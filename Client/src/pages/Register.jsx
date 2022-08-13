@@ -78,7 +78,7 @@ const Register = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      window.location.href = "/";
     }
   }, [user, dispatch, navigate]);
 

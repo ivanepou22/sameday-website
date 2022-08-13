@@ -32,7 +32,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate(redirectUrl);
+      window.location.href = redirectUrl;
     }
   }, [user, dispatch, navigate]);
 
