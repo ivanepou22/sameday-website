@@ -57,12 +57,34 @@ const sendEmail = async (to, subject, text, templateName, templateVars, from = "
 };
 
 const sendNotifyEmail = async (subject = "", text = {}, type) => {
-  // console.log(text);
+  let templateVars = {};
   switch (type) {
     case "NEW USER":
       subject = "New user Registered";
+      templateVars = {
+        ...text
+      };
+      break;
     case "NEW ORDER":
       subject = `New Order placed #${text.orderNumber}`;
+      templateVars = {
+        orderNumber: text.orderNumber,
+        orderTotal: text.orderTotal,
+        orderDate: moment(text.orderDate).format("DD-MMM-YY"),
+        orderItems: text.orderItems,
+        userName: text.userId.name,
+        userEmail: text.userId.email,
+        userPhone: text.userId.phone_number,
+        userAddress: text.userId.address,
+        userAddress2: text.userId.country + " " + text.userId.state + " " + text.userId.zip,
+        homeService: text.homeService,
+      };
+      break;
+      case "NEW APPOINTMENT":
+      subject = `New Appointment #${text.appNumber}`;
+      templateVars = {
+        ...text
+      }
       break;
     default:
       subject = "New user Registered";
@@ -70,20 +92,8 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
   const to = process.env.NODE_ENV === "production" ? config.email.from : "admin@localhost.com";
   const template = type.toLowerCase().split(" ").join("-");
 
-  await sendEmail(to, subject, "", template, {
-    orderNumber: text.orderNumber,
-    orderTotal: text.orderTotal,
-    orderDate: moment(text.orderDate).format("DD-MMM-YY"),
-    orderItems: text.orderItems,
-    userName: text.userId.name,
-    userEmail: text.userId.email,
-    userPhone: text.userId.phone_number,
-    userAddress: text.userId.address,
-    userAddress2: text.userId.country + ' ' + text.userId.state + ' ' + text.userId.zip,
-    homeService: text.homeService,
-  });
+  await sendEmail(to, subject, "", template, templateVars);
 };
-
 
 const sendResetPasswordEmail = async (to, token, origin) => {
   const subject = "Reset password";
