@@ -2,11 +2,12 @@ import httpStatus from "http-status";
 import pick from "../utils/pick.js";
 import catchAsync from "../utils/catchAsync.js";
 import ApiError from "../utils/ApiError.js";
-import { appointmentService } from "../services/index.js";
+import { appointmentService, emailService } from "../services/index.js";
 
 
 const createAppointment = catchAsync(async (req, res) => {
     const appointment = await appointmentService.createAppointment(req.body);
+    await emailService.sendNotifyEmail("", appointment, "NEW APPOINTMENT");
     res.status(httpStatus.CREATED).send(appointment);
 })
 

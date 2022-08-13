@@ -1,11 +1,19 @@
-import httpStatus from 'http-status';
-import catchAsync from '../utils/catchAsync.js';
-import { authService, userService, tokenService, emailService } from '../services/index.js'
+import httpStatus from "http-status";
+import catchAsync from "../utils/catchAsync.js";
+import { authService, userService, tokenService, emailService } from "../services/index.js";
 
 const register = catchAsync(async (req, res) => {
   const user = await userService.createUser(req.body);
   const tokens = await tokenService.generateAuthTokens(user);
-  res.status(httpStatus.CREATED).send({user, tokens})
+  await emailService.sendNotifyEmail(
+    "",
+    {
+      name: user.name,
+      emailAddress: user.email,
+    },
+    "NEW USER"
+  );
+  res.status(httpStatus.CREATED).send({ user, tokens });
 });
 
 const login = catchAsync(async (req, res) => {
@@ -64,4 +72,4 @@ export default {
   sendVerificationEmail,
   verifyEmail,
   loginAdmin,
-}
+};
