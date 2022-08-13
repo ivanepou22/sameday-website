@@ -618,10 +618,10 @@ const DashboardSection = () => {
                         <div className="mb-3">
                           <label className="form-label">Gender</label>
                           <input
-                            name="email"
+                            name="gender"
                             disabled
-                            id="email"
-                            type="email"
+                            id="gender"
+                            type="gender"
                             className="form-control"
                             defaultValue={user?.gender}
                           />
