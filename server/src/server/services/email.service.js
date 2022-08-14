@@ -80,10 +80,22 @@ const sendNotifyEmail = async (subject = "", text = {}, type) => {
         homeService: text.homeService,
       };
       break;
-      case "NEW APPOINTMENT":
+    case "NEW APPOINTMENT":
       subject = `New Appointment #${text.appNumber}`;
       templateVars = {
-        ...text
+        appNumber: text.appNumber,
+        appDate: moment(text.date).format("DD-MMM-YY"),
+        appTime: text.time,
+        appService: text.department,
+        appUser: text.patient.name,
+        appUserEmail: text.patient.email,
+        appUserPhone: text.patient.phone_number,
+        appUserAddress: text.patient.address,
+        appUserAddress2: text.patient.country + " " + text.patient.state + " " + text.patient.zip,
+        appUserNotes: text.comment,
+        docName: text.doctor.full_name,
+        docEmail: text.doctor.email,
+        docPhone: text.doctor.phone_number,
       }
       break;
     default:

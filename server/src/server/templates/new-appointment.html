@@ -1,12 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Appointment</title>
-</head>
-<body>
-    <p>Hello, there is a new appointment</p>
-</body>
+    <style>
+      body {
+        text-align: center;
+        margin: 0 auto;
+        width: 650px;
+        font-family: "Open Sans", sans-serif;
+        background-color: #e2e2e2;
+        display: block;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        display: inline-block;
+        text-decoration: unset;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      p {
+        margin: 15px 0;
+      }
+
+      h5 {
+        color: #444;
+        text-align: left;
+        font-weight: 400;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .main-bg-light {
+        background-color: #fafafa;
+      }
+
+      .title {
+        color: #444444;
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 0;
+        text-transform: uppercase;
+        display: inline-block;
+        line-height: 1;
+      }
+
+      table {
+        margin-top: 30px;
+      }
+
+      table.top-0 {
+        margin-top: 0;
+      }
+
+      table.order-detail {
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+      }
+
+      table.order-detail tr:nth-child(even) {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+
+      table.order-detail tr:nth-child(odd) {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .pad-left-right-space {
+        border: unset !important;
+      }
+
+      .pad-left-right-space td {
+        padding: 5px 15px;
+      }
+
+      .pad-left-right-space td p {
+        margin: 0;
+      }
+
+      .pad-left-right-space td b {
+        font-size: 15px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .order-detail th {
+        font-size: 16px;
+        padding: 15px;
+        text-align: center;
+        background: #fafafa;
+      }
+
+      .footer-social-icon tr td img {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      .user-side {
+        padding-left: 2rem;
+        padding-top: 3rem;
+      }
+    </style>
+  </head>
+  <body style="margin: 20px auto">
+    <table
+      align="center"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      style="
+        padding: 0 30px;
+        background-color: #fff;
+        -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);
+        box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);
+        width: 100%;
+      "
+    >
+      <tbody>
+        <tr>
+          <td>
+            <table
+              align="left"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              style="text-align: left"
+              width="100%"
+            >
+              <tr>
+                <td colspan="3" style="text-align: left">
+                  <p>Hello, there is a new appointment</p>
+                  <hr />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="font-size: 14px">Appointment Number : <%=appNumber %>,</span><br />
+                  <span style="font-size: 14px">Appointment Date : <%=appDate %>,</span><br />
+                  <span style="font-size: 14px">Appointment Time : <%=appTime %>,</span><br />
+                  <span style="font-size: 14px">Appointment Service : <%=appService %>,</span><br />
+                </td>
+                <td>
+                  <span style="font-size: 14px">Name : <%=appUser %>,</span><br />
+                  <span style="font-size: 14px">Email : <%=appUserEmail %>,</span><br />
+                  <span style="font-size: 14px">Phone : <%=appUserPhone %>,</span><br />
+                  <span style="font-size: 14px">Address : <%=appUserAddress %>,</span><br />
+                </td>
+              </tr>
+            </table>
+            <table
+              class="order-detail"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              align="left"
+              style="width: 100%; margin-bottom: 50px"
+            >
+              <thead align="left">
+                <th style="text-align: left">No.</th>
+                <th style="text-align: left">Date</th>
+                <th style="text-align: right">Time</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td valign="top" style="padding-left: 15px">
+                    <h5 style="margin-top: 15px"><%=appNumber%></h5>
+                  </td>
+                  <td valign="top" style="padding-left: 15px">
+                    <h5 style="font-size: 14px; color: #444; margin-top: 10px">
+                      <span><%=appDate %></span>
+                    </h5>
+                  </td>
+                  <td valign="top" style="text-align: right">
+                    <h5
+                      style="
+                        font-size: 14px;
+                        color: #444;
+                        text-align: right;
+                        padding-right: 20px;
+                        margin-top: 15px;
+                      "
+                    >
+                      <span><%=appTime %></span>
+                    </h5>
+                  </td>
+                  <table
+                    align="center"
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    style="
+                      padding: 0 30px;
+                      background-color: #fff;
+                      -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);
+                      box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);
+                      width: 100%;
+                    "
+                  >
+                    <tr style="text-align: left">
+                      <td colspan="3" style="padding-left: 15px;">
+                        <span>Comment: </span><br />
+                        <span><%=appUserNotes %></span><br />
+                        <br />
+                      </td>
+                    </tr>
+                    <tr>
+                      <br />
+                      <td colspan="3" style="text-align: left">
+                        <span style="text-align: left; padding-left: 15px"
+                          ><b>Doctor's Information:</b></span
+                        ><br />
+                        <span style="text-align: left; padding-left: 15px"
+                          >Name : <%=docName %>,</span
+                        ><br />
+                        <span style="text-align: left; padding-left: 15px"
+                          >Email : <%=docEmail %>,</span
+                        ><br />
+                        <span style="text-align: left; padding-left: 15px"
+                          >Phone : <%=docPhone %>,</span
+                        ><br />
+                        <br />
+                      </td>
+                      <br />
+                    </tr>
+                  </table>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
