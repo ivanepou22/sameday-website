@@ -11,7 +11,7 @@ export const generateDoctorNumber = () => {
 };
 
 export const generateAppointmentNumber = () => {
-  let prefix = "SD-A";
+  let prefix = "SD-AP";
   let randomNumber = Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
   return prefix + randomNumber;
 };

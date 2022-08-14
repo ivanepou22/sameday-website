@@ -6,6 +6,7 @@ import {
   createAppointment,
 } from "../feautures/appointment/appointmentSlice";
 import { doctorSelector, getDoctors } from "../feautures/doctor/doctorSlice";
+import { generateAppointmentNumber } from './../utils/utils';
 
 const AppointmentSection = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const AppointmentSection = () => {
     e.preventDefault();
     dispatch(
       createAppointment({
+        appNumber: generateAppointmentNumber(),
         patient: formData.patient,
         doctor: formData.doctor,
         email: formData.email,
