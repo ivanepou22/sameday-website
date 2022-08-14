@@ -3,6 +3,7 @@ import { objectId, phoneNumber } from "./custom.validation.js";
 
 const createAppointment = {
   body: Joi.object().keys({
+    appNumber: Joi.string().required(),
     date: Joi.date().required(),
     time: Joi.string().required(),
     doctor: Joi.string().custom(objectId).required(),
