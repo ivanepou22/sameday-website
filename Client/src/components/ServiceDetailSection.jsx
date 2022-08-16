@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BsCart, BsCartPlus } from "react-icons/bs";
 import { addToCart, cartSelector } from "../feautures/cart/cartSlice";
 import { AiOutlineCheck } from "react-icons/ai";
+import { Image, Shimmer } from "react-shimmer";
 
 const ServiceDetailSection = () => {
   const dispatch = useDispatch();
@@ -29,14 +30,17 @@ const ServiceDetailSection = () => {
             <div className="col-md-5">
               <div className="slider slider-for">
                 <div>
-                  <img
+                  <Image
                     src={
                       service.image
                         ? service.image
                         : "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png"
                     }
-                    className="img-fluid height-100 rounded"
-                    alt=""
+                    fallback={<Shimmer width={100} height={100} />}
+                    NativeImgProps={{
+                      className: "img-fluid height-100 rounded",
+                    }}
+                    alt={service.name}
                   />
                 </div>
               </div>
@@ -53,17 +57,17 @@ const ServiceDetailSection = () => {
                   })}
                 </h5>
                 <h5 className="mt-2 py-2">Overview :</h5>
-                {
-                  service.description === "." ? ("") : (
-                    <p className="text-muted">{service.description}</p>
-                  )
-                }
+                {service.description === "." ? (
+                  ""
+                ) : (
+                  <p className="text-muted">{service.description}</p>
+                )}
 
-                {
-                  service?.subItems?.map((item, index) => (
-                        <span key={index} className="mt-5 text-orange font-size-16"><AiOutlineCheck /> {item}.<br /></span>
-                  ))
-                }
+                {service?.subItems?.map((item, index) => (
+                  <span key={index} className="mt-5 text-orange font-size-16">
+                    <AiOutlineCheck /> {item}.<br />
+                  </span>
+                ))}
                 <div className="d-flex shop-list align-items-center">
                   <h6 className="mt-5">Quantity:</h6>
                   <div className="qty-icons ms-3 mt-5">

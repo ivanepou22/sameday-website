@@ -6,18 +6,19 @@ import { AiOutlineHeart, AiOutlineEye, AiOutlineShoppingCart } from "react-icons
 import { RiArrowRightSLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../feautures/cart/cartSlice";
-import { BsCart } from 'react-icons/bs';
+import { BsCart } from "react-icons/bs";
+import { Image, Shimmer } from "react-shimmer";
 
 const WellnessPackages = (props) => {
   const dispatch = useDispatch();
   const { services } = props;
 
   const handleAddToCart = (service) => {
-    dispatch(addToCart(service))
+    dispatch(addToCart(service));
   };
 
   //filter services by category
-  const filterServices = services?.filter(service => service.category === 'Wellness');
+  const filterServices = services?.filter((service) => service.category === "Wellness");
 
   return (
     <>
@@ -48,14 +49,17 @@ const WellnessPackages = (props) => {
                   <div className="card shop-list border-0">
                     <div className="shop-image position-relative overflow-hidden rounded shadow">
                       <Link to={`/service-details/${service.id}`}>
-                        <img
+                        <Image
                           src={
                             service.image
                               ? service.image
                               : "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png"
                           }
-                          className="img-fluid"
-                          alt=""
+                          fallback={<Shimmer width={100} height={100} />}
+                          NativeImgProps={{
+                            className: "img-fluid",
+                          }}
+                          alt={service.name}
                         />
                       </Link>
                       <ul className="list-unstyled shop-icons">
@@ -65,12 +69,16 @@ const WellnessPackages = (props) => {
                           </Link>
                         </li>
                         <li className="mt-2">
-                          <Link to={`/service-details/${service.id}`} className="btn btn-icon btn-pills btn-primary">
+                          <Link
+                            to={`/service-details/${service.id}`}
+                            className="btn btn-icon btn-pills btn-primary"
+                          >
                             <AiOutlineEye />
                           </Link>
                         </li>
                         <li className="mt-2">
-                          <Link to="#"
+                          <Link
+                            to="#"
                             onClick={() => handleAddToCart(service)}
                             className="btn btn-icon btn-pills btn-warning"
                           >
@@ -82,18 +90,24 @@ const WellnessPackages = (props) => {
                       <div className="qty-icons">
                         <button
                           onClick={() => handleAddToCart(service)}
-                          className="btn btn-primary ms-2"><BsCart /> Add to Cart</button>
+                          className="btn btn-primary ms-2"
+                        >
+                          <BsCart /> Add to Cart
+                        </button>
                       </div>
                     </div>
                     <div className="card-body content pt-4 p-2">
-                      <Link to={`/service-details/${service.id}`} className="text-dark product-name h6">
+                      <Link
+                        to={`/service-details/${service.id}`}
+                        className="text-dark product-name h6"
+                      >
                         {service.name}
                       </Link>
                       <div className="d-flex justify-content-between mt-1">
                         <h6 className="text-muted small font-italic mb-0 mt-1">
-                          {service?.price?.toLocaleString('en-US', {
-                            style: 'currency',
-                            currency: 'UGX',
+                          {service?.price?.toLocaleString("en-US", {
+                            style: "currency",
+                            currency: "UGX",
                             maximumFractionDigits: 2,
                           })}
                         </h6>
