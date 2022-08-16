@@ -152,7 +152,7 @@ const ShopSection = () => {
                                 ? service.image
                                 : "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png"
                             }
-                            fallback={<Shimmer width={100} height={100} />}
+                            fallback={<Shimmer width={261} height={177} />}
                             NativeImgProps={{
                               className: "img-fluid",
                             }}
