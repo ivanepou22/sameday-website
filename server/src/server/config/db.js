@@ -21,6 +21,7 @@ switch (process.env.NODE_ENV) {
   default:
     DB_URL = process.env.DB_URL;
 }
+
     console.log(chalk.blue('Connecting to DB using...' + process.env.NODE_ENV + ' environment'))
     return mongoose.connect(DB_URL)
 }
